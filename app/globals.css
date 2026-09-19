@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #07090D;
+  --slab: #0F1218;
+  --slab-glass: rgba(15, 18, 24, 0.72);
+  --paper: #F4F1EA;
+  --paper-88: rgba(244, 241, 234, 0.88);
+  --paper-60: rgba(244, 241, 234, 0.60);
+  --copper: #C6612E;
+  --neon-copper: #FF7B00;
+  --cyber-lime: #A3FF00;
+  --brass: #E8B23A;
+  --graphite: #8C92A4;
+  --graphite-deep: #4B5162;
+  --hair: rgba(140, 146, 164, 0.18);
+  --hair-strong: rgba(140, 146, 164, 0.38);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-slab: var(--slab);
+  --color-paper: var(--paper);
+  --color-copper: var(--copper);
+  --color-neon-copper: var(--neon-copper);
+  --color-cyber-lime: var(--cyber-lime);
+  --color-brass: var(--brass);
+  --color-graphite: var(--graphite);
+  --color-hair: var(--hair);
+  --font-mono: "JetBrains Mono", "SF Mono", "Cascadia Code", Consolas, monospace;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 123, 0, 0.12), transparent),
+    linear-gradient(rgba(7, 9, 13, 0.94), rgba(7, 9, 13, 0.94)),
+    linear-gradient(to right, rgba(140, 146, 164, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(140, 146, 164, 0.06) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--neon-copper);
+  color: var(--ink);
+}
+
+/* Liquid Glass Craft Layer (Viktor Oddy Law) */
+.liquid-glass {
+  background: var(--slab-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--hair-strong);
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+    0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+.liquid-glass:hover {
+  border-color: rgba(255, 123, 0, 0.45);
+}
+
+.hairline-border {
+  border-color: var(--hair);
+}
+
+.hairline-strong {
+  border-color: var(--hair-strong);
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyber-lime);
+  box-shadow: 0 0 10px var(--cyber-lime);
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}

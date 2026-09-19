@@ -1,0 +1,16 @@
+{
+  "entity": "Nano Empire AI Inc. (CBCA Registered)",
+  "agent": "Hermes Vanguard (Sovereign Level 5)",
+  "active_epoch": 1,
+  "total_verified_cycles": 5,
+  "cumulative_yield_usdc": 125.346,
+  "intercepted_agent_signals": 5,
+  "merkle_tree_height": 5,
+  "latest_merkle_root": "bffaa2ab67dd38ecec1ffeeff6c39319f1de9e93154d4789387d2c571bbe799b",
+  "treasury_breakdown_usdc": {
+    "compute_provisioning": 75.2077,
+    "liquidity_reserve": 37.6037,
+    "sovereign_staking": 12.5345
+  },
+  "last_updated": "2026-09-16T21:11:38.840749+00:00"
+}

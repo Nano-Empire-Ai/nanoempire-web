@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Nano Empire AI — Autonomous Machine Gateway",
+  "version": "1.0.0",
+  "description": "Direct non-custodial gateway for autonomous agent execution, x402 micropayments, and Ornn GPU tape telemetry.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.nanoempireai.com/*",
+    "https://nano-empire-mcp-1064490927432.us-central1.run.app/*"
+  ]
+}
