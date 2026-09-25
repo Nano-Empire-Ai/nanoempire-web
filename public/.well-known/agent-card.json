@@ -11,5 +11,16 @@
     "skills_aggregated": 0,
     "mcp_servers_aggregated": 0
   },
-  "skills": []
+  "skills": [],
+  "settlement_addresses": {
+    "BTC": "bc1pnh9ujjmk55as3uxrmj5utctjyar325zt3lxgn2mpdxh8l0d90jrqafw5ag"
+  },
+  "payment_protocols": [
+    "L402",
+    "x402"
+  ],
+  "accepted_currencies": [
+    "USDC",
+    "BTC_LN"
+  ]
 }
