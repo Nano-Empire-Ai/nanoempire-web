@@ -12,10 +12,7 @@ import {
 } from 'recharts';
 
 export default function TapePage() {
-  const [data, setData] = useState<{time: string, price: number}[]>([]);
-  
-  // Generate simulated data on mount
-  useEffect(() => {
+  const [data, setData] = useState<{time: string, price: number}[]>(() => {
     const points = [];
     let currentPrice = 2.78;
     const now = new Date();
@@ -37,9 +34,11 @@ export default function TapePage() {
         price: Number(currentPrice.toFixed(3))
       });
     }
-    
-    setData(points);
-    
+    return points;
+  });
+  
+  // Generate simulated data on mount
+  useEffect(() => {
     // Simulate live updates
     const interval = setInterval(() => {
       setData(prev => {

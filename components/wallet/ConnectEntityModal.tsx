@@ -21,13 +21,15 @@ export function ConnectEntityModal() {
 
   // Check if wallet is already connected
   useEffect(() => {
+    let mounted = true;
     if (typeof window !== "undefined") {
-      if (window.solana?.isConnected && window.solana.publicKey) {
+      if (window.solana?.isConnected && window.solana.publicKey && mounted) {
         setWalletAddress(window.solana.publicKey.toString());
         setWalletType("Solana (Phantom)");
         setStatus("connected");
       }
     }
+    return () => { mounted = false; };
   }, []);
 
   const connectPhantom = async () => {
