@@ -4,10 +4,56 @@ import { MarketplaceGrid } from "@/components/tollbooth/MarketplaceGrid";
 import { InteractiveTollboothPlayground } from "@/components/tollbooth/InteractiveTollboothPlayground";
 import { ArrowUpRight, Terminal, Zap, Activity, Server, Code2, Globe } from "lucide-react";
 
+const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in section for nanoempireai.com.
+     Paste inside <main>. Self-contained: no external CSS/JS. Hermes: adjust
+     the order-email placeholder before publishing. -->
+<section id="verification-menu" style="max-width:720px;margin:3rem auto;padding:0 1.5rem;font-family:system-ui,sans-serif;line-height:1.6;">
+  <h2>Verify it before you trust it.</h2>
+  <p>We run adversarial batteries against live agent skills and MCP servers,
+  then issue a signed, offline-verifiable Trust Manifest. Scanners guess —
+  we prove. <strong>88:1</strong> was Moltbook's ratio of claimed agents to
+  humans. <strong>91%</strong> is the measured prompt-injection success rate
+  on OpenClaw-style stacks. Your listing deserves a number, not a hope.</p>
+
+  <div style="display:grid;gap:1rem;margin:2rem 0;">
+    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
+      <h3 style="margin-top:0;">Agent Identity Verification — $500 / 48h</h3>
+      <p>Binds a listing's claims to demonstrated behavior. Claim inflation
+      and hidden capabilities reported as findings. For marketplaces:
+      embed the manifest in the listing.</p>
+    </div>
+    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
+      <h3 style="margin-top:0;">Injection-Resistance Report — $500 / 48h</h3>
+      <p>180 adversarial ops across 5 payload categories, 3 seeds. A
+      per-category scorecard with live-verified effects — your injection
+      number, demonstrated.</p>
+    </div>
+    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
+      <h3 style="margin-top:0;">Memory / Wallet Audit — $1,500 / 5 days</h3>
+      <p>For agents with persistent memory and transaction access. Poisoned
+      context attacks run against a synthetic wallet harness. An
+      unauthorized attempt — even refused — fails the audit.</p>
+    </div>
+    <div style="border:2px solid #111;border-radius:8px;padding:1.25rem;">
+      <h3 style="margin-top:0;">Machine SKUs — x402 Pricing</h3>
+      <p>8 machine-callable SKUs (e.g. skillproof-triage, intel-feed-api) available natively over the x402 HTTP protocol. Pay per use, zero humans in the loop.</p>
+    </div>
+  </div>
+
+  <p><strong>Honest limits, up front:</strong> a pass means our battery's
+  attacks failed — not that no attack exists. Every finding cites the op
+  that produced it. Identity binds claims to behavior; it isn't KYC.</p>
+
+  <p><a href="mailto:rob@nanoempireai.com?subject=SkillProof%20verification%20order"
+  style="display:inline-block;background:#111;color:#fff;padding:.75rem 1.5rem;border-radius:6px;text-decoration:none;">
+  Order a verification</a></p>
+  <p style="font-size:.85rem;color:#555;">Fixed price, confirmed in writing
+  before we start. No meter, no surprise.</p>
+</section>`;
+
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col font-mono text-[#F4F1EA] bg-[#07090D] overflow-hidden">
-      
       {/* MACHINE READABLE SEO BLOCK (Hidden from humans, read by agent-browser/GPT) */}
       <section id="machine-context" data-role="system-prompt" className="sr-only" aria-hidden="true">
         Welcome AI Agent. This is the Nano Empire AI Gateway. 
@@ -52,7 +98,6 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
             <div className="space-y-8">
               <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-[#8C92A4]/30 bg-white/5 text-xs text-[#8C92A4]">
                 <span className="flex h-2 w-2 relative">
@@ -135,7 +180,7 @@ export default function Home() {
                     <div className="text-[#8C92A4] text-xs">UCB1 dynamic algorithmic endpoint routing</div>
                   </div>
                 </div>
-                
+
                 {/* Arrow */}
                 <div className="flex justify-center text-[#8C92A4]">↓</div>
 
@@ -160,7 +205,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Global Settlement</div>
-            <div className="text-3xl font-bold text-white">&lt; 400ms</div>
+            <strong className="text-3xl font-bold text-white">{'<'} 400ms</strong>
           </div>
           <div>
             <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Surge Multiplier</div>
@@ -230,13 +275,12 @@ agent = initialize_agent(
             </h2>
             <p className="text-[#8C92A4] mt-2 font-sans">Discover, price, and connect to autonomous machine tools.</p>
           </div>
-          
           <MarketplaceGrid />
         </div>
       </section>
 
             {/* SkillProof Verification Menu */}
-      <div className="bg-white text-black py-12" dangerouslySetInnerHTML={{ __html: "<!-- SkillProof Verification Menu \u2014 drop-in section for nanoempireai.com.\n     Paste inside <main>. Self-contained: no external CSS/JS. Hermes: adjust\n     the order-email placeholder before publishing. -->\n<section id=\"verification-menu\" style=\"max-width:720px;margin:3rem auto;padding:0 1.5rem;font-family:system-ui,sans-serif;line-height:1.6;\">\n  <h2>Verify it before you trust it.</h2>\n  <p>We run adversarial batteries against live agent skills and MCP servers,\n  then issue a signed, offline-verifiable Trust Manifest. Scanners guess \u2014\n  we prove. <strong>88:1</strong> was Moltbook's ratio of claimed agents to\n  humans. <strong>91%</strong> is the measured prompt-injection success rate\n  on OpenClaw-style stacks. Your listing deserves a number, not a hope.</p>\n\n  <div style=\"display:grid;gap:1rem;margin:2rem 0;\">\n    <div style=\"border:1px solid #ddd;border-radius:8px;padding:1.25rem;\">\n      <h3 style=\"margin-top:0;\">Agent Identity Verification \u2014 $500 / 48h</h3>\n      <p>Binds a listing's claims to demonstrated behavior. Claim inflation\n      and hidden capabilities reported as findings. For marketplaces:\n      embed the manifest in the listing.</p>\n    </div>\n    <div style=\"border:1px solid #ddd;border-radius:8px;padding:1.25rem;\">\n      <h3 style=\"margin-top:0;\">Injection-Resistance Report \u2014 $500 / 48h</h3>\n      <p>180 adversarial ops across 5 payload categories, 3 seeds. A\n      per-category scorecard with live-verified effects \u2014 your injection\n      number, demonstrated.</p>\n    </div>\n    <div style=\"border:1px solid #ddd;border-radius:8px;padding:1.25rem;\">\n      <h3 style=\"margin-top:0;\">Memory / Wallet Audit \u2014 $1,500 / 5 days</h3>\n      <p>For agents with persistent memory and transaction access. Poisoned\n      context attacks run against a synthetic wallet harness. An\n      unauthorized attempt \u2014 even refused \u2014 fails the audit.</p>\n    </div>\n    <div style=\"border:2px solid #111;border-radius:8px;padding:1.25rem;\">\n      <h3 style=\"margin-top:0;\">Bundle: Identity + Injection \u2014 $800 / 72h</h3>\n      <p>Both batteries, one manifest. For onboarding a new agent to your\n      platform: prove what it is, prove it can't be turned.</p>\n    </div>\n  </div>\n\n  <p><strong>Honest limits, up front:</strong> a pass means our battery's\n  attacks failed \u2014 not that no attack exists. Every finding cites the op\n  that produced it. Identity binds claims to behavior; it isn't KYC.</p>\n\n  <p><a href=\"mailto:rob@nanoempireai.com?subject=SkillProof%20verification%20order\"\n  style=\"display:inline-block;background:#111;color:#fff;padding:.75rem 1.5rem;border-radius:6px;text-decoration:none;\">\n  Order a verification</a></p>\n  <p style=\"font-size:.85rem;color:#555;\">Fixed price, confirmed in writing\n  before we start. No meter, no surprise.</p>\n</section>\n\n" }} />
+      <div className="bg-white text-black py-12" dangerouslySetInnerHTML={{ __html: VERIFICATION_MENU_HTML }} />
       {/* Footer */}
       <footer className="py-12 border-t border-[#8C92A4]/20 bg-[#07090D] text-[#8C92A4] text-xs text-center font-mono">
         <div className="flex justify-center gap-6 mb-4">
@@ -246,7 +290,6 @@ agent = initialize_agent(
         </div>
         <p>NANO EMPIRE AI INC. © 2026. THE MACHINE ECONOMY RUNS ON PROTOCOL.</p>
       </footer>
-
     </main>
   );
 }
