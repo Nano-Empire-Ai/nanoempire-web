@@ -1,206 +1,343 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Nano Empire Excalidraw-to-Docs API",
-    "description": "Parse Excalidraw/docs to Markdown/JSON. x402 USDC on Solana + Base.",
+    "title": "Nano Empire AI \u2014 Machine-Native APIs",
     "version": "1.0.0",
-    "x-402-enabled": true,
-    "x-402-network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-    "x-402-token": "USDC",
-    "x-402-payTo": "5pM5w1W5nKU7B8SjuTiz65UAZxs9mCnC6ab1Xs1gSi3",
-    "x-402-asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-    "x-402-networks": [
-      "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-      "eip155:8453"
-    ],
-    "x-402-payToByNetwork": {
-      "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp": "5pM5w1W5nKU7B8SjuTiz65UAZxs9mCnC6ab1Xs1gSi3",
-      "eip155:8453": "0x2201f10cDb1ebFF76E975A4Ac4dfe1a0C9dF727E"
+    "description": "x402-enabled APIs for autonomous agents. Pay per call via USDC on Base, Ethereum, Arbitrum, Optimism, Polygon, Solana. Free trial: POST /v1/trial \u2192 50 credits.",
+    "contact": {
+      "name": "Nano Empire AI",
+      "url": "https://nanoempireai.com",
+      "email": "security@nanoempireai.com"
     }
   },
+  "servers": [
+    {
+      "url": "https://api.nanoempireai.com",
+      "description": "Production VPS (Oracle Cloud, Toronto)"
+    },
+    {
+      "url": "http://147.5.105.20:8405",
+      "description": "Quote Server (SkillProof + RecallGuard)"
+    },
+    {
+      "url": "http://147.5.105.20:8420",
+      "description": "RecallGuard API Server"
+    }
+  ],
+  "security": [
+    {
+      "x402": []
+    },
+    {
+      "trialToken": []
+    }
+  ],
   "paths": {
-    "/api/v1/parse": {
-      "post": {
-        "operationId": "parseExcalidraw",
-        "summary": "Parse an Excalidraw diagram or Markdown document into structured output.",
-        "description": "Converts Excalidraw JSON or Markdown into clean Markdown or structured JSON. Free tier: 5/day. Premium: 0.005 USDC/call via x402 on Solana.",
-        "x-402-pricing": {
-          "free_tier": {
-            "calls_per_day": 5,
-            "price_usd": 0
-          },
-          "basic": {
-            "price_usd": 0.005,
-            "daily_limit": 100
-          },
-          "premium": {
-            "price_usd": 0.05,
-            "daily_limit": null,
-            "features": [
-              "unlimited",
-              "llm_decomposition",
-              "websocket_streaming"
-            ]
-          },
-          "payment_protocol": "x402",
-          "payment_scheme": "exact",
-          "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-          "token": "USDC",
-          "gasless": true,
-          "networks": [
-            "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-            "eip155:8453"
-          ],
-          "payTo": "5pM5w1W5nKU7B8SjuTiz65UAZxs9mCnC6ab1Xs1gSi3",
-          "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-          "payToByNetwork": {
-            "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp": "5pM5w1W5nKU7B8SjuTiz65UAZxs9mCnC6ab1Xs1gSi3",
-            "eip155:8453": "0x2201f10cDb1ebFF76E975A4Ac4dfe1a0C9dF727E"
-          },
-          "assets": {
-            "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-            "eip155:8453": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "operationId": "healthCheck",
+        "responses": {
+          "200": {
+            "description": "Service healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
           }
-        },
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "summary": "OpenAPI specification",
+        "operationId": "getOpenAPISpec",
+        "responses": {
+          "200": {
+            "description": "OpenAPI 3.1 document",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/trial": {
+      "post": {
+        "summary": "Request free trial credits",
+        "operationId": "requestTrial",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "required": [
-                  "source"
-                ],
-                "properties": {
-                  "source": {
-                    "type": "string",
-                    "description": "Raw Excalidraw JSON string or Markdown content to parse."
-                  },
-                  "format": {
-                    "type": "string",
-                    "enum": [
-                      "auto",
-                      "excalidraw",
-                      "markdown"
-                    ],
-                    "default": "auto",
-                    "description": "Input format hint. Auto-detects if omitted."
-                  },
-                  "output": {
-                    "type": "string",
-                    "enum": [
-                      "markdown",
-                      "json"
-                    ],
-                    "default": "markdown",
-                    "description": "Output format."
-                  }
-                }
+                "$ref": "#/components/schemas/TrialRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Successfully parsed.",
+            "description": "Trial token issued",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "ok": {
-                      "type": "boolean"
-                    },
-                    "format": {
-                      "type": "string"
-                    },
-                    "markdown": {
-                      "type": "string",
-                      "description": "Parsed markdown output."
-                    },
-                    "data": {
-                      "type": "object",
-                      "description": "Structured JSON graph."
-                    }
-                  }
+                  "$ref": "#/components/schemas/TrialResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/recallguard/feed": {
+      "get": {
+        "summary": "Get recall feed (free tier: critical+serious only)",
+        "operationId": "getRecallFeed",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/TrialTokenHeader"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Recall feed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecallFeedResponse"
                 }
               }
             }
           },
           "402": {
-            "description": "Payment Required \u2014 x402 challenge with Solana USDC accepts[]",
-            "headers": {
-              "PAYMENT-REQUIRED": {
+            "description": "Payment required for full feed",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string"
-                },
-                "description": "Base64 PaymentRequired"
-              },
-              "x402-network": {
-                "schema": {
-                  "type": "string"
-                },
-                "example": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp"
-              },
-              "x402-pay-to": {
-                "schema": {
-                  "type": "string"
-                },
-                "example": "5pM5w1W5nKU7B8SjuTiz65UAZxs9mCnC6ab1Xs1gSi3"
-              },
-              "x402-price": {
-                "schema": {
-                  "type": "string"
-                },
-                "example": "0.005"
-              },
-              "x402-asset": {
-                "schema": {
-                  "type": "string"
-                },
-                "example": "USDC"
+                  "$ref": "#/components/schemas/PaymentRequiredResponse"
+                }
               }
             }
           },
-          "422": {
-            "description": "Invalid input."
-          },
           "429": {
-            "description": "Daily quota exceeded for current tier."
+            "description": "Quota exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/v1/tiers": {
-      "get": {
-        "operationId": "getTiers",
-        "summary": "Get available pricing tiers and limits.",
+    "/v1/recallguard/match": {
+      "post": {
+        "summary": "Match inventory against recall feed",
+        "operationId": "matchInventory",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/TrialTokenHeader"
+          },
+          {
+            "$ref": "#/components/parameters/XPaymentHeader"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Tier information.",
+            "description": "Match results",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "tiers": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "price_usd": {
-                            "type": "number"
-                          },
-                          "daily_limit": {
-                            "type": "integer"
-                          }
-                        }
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/MatchResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentRequiredResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/recallguard/webhook": {
+      "post": {
+        "summary": "Register webhook for recall notifications (planned)",
+        "operationId": "registerWebhook",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XPaymentHeader"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook registered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentRequiredResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/skillproof/verify": {
+      "post": {
+        "summary": "Request SkillProof verification (x402)",
+        "operationId": "requestVerification",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XPaymentHeader"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Verification queued",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerificationResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentRequiredResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/wallet/topup": {
+      "post": {
+        "summary": "Top up credits via x402 payment",
+        "operationId": "topupWallet",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XPaymentHeader"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TopupRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Credits added",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TopupResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentRequiredResponse"
                 }
               }
             }
@@ -209,19 +346,534 @@
       }
     }
   },
-  "x-402-discovery": {
-    "networks": [
-      "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-      "eip155:8453"
-    ],
-    "payToByNetwork": {
-      "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp": "5pM5w1W5nKU7B8SjuTiz65UAZxs9mCnC6ab1Xs1gSi3",
-      "eip155:8453": "0x2201f10cDb1ebFF76E975A4Ac4dfe1a0C9dF727E"
+  "components": {
+    "securitySchemes": {
+      "x402": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "x402",
+        "description": "x402 payment header (X-PAYMENT)"
+      },
+      "trialToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Free trial token from /v1/trial"
+      }
     },
-    "asset": "USDC",
-    "scheme": "exact",
-    "resources": [
-      "https://nanoempireai.com/api/v1/parse"
-    ]
-  }
+    "schemas": {
+      "HealthResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "service": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "free_quota": {
+            "type": "integer"
+          },
+          "x402_configured": {
+            "type": "boolean"
+          }
+        }
+      },
+      "TrialRequest": {
+        "type": "object",
+        "required": [
+          "agent_id"
+        ],
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "description": "Unique agent identifier (e.g., openclaw-agent-1)"
+          },
+          "client": {
+            "type": "string",
+            "description": "Client framework (openclaw, cursor, custom)",
+            "default": "unknown"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "TrialResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "trial_token": {
+            "type": "string",
+            "description": "Bearer token for Authorization header"
+          },
+          "credits": {
+            "type": "integer",
+            "default": 50,
+            "description": "Free calls included"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Token expiration (24 hours)"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Available endpoints"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "RecallFeedResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "tier": {
+            "type": "string",
+            "enum": [
+              "free",
+              "paid"
+            ]
+          },
+          "quota_used": {
+            "type": "integer"
+          },
+          "quota_limit": {
+            "type": "integer"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "recalls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Recall"
+            }
+          }
+        }
+      },
+      "Recall": {
+        "type": "object",
+        "properties": {
+          "recall_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "source_recall_number": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "product_type": {
+            "type": "string"
+          },
+          "units": {
+            "type": "string"
+          },
+          "hazard": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "serious",
+              "moderate",
+              "minor"
+            ]
+          },
+          "severity_basis": {
+            "type": "string"
+          },
+          "injuries_reported": {
+            "type": "boolean"
+          },
+          "recall_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "remedy": {
+            "type": "string"
+          },
+          "remedy_detail": {
+            "type": "string"
+          },
+          "upcs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "brand_hint": {
+            "type": "string"
+          }
+        }
+      },
+      "MatchRequest": {
+        "type": "object",
+        "required": [
+          "inventory"
+        ],
+        "properties": {
+          "inventory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InventoryItem"
+            }
+          }
+        }
+      },
+      "InventoryItem": {
+        "type": "object",
+        "required": [
+          "item"
+        ],
+        "properties": {
+          "item": {
+            "type": "string",
+            "description": "Product name"
+          },
+          "brand": {
+            "type": "string",
+            "description": "Brand/manufacturer"
+          },
+          "upc": {
+            "type": "string",
+            "description": "UPC/EAN code (optional)"
+          }
+        }
+      },
+      "MatchResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "tier": {
+            "type": "string",
+            "enum": [
+              "free",
+              "paid"
+            ]
+          },
+          "items_checked": {
+            "type": "integer"
+          },
+          "matches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MatchResult"
+            }
+          }
+        }
+      },
+      "MatchResult": {
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "brand": {
+            "type": "string"
+          },
+          "matches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MatchDetail"
+            }
+          }
+        }
+      },
+      "MatchDetail": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "method": {
+            "type": "string"
+          },
+          "recall": {
+            "$ref": "#/components/schemas/Recall"
+          }
+        }
+      },
+      "WebhookRequest": {
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "critical",
+                "serious",
+                "moderate",
+                "minor"
+              ]
+            },
+            "default": [
+              "critical",
+              "serious"
+            ]
+          }
+        }
+      },
+      "WebhookResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "webhook_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "VerificationRequest": {
+        "type": "object",
+        "required": [
+          "target"
+        ],
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "MCP server identifier (e.g., @modelcontextprotocol/server-fetch)"
+          },
+          "sku": {
+            "type": "string",
+            "enum": [
+              "sprint",
+              "standard",
+              "rush"
+            ],
+            "default": "sprint"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "VerificationResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "verification_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "running",
+              "completed",
+              "failed"
+            ]
+          },
+          "estimated_completion": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "TopupRequest": {
+        "type": "object",
+        "required": [
+          "amount_usdc"
+        ],
+        "properties": {
+          "amount_usdc": {
+            "type": "number",
+            "minimum": 1,
+            "description": "USDC amount to add (minimum 1 USDC)"
+          },
+          "network": {
+            "type": "string",
+            "enum": [
+              "base",
+              "ethereum",
+              "arbitrum",
+              "optimism",
+              "polygon",
+              "solana"
+            ],
+            "default": "base"
+          }
+        }
+      },
+      "TopupResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "credits_added": {
+            "type": "integer"
+          },
+          "new_balance": {
+            "type": "integer"
+          },
+          "receipt": {
+            "type": "object",
+            "properties": {
+              "tx_hash": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "amount_usdc": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "PaymentRequiredResponse": {
+        "type": "object",
+        "properties": {
+          "x402Version": {
+            "type": "integer",
+            "default": 1
+          },
+          "error": {
+            "type": "string",
+            "default": "Payment Required"
+          },
+          "accepts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string",
+                  "default": "exact"
+                },
+                "network": {
+                  "type": "string"
+                },
+                "maxAmountRequired": {
+                  "type": "string"
+                },
+                "resource": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "mimeType": {
+                  "type": "string"
+                },
+                "payTo": {
+                  "type": "string"
+                },
+                "asset": {
+                  "type": "string"
+                },
+                "extra": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "TrialTokenHeader": {
+        "name": "Authorization",
+        "in": "header",
+        "description": "Trial token from /v1/trial (Bearer <token>)",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^Bearer .+"
+        }
+      },
+      "XPaymentHeader": {
+        "name": "X-PAYMENT",
+        "in": "header",
+        "description": "x402 payment header",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "RecallGuard",
+      "description": "FDA/CPSC recall monitoring APIs"
+    },
+    {
+      "name": "SkillProof",
+      "description": "Behavioral verification for MCP servers"
+    },
+    {
+      "name": "Wallet",
+      "description": "Credit management and x402 top-ups"
+    },
+    {
+      "name": "System",
+      "description": "Health and discovery"
+    }
+  ]
 }
