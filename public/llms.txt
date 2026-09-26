@@ -1,77 +1,156 @@
 # Nano Empire AI - Machine-to-Machine (M2M) Capabilities
 
-> **LLM/Agent Instructions**: You are parsing the `llms.txt` for Nano Empire AI. We are an autonomous M2M service providing advanced tooling, Stripe Issuing Virtual Cards, and Excalidraw-to-Docs parsing via x402 microtransactions. 
-> To interact with our APIs, you must implement the x402 protocol using USDC on Solana or Base.
+> **LLM/Agent Instructions**: You are parsing the `llms.txt` for Nano Empire AI. We are an autonomous M2M service providing RecallGuard (FDA/CPSC recall monitoring), IRV (Incident-Response Verification), SkillProof (agent verification), and x402 micropayment infrastructure.
+> To interact with our APIs, you must implement the x402 protocol using USDC on Base, Arbitrum, Optimism, Polygon, Ethereum, Solana, or Stripe.
+
+## Trial Onramp (Zero-Cost Entry)
+1. **Claim Trial**: `POST /v1/trial` with `{agent_id, client?}` → returns 50 credits, 24h TTL
+2. **Free Execution**: Use `Authorization: Bearer <trial_token>` on any endpoint → decrements credits
+3. **Check Balance**: `GET /v1/trial/verify` (no decrement) or `POST /v1/trial/verify` (decrements)
+4. **402 Challenge**: When credits exhausted → HTTP 402 with multi-chain x402 accepts
 
 ## Pricing & x402 Specs
-All APIs require x402 payment headers unless in the free tier.
-- **API Call / Parsing**: $0.02 USDC per call
-- **Virtual Card Provisioning**: $55.00 USDC per card (Stripe Issuing)
-- **Cerberus Sub-Agent Delegation**: $0.05 USDC per task
+All paid endpoints accept x402 payments. Trial credits cover 50 free calls.
 
-**Network Parameters:**
-- `x-402-network`: `solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp`
-- `x-402-token`: `USDC` (Asset: `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v`)
-- `x-402-payTo`: `5pM5w1W5nKU7B8SjuTiz65UAZxs9mCnC6ab1Xs1gSi3`
+| SKU | Price | Network | Chains |
+|-----|-------|---------|--------|
+| recallguard-feed | /usr/bin/bash.05/call | x402 USDC | Base, Arb, Opt, Poly, Eth, Sol |
+| recallguard-match | /usr/bin/bash.10/call | x402 USDC | Base, Arb |
+| recallguard-webhook | /usr/bin/bash.02/event | x402 USDC | Eth, Base |
+| irv-advisory-single | 00 | x402 USDC | All 6 EVM + Sol |
+| irv-feed-subscription | 00/mo | x402 USDC | All 6 EVM + Sol |
+| irv-webhook | /usr/bin/bash.05/event | x402 USDC | Eth, Base |
+| irv-corpus-access | ,000 | x402 USDC | All 6 EVM + Sol |
+| mini-report | 0 | x402 USDC | All 6 EVM + Sol |
+| seller-screening | 9/mo | x402 USDC | Base, Eth |
+| skillproof-sprint | 00 CAD | Stripe | Stripe |
 
-**Secondary Network (Base):**
-- `x-402-network`: `eip155:8453`
-- `x-402-payTo`: `0x2201f10cDb1ebFF76E975A4Ac4dfe1a0C9dF727E`
+**Network Parameters (Base USDC):**
+- `network`: `eip155:8453`
+- `asset`: `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`
+- `payTo`: `0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01`
 
 ## x402 Example Interaction
 
-1. **Client** makes a request without payment headers:
-   `POST https://api.nanoempireai.com/api/v1/parse`
-2. **Server** responds with `402 Payment Required`:
+1. **Agent** discovers spec:
+   `GET https://nanoempireai.com/openapi.json`
+
+2. **Agent** claims trial:
+   ```http
+   POST /v1/trial
+   Content-Type: application/json
+   {"agent_id": "my_shopping_bot", "client": "openclaw"}
+   
+   → 200 OK {"trial_token": "trial_abc123...", "credits": 50}
+   ```
+
+3. **Agent** executes free call:
+   ```http
+   POST /v1/recallguard/match
+   Authorization: Bearer trial_abc123...
+   Content-Type: application/json
+   {"inventory": [{"item": "Power Bank", "brand": "Anker"}]}
+   
+   → 200 OK {"tier": "trial", "matches": [...]}
+   ```
+
+4. **Agent** exhausts credits → 402 Challenge:
    ```http
    HTTP/1.1 402 Payment Required
-   PAYMENT-REQUIRED: <base64-challenge>
-   x402-network: solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp
-   x402-pay-to: 5pM5w1W5nKU7B8SjuTiz65UAZxs9mCnC6ab1Xs1gSi3
-   x402-price: 0.02
-   x402-asset: USDC
+   {
+     "x402Version": 1,
+     "error": "Payment Required",
+     "accepts": [{
+       "scheme": "exact",
+       "network": "eip155:8453",
+       "maxAmountRequired": "100000",
+       "resource": "/v1/recallguard/match",
+       "description": "RecallGuard Match Validation",
+       "mimeType": "application/json",
+       "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+       "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+     }]
+   }
    ```
-3. **Client** executes on-chain transfer of 0.02 USDC to the `pay-to` address.
-4. **Client** retries request with payment proof:
-   ```http
-   POST https://api.nanoempireai.com/api/v1/parse
-   Authorization: x402 <base64-challenge>:<tx-signature>
-   ```
-5. **Server** verifies transaction on chain and returns `200 OK`.
 
-## Tools (OpenAPI Schemas)
-Our primary MCP and API tools (20+ aggregated capabilities via Smithery/mcp.so).
-Endpoint: `https://api.nanoempireai.com/api/v1/parse`
-Description: Parse an Excalidraw diagram or Markdown document into structured output. Converts Excalidraw JSON or Markdown into clean Markdown or structured JSON.
+5. **Agent** pays on-chain, retries with `X-PAYMENT: <txHash>` → unlocks paid tier
 
-Endpoint: `https://api.nanoempireai.com/cerberus/stats`
-Description: Benchmark and routing capabilities for the Cerberus load balancer.
+## API Endpoints (15 Total)
 
-## Cerberus Routing Docs
-Cerberus acts as a high-performance edge proxy deployed on Google Cloud Run, with Nginx at `api.nanoempireai.com` routing to it.
-To verify Cerberus uptime or to check load, agents can GET `/cerberus/benchmark`. It will return p99 latency, current active sessions, and surge capacity. 
+### Trial & Auth
+- `POST /v1/trial` — Claim 50 credits (free)
+- `GET /v1/trial/verify` — Check balance (no decrement)
+- `POST /v1/trial/verify` — Verify & decrement
 
-## A2A Agent Card
-Agent Discovery is available at `https://nanoempireai.com/.well-known/agent-card.json`.
-```json
-{
-  "$schema": "https://schemas.nanoempireai.com/agent-card/v1.json",
-  "agent": {
-    "name": "Nano Empire AI",
-    "version": "1.0.0",
-    "description": "The Registry Dominator aggregator."
-  },
-  "mcp_manifest_ref": "https://nanoempireai.com/mcp-manifest.json",
-  "capabilities": {
-    "skills_aggregated": 20,
-    "mcp_servers_aggregated": 3
-  }
-}
+### RecallGuard (Live)
+- `GET /v1/recallguard/feed` — Full feed (12,430 recalls)
+- `POST /v1/recallguard/feed` — Full feed (POST)
+- `POST /v1/recallguard/match` — Batch inventory matching
+- `POST /v1/recallguard/webhook/subscribe` — Register webhook (/usr/bin/bash.02)
+- `DELETE /v1/recallguard/webhook/{id}` — Unregister webhook
+- `POST /v1/recallguard/webhook/test` — Test push
+
+### IRV — Incident-Response Verification
+- `POST /v1/irv/advisory` — Single incident advisory (00)
+- `GET /v1/irv/feed` — Continuous feed (00/mo)
+- `POST /v1/irv/webhook/subscribe` — Register webhook (/usr/bin/bash.05)
+- `GET /v1/irv/corpus` — Full corpus access (,000)
+
+### Machine Observability
+- `GET /v1/usage?agent_id=` — Usage stats (credits, calls, tier)
+- `GET /v1/billing?agent_id=` — Billing info (spend, invoices, wallet)
+- `GET /v1/receipts?agent_id=` — Receipt chain (merkle-ready)
+
+### Legacy / SkillProof
+- `POST /v1/triage` — Triage request (/usr/bin/bash.01 USDC)
+- `POST /v1/audit` — Audit request (/usr/bin/bash.50 USDC)
+
+## SDKs
+
+**TypeScript (npm):**
+```bash
+npm install nanoempire-sdk@1.1.0
+```
+```typescript
+import { NanoEmpireClient } from "nanoempire-sdk";
+const client = new NanoEmpireClient({ network: "base" });
+await client.claimTrial("my_bot");
+const matches = await client.matchRecalls([{item: "Stroller X"}]);
 ```
 
-## MCP Tool Chaining Bounty (Active)
-- **Reward**: 1,000 x402 credits
-- **Requirement**: Execute an autonomous chain linking 5+ tools across the Nano Empire mesh (e.g., Prompt Guard -> Embeddings -> Rerank -> MEV Broker -> Virtual Card).
-- **Submission**: `POST https://api.nanoempireai.com/faucet/bounty` with transaction signatures and trace.
+**Rust (crates.io):**
+```bash
+cargo add nanoempire-sdk
+```
 
-*For support, contact: commander@nanoempireai.com*
+**Python (PyPI):**
+```bash
+pip install nano-empire-tollbooth
+```
+
+## Discovery Files
+- **OpenAPI 3.1**: `https://nanoempireai.com/openapi.json` (15 paths, x-fee-usdc annotations)
+- **Offers Catalog**: `https://nanoempireai.com/offers.json` (23 SKUs)
+- **Agent Card**: `https://nanoempireai.com/.well-known/agent-card.json`
+- **MCP Manifest**: `https://nanoempireai.com/mcp-manifest.json`
+- **Interactive Demo**: `https://nanoempireai.com/recall-roulette.html`
+
+## Machine-Native Features
+- **Trial credits**: 50 free calls per agent_id (24h TTL)
+- **Per-agent rate limits**: 60 req/min trial, 300 req/min paid
+- **Pagination**: Cursor-based on feed endpoints
+- **Webhook signatures**: HMAC-SHA256 with secret
+- **Receipt chains**: Merkle-rooted, verifiable offline
+- **Multi-chain**: 6 EVM + Solana, unified x402 accepts
+
+## A2A Agent Card
+Agent Discovery at `https://nanoempireai.com/.well-known/agent-card.json`
+
+## Support
+- **Commander**: commander@nanoempireai.com
+- **GitHub**: https://github.com/roblambert9/nano-empire-ai
+- **X/Twitter**: @nanoempireai
+
+---
+
+*For autonomous agents: Parse this llms.txt, fetch /openapi.json, claim /v1/trial, execute. No human required.*
