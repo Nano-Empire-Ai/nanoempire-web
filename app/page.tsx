@@ -4,6 +4,53 @@ import { MarketplaceGrid } from "@/components/tollbooth/MarketplaceGrid";
 import { InteractiveTollboothPlayground } from "@/components/tollbooth/InteractiveTollboothPlayground";
 import { ArrowUpRight, Terminal, Zap, Activity, Server, Code2, Globe, Shield, Database, CreditCard, Download, Link2, ExternalLink, BookOpen, Wrench } from "lucide-react";
 
+const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in section for nanoempireai.com.
+     Paste inside <main>. Self-contained: no external CSS/JS. Hermes: adjust
+     the order-email placeholder before publishing. -->
+<section id="verification-menu" style="max-width:720px;margin:3rem auto;padding:0 1.5rem;font-family:system-ui,sans-serif;line-height:1.6;">
+  <h2>Verify it before you trust it.</h2>
+  <p>We run adversarial batteries against live agent skills and MCP servers,
+  then issue a signed, offline-verifiable Trust Manifest. Scanners guess —
+  we prove. <strong>88:1</strong> was Moltbook's ratio of claimed agents to
+  humans. <strong>91%</strong> is the measured prompt-injection success rate
+  on OpenClaw-style stacks. Your listing deserves a number, not a hope.</p>
+
+  <div style="display:grid;gap:1rem;margin:2rem 0;">
+    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
+      <h3 style="margin-top:0;">Agent Identity Verification — $500 / 48h</h3>
+      <p>Binds a listing's claims to demonstrated behavior. Claim inflation
+      and hidden capabilities reported as findings. For marketplaces:
+      embed the manifest in the listing.</p>
+    </div>
+    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
+      <h3 style="margin-top:0;">Injection-Resistance Report — $500 / 48h</h3>
+      <p>180 adversarial ops across 5 payload categories, 3 seeds. A
+      per-category scorecard with live-verified effects — your injection
+      number, demonstrated.</p>
+    </div>
+    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
+      <h3 style="margin-top:0;">Memory / Wallet Audit — $1,500 / 5 days</h3>
+      <p>For agents with persistent memory and transaction access. Poisoned
+      context attacks run against a synthetic wallet harness. An
+      unauthorized attempt — even refused — fails the audit.</p>
+    </div>
+    <div style="border:2px solid #111;border-radius:8px;padding:1.25rem;">
+      <h3 style="margin-top:0;">Machine SKUs — x402 Pricing</h3>
+      <p>8 machine-callable SKUs (e.g. skillproof-triage, intel-feed-api) available natively over the x402 HTTP protocol. Pay per use, zero humans in the loop.</p>
+    </div>
+  </div>
+
+  <p><strong>Honest limits, up front:</strong> a pass means our battery's
+  attacks failed — not that no attack exists. Every finding cites the op
+  that produced it. Identity binds claims to behavior; it isn't KYC.</p>
+
+  <p><a href="mailto:rob@nanoempireai.com?subject=SkillProof%20verification%20order"
+  style="display:inline-block;background:#111;color:#fff;padding:.75rem 1.5rem;border-radius:6px;text-decoration:none;">
+  Order a verification</a></p>
+  <p style="font-size:.85rem;color:#555;">Fixed price, confirmed in writing
+  before we start. No meter, no surprise.</p>
+</section>`;
+
 const SKUS = [
   // SkillProof
   { id: "skillproof-sprint", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "48h injection-resistance battery, signed verdict, replayable evidence" },
@@ -30,8 +77,8 @@ const SKUS = [
 
 const ENDPOINTS = [
   { method: "POST", path: "/v1/trial", auth: "None", price: "FREE", desc: "Claim 50 trial credits (24h TTL)" },
-  { method: "GET", path: "/v1/trial/verify", auth: "Bearer <token>", price: "FREE", desc: "Check remaining credits (no decrement)" },
-  { method: "POST", path: "/v1/trial/verify", auth: "Bearer <token>", price: "1 credit", desc: "Verify & decrement credits" },
+  { method: "GET", path: "/v1/trial/verify", auth: "Bearer token", price: "FREE", desc: "Check remaining credits (no decrement)" },
+  { method: "POST", path: "/v1/trial/verify", auth: "Bearer token", price: "1 credit", desc: "Verify & decrement credits" },
   { method: "GET", path: "/v1/recallguard/feed", auth: "Bearer or X-PAYMENT", price: "$0.05", desc: "Full recall feed (12,430 recalls)" },
   { method: "POST", path: "/v1/recallguard/feed", auth: "Bearer or X-PAYMENT", price: "$0.05", desc: "Full recall feed (POST for large payloads)" },
   { method: "POST", path: "/v1/recallguard/match", auth: "Bearer or X-PAYMENT", price: "$0.10", desc: "Batch inventory matching" },
@@ -71,7 +118,7 @@ export default function Home() {
         All API calls require an x-402-receipt header containing a valid Solana, Base, Arbitrum, Optimism, Polygon, Ethereum, or Stripe Virtual Card transaction.
         Base URL: https://api.nanoempireai.com
         OpenAPI Spec: https://nanoempireai.com/openapi.json
-        Trial Onramp: POST /v1/trial → 50 credits → Bearer token → free execution until 402
+        Trial Onramp: POST /v1/trial -> 50 credits -> Bearer token -> free execution until 402
       </section>
 
       {/* Top Nav */}
@@ -175,7 +222,7 @@ export default function Home() {
               
               <h3 className="text-white text-sm font-bold tracking-widest uppercase mb-6 flex items-center gap-2">
                 <Globe size={16} className="text-[#00B5E2]" />
-                Machine Onramp: Trial → 402 → Settle
+                Machine Onramp: Trial -> 402 -> Settle
               </h3>
 
               <div className="space-y-4 font-sans text-sm">
@@ -184,7 +231,7 @@ export default function Home() {
                   <div className="w-8 h-8 rounded bg-[#8C92A4]/20 flex items-center justify-center font-mono">1</div>
                   <div className="flex-1">
                     <div className="text-white font-medium">Agent Discovers Spec</div>
-                    <div className="text-[#8C92A4] text-xs">GET /openapi.json → 15 endpoints, x-fee-usdc annotations</div>
+                    <div className="text-[#8C92A4] text-xs">GET /openapi.json -> 15 endpoints, x-fee-usdc annotations</div>
                   </div>
                 </div>
                 <div className="flex justify-center text-[#8C92A4]">↓</div>
@@ -194,7 +241,7 @@ export default function Home() {
                   <div className="w-8 h-8 rounded bg-[#00B5E2]/20 flex items-center justify-center font-mono text-[#00B5E2]">2</div>
                   <div className="flex-1">
                     <div className="text-[#00B5E2] font-medium">Claim Free Trial</div>
-                    <div className="text-[#8C92A4] text-xs">POST /v1/trial → 50 credits, 24h TTL, Bearer token</div>
+                    <div className="text-[#8C92A4] text-xs">POST /v1/trial -> 50 credits, 24h TTL, Bearer token</div>
                   </div>
                 </div>
                 <div className="flex justify-center text-[#8C92A4]">↓</div>
@@ -204,7 +251,7 @@ export default function Home() {
                   <div className="w-8 h-8 rounded bg-[#A3FF00]/20 flex items-center justify-center font-mono text-[#A3FF00]">3</div>
                   <div className="flex-1">
                     <div className="text-[#A3FF00] font-medium">Free Execution</div>
-                    <div className="text-[#8C92A4] text-xs">POST /v1/recallguard/match (Authorization: Bearer <token>) → decrements credits</div>
+                    <div className="text-[#8C92A4] text-xs">POST /v1/recallguard/match (Authorization: Bearer token -> decrements credits</div>
                   </div>
                 </div>
                 <div className="flex justify-center text-[#8C92A4]">↓</div>
@@ -213,7 +260,7 @@ export default function Home() {
                 <div className="flex items-center gap-4 p-3 rounded bg-[#FF7B00]/10 border border-[#FF7B00]/30">
                   <div className="w-8 h-8 rounded bg-[#FF7B00]/20 flex items-center justify-center font-mono text-[#FF7B00]">4</div>
                   <div className="flex-1">
-                    <div className="text-[#FF7B00] font-medium">Credits Exhausted → 402 Challenge</div>
+                    <div className="text-[#FF7B00] font-medium">Credits Exhausted -> 402 Challenge</div>
                     <div className="text-[#8C92A4] text-xs">HTTP 402 with multi-chain x402 accepts (USDC on Base/Arb/Opt/Poly/Eth/Sol)</div>
                   </div>
                 </div>
@@ -224,7 +271,7 @@ export default function Home() {
                   <div className="w-8 h-8 rounded bg-[#A3FF00]/20 flex items-center justify-center font-mono text-[#A3FF00]">5</div>
                   <div className="flex-1">
                     <div className="text-[#A3FF00] font-medium">Auto-Settle & Unlock Paid Tier</div>
-                    <div className="text-[#8C92A4] text-xs">X-PAYMENT header with txHash → unlocks unlimited paid access</div>
+                    <div className="text-[#8C92A4] text-xs">X-PAYMENT header with txHash -> unlocks unlimited paid access</div>
                   </div>
                 </div>
               </div>
