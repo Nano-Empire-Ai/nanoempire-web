@@ -14,16 +14,16 @@ All paid endpoints accept x402 payments. Trial credits cover 50 free calls.
 
 | SKU | Price | Network | Chains |
 |-----|-------|---------|--------|
-| recallguard-feed | /usr/bin/bash.05/call | x402 USDC | Base, Arb, Opt, Poly, Eth, Sol |
-| recallguard-match | /usr/bin/bash.10/call | x402 USDC | Base, Arb |
-| recallguard-webhook | /usr/bin/bash.02/event | x402 USDC | Eth, Base |
-| irv-advisory-single | 00 | x402 USDC | All 6 EVM + Sol |
-| irv-feed-subscription | 00/mo | x402 USDC | All 6 EVM + Sol |
-| irv-webhook | /usr/bin/bash.05/event | x402 USDC | Eth, Base |
-| irv-corpus-access | ,000 | x402 USDC | All 6 EVM + Sol |
-| mini-report | 0 | x402 USDC | All 6 EVM + Sol |
-| seller-screening | 9/mo | x402 USDC | Base, Eth |
-| skillproof-sprint | 00 CAD | Stripe | Stripe |
+| recallguard-feed | 0.05 USDC/call | x402 USDC | Base, Arb, Opt, Poly, Eth, Sol |
+| recallguard-match | 0.10 USDC/call | x402 USDC | Base, Arb |
+| recallguard-webhook | 0.02 USDC/event | x402 USDC | Eth, Base |
+| irv-advisory-single | 500 USDC | x402 USDC | All 6 EVM + Sol |
+| irv-feed-subscription | 200 USDC/mo | x402 USDC | All 6 EVM + Sol |
+| irv-webhook | 0.05 USDC/event | x402 USDC | Eth, Base |
+| irv-corpus-access | 5000 USDC | x402 USDC | All 6 EVM + Sol |
+| mini-report | 50 USDC | x402 USDC | All 6 EVM + Sol |
+| seller-screening | 29 USDC/mo | x402 USDC | Base, Eth |
+| skillproof-sprint | 500 CAD | Stripe | https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c |
 
 **Network Parameters (Base USDC):**
 - `network`: `eip155:8453`

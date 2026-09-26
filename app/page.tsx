@@ -310,7 +310,7 @@ export default function Home() {
               <Shield size={28} className="text-[#00B5E2]" />
               Machine SKUs — 23 Revenue Streams
             </h2>
-            <p className="text-[#8C92A4] mt-2 font-sans">Every SKU has a working x402 endpoint. Machines discover via OpenAPI, trial via /v1/trial, pay via 402.</p>
+            <p className="text-[#8C92A4] mt-2 font-sans">Catalog of 23 SKUs. Only SkillProof Sprint checkout is live (Stripe). Machine x402 endpoints are listed; most are not settling yet. OpenAPI currently publishes 8 paths, not 15.</p>
           </div>
 
           {/* Category Tabs */}
@@ -348,6 +348,9 @@ export default function Home() {
                 
                 <div className="text-2xl font-extrabold text-white mb-2">{sku.price}</div>
                 <p className="text-[#8C92A4] text-sm mb-4">{sku.desc}</p>
+                {sku.id === "skillproof-sprint" && (
+                  <a href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" className="inline-block mb-4 text-sm font-bold text-black bg-[#A3FF00] px-3 py-2 rounded">Pay 500 CAD</a>
+                )}
                 
                 <div className="flex items-center gap-3 text-xs text-[#8C92A4] border-t border-[#8C92A4]/20 pt-4">
                   <span className="flex items-center gap-1"><CreditCard size={12} /> {sku.payment}</span>

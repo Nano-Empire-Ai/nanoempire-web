@@ -3,7 +3,8 @@
     "price_cad": 500,
     "buyer": "human",
     "payment": "stripe",
-    "status": "planned",
+    "status": "live",
+    "payment_link": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c",
     "chains": [
       "stripe"
     ]
