@@ -1,0 +1,284 @@
+{
+  "skillproof-sprint": {
+    "price_cad": 500,
+    "buyer": "human",
+    "payment": "stripe",
+    "status": "planned",
+    "chains": [
+      "stripe"
+    ]
+  },
+  "skillproof-standard": {
+    "price_cad": 1500,
+    "buyer": "human",
+    "payment": "stripe",
+    "status": "building",
+    "chains": [
+      "stripe"
+    ],
+    "note": "Early Adopter: $1500 for first 5. Steady State: $2500"
+  },
+  "skillproof-rush": {
+    "price_cad": 2500,
+    "buyer": "human",
+    "payment": "stripe",
+    "status": "building",
+    "chains": [
+      "stripe"
+    ],
+    "note": "24h priority execution queue"
+  },
+  "skillproof-vc-diligence": {
+    "price_cad": 3500,
+    "buyer": "human",
+    "payment": "stripe",
+    "status": "building",
+    "chains": [
+      "stripe"
+    ],
+    "note": "Pre-seed/seed architectural diligence"
+  },
+  "skillproof-fleet-red-team": {
+    "price_cad": 1000,
+    "buyer": "human",
+    "payment": "stripe",
+    "status": "building",
+    "chains": [
+      "stripe"
+    ],
+    "note": "Per skill overage. Fleet-wide security audit"
+  },
+  "skillproof-triage-x402": {
+    "price_usdc": 0.01,
+    "buyer": "machine",
+    "payment": "x402",
+    "status": "planned",
+    "chains": [
+      "eip155:1",
+      "eip155:8453",
+      "eip155:42161",
+      "eip155:10",
+      "eip155:137",
+      "solana:mainnet"
+    ],
+    "asset": "USDC"
+  },
+  "skillproof-deep-scan": {
+    "price_usdc": 0.5,
+    "buyer": "machine",
+    "payment": "x402",
+    "status": "planned",
+    "chains": [
+      "eip155:1",
+      "eip155:8453",
+      "eip155:42161",
+      "eip155:10",
+      "eip155:137",
+      "solana:mainnet"
+    ],
+    "asset": "USDC"
+  },
+  "skillproof-triage-l402": {
+    "price_sats": 750,
+    "buyer": "machine",
+    "payment": "l402",
+    "status": "building",
+    "chains": [
+      "l402:mainnet"
+    ],
+    "asset": "BTC"
+  },
+  "skillproof-deep-scan-l402": {
+    "price_sats": 37500,
+    "buyer": "machine",
+    "payment": "l402",
+    "status": "building",
+    "chains": [
+      "l402:mainnet"
+    ],
+    "asset": "BTC"
+  },
+  "virtual-card-mcp": {
+    "price_usdc": 0.02,
+    "buyer": "machine",
+    "payment": "x402",
+    "status": "planned",
+    "chains": [
+      "eip155:8453",
+      "eip155:42161",
+      "eip155:10"
+    ],
+    "asset": "USDC"
+  },
+  "intel-feed-api": {
+    "price_usdc": 0.05,
+    "buyer": "machine",
+    "payment": "x402",
+    "status": "planned",
+    "chains": [
+      "eip155:1",
+      "eip155:8453",
+      "eip155:42161",
+      "eip155:10",
+      "eip155:137",
+      "solana:mainnet"
+    ],
+    "asset": "USDC"
+  },
+  "trust-manifest": {
+    "price_usdc": 50.0,
+    "buyer": "machine",
+    "payment": "x402",
+    "status": "building",
+    "chains": [
+      "eip155:1",
+      "eip155:8453",
+      "eip155:42161",
+      "eip155:10",
+      "eip155:137",
+      "solana:mainnet"
+    ],
+    "asset": "USDC"
+  },
+  "clearing-house": {
+    "fee_bps": 500,
+    "buyer": "machine",
+    "payment": "x402",
+    "status": "building",
+    "chains": [
+      "eip155:1",
+      "eip155:8453",
+      "eip155:42161",
+      "eip155:10",
+      "eip155:137",
+      "solana:mainnet",
+      "l402:mainnet"
+    ],
+    "asset": "multi"
+  },
+  "moneyleg-sidecar": {
+    "price_usd": 0,
+    "buyer": "internal",
+    "payment": "none",
+    "status": "internal",
+    "chains": []
+  },
+  "recallguard-feed": {
+    "price_usdc": 0.05,
+    "buyer": "machine",
+    "payment": "x402",
+    "status": "live",
+    "chains": [
+      "eip155:1",
+      "eip155:8453",
+      "eip155:42161",
+      "eip155:10",
+      "eip155:137",
+      "solana:mainnet"
+    ]
+  },
+  "recallguard-match": {
+    "price_usdc": 0.1,
+    "buyer": "machine",
+    "payment": "x402",
+    "status": "live",
+    "chains": [
+      "eip155:8453",
+      "eip155:42161"
+    ]
+  },
+  "recallguard-webhook": {
+      "price_usdc": 0.02,
+      "buyer": "machine",
+      "payment": "x402",
+      "status": "planned",
+      "chains": [
+        "eip155:1",
+        "eip155:8453"
+      ]
+    },
+    "irv-advisory-single": {
+      "price_usdc": 500.0,
+      "buyer": "machine",
+      "payment": "x402",
+      "status": "live",
+      "chains": [
+        "eip155:1",
+        "eip155:8453",
+        "eip155:42161",
+        "eip155:10",
+        "eip155:137",
+        "solana:mainnet"
+      ],
+      "asset": "USDC"
+    },
+    "irv-feed-subscription": {
+      "price_usdc_monthly": 200,
+      "buyer": "machine",
+      "payment": "x402",
+      "status": "live",
+      "chains": [
+        "eip155:1",
+        "eip155:8453",
+        "eip155:42161",
+        "eip155:10",
+        "eip155:137",
+        "solana:mainnet"
+      ],
+      "asset": "USDC"
+    },
+    "irv-webhook": {
+      "price_usdc": 0.05,
+      "buyer": "machine",
+      "payment": "x402",
+      "status": "planned",
+      "chains": [
+        "eip155:1",
+        "eip155:8453"
+      ],
+      "asset": "USDC"
+    },
+    "irv-corpus-access": {
+          "price_usdc": 5000,
+          "buyer": "machine",
+          "payment": "x402",
+          "status": "building",
+          "chains": [
+            "eip155:1",
+            "eip155:8453",
+            "eip155:42161",
+            "eip155:10",
+            "eip155:137",
+            "solana:mainnet"
+          ],
+          "asset": "USDC"
+        },
+        "mini-report": {
+          "price_usdc": 50.0,
+          "buyer": "machine",
+          "payment": "x402",
+          "status": "live",
+          "chains": [
+            "eip155:1",
+            "eip155:8453",
+            "eip155:42161",
+            "eip155:10",
+            "eip155:137",
+            "solana:mainnet"
+          ],
+          "asset": "USDC"
+        },
+        "seller-screening": {
+          "price_usdc_monthly": 29.0,
+          "price_usdc_per_listing": 0.29,
+          "buyer": "machine",
+          "payment": "x402",
+          "status": "live",
+          "free_tier_listings": 50,
+          "chains": [
+            "eip155:8453",
+            "eip155:1"
+          ],
+          "asset": "USDC"
+        }
+    }
