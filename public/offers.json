@@ -254,33 +254,5 @@
       "solana:mainnet"
     ],
     "asset": "USDC"
-  },
-  "mini-report": {
-    "price_usdc": 50.0,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ],
-    "asset": "USDC"
-  },
-  "seller-screening": {
-    "price_usdc_monthly": 29.0,
-    "price_usdc_per_listing": 0.29,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "free_tier_listings": 50,
-    "chains": [
-      "eip155:8453",
-      "eip155:1"
-    ],
-    "asset": "USDC"
   }
 }
