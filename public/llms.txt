@@ -47,7 +47,7 @@ All paid endpoints accept x402 payments. Trial credits cover 50 free calls.
 3. **Agent** executes free call:
    ```http
    POST /v1/recallguard/match
-   Authorization: Bearer trial_abc123...
+   Authorization: Bearer <trial_token>
    Content-Type: application/json
    {"inventory": [{"item": "Power Bank", "brand": "Anker"}]}
    
@@ -91,10 +91,10 @@ All paid endpoints accept x402 payments. Trial credits cover 50 free calls.
 - `POST /v1/recallguard/webhook/test` — Test push
 
 ### IRV — Incident-Response Verification
-- `POST /v1/irv/advisory` — Single incident advisory (00)
-- `GET /v1/irv/feed` — Continuous feed (00/mo)
-- `POST /v1/irv/webhook/subscribe` — Register webhook ($0.05)
-- `GET /v1/irv/corpus` — Full corpus access ( $5,000)
+- `POST /v1/irv/advisory` — Single incident advisory ($500 USDC)
+- `GET /v1/irv/feed` — Continuous feed ($200 USDC/mo)
+- `POST /v1/irv/webhook/subscribe` — Register webhook ($0.05 USDC/event)
+- `GET /v1/irv/corpus` — Full corpus access ($5,000 USDC)
 
 ### Machine Observability
 - `GET /v1/usage?agent_id=` — Usage stats (credits, calls, tier)
@@ -102,8 +102,8 @@ All paid endpoints accept x402 payments. Trial credits cover 50 free calls.
 - `GET /v1/receipts?agent_id=` — Receipt chain (merkle-ready)
 
 ### Legacy / SkillProof
-- `POST /v1/triage` — Triage request (/usr/bin/bash.01 USDC)
-- `POST /v1/audit` — Audit request (/usr/bin/bash.50 USDC)
+- `POST /v1/triage` — Triage request ($0.01 USDC)
+- `POST /v1/audit` — Audit request ($0.50 USDC)
 
 ## SDKs
 
