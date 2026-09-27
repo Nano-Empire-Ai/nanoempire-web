@@ -86,15 +86,15 @@ All paid endpoints accept x402 payments. Trial credits cover 50 free calls.
 - `GET /v1/recallguard/feed` — Full feed (12,430 recalls)
 - `POST /v1/recallguard/feed` — Full feed (POST)
 - `POST /v1/recallguard/match` — Batch inventory matching
-- `POST /v1/recallguard/webhook/subscribe` — Register webhook (/usr/bin/bash.02)
+- `POST /v1/recallguard/webhook/subscribe` — Register webhook ($0.02)
 - `DELETE /v1/recallguard/webhook/{id}` — Unregister webhook
 - `POST /v1/recallguard/webhook/test` — Test push
 
 ### IRV — Incident-Response Verification
 - `POST /v1/irv/advisory` — Single incident advisory (00)
 - `GET /v1/irv/feed` — Continuous feed (00/mo)
-- `POST /v1/irv/webhook/subscribe` — Register webhook (/usr/bin/bash.05)
-- `GET /v1/irv/corpus` — Full corpus access (,000)
+- `POST /v1/irv/webhook/subscribe` — Register webhook ($0.05)
+- `GET /v1/irv/corpus` — Full corpus access ( $5,000)
 
 ### Machine Observability
 - `GET /v1/usage?agent_id=` — Usage stats (credits, calls, tier)
