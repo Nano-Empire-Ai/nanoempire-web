@@ -165,29 +165,29 @@
     "chains": []
   },
   "recallguard-feed": {
-      "price_usdc": 0.05,
-      "buyer": "machine",
-      "payment": "x402",
-      "status": "planned",
-      "chains": [
-        "eip155:1",
-        "eip155:8453",
-        "eip155:42161",
-        "eip155:10",
-        "eip155:137",
-        "solana:mainnet"
-      ]
-    },
+        "price_usdc": 0.05,
+        "buyer": "machine",
+        "payment": "x402",
+        "status": "live",
+        "chains": [
+          "eip155:1",
+          "eip155:8453",
+          "eip155:42161",
+          "eip155:10",
+          "eip155:137",
+          "solana:mainnet"
+        ]
+      },
     "recallguard-match": {
-      "price_usdc": 0.1,
-      "buyer": "machine",
-      "payment": "x402",
-      "status": "planned",
-      "chains": [
-        "eip155:8453",
-        "eip155:42161"
-      ]
-    },
+          "price_usdc": 0.1,
+          "buyer": "machine",
+          "payment": "x402",
+          "status": "live",
+          "chains": [
+            "eip155:8453",
+            "eip155:42161"
+          ]
+        },
   "recallguard-webhook": {
       "price_usdc": 0.02,
       "buyer": "machine",
@@ -199,35 +199,35 @@
       ]
     },
     "irv-advisory-single": {
-          "price_usdc": 500.0,
-          "buyer": "machine",
-          "payment": "x402",
-          "status": "planned",
-          "chains": [
-            "eip155:1",
-            "eip155:8453",
-            "eip155:42161",
-            "eip155:10",
-            "eip155:137",
-            "solana:mainnet"
-          ],
-          "asset": "USDC"
-        },
+              "price_usdc": 500.0,
+              "buyer": "machine",
+              "payment": "x402",
+              "status": "live",
+              "chains": [
+                "eip155:1",
+                "eip155:8453",
+                "eip155:42161",
+                "eip155:10",
+                "eip155:137",
+                "solana:mainnet"
+              ],
+              "asset": "USDC"
+            },
         "irv-feed-subscription": {
-          "price_usdc_monthly": 200,
-          "buyer": "machine",
-          "payment": "x402",
-          "status": "planned",
-          "chains": [
-            "eip155:1",
-            "eip155:8453",
-            "eip155:42161",
-            "eip155:10",
-            "eip155:137",
-            "solana:mainnet"
-          ],
-          "asset": "USDC"
-        },
+                  "price_usdc_monthly": 200,
+                  "buyer": "machine",
+                  "payment": "x402",
+                  "status": "live",
+                  "chains": [
+                    "eip155:1",
+                    "eip155:8453",
+                    "eip155:42161",
+                    "eip155:10",
+                    "eip155:137",
+                    "solana:mainnet"
+                  ],
+                  "asset": "USDC"
+                },
     "irv-webhook": {
       "price_usdc": 0.05,
       "buyer": "machine",
@@ -255,31 +255,31 @@
           "asset": "USDC"
         },
         "mini-report": {
-                  "price_usdc": 50.0,
-                  "buyer": "machine",
-                  "payment": "x402",
-                  "status": "planned",
-                  "chains": [
-                    "eip155:1",
-                    "eip155:8453",
-                    "eip155:42161",
-                    "eip155:10",
-                    "eip155:137",
-                    "solana:mainnet"
-                  ],
-                  "asset": "USDC"
-                },
+                          "price_usdc": 50.0,
+                          "buyer": "machine",
+                          "payment": "x402",
+                          "status": "live",
+                          "chains": [
+                            "eip155:1",
+                            "eip155:8453",
+                            "eip155:42161",
+                            "eip155:10",
+                            "eip155:137",
+                            "solana:mainnet"
+                          ],
+                          "asset": "USDC"
+                        },
                 "seller-screening": {
-                  "price_usdc_monthly": 29.0,
-                  "price_usdc_per_listing": 0.29,
-                  "buyer": "machine",
-                  "payment": "x402",
-                  "status": "planned",
-                  "free_tier_listings": 50,
-                  "chains": [
-                    "eip155:8453",
-                    "eip155:1"
-                  ],
-                  "asset": "USDC"
-                }
+                                  "price_usdc_monthly": 29.0,
+                                  "price_usdc_per_listing": 0.29,
+                                  "buyer": "machine",
+                                  "payment": "x402",
+                                  "status": "live",
+                                  "free_tier_listings": 50,
+                                  "chains": [
+                                    "eip155:8453",
+                                    "eip155:1"
+                                  ],
+                                  "asset": "USDC"
+                                }
     }
