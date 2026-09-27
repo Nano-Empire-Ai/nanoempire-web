@@ -168,7 +168,7 @@
         "price_usdc": 0.05,
         "buyer": "machine",
         "payment": "x402",
-        "status": "live",
+        "status": "planned",
         "chains": [
           "eip155:1",
           "eip155:8453",
@@ -182,13 +182,13 @@
           "price_usdc": 0.1,
           "buyer": "machine",
           "payment": "x402",
-          "status": "live",
+          "status": "planned",
           "chains": [
             "eip155:8453",
             "eip155:42161"
           ]
         },
-  "recallguard-webhook": {
+    "recallguard-webhook": {
       "price_usdc": 0.02,
       "buyer": "machine",
       "payment": "x402",
@@ -196,13 +196,14 @@
       "chains": [
         "eip155:1",
         "eip155:8453"
-      ]
+      ],
+      "asset": "USDC"
     },
     "irv-advisory-single": {
               "price_usdc": 500.0,
               "buyer": "machine",
               "payment": "x402",
-              "status": "live",
+              "status": "planned",
               "chains": [
                 "eip155:1",
                 "eip155:8453",
@@ -217,7 +218,7 @@
                   "price_usdc_monthly": 200,
                   "buyer": "machine",
                   "payment": "x402",
-                  "status": "live",
+                  "status": "planned",
                   "chains": [
                     "eip155:1",
                     "eip155:8453",
@@ -258,7 +259,7 @@
                           "price_usdc": 50.0,
                           "buyer": "machine",
                           "payment": "x402",
-                          "status": "live",
+                          "status": "planned",
                           "chains": [
                             "eip155:1",
                             "eip155:8453",
@@ -274,7 +275,7 @@
                                   "price_usdc_per_listing": 0.29,
                                   "buyer": "machine",
                                   "payment": "x402",
-                                  "status": "live",
+                                  "status": "planned",
                                   "free_tier_listings": 50,
                                   "chains": [
                                     "eip155:8453",
