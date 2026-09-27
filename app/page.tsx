@@ -35,9 +35,9 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
       unauthorized attempt — even refused — fails the audit.</p>
     </div>
     <div style="border:2px solid #111;border-radius:8px;padding:1.25rem;">
-      <h3 style="margin-top:0;">Machine SKUs — x402 Pricing</h3>
-      <p>8 machine-callable SKUs (e.g. skillproof-triage, intel-feed-api) available natively over the x402 HTTP protocol. Pay per use, zero humans in the loop.</p>
-    </div>
+          <h3 style="margin-top:0;">Machine SKUs — Pricing (Planned)</h3>
+          <p>8 machine SKUs designed for x402 — endpoints live on VPS (ports 8405/8420), web deployment pending. Pay per use, zero humans in the loop.</p>
+        </div>
   </div>
 
   <p><strong>Honest limits, up front:</strong> a pass means our battery's
@@ -60,19 +60,19 @@ const SKUS = [
   { id: "skillproof-fleet-red-team", price: "$1,000 CAD", buyer: "human", payment: "Stripe", status: "building", category: "skillproof", desc: "Per-skill overage, fleet-wide security audit" },
   
   // RecallGuard (Machine SKUs)
-  { id: "recallguard-feed", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "live", category: "recallguard", desc: "Full FDA/CPSC recall feed (12,430+ recalls), 6 chains" },
-  { id: "recallguard-match", price: "$0.10 USDC", buyer: "machine", payment: "x402", status: "live", category: "recallguard", desc: "Batch inventory matching against recalls, Base/Arb" },
-  { id: "recallguard-webhook", price: "$0.02 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "Push notifications for new critical/serious recalls" },
-  
-  // IRV (Machine SKUs)
-  { id: "irv-advisory-single", price: "$500 USDC", buyer: "machine", payment: "x402", status: "live", category: "irv", desc: "Single incident advisory, 72h window, signed verdict" },
-  { id: "irv-feed-subscription", price: "$200/mo USDC", buyer: "machine", payment: "x402", status: "live", category: "irv", desc: "Continuous IRV feed, per-call billing" },
-  { id: "irv-webhook", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "planned", category: "irv", desc: "Webhook on advisory issuance" },
-  { id: "irv-corpus-access", price: "$5,000 USDC", buyer: "machine", payment: "x402", status: "building", category: "irv", desc: "Full IRV corpus access, 1h download token" },
-  
-  // New Machine SKUs
-  { id: "mini-report", price: "$50 USDC", buyer: "machine", payment: "x402", status: "live", category: "utility", desc: "Single-item deep dive report" },
-  { id: "seller-screening", price: "$29/mo USDC", buyer: "machine", payment: "x402", status: "live", category: "utility", desc: "Continuous seller risk screening" },
+  { id: "recallguard-feed", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "Full FDA/CPSC recall feed (12,430+ recalls), 6 chains" },
+    { id: "recallguard-match", price: "$0.10 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "Batch inventory matching against recalls, Base/Arb" },
+    { id: "recallguard-webhook", price: "$0.02 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "Push notifications for new critical/serious recalls" },
+
+    // IRV (Machine SKUs)
+    { id: "irv-advisory-single", price: "$500 USDC", buyer: "machine", payment: "x402", status: "planned", category: "irv", desc: "Single incident advisory, 72h window, signed verdict" },
+    { id: "irv-feed-subscription", price: "$200/mo USDC", buyer: "machine", payment: "x402", status: "planned", category: "irv", desc: "Continuous IRV feed, per-call billing" },
+    { id: "irv-webhook", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "planned", category: "irv", desc: "Webhook on advisory issuance" },
+    { id: "irv-corpus-access", price: "$5,000 USDC", buyer: "machine", payment: "x402", status: "building", category: "irv", desc: "Full IRV corpus access, 1h download token" },
+
+    // New Machine SKUs
+    { id: "mini-report", price: "$50 USDC", buyer: "machine", payment: "x402", status: "planned", category: "utility", desc: "Single-item deep dive report" },
+    { id: "seller-screening", price: "$29/mo USDC", buyer: "machine", payment: "x402", status: "planned", category: "utility", desc: "Continuous seller risk screening" },
 ];
 
 const ENDPOINTS = [
