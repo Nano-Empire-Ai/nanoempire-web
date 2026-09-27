@@ -140,7 +140,7 @@ export default function Home() {
               <a href="#catalog" className="hover:text-white transition-colors flex items-center gap-1"><Server size={14} /> MCP Catalog</a>
               <a href="#skus" className="hover:text-white transition-colors flex items-center gap-1"><Shield size={14} /> Machine SKUs</a>
               <a href="#api" className="hover:text-white transition-colors flex items-center gap-1"><Code2 size={14} /> API Docs</a>
-              <a href="/recall-roulette.html" className="text-[#FF7B00] hover:underline flex items-center gap-1"><Activity size={14} /> Recall Roulette</a>
+              <a href="/recall-roulette" className="text-[#FF7B00] hover:underline flex items-center gap-1"><Activity size={14} /> Recall Roulette</a>
               <a href="/openapi.json" className="text-[#00B5E2] hover:underline flex items-center gap-1"><BookOpen size={14} /> OpenAPI</a>
               <a href="/llms.txt" className="text-[#00B5E2] hover:underline flex items-center gap-1"><Terminal size={14} /> /llms.txt</a>
             </div>
@@ -489,7 +489,7 @@ console.log(matches.flagged_count);`}</code></pre>
           <a href="/.well-known/agent-card.json" className="hover:text-white">agent-card.json</a>
           <a href="/openapi.json" className="hover:text-white">openapi.json</a>
           <a href="/offers.json" className="hover:text-white">offers.json</a>
-          <a href="/recall-roulette.html" className="hover:text-white">Recall Roulette</a>
+          <a href="/recall-roulette" className="hover:text-white">Recall Roulette</a>
           <a href="https://github.com/roblambert9/nano-empire-ai" className="hover:text-white">GitHub</a>
         </div>
         <p>NANO EMPIRE AI INC. © 2026. THE MACHINE ECONOMY RUNS ON PROTOCOL.</p>
