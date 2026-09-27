@@ -1,49 +1,82 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Nano Empire AI \u2014 Machine-Native APIs",
-    "version": "1.0.0",
-    "description": "x402-enabled APIs for autonomous agents. Pay per call via USDC on Base, Ethereum, Arbitrum, Optimism, Polygon, Solana. Free trial: POST /v1/trial \u2192 50 credits.",
+    "title": "Nano Empire AI — Machine-Native APIs",
+    "version": "1.1.0-staged",
+    "description": "Machine APIs for autonomous agents: RecallGuard (US recall feed + inventory match) and the SkillProof quote box. Status as of 2026-09-27: paper mode. Prices come from https://nanoempireai.com/offers.json and are published for x402 (USDC); no paid machine transaction or receipt exists yet. Each path lists the server that answers it. IRV is building (no public 200 endpoint). api.nanoempireai.com /v1/* is not deployed. Flow: discover, free calls, 402, receipt.",
     "contact": {
       "name": "Nano Empire AI",
       "url": "https://nanoempireai.com",
       "email": "security@nanoempireai.com"
-    }
+    },
+    "x-paper-mode": true,
+    "x-receipt-note": "No paid receipt exists yet: no first machine transaction has been verified on the ledger (2026-09-27).",
+    "x-verified-on": "2026-09-27"
   },
   "servers": [
     {
-      "url": "https://api.nanoempireai.com",
-      "description": "Production VPS (Oracle Cloud, Toronto)"
-    },
-    {
-      "url": "http://147.5.105.20:8405",
-      "description": "Quote Server (SkillProof + RecallGuard)"
+      "url": "https://recallguard-api.vercel.app",
+      "description": "PRIMARY RecallGuard server. HTTPS, open access (no paywall enforced as of 2026-09-27), 21,812 recalls (CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24). Endpoints under /api/v1. Human docs: /docs."
     },
     {
       "url": "http://147.5.105.20:8420",
-      "description": "RecallGuard API Server"
+      "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+    },
+    {
+      "url": "http://147.5.105.20:8405",
+      "description": "SkillProof quote box (skillproof-quote-box 2.1.0), plain HTTP. POST /v1/triage answers 200 without payment; POST /v1/audit answers 402 with an L402-style placeholder challenge (not x402)."
+    },
+    {
+      "url": "https://api.nanoempireai.com",
+      "description": "/v1/* not deployed (404) as of 2026-09-27. Only /health answers (skillproof-validator)."
     }
   ],
   "security": [
+    {},
     {
       "x402": []
-    },
-    {
-      "trialToken": []
     }
   ],
   "paths": {
     "/health": {
+      "servers": [
+        {
+          "url": "http://147.5.105.20:8420",
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+        },
+        {
+          "url": "http://147.5.105.20:8405",
+          "description": "SkillProof quote box (skillproof-quote-box 2.1.0), plain HTTP. POST /v1/triage answers 200 without payment; POST /v1/audit answers 402 with an L402-style placeholder challenge (not x402)."
+        },
+        {
+          "url": "https://api.nanoempireai.com",
+          "description": "/v1/* not deployed (404) as of 2026-09-27. Only /health answers (skillproof-validator)."
+        }
+      ],
       "get": {
-        "summary": "Health check",
+        "tags": [
+          "System"
+        ],
+        "summary": "Health check (8420, 8405, api.nanoempireai.com; each returns its own shape)",
         "operationId": "healthCheck",
+        "security": [],
         "responses": {
           "200": {
             "description": "Service healthy",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HealthResponse"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/HealthResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/QuoteBoxHealth"
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
                 }
               }
             }
@@ -51,74 +84,406 @@
         }
       }
     },
-    "/openapi.json": {
+    "/api/v1/health": {
+      "servers": [
+        {
+          "url": "https://recallguard-api.vercel.app",
+          "description": "PRIMARY RecallGuard server. HTTPS, open access (no paywall enforced as of 2026-09-27), 21,812 recalls (CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24). Endpoints under /api/v1. Human docs: /docs."
+        }
+      ],
       "get": {
-        "summary": "OpenAPI specification",
-        "operationId": "getOpenAPISpec",
+        "operationId": "rgHealth",
+        "summary": "Service health and dataset info",
         "responses": {
           "200": {
-            "description": "OpenAPI 3.1 document",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "examples": [
+                        "ok"
+                      ]
+                    },
+                    "dataset_count": {
+                      "type": "integer"
+                    },
+                    "dataset_built_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "date_min": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "date_max": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "sources": {
+                      "type": "object"
+                    }
+                  }
                 }
               }
             }
           }
+        },
+        "tags": [
+          "RecallGuard"
+        ],
+        "security": []
+      }
+    },
+    "/api/v1/feed": {
+      "servers": [
+        {
+          "url": "https://recallguard-api.vercel.app",
+          "description": "PRIMARY RecallGuard server. HTTPS, open access (no paywall enforced as of 2026-09-27), 21,812 recalls (CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24). Endpoints under /api/v1. Human docs: /docs."
+        }
+      ],
+      "get": {
+        "operationId": "rgFeed",
+        "summary": "RecallGuard feed, primary server (paginated, newest first)",
+        "parameters": [
+          {
+            "name": "since",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Only recalls with recall_date >= since (YYYY-MM-DD)."
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Only recalls with recall_date <= until (YYYY-MM-DD)."
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Comma-separated: cpsc, fda-food, fda-drug, fda-device."
+          },
+          {
+            "name": "severity",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Comma-separated: serious, standard, class-i, class-ii, class-iii (also accepts \"Class I\" etc.)."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Opaque cursor from next_cursor of the previous page."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/VercelRecall"
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "next_cursor": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "dataset_built_at": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VercelError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VercelError"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "RecallGuard"
+        ],
+        "security": [],
+        "x-price": {
+          "sku": "recallguard-feed",
+          "amount": "0.05",
+          "asset": "USDC",
+          "unit": "call",
+          "offers_status": "live",
+          "source": "https://nanoempireai.com/offers.json",
+          "as_of": "2026-09-27"
+        },
+        "x-402": {
+          "paper_mode": true,
+          "enforced": false,
+          "observed": "200 open; no 402 paywall on this server",
+          "observed_on": "2026-09-27",
+          "asset": "USDC",
+          "network": "eip155:8453",
+          "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+          "chains": [
+            "eip155:1",
+            "eip155:8453",
+            "eip155:42161",
+            "eip155:10",
+            "eip155:137",
+            "solana:mainnet"
+          ],
+          "receipt": "none: no paid machine transaction has been verified"
         }
       }
     },
-    "/v1/trial": {
+    "/api/v1/match": {
+      "servers": [
+        {
+          "url": "https://recallguard-api.vercel.app",
+          "description": "PRIMARY RecallGuard server. HTTPS, open access (no paywall enforced as of 2026-09-27), 21,812 recalls (CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24). Endpoints under /api/v1. Human docs: /docs."
+        }
+      ],
       "post": {
-        "summary": "Request free trial credits",
-        "operationId": "requestTrial",
+        "operationId": "rgMatch",
+        "summary": "RecallGuard match, primary server (body key: items)",
+        "description": "Per item: UPC exact match first (GTIN-normalized), then token-overlap scoring on name/brand. Token matches below the score threshold are not returned. Up to 5 matches per item.",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TrialRequest"
+                "type": "object",
+                "required": [
+                  "items"
+                ],
+                "properties": {
+                  "items": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 100,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "examples": [
+                            "Snuga Swing"
+                          ]
+                        },
+                        "brand": {
+                          "type": "string",
+                          "examples": [
+                            "Fisher-Price"
+                          ]
+                        },
+                        "upc": {
+                          "type": "string",
+                          "examples": [
+                            "731149654051"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "items": [
+                  {
+                    "name": "Snuga Swing",
+                    "brand": "Fisher-Price"
+                  },
+                  {
+                    "name": "Raw Shrimp",
+                    "upc": "731149654051"
+                  }
+                ]
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Trial token issued",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TrialResponse"
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "input": {
+                            "type": "object"
+                          },
+                          "match_count": {
+                            "type": "integer"
+                          },
+                          "matches": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/components/schemas/VercelMatch"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "threshold": {
+                      "type": "number"
+                    },
+                    "dataset_built_at": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
           },
-          "429": {
-            "description": "Rate limited",
+          "400": {
+            "description": "Invalid body",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/VercelError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VercelError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Too many items",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VercelError"
                 }
               }
             }
           }
+        },
+        "tags": [
+          "RecallGuard"
+        ],
+        "security": [],
+        "x-price": {
+          "sku": "recallguard-match",
+          "amount": "0.1",
+          "asset": "USDC",
+          "unit": "call",
+          "offers_status": "live",
+          "source": "https://nanoempireai.com/offers.json",
+          "as_of": "2026-09-27"
+        },
+        "x-402": {
+          "paper_mode": true,
+          "enforced": false,
+          "observed": "200 open; no 402 paywall on this server",
+          "observed_on": "2026-09-27",
+          "asset": "USDC",
+          "network": "eip155:8453",
+          "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+          "chains": [
+            "eip155:8453",
+            "eip155:42161"
+          ],
+          "receipt": "none: no paid machine transaction has been verified"
         }
       }
     },
-    "/v1/recallguard/feed": {
+    "/v1/feed": {
+      "servers": [
+        {
+          "url": "http://147.5.105.20:8420",
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+        }
+      ],
       "get": {
-        "summary": "Get recall feed (free tier: critical+serious only)",
-        "operationId": "getRecallFeed",
+        "tags": [
+          "RecallGuard"
+        ],
+        "summary": "RecallGuard feed, secondary server (free tier, 100 free calls)",
+        "operationId": "rgFeedSecondary",
+        "security": [
+          {},
+          {
+            "x402": []
+          }
+        ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/TrialTokenHeader"
+            "$ref": "#/components/parameters/XPaymentHeader"
           }
         ],
         "responses": {
           "200": {
-            "description": "Recall feed",
+            "description": "Recall feed page (50 records)",
             "content": {
               "application/json": {
                 "schema": {
@@ -128,7 +493,7 @@
             }
           },
           "402": {
-            "description": "Payment required for full feed",
+            "description": "Payment Required (x402 v1 challenge)",
             "content": {
               "application/json": {
                 "schema": {
@@ -136,28 +501,59 @@
                 }
               }
             }
-          },
-          "429": {
-            "description": "Quota exceeded",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
           }
+        },
+        "x-free-quota": 100,
+        "x-price": {
+          "sku": "recallguard-feed",
+          "amount": "0.05",
+          "asset": "USDC",
+          "unit": "call",
+          "offers_status": "live",
+          "source": "https://nanoempireai.com/offers.json",
+          "as_of": "2026-09-27"
+        },
+        "x-402": {
+          "paper_mode": true,
+          "enforced": "after 100 free calls (not exercised 2026-09-27)",
+          "observed": "200 within free quota; 402 after quota not exercised in this check",
+          "observed_on": "2026-09-27",
+          "asset": "USDC",
+          "network": "eip155:8453",
+          "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+          "chains": [
+            "eip155:1",
+            "eip155:8453",
+            "eip155:42161",
+            "eip155:10",
+            "eip155:137",
+            "solana:mainnet"
+          ],
+          "receipt": "none: no paid machine transaction has been verified"
         }
       }
     },
-    "/v1/recallguard/match": {
+    "/v1/match": {
+      "servers": [
+        {
+          "url": "http://147.5.105.20:8420",
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+        }
+      ],
       "post": {
-        "summary": "Match inventory against recall feed",
-        "operationId": "matchInventory",
-        "parameters": [
+        "tags": [
+          "RecallGuard"
+        ],
+        "summary": "RecallGuard match, secondary server (body key: inventory)",
+        "operationId": "rgMatchSecondary",
+        "security": [
+          {},
           {
-            "$ref": "#/components/parameters/TrialTokenHeader"
-          },
+            "x402": []
+          }
+        ],
+        "parameters": [
           {
             "$ref": "#/components/parameters/XPaymentHeader"
           }
@@ -183,18 +579,8 @@
               }
             }
           },
-          "402": {
-            "description": "Payment required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentRequiredResponse"
-                }
-              }
-            }
-          },
           "400": {
-            "description": "Invalid request",
+            "description": "inventory_required",
             "content": {
               "application/json": {
                 "schema": {
@@ -202,14 +588,102 @@
                 }
               }
             }
+          },
+          "402": {
+            "description": "Payment Required (x402 v1 challenge)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentRequiredResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-free-quota": 100,
+        "x-price": {
+          "sku": "recallguard-match",
+          "amount": "0.1",
+          "asset": "USDC",
+          "unit": "call",
+          "offers_status": "live",
+          "source": "https://nanoempireai.com/offers.json",
+          "as_of": "2026-09-27"
+        },
+        "x-402": {
+          "paper_mode": true,
+          "enforced": "after 100 free calls (not exercised 2026-09-27)",
+          "observed": "200 within free quota; 402 after quota not exercised in this check",
+          "observed_on": "2026-09-27",
+          "asset": "USDC",
+          "network": "eip155:8453",
+          "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+          "chains": [
+            "eip155:8453",
+            "eip155:42161"
+          ],
+          "receipt": "none: no paid machine transaction has been verified"
+        }
+      }
+    },
+    "/v1/delta": {
+      "servers": [
+        {
+          "url": "http://147.5.105.20:8420",
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+        }
+      ],
+      "get": {
+        "tags": [
+          "RecallGuard"
+        ],
+        "summary": "Recalls changed since a date, secondary server. No offers.json SKU, so no price hint.",
+        "operationId": "rgDeltaSecondary",
+        "security": [],
+        "parameters": [
+          {
+            "name": "since",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delta (count = total matching; body returns first 100)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeltaResponse"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/v1/recallguard/webhook": {
+    "/v1/webhook": {
+      "servers": [
+        {
+          "url": "http://147.5.105.20:8420",
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+        }
+      ],
       "post": {
-        "summary": "Register webhook for recall notifications (planned)",
-        "operationId": "registerWebhook",
+        "tags": [
+          "RecallGuard"
+        ],
+        "summary": "Register a recall webhook, secondary server (paywalled; offers.json status: planned)",
+        "operationId": "rgWebhookSecondary",
+        "security": [
+          {
+            "x402": []
+          }
+        ],
         "parameters": [
           {
             "$ref": "#/components/parameters/XPaymentHeader"
@@ -226,18 +700,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "Webhook registered",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebhookResponse"
-                }
-              }
-            }
-          },
           "402": {
-            "description": "Payment required",
+            "description": "Payment Required. Observed 2026-09-27: x402 v1 accepts on eip155:1, 8453, 42161, 10, 137, maxAmountRequired 20000 (0.02 USDC).",
             "content": {
               "application/json": {
                 "schema": {
@@ -246,121 +710,178 @@
               }
             }
           },
-          "501": {
-            "description": "Not implemented",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
+          "200": {
+            "description": "Registered after payment (not verified: no payment made)"
           }
+        },
+        "x-price": {
+          "sku": "recallguard-webhook",
+          "amount": "0.02",
+          "asset": "USDC",
+          "unit": "event",
+          "offers_status": "planned",
+          "source": "https://nanoempireai.com/offers.json",
+          "as_of": "2026-09-27"
+        },
+        "x-402": {
+          "paper_mode": true,
+          "enforced": true,
+          "observed": "402 x402 v1 challenge, 0.02 USDC",
+          "observed_on": "2026-09-27",
+          "asset": "USDC",
+          "network": "eip155:8453",
+          "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+          "chains": [
+            "eip155:1",
+            "eip155:8453"
+          ],
+          "receipt": "none: no paid machine transaction has been verified",
+          "challenge_format": "x402 v1 (scheme exact)"
         }
       }
     },
-    "/v1/skillproof/verify": {
+    "/v1/triage": {
+      "servers": [
+        {
+          "url": "http://147.5.105.20:8405",
+          "description": "SkillProof quote box (skillproof-quote-box 2.1.0), plain HTTP. POST /v1/triage answers 200 without payment; POST /v1/audit answers 402 with an L402-style placeholder challenge (not x402)."
+        }
+      ],
       "post": {
-        "summary": "Request SkillProof verification (x402)",
-        "operationId": "requestVerification",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/XPaymentHeader"
-          }
+        "tags": [
+          "SkillProof"
         ],
+        "summary": "SkillProof triage (quote box). Answers 200 without payment; paywall not enforced.",
+        "operationId": "skillproofTriage",
+        "security": [],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/VerificationRequest"
+                "$ref": "#/components/schemas/TriageRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Verification queued",
+            "description": "Triage result (observed unpaid 2026-09-27)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VerificationResponse"
+                  "$ref": "#/components/schemas/TriageResponse"
                 }
               }
             }
           },
-          "402": {
-            "description": "Payment required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentRequiredResponse"
-                }
-              }
-            }
+          "422": {
+            "description": "Validation error"
           }
+        },
+        "x-price": {
+          "sku": "skillproof-triage-x402",
+          "amount": "0.01",
+          "asset": "USDC",
+          "unit": "call",
+          "offers_status": "planned",
+          "source": "https://nanoempireai.com/offers.json",
+          "as_of": "2026-09-27"
+        },
+        "x-402": {
+          "paper_mode": true,
+          "enforced": false,
+          "observed": "200 returned without any payment; no 402 challenge issued",
+          "observed_on": "2026-09-27",
+          "asset": "USDC",
+          "network": "eip155:8453",
+          "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+          "chains": [
+            "eip155:1",
+            "eip155:8453",
+            "eip155:42161",
+            "eip155:10",
+            "eip155:137",
+            "solana:mainnet"
+          ],
+          "receipt": "none: no paid machine transaction has been verified"
         }
       }
     },
-    "/v1/wallet/topup": {
+    "/v1/audit": {
+      "servers": [
+        {
+          "url": "http://147.5.105.20:8405",
+          "description": "SkillProof quote box (skillproof-quote-box 2.1.0), plain HTTP. POST /v1/triage answers 200 without payment; POST /v1/audit answers 402 with an L402-style placeholder challenge (not x402)."
+        }
+      ],
       "post": {
-        "summary": "Top up credits via x402 payment",
-        "operationId": "topupWallet",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/XPaymentHeader"
-          }
+        "tags": [
+          "SkillProof"
         ],
+        "summary": "SkillProof audit (quote box). Answers 402 with an L402-style placeholder challenge, not x402. Paid delivery unverified.",
+        "operationId": "skillproofAudit",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TopupRequest"
+                "$ref": "#/components/schemas/AuditRequest"
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "description": "Credits added",
+          "402": {
+            "description": "Payment Required (L402-style placeholder invoice/macaroon; price_usdc 0.5)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TopupResponse"
+                  "$ref": "#/components/schemas/L402StyleChallenge"
                 }
               }
             }
           },
-          "402": {
-            "description": "Payment required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentRequiredResponse"
-                }
-              }
-            }
+          "422": {
+            "description": "Validation error"
           }
+        },
+        "x-price": {
+          "sku": "skillproof-deep-scan",
+          "amount": "0.5",
+          "asset": "USDC",
+          "unit": "call",
+          "offers_status": "planned",
+          "source": "https://nanoempireai.com/offers.json",
+          "as_of": "2026-09-27",
+          "sku_mapping": "inferred: quote box audit_usdc 0.50 = offers.json skillproof-deep-scan 0.5 USDC; confirm"
+        },
+        "x-402": {
+          "paper_mode": true,
+          "enforced": true,
+          "observed": "402 with L402-style placeholder body; not an x402 accepts array",
+          "observed_on": "2026-09-27",
+          "asset": "USDC",
+          "network": "eip155:8453",
+          "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+          "chains": [
+            "eip155:1",
+            "eip155:8453",
+            "eip155:42161",
+            "eip155:10",
+            "eip155:137",
+            "solana:mainnet"
+          ],
+          "receipt": "none: no paid machine transaction has been verified",
+          "challenge_format": "non-x402 (L402-style placeholder)"
         }
       }
     }
   },
   "components": {
-    "securitySchemes": {
-      "x402": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "x402",
-        "description": "x402 payment header (X-PAYMENT)"
-      },
-      "trialToken": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "description": "Free trial token from /v1/trial"
-      }
-    },
     "schemas": {
       "HealthResponse": {
         "type": "object",
@@ -385,56 +906,6 @@
           },
           "x402_configured": {
             "type": "boolean"
-          }
-        }
-      },
-      "TrialRequest": {
-        "type": "object",
-        "required": [
-          "agent_id"
-        ],
-        "properties": {
-          "agent_id": {
-            "type": "string",
-            "description": "Unique agent identifier (e.g., openclaw-agent-1)"
-          },
-          "client": {
-            "type": "string",
-            "description": "Client framework (openclaw, cursor, custom)",
-            "default": "unknown"
-          },
-          "metadata": {
-            "type": "object",
-            "additionalProperties": true
-          }
-        }
-      },
-      "TrialResponse": {
-        "type": "object",
-        "properties": {
-          "ok": {
-            "type": "boolean"
-          },
-          "trial_token": {
-            "type": "string",
-            "description": "Bearer token for Authorization header"
-          },
-          "credits": {
-            "type": "integer",
-            "default": 50,
-            "description": "Free calls included"
-          },
-          "expires_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Token expiration (24 hours)"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Available endpoints"
           }
         }
       },
@@ -656,135 +1127,8 @@
               "serious"
             ]
           }
-        }
-      },
-      "WebhookResponse": {
-        "type": "object",
-        "properties": {
-          "ok": {
-            "type": "boolean"
-          },
-          "status": {
-            "type": "string"
-          },
-          "webhook_id": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "events": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "note": {
-            "type": "string"
-          }
-        }
-      },
-      "VerificationRequest": {
-        "type": "object",
-        "required": [
-          "target"
-        ],
-        "properties": {
-          "target": {
-            "type": "string",
-            "description": "MCP server identifier (e.g., @modelcontextprotocol/server-fetch)"
-          },
-          "sku": {
-            "type": "string",
-            "enum": [
-              "sprint",
-              "standard",
-              "rush"
-            ],
-            "default": "sprint"
-          },
-          "metadata": {
-            "type": "object",
-            "additionalProperties": true
-          }
-        }
-      },
-      "VerificationResponse": {
-        "type": "object",
-        "properties": {
-          "ok": {
-            "type": "boolean"
-          },
-          "verification_id": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "queued",
-              "running",
-              "completed",
-              "failed"
-            ]
-          },
-          "estimated_completion": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "TopupRequest": {
-        "type": "object",
-        "required": [
-          "amount_usdc"
-        ],
-        "properties": {
-          "amount_usdc": {
-            "type": "number",
-            "minimum": 1,
-            "description": "USDC amount to add (minimum 1 USDC)"
-          },
-          "network": {
-            "type": "string",
-            "enum": [
-              "base",
-              "ethereum",
-              "arbitrum",
-              "optimism",
-              "polygon",
-              "solana"
-            ],
-            "default": "base"
-          }
-        }
-      },
-      "TopupResponse": {
-        "type": "object",
-        "properties": {
-          "ok": {
-            "type": "boolean"
-          },
-          "credits_added": {
-            "type": "integer"
-          },
-          "new_balance": {
-            "type": "integer"
-          },
-          "receipt": {
-            "type": "object",
-            "properties": {
-              "tx_hash": {
-                "type": "string"
-              },
-              "chain": {
-                "type": "string"
-              },
-              "amount_usdc": {
-                "type": "number"
-              }
-            }
-          }
-        }
+        },
+        "description": "8420 request body not verified beyond the 402 challenge."
       },
       "PaymentRequiredResponse": {
         "type": "object",
@@ -834,19 +1178,327 @@
             }
           }
         }
+      },
+      "VercelRecall": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "examples": [
+              "fda-food-F-1671-2024"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "cpsc",
+              "fda-food",
+              "fda-drug",
+              "fda-device"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "product_description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "product_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "brand": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "CPSC: parsed from the recall title. FDA: not provided by openFDA (null)."
+          },
+          "firm": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "CPSC manufacturer/importer/distributor; FDA recalling_firm."
+          },
+          "upcs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "12-13 digit UPC/EAN/GTIN codes extracted from the official record text."
+          },
+          "hazard": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "CPSC hazard text or FDA reason_for_recall."
+          },
+          "injuries": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "CPSC reported incidents/injuries text."
+          },
+          "classification": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "Class I",
+              "Class II",
+              "Class III",
+              null
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "serious",
+              "standard",
+              "class-i",
+              "class-ii",
+              "class-iii",
+              "unclassified"
+            ],
+            "description": "FDA: derived from classification. CPSC: \"serious\" if the injuries/incidents text mentions injuries or deaths, else \"standard\"."
+          },
+          "recall_date": {
+            "type": "string",
+            "format": "date",
+            "description": "CPSC RecallDate; FDA enforcement report_date."
+          },
+          "recall_initiation_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "status": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "units": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "description": "CPSC recall page, or the openFDA API query for this recall number."
+          },
+          "source_record": {
+            "type": "string"
+          }
+        }
+      },
+      "VercelMatch": {
+        "type": "object",
+        "properties": {
+          "recall_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "match_type": {
+            "type": "string",
+            "enum": [
+              "upc_exact",
+              "token"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "classification": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "firm": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "recall_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "hazard": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "VercelError": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "QuoteBoxHealth": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "service": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "triage": {
+            "type": "string"
+          },
+          "triage_usdc": {
+            "type": "string"
+          },
+          "audit": {
+            "type": "string"
+          },
+          "audit_usdc": {
+            "type": "string"
+          }
+        }
+      },
+      "TriageRequest": {
+        "type": "object",
+        "required": [
+          "name",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "TriageResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "triage_id": {
+            "type": "string"
+          },
+          "risk_level": {
+            "type": "string"
+          },
+          "triage_fee_usdc": {
+            "type": "number"
+          }
+        }
+      },
+      "AuditRequest": {
+        "type": "object",
+        "required": [
+          "intended_action"
+        ],
+        "properties": {
+          "intended_action": {
+            "type": "string"
+          }
+        }
+      },
+      "L402StyleChallenge": {
+        "type": "object",
+        "description": "Observed 2026-09-27 on the quote box. Invoice and macaroon values are placeholders, not payable.",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "invoice": {
+            "type": "string"
+          },
+          "price_usdc": {
+            "type": "number"
+          },
+          "macaroon": {
+            "type": "string"
+          }
+        }
+      },
+      "DeltaResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "since": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "description": "Total recalls matching since (body returns at most 100)"
+          },
+          "recalls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Recall"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "x402": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-PAYMENT",
+        "description": "x402 payment payload header. paper_mode: no payment has been accepted yet."
       }
     },
     "parameters": {
-      "TrialTokenHeader": {
-        "name": "Authorization",
-        "in": "header",
-        "description": "Trial token from /v1/trial (Bearer <token>)",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "pattern": "^Bearer .+"
-        }
-      },
       "XPaymentHeader": {
         "name": "X-PAYMENT",
         "in": "header",
@@ -866,10 +1518,6 @@
     {
       "name": "SkillProof",
       "description": "Behavioral verification for MCP servers"
-    },
-    {
-      "name": "Wallet",
-      "description": "Credit management and x402 top-ups"
     },
     {
       "name": "System",
