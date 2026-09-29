@@ -1,15 +1,15 @@
 # Nano Empire AI - Machine-to-Machine (M2M) Capabilities
 
 > Nano Empire AI sells signed behavioral proof of agent skills and MCP servers (SkillProof) and metered machine APIs (RecallGuard US recall data). Prices are published for HTTP 402 / x402 settlement in USDC.
-> Status as of 2026-09-27: paper_mode = true. No paid machine transaction or receipt has been verified yet. Every endpoint URL below answered on 2026-09-27: HTTP 200, or 402 where marked as a paywall. Server base URLs are prefixes, not endpoints.
+> Status as of 2026-09-29: paper_mode = true. No paid machine transaction or receipt has been verified yet. Every endpoint URL below answered on 2026-09-29: HTTP 200, or 402 where marked as a paywall. Server base URLs are prefixes, not endpoints.
 
 ## Servers (in order)
 1. **RecallGuard primary**: `https://recallguard-api.vercel.app` (HTTPS, open access, endpoints under `/api/v1`; human docs at /docs)
 2. **RecallGuard secondary**: host 147.5.105.20 port 8420, plain HTTP, DEBUG build, x402 configured, 100 free calls (health: `http://147.5.105.20:8420/health`)
 3. **SkillProof quote box**: host 147.5.105.20 port 8405, plain HTTP (health: `http://147.5.105.20:8405/health`)
-4. **api.nanoempireai.com**: `/v1/*` not deployed (404) as of 2026-09-27. Do not call it for RecallGuard, trial, or SkillProof.
+4. **api.nanoempireai.com**: `/v1/*` not deployed (404) as of 2026-09-29. Do not call it for RecallGuard, trial, or SkillProof.
 
-## Status (2026-09-27)
+## Status (2026-09-29)
 | Product | Status |
 |---------|--------|
 | RecallGuard feed + match | available (paper mode, no paid receipt) |
@@ -24,68 +24,72 @@
 - No trial-token endpoint is deployed.
 
 ## Pricing (from https://nanoempireai.com/offers.json)
-| SKU | Price | Rail | Chains (offers.json) | offers.json status | Verified 2026-09-27 |
+| SKU | Price | Rail | Chains (offers.json) | offers.json status | Verified 2026-09-29 |
 |-----|-------|------|----------------------|--------------------|---------------------|
-| recallguard-feed | $0.05/call | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | live | available, paper mode |
-| recallguard-match | $0.10/call | x402 USDC | Base, Arb | live | available, paper mode |
+| recallguard-feed | $0.05/call | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | planned | available, paper mode |
+| recallguard-match | $0.10/call | x402 USDC | Base, Arb | planned | available, paper mode |
 | recallguard-webhook | $0.02/event | x402 USDC | Eth, Base | planned | 402 challenge only (secondary server) |
-| irv-advisory-single | $500 | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | live | building |
-| irv-feed-subscription | $200/mo | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | live | building |
+| irv-advisory-single | $500 | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | building | building |
+| irv-feed-subscription | $200/mo | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | building | building |
 | irv-webhook | $0.05/event | x402 USDC | Eth, Base | planned | not deployed |
 | irv-corpus-access | $5,000 | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | building | not deployed |
 | mini-report | $50 | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | planned | not deployed |
 | seller-screening | $29/mo | x402 USDC | Base, Eth | planned | not deployed |
 | skillproof-triage-x402 | $0.01/call | x402 USDC | Eth, Base, Arb, Opt, Poly, Sol | planned | quote box answers unpaid |
-| skillproof-sprint | $500 CAD | Stripe | Stripe | planned | human / Stripe |
+| skillproof-sprint | $500 CAD | Stripe | Stripe | live | human / Stripe |
 
 **Network Parameters (Base USDC):**
 - `network`: `eip155:8453`
 - `asset`: `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`
 - `payTo`: `0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01`
 
-## Endpoints That Answer Today
+## x402 Example Interaction
 
-### RecallGuard, primary (21,812 recalls, CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24)
-- `GET https://recallguard-api.vercel.app/api/v1/health`: dataset count and build time
-- `GET https://recallguard-api.vercel.app/api/v1/feed?source=cpsc`: paginated feed (`since`, `until`, `source`, `severity`, `limit`, `cursor`)
-- `POST https://recallguard-api.vercel.app/api/v1/match`: body `{"items":[{"name":"stroller","brand":"Graco"}]}`
-- Spec: `https://recallguard-api.vercel.app/openapi.json`
+1. **Agent** discovers spec:
+   `GET https://nanoempireai.com/openapi.json`
 
-### RecallGuard, secondary (older, smaller dataset snapshot than primary)
-- `GET http://147.5.105.20:8420/health`
-- `GET http://147.5.105.20:8420/v1/feed`: free tier, counts against the 100 free calls
-- `POST http://147.5.105.20:8420/v1/match`: body `{"inventory":[{"item":"stroller","brand":"Graco"}]}`
-- `GET http://147.5.105.20:8420/v1/delta`: recalls since a date (`since=YYYY-MM-DD`)
-- `POST http://147.5.105.20:8420/v1/webhook`: returns an x402 v1 402 challenge ($0.02, recallguard-webhook, offers.json status planned)
+2. **Agent** claims trial:
+   ```http
+   POST /v1/trial
+   Content-Type: application/json
+   {"agent_id": "my_shopping_bot", "client": "openclaw"}
 
-### SkillProof quote box
-- `GET http://147.5.105.20:8405/health`
-- `POST http://147.5.105.20:8405/v1/triage`: body `{"name":"...","description":"..."}`; listed at $0.01, answered 200 without payment
-- `POST http://147.5.105.20:8405/v1/audit`: body `{"intended_action":"..."}`; listed at $0.50, answers 402 with an L402-style placeholder; unverified
+   → 200 OK {"trial_token": "trial_abc123...", "credits": 50}
+   ```
 
-## Observed 402 Challenge (secondary server, 2026-09-27, Base entry shown)
-```http
-POST http://147.5.105.20:8420/v1/webhook
-HTTP/1.1 402 Payment Required
-{
-  "x402Version": 1,
-  "error": "Payment Required",
-  "accepts": [{
-    "scheme": "exact",
-    "network": "eip155:8453",
-    "maxAmountRequired": "20000",
-    "resource": "/v1/webhook",
-    "description": "RecallGuard Webhook Registration",
-    "mimeType": "application/json",
-    "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
-    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "maxTimeoutSeconds": 60
-  }]
-}
-```
-paper_mode: no payment has been accepted and no receipt exists yet.
+3. **Agent** executes free call:
+   ```http
+   POST /v1/recallguard/match
+   Authorization: Bearer trial_abc123...
+   Content-Type: application/json
+   {"items": [{"item": "Power Bank", "brand": "Anker"}]}
 
-## Not Deployed (as of 2026-09-27)
+   → 200 OK {"tier": "trial", "matches": [...]}
+   ```
+
+3. **Agent** exhausts credits → 402 Challenge:
+   ```http
+   HTTP/1.1 402 Payment Required
+   {
+     "x402Version": 1,
+     "error": "Payment Required",
+     "accepts": [{
+       "scheme": "exact",
+       "network": "eip155:8453",
+       "maxAmountRequired": "50000",
+       "resource": "/v1/recallguard/feed",
+       "description": "RecallGuard Feed",
+       "mimeType": "application/json",
+       "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+       "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+       "maxTimeoutSeconds": 60
+     }]
+   }
+   ```
+
+4. **Agent** pays via x402 (Base USDC) → gets receipt → continues.
+
+## Not Deployed (as of 2026-09-29)
 - api.nanoempireai.com `/v1/*`: trial, recallguard, skillproof verify, wallet top-up (all 404)
 - IRV advisory, feed, webhook, corpus: building
 - Trial-token onramp, usage/billing/receipt endpoints: not deployed on any listed server
@@ -98,7 +102,7 @@ paper_mode: no payment has been accepted and no receipt exists yet.
 - **Offers Catalog**: `https://nanoempireai.com/offers.json`
 - **A2A Agent Card**: `https://nanoempireai.com/.well-known/agent-card.json` (unsigned; discovery only, A2A task endpoint not implemented)
 - **MCP Manifest**: `https://nanoempireai.com/mcp-manifest.json`
-- A mirror of the agent card is staged for the path /agents.json (not deployed as of 2026-09-27).
+- A mirror of the agent card is staged for the path /agents.json (not deployed as of 2026-09-29).
 
 ## Contact
 - security@nanoempireai.com
