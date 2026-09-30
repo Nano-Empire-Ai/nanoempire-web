@@ -3,24 +3,24 @@
   "info": {
     "title": "Nano Empire AI — Machine-Native APIs",
     "version": "1.1.0-staged",
-    "description": "Machine APIs for autonomous agents: RecallGuard (US recall feed + inventory match) and the SkillProof quote box. Status as of 2026-09-27: paper mode. Prices come from https://nanoempireai.com/offers.json and are published for x402 (USDC); no paid machine transaction or receipt exists yet. Each path lists the server that answers it. IRV is building (no public 200 endpoint). api.nanoempireai.com /v1/* is not deployed. Flow: discover, free calls, 402, receipt.",
+    "description": "Discovery copy of the RecallGuard machine API as of 2026-09-30. GET /api/v1/health is free. GET /api/v1/feed and POST /api/v1/match on https://recallguard-api.vercel.app return HTTP 402 until paid (Base USDC, network string base). One Match self-test settled on 2026-09-29, block 51961194, operator wallets only. Feed has no settled receipt. There is no trial token. If this file disagrees with a live 402 body, trust the 402 body. The authoritative spec is https://recallguard-api.vercel.app/openapi.json.",
     "contact": {
       "name": "Nano Empire AI",
       "url": "https://nanoempireai.com",
       "email": "security@nanoempireai.com"
     },
-    "x-paper-mode": true,
-    "x-receipt-note": "No paid receipt exists yet: no first machine transaction has been verified on the ledger (2026-09-27).",
-    "x-verified-on": "2026-09-27"
+    "x-paper-mode": false,
+    "x-receipt-note": "One RecallGuard Match self-test settled on Base on 2026-09-29 (block 51961194, tx 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999). Operator wallets only. Feed has no settled receipt. Sprint has no collected charge verified here.",
+    "x-verified-on": "2026-09-30"
   },
   "servers": [
     {
       "url": "https://recallguard-api.vercel.app",
-      "description": "PRIMARY RecallGuard server. HTTPS, open access (no paywall enforced as of 2026-09-27), 21,812 recalls (CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24). Endpoints under /api/v1. Human docs: /docs."
+      "description": "PRIMARY RecallGuard server. HTTPS. Health is free. Feed ($0.05) and match ($0.10) return HTTP 402 until paid. Challenge network string is base. 21,812 records, 2023-01-04 to 2026-09-24. One match self-test settled 2026-09-29. Feed has no settled receipt. Docs: https://recallguard-docs.vercel.app."
     },
     {
       "url": "http://147.5.105.20:8420",
-      "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+      "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30. Dataset is an older, smaller snapshot than the primary."
     },
     {
       "url": "http://147.5.105.20:8405",
@@ -42,7 +42,7 @@
       "servers": [
         {
           "url": "http://147.5.105.20:8420",
-          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30. Dataset is an older, smaller snapshot than the primary."
         },
         {
           "url": "http://147.5.105.20:8405",
@@ -88,7 +88,7 @@
       "servers": [
         {
           "url": "https://recallguard-api.vercel.app",
-          "description": "PRIMARY RecallGuard server. HTTPS, open access (no paywall enforced as of 2026-09-27), 21,812 recalls (CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24). Endpoints under /api/v1. Human docs: /docs."
+          "description": "PRIMARY RecallGuard server. HTTPS. Health is free. Feed ($0.05) and match ($0.10) return HTTP 402 until paid. Challenge network string is base. 21,812 records, 2023-01-04 to 2026-09-24. One match self-test settled 2026-09-29. Feed has no settled receipt. Docs: https://recallguard-docs.vercel.app."
         }
       ],
       "get": {
@@ -142,7 +142,7 @@
       "servers": [
         {
           "url": "https://recallguard-api.vercel.app",
-          "description": "PRIMARY RecallGuard server. HTTPS, open access (no paywall enforced as of 2026-09-27), 21,812 recalls (CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24). Endpoints under /api/v1. Human docs: /docs."
+          "description": "PRIMARY RecallGuard server. HTTPS. Health is free. Feed ($0.05) and match ($0.10) return HTTP 402 until paid. Challenge network string is base. 21,812 records, 2023-01-04 to 2026-09-24. One match self-test settled 2026-09-29. Feed has no settled receipt. Docs: https://recallguard-docs.vercel.app."
         }
       ],
       "get": {
@@ -266,28 +266,23 @@
           "amount": "0.05",
           "asset": "USDC",
           "unit": "call",
-          "offers_status": "live",
+          "offers_status": "planned",
           "source": "https://nanoempireai.com/offers.json",
           "as_of": "2026-09-27"
         },
         "x-402": {
           "paper_mode": true,
-          "enforced": false,
-          "observed": "200 open; no 402 paywall on this server",
-          "observed_on": "2026-09-27",
+          "enforced": true,
+          "observed": "HTTP 402 on 2026-09-30. network string base. maxAmountRequired 50000.",
+          "observed_on": "2026-09-30",
           "asset": "USDC",
-          "network": "eip155:8453",
+          "network": "base",
           "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
           "chains": [
-            "eip155:1",
-            "eip155:8453",
-            "eip155:42161",
-            "eip155:10",
-            "eip155:137",
-            "solana:mainnet"
+            "eip155:8453"
           ],
-          "receipt": "none: no paid machine transaction has been verified"
+          "receipt": "none for feed"
         }
       }
     },
@@ -295,7 +290,7 @@
       "servers": [
         {
           "url": "https://recallguard-api.vercel.app",
-          "description": "PRIMARY RecallGuard server. HTTPS, open access (no paywall enforced as of 2026-09-27), 21,812 recalls (CPSC + openFDA food/drug/device, 2023-01-04 to 2026-09-24). Endpoints under /api/v1. Human docs: /docs."
+          "description": "PRIMARY RecallGuard server. HTTPS. Health is free. Feed ($0.05) and match ($0.10) return HTTP 402 until paid. Challenge network string is base. 21,812 records, 2023-01-04 to 2026-09-24. One match self-test settled 2026-09-29. Feed has no settled receipt. Docs: https://recallguard-docs.vercel.app."
         }
       ],
       "post": {
@@ -438,22 +433,21 @@
           "unit": "call",
           "offers_status": "live",
           "source": "https://nanoempireai.com/offers.json",
-          "as_of": "2026-09-27"
+          "as_of": "2026-09-30"
         },
         "x-402": {
-          "paper_mode": true,
-          "enforced": false,
-          "observed": "200 open; no 402 paywall on this server",
-          "observed_on": "2026-09-27",
+          "paper_mode": false,
+          "enforced": true,
+          "observed": "HTTP 402 on 2026-09-30. network string base. maxAmountRequired 100000. One self-test settled.",
+          "observed_on": "2026-09-30",
           "asset": "USDC",
-          "network": "eip155:8453",
+          "network": "base",
           "assetAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
           "chains": [
-            "eip155:8453",
-            "eip155:42161"
+            "eip155:8453"
           ],
-          "receipt": "none: no paid machine transaction has been verified"
+          "receipt": "self-test only: tx 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999, Base block 51961194, operator wallets, not an outside payer"
         }
       }
     },
@@ -461,14 +455,14 @@
       "servers": [
         {
           "url": "http://147.5.105.20:8420",
-          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30. Dataset is an older, smaller snapshot than the primary."
         }
       ],
       "get": {
         "tags": [
           "RecallGuard"
         ],
-        "summary": "RecallGuard feed, secondary server (free tier, 100 free calls)",
+        "summary": "RecallGuard feed, secondary server (free tier, a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30)",
         "operationId": "rgFeedSecondary",
         "security": [
           {},
@@ -509,13 +503,13 @@
           "amount": "0.05",
           "asset": "USDC",
           "unit": "call",
-          "offers_status": "live",
+          "offers_status": "planned",
           "source": "https://nanoempireai.com/offers.json",
           "as_of": "2026-09-27"
         },
         "x-402": {
           "paper_mode": true,
-          "enforced": "after 100 free calls (not exercised 2026-09-27)",
+          "enforced": "after a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30 (not exercised 2026-09-27)",
           "observed": "200 within free quota; 402 after quota not exercised in this check",
           "observed_on": "2026-09-27",
           "asset": "USDC",
@@ -538,7 +532,7 @@
       "servers": [
         {
           "url": "http://147.5.105.20:8420",
-          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30. Dataset is an older, smaller snapshot than the primary."
         }
       ],
       "post": {
@@ -606,13 +600,13 @@
           "amount": "0.1",
           "asset": "USDC",
           "unit": "call",
-          "offers_status": "live",
+          "offers_status": "planned",
           "source": "https://nanoempireai.com/offers.json",
           "as_of": "2026-09-27"
         },
         "x-402": {
           "paper_mode": true,
-          "enforced": "after 100 free calls (not exercised 2026-09-27)",
+          "enforced": "after a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30 (not exercised 2026-09-27)",
           "observed": "200 within free quota; 402 after quota not exercised in this check",
           "observed_on": "2026-09-27",
           "asset": "USDC",
@@ -631,7 +625,7 @@
       "servers": [
         {
           "url": "http://147.5.105.20:8420",
-          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30. Dataset is an older, smaller snapshot than the primary."
         }
       ],
       "get": {
@@ -670,7 +664,7 @@
       "servers": [
         {
           "url": "http://147.5.105.20:8420",
-          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, 100 free calls. Dataset is an older, smaller snapshot than the primary."
+          "description": "SECONDARY RecallGuard server: plain HTTP, DEBUG (recallguard-api 0.1.0-DEBUG), x402 configured, a free-call quota recorded on 2026-09-27 and not rechecked on 2026-09-30. Dataset is an older, smaller snapshot than the primary."
         }
       ],
       "post": {
@@ -1495,7 +1489,7 @@
         "type": "apiKey",
         "in": "header",
         "name": "X-PAYMENT",
-        "description": "x402 payment payload header. paper_mode: no payment has been accepted yet."
+        "description": "x402 payment payload header. One Match self-test has settled. Feed has not. This header is not a bearer trial token."
       }
     },
     "parameters": {

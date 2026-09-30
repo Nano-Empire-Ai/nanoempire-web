@@ -122,7 +122,7 @@ export function InteractiveTollboothPlayground() {
         <div className="px-5 py-3 border-b border-[#8C92A4]/20 bg-black/60 flex flex-wrap items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2 text-[#F4F1EA]">
             <Terminal size={14} className="text-[#FF7B00]" />
-            <span className="font-bold">LIVE_MACHINE_CONSOLE</span>
+            <span className="font-bold">SIMULATED_CONSOLE</span>
           </div>
 
           <div className="flex items-center gap-2">

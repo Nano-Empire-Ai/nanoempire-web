@@ -1,6 +1,6 @@
 {
   "name": "Nano Empire AI",
-  "description": "Signed behavioral proof of agent skills and MCP servers (SkillProof), plus metered machine APIs (RecallGuard recall data) priced for HTTP 402 / USDC settlement. Discovery only: A2A task endpoint not implemented; call the REST APIs in https://nanoempireai.com/openapi.json. Unsigned card. paper_mode: true, no paid machine transaction verified as of 2026-09-27. Server order: 1) https://recallguard-api.vercel.app (primary RecallGuard, HTTPS, open); 2) 147.5.105.20 port 8420 (secondary RecallGuard, plain HTTP, DEBUG, x402 configured, 100 free calls); 3) 147.5.105.20 port 8405 (SkillProof quote box, plain HTTP); 4) api.nanoempireai.com (/v1/* not deployed, 404, as of 2026-09-27). Flow: discover, free calls, 402, receipt.",
+  "description": "SkillProof human checkout plus RecallGuard metered recall data. Unsigned discovery card. RecallGuard host https://recallguard-api.vercel.app returns HTTP 402 for feed and match on Base. One Match self-test settled 2026-09-29 (block 51961194, operator wallets, not an outside customer). Feed has no settled receipt. No trial token. Port 8405 is the quote box, not the RecallGuard ledger. api.nanoempireai.com is not the RecallGuard API.",
   "supportedInterfaces": [
     {
       "url": "https://recallguard-api.vercel.app/api/v1",
@@ -21,17 +21,19 @@
     "extensions": [
       {
         "uri": "https://github.com/google-agentic-commerce/a2a-x402",
-        "description": "x402 payment terms for paid skills. paper_mode: true until a first machine payment is verified on the ledger. No paid receipt exists yet.",
+        "description": "x402 payment terms. One RecallGuard Match self-test settled on Base on 2026-09-29. Operator wallets only. Feed has no settled receipt.",
         "required": false,
         "params": {
-          "paper_mode": true,
-          "first_machine_tx": null,
-          "network": "eip155:8453",
+          "paper_mode": false,
+          "settlement_scope": "recallguard-match self-test only",
+          "outside_customer": false,
+          "first_machine_tx": "0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999",
+          "network": "base",
           "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
           "offers": "https://nanoempireai.com/offers.json",
           "openapi": "https://nanoempireai.com/openapi.json",
-          "verified_on": "2026-09-27"
+          "verified_on": "2026-09-30"
         }
       }
     ]
@@ -46,7 +48,7 @@
     {
       "id": "recallguard-feed",
       "name": "RecallGuard feed",
-      "description": "Normalized US recall records (CPSC consumer products; openFDA food, drug, device). 21,812 records on the primary server as of 2026-09-27 (2023-01-04 to 2026-09-24). Primary: GET https://recallguard-api.vercel.app/api/v1/feed (open). Secondary: GET http://147.5.105.20:8420/v1/feed (100 free calls, then x402; older, smaller dataset snapshot). Price: 0.05 USDC per call via x402 (offers.json). Status: available (paper mode, no paid receipt).",
+      "description": "Normalized US recall records (CPSC, openFDA food, drug, device). 21,812 records on 2026-09-30 (2023-01-04 to 2026-09-24). GET https://recallguard-api.vercel.app/api/v1/feed returns HTTP 402. Price 0.05 USDC. Network string base. No settled receipt.",
       "tags": [
         "recalls",
         "cpsc",
@@ -66,7 +68,7 @@
     {
       "id": "recallguard-match",
       "name": "RecallGuard match",
-      "description": "Match a product inventory (name, brand, UPC) against the recall set; returns hits with a score. Primary: POST https://recallguard-api.vercel.app/api/v1/match with {\"items\":[...]} (open). Secondary: POST http://147.5.105.20:8420/v1/match with {\"inventory\":[...]} (100 free calls, then x402). Price: 0.1 USDC per call via x402 (offers.json). Status: available (paper mode, no paid receipt).",
+      "description": "Match inventory items against the recall set. POST https://recallguard-api.vercel.app/api/v1/match with {\"items\":[{\"name\",\"brand\",\"upc\"}]} returns HTTP 402 until paid. Price 0.1 USDC. Network string base. One self-test settled 2026-09-29, Base block 51961194, tx 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999. Operator wallets, not an outside customer.",
       "tags": [
         "recalls",
         "inventory",

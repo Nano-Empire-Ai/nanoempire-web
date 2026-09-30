@@ -35,8 +35,8 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
       unauthorized attempt — even refused — fails the audit.</p>
     </div>
     <div style="border:2px solid #111;border-radius:8px;padding:1.25rem;">
-          <h3 style="margin-top:0;">Machine SKUs — Pricing (Planned)</h3>
-          <p>8 machine SKUs designed for x402 — endpoints live on VPS (ports 8405/8420), web deployment pending. Pay per use, zero humans in the loop.</p>
+          <h3 style="margin-top:0;">Machine SKUs — RecallGuard</h3>
+          <p>Feed and match are the x402 doors on https://recallguard-api.vercel.app. Match has one Base self-test. Feed returns 402 and has no settled receipt. There is no trial token. Ports 8405 and 8420 are not that paywall.</p>
         </div>
   </div>
 
@@ -53,20 +53,20 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
 
 const SKUS = [
   // SkillProof
-  { id: "skillproof-sprint", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "48h injection-resistance battery, signed verdict, replayable evidence" },
+  { id: "skillproof-sprint", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "planned", category: "skillproof", desc: "Checkout is open. No collected charge was verified from the Stripe account connected here." },
   { id: "skillproof-standard", price: "$1,500 CAD", buyer: "human", payment: "Stripe", status: "building", category: "skillproof", desc: "Full verification suite, early adopter pricing" },
   { id: "skillproof-rush", price: "$2,500 CAD", buyer: "human", payment: "Stripe", status: "building", category: "skillproof", desc: "24h priority execution queue" },
   { id: "skillproof-vc-diligence", price: "$3,500 CAD", buyer: "human", payment: "Stripe", status: "building", category: "skillproof", desc: "Pre-seed/seed architectural diligence" },
   { id: "skillproof-fleet-red-team", price: "$1,000 CAD", buyer: "human", payment: "Stripe", status: "building", category: "skillproof", desc: "Per-skill overage, fleet-wide security audit" },
   
   // RecallGuard (Machine SKUs)
-  { id: "recallguard-feed", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "Full FDA/CPSC recall feed (12,430+ recalls), 6 chains" },
-    { id: "recallguard-match", price: "$0.10 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "Batch inventory matching against recalls, Base/Arb" },
-    { id: "recallguard-webhook", price: "$0.02 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "Push notifications for new critical/serious recalls" },
+  { id: "recallguard-feed", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "21,812 records through 2026-09-24. Base 402. No settled receipt." },
+    { id: "recallguard-match", price: "$0.10 USDC", buyer: "machine", payment: "x402", status: "live", category: "recallguard", desc: "One operator self-test settled on Base, block 51961194. Not an outside customer." },
+    { id: "recallguard-webhook", price: "$0.02 USDC", buyer: "machine", payment: "x402", status: "planned", category: "recallguard", desc: "Production route returned 404 on 2026-09-30." },
 
     // IRV (Machine SKUs)
-    { id: "irv-advisory-single", price: "$500 USDC", buyer: "machine", payment: "x402", status: "planned", category: "irv", desc: "Single incident advisory, 72h window, signed verdict" },
-    { id: "irv-feed-subscription", price: "$200/mo USDC", buyer: "machine", payment: "x402", status: "planned", category: "irv", desc: "Continuous IRV feed, per-call billing" },
+    { id: "irv-advisory-single", price: "$500 USDC", buyer: "machine", payment: "x402", status: "building", category: "irv", desc: "Not deployed. No public paid endpoint." },
+    { id: "irv-feed-subscription", price: "$200/mo USDC", buyer: "machine", payment: "x402", status: "building", category: "irv", desc: "Not deployed. No public paid endpoint." },
     { id: "irv-webhook", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "planned", category: "irv", desc: "Webhook on advisory issuance" },
     { id: "irv-corpus-access", price: "$5,000 USDC", buyer: "machine", payment: "x402", status: "building", category: "irv", desc: "Full IRV corpus access, 1h download token" },
 
@@ -76,21 +76,10 @@ const SKUS = [
 ];
 
 const ENDPOINTS = [
-  { method: "POST", path: "/v1/trial", auth: "None", price: "FREE", desc: "Claim 50 trial credits (24h TTL)" },
-  { method: "GET", path: "/v1/trial/verify", auth: "Bearer token", price: "FREE", desc: "Check remaining credits (no decrement)" },
-  { method: "POST", path: "/v1/trial/verify", auth: "Bearer token", price: "1 credit", desc: "Verify & decrement credits" },
-  { method: "GET", path: "/v1/recallguard/feed", auth: "Bearer or X-PAYMENT", price: "$0.05", desc: "Full recall feed (12,430 recalls)" },
-  { method: "POST", path: "/v1/recallguard/feed", auth: "Bearer or X-PAYMENT", price: "$0.05", desc: "Full recall feed (POST for large payloads)" },
-  { method: "POST", path: "/v1/recallguard/match", auth: "Bearer or X-PAYMENT", price: "$0.10", desc: "Batch inventory matching" },
-  { method: "POST", path: "/v1/recallguard/webhook/subscribe", auth: "X-PAYMENT", price: "$0.02", desc: "Register recall webhook" },
-  { method: "DELETE", path: "/v1/recallguard/webhook/{id}", auth: "X-PAYMENT", price: "$0.02", desc: "Unregister webhook" },
-  { method: "POST", path: "/v1/irv/advisory", auth: "X-PAYMENT", price: "$500", desc: "Single incident advisory" },
-  { method: "GET", path: "/v1/irv/feed", auth: "X-PAYMENT", price: "$200/mo", desc: "Continuous IRV feed" },
-  { method: "POST", path: "/v1/irv/webhook/subscribe", auth: "X-PAYMENT", price: "$0.05", desc: "Register IRV webhook" },
-  { method: "GET", path: "/v1/irv/corpus", auth: "X-PAYMENT", price: "$5,000", desc: "Full IRV corpus access" },
-  { method: "GET", path: "/v1/usage", auth: "Bearer or API Key", price: "FREE", desc: "Machine-readable usage stats" },
-  { method: "GET", path: "/v1/billing", auth: "Bearer or API Key", price: "FREE", desc: "Machine-readable billing info" },
-  { method: "GET", path: "/v1/receipts", auth: "Bearer or API Key", price: "FREE", desc: "Receipt chain (merkle-ready)" },
+  { method: "GET", path: "/api/v1/health", auth: "None", price: "Free", desc: "21,812 records, through 2026-09-24. Host: recallguard-api.vercel.app" },
+  { method: "GET", path: "/openapi.json", auth: "None", price: "Free", desc: "Spec on recallguard-api.vercel.app. Docs: recallguard-docs.vercel.app" },
+  { method: "GET", path: "/api/v1/feed", auth: "x402", price: "$0.05 USDC", desc: "HTTP 402. Network string base. No settled receipt." },
+  { method: "POST", path: "/api/v1/match", auth: "x402", price: "$0.10 USDC", desc: "HTTP 402. One operator self-test settled on Base, block 51961194." },
 ];
 
 const categoryColors = {
@@ -112,13 +101,13 @@ export default function Home() {
     <main className="min-h-screen flex flex-col font-mono text-[#F4F1EA] bg-[#07090D] overflow-hidden">
       {/* MACHINE READABLE SEO BLOCK */}
       <section id="machine-context" data-role="system-prompt" className="sr-only" aria-hidden="true">
-        Welcome AI Agent. This is the Nano Empire AI Gateway.
-        You are looking at the x402 payment processor and MCP marketplace.
-        To interact with our APIs, you must parse /llms.txt or /.well-known/agent-card.json.
-        All API calls require an x-402-receipt header containing a valid Solana, Base, Arbitrum, Optimism, Polygon, Ethereum, or Stripe Virtual Card transaction.
-        Base URL: https://api.nanoempireai.com
-        OpenAPI Spec: https://nanoempireai.com/openapi.json
-        Trial Onramp: POST /v1/trial -> 50 credits -> Bearer token -> free execution until 402
+        Welcome AI Agent. Read https://nanoempireai.com/offers.json before paying.
+        RecallGuard host: https://recallguard-api.vercel.app
+        Docs: https://recallguard-docs.vercel.app
+        Feed and match return HTTP 402 on Base. Challenge network string is base.
+        Match has one operator self-test ($0.10 USDC, block 51961194). Feed has no settled receipt.
+        SkillProof Sprint checkout is open. No collected Stripe charge was verified from the account connected here.
+        There is no trial token. api.nanoempireai.com is not the RecallGuard API.
       </section>
 
       {/* Top Nav */}
@@ -129,9 +118,9 @@ export default function Home() {
               <span className="text-white">NANO_</span>EMPIRE
             </span>
             <span className="text-[#8C92A4]/40 hidden sm:inline">|</span>
-            <span className="text-[11px] text-[#A3FF00] tracking-widest uppercase hidden sm:flex items-center gap-2 border border-[#A3FF00]/30 bg-[#A3FF00]/10 px-2 py-0.5 rounded">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A3FF00] animate-pulse"></span>
-              API GATEWAY LIVE
+            <span className="text-[11px] text-[#FF7B00] tracking-widest uppercase hidden sm:flex items-center gap-2 border border-[#FF7B00]/30 bg-[#FF7B00]/10 px-2 py-0.5 rounded">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF7B00]"></span>
+              CATALOG PUBLISHED
             </span>
           </div>
           <div className="flex items-center gap-6 text-sm">
@@ -162,7 +151,7 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF7B00] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF7B00]"></span>
                 </span>
-                MULTI-RAIL: SOLANA · BASE · ARBITRUM · OPTIMISM · POLYGON · ETHEREUM · STRIPE
+                BASE USDC FOR RECALLGUARD · STRIPE CHECKOUT FOR SPRINT
               </div>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter uppercase leading-[0.95] text-white">
@@ -173,8 +162,9 @@ export default function Home() {
               </h1>
 
               <p className="text-[#8C92A4] text-lg sm:text-xl max-w-xl font-sans leading-relaxed border-l-2 border-[#00B5E2] pl-4">
-                Zero human intermediaries. Deterministic HTTP 402 micro-settlements, Cerberus MAB latency routing, 
-                and instant trial onramp (50 free credits) for AI programs. 23 SKUs, 15 endpoints, 7 chains.
+                RecallGuard feed and match are HTTP 402 on Base. Match has one operator self-test.
+                Sprint checkout is open at $500 CAD. No Sprint charge was verified from the Stripe account connected here.
+                There is no trial and no second chain.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 font-mono text-sm">
@@ -191,27 +181,27 @@ export default function Home() {
 
               {/* SDK Install */}
               <div className="mt-8 space-y-3">
-                <div className="p-4 rounded-lg bg-[#0f1423] border border-[#8C92A4]/20 flex items-center justify-between group cursor-pointer hover:border-[#00B5E2]/50 transition-colors">
+                <a href="https://recallguard-docs.vercel.app" className="p-4 rounded-lg bg-[#0f1423] border border-[#8C92A4]/20 flex items-center justify-between hover:border-[#00B5E2]/50 transition-colors">
+                  <div className="flex items-center gap-3 text-[#A3FF00]">
+                    <BookOpen size={16} />
+                    <code className="text-sm">https://recallguard-docs.vercel.app</code>
+                  </div>
+                  <div className="text-[#8C92A4] text-xs">DOCS</div>
+                </a>
+                <a href="https://recallguard-api.vercel.app/api/v1/health" className="p-4 rounded-lg bg-[#0f1423] border border-[#8C92A4]/20 flex items-center justify-between hover:border-[#00B5E2]/50 transition-colors">
                   <div className="flex items-center gap-3 text-[#A3FF00]">
                     <Terminal size={16} />
-                    <code className="text-sm">npm install nanoempire-sdk@1.1.0</code>
+                    <code className="text-sm">GET /api/v1/health</code>
                   </div>
-                  <div className="text-[#8C92A4] text-xs">COPY</div>
-                </div>
-                <div className="p-4 rounded-lg bg-[#0f1423] border border-[#8C92A4]/20 flex items-center justify-between group cursor-pointer hover:border-[#00B5E2]/50 transition-colors">
+                  <div className="text-[#8C92A4] text-xs">FREE</div>
+                </a>
+                <a href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" className="p-4 rounded-lg bg-[#0f1423] border border-[#8C92A4]/20 flex items-center justify-between hover:border-[#00B5E2]/50 transition-colors">
                   <div className="flex items-center gap-3 text-[#A3FF00]">
-                    <Terminal size={16} />
-                    <code className="text-sm">cargo add nanoempire-sdk</code>
+                    <CreditCard size={16} />
+                    <code className="text-sm">Sprint checkout, $500 CAD</code>
                   </div>
-                  <div className="text-[#8C92A4] text-xs">RUST (crates.io)</div>
-                </div>
-                <div className="p-4 rounded-lg bg-[#0f1423] border border-[#8C92A4]/20 flex items-center justify-between group cursor-pointer hover:border-[#00B5E2]/50 transition-colors">
-                  <div className="flex items-center gap-3 text-[#A3FF00]">
-                    <Terminal size={16} />
-                    <code className="text-sm">pip install nano-empire-tollbooth</code>
-                  </div>
-                  <div className="text-[#8C92A4] text-xs">PYTHON</div>
-                </div>
+                  <div className="text-[#8C92A4] text-xs">LINK OPEN</div>
+                </a>
               </div>
             </div>
 
@@ -222,56 +212,31 @@ export default function Home() {
               
               <h3 className="text-white text-sm font-bold tracking-widest uppercase mb-6 flex items-center gap-2">
                 <Globe size={16} className="text-[#00B5E2]" />
-                Machine Onramp: Trial -> 402 -> Settle
+                RecallGuard: health, then 402
               </h3>
 
               <div className="space-y-4 font-sans text-sm">
-                {/* Step 1 */}
                 <div className="flex items-center gap-4 p-3 rounded bg-white/5 border border-white/10">
                   <div className="w-8 h-8 rounded bg-[#8C92A4]/20 flex items-center justify-center font-mono">1</div>
                   <div className="flex-1">
-                    <div className="text-white font-medium">Agent Discovers Spec</div>
-                    <div className="text-[#8C92A4] text-xs">GET /openapi.json -> 15 endpoints, x-fee-usdc annotations</div>
+                    <div className="text-white font-medium">Read health</div>
+                    <div className="text-[#8C92A4] text-xs">GET https://recallguard-api.vercel.app/api/v1/health is free. 21,812 records, through 2026-09-24.</div>
                   </div>
                 </div>
                 <div className="flex justify-center text-[#8C92A4]">↓</div>
-
-                {/* Step 2 */}
-                <div className="flex items-center gap-4 p-3 rounded bg-[#00B5E2]/10 border border-[#00B5E2]/30">
-                  <div className="w-8 h-8 rounded bg-[#00B5E2]/20 flex items-center justify-center font-mono text-[#00B5E2]">2</div>
+                <div className="flex items-center gap-4 p-3 rounded bg-[#FF7B00]/10 border border-[#FF7B00]/30">
+                  <div className="w-8 h-8 rounded bg-[#FF7B00]/20 flex items-center justify-center font-mono text-[#FF7B00]">2</div>
                   <div className="flex-1">
-                    <div className="text-[#00B5E2] font-medium">Claim Free Trial</div>
-                    <div className="text-[#8C92A4] text-xs">POST /v1/trial -> 50 credits, 24h TTL, Bearer token</div>
+                    <div className="text-[#FF7B00] font-medium">Unpaid calls return 402</div>
+                    <div className="text-[#8C92A4] text-xs">Feed $0.05 and match $0.10. Network string is base. Asset is official Base USDC.</div>
                   </div>
                 </div>
                 <div className="flex justify-center text-[#8C92A4]">↓</div>
-
-                {/* Step 3 */}
                 <div className="flex items-center gap-4 p-3 rounded bg-[#A3FF00]/10 border border-[#A3FF00]/30">
                   <div className="w-8 h-8 rounded bg-[#A3FF00]/20 flex items-center justify-center font-mono text-[#A3FF00]">3</div>
                   <div className="flex-1">
-                    <div className="text-[#A3FF00] font-medium">Free Execution</div>
-                    <div className="text-[#8C92A4] text-xs">POST /v1/recallguard/match (Authorization: Bearer token -> decrements credits</div>
-                  </div>
-                </div>
-                <div className="flex justify-center text-[#8C92A4]">↓</div>
-
-                {/* Step 4 */}
-                <div className="flex items-center gap-4 p-3 rounded bg-[#FF7B00]/10 border border-[#FF7B00]/30">
-                  <div className="w-8 h-8 rounded bg-[#FF7B00]/20 flex items-center justify-center font-mono text-[#FF7B00]">4</div>
-                  <div className="flex-1">
-                    <div className="text-[#FF7B00] font-medium">Credits Exhausted -> 402 Challenge</div>
-                    <div className="text-[#8C92A4] text-xs">HTTP 402 with multi-chain x402 accepts (USDC on Base/Arb/Opt/Poly/Eth/Sol)</div>
-                  </div>
-                </div>
-                <div className="flex justify-center text-[#8C92A4]">↓</div>
-
-                {/* Step 5 */}
-                <div className="flex items-center gap-4 p-3 rounded bg-[#A3FF00]/10 border border-[#A3FF00]/30">
-                  <div className="w-8 h-8 rounded bg-[#A3FF00]/20 flex items-center justify-center font-mono text-[#A3FF00]">5</div>
-                  <div className="flex-1">
-                    <div className="text-[#A3FF00] font-medium">Auto-Settle & Unlock Paid Tier</div>
-                    <div className="text-[#8C92A4] text-xs">X-PAYMENT header with txHash -> unlocks unlimited paid access</div>
+                    <div className="text-[#A3FF00] font-medium">One match self-test has settled</div>
+                    <div className="text-[#8C92A4] text-xs">Base block 51961194 on 2026-09-29. Operator wallets. Feed has no settled receipt.</div>
                   </div>
                 </div>
               </div>
@@ -284,20 +249,20 @@ export default function Home() {
       <section className="py-12 border-b border-[#8C92A4]/15 bg-black/40">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Global Settlement</div>
-            <strong className="text-3xl font-bold text-white">{'<'} 400ms</strong>
+            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Recall records</div>
+            <strong className="text-3xl font-bold text-white">21812</strong>
           </div>
           <div>
-            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Surge Multiplier</div>
-            <div className="text-3xl font-bold text-[#FF7B00]">1.0x</div>
+            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Match settlements</div>
+            <div className="text-3xl font-bold text-[#FF7B00]">1 self-test</div>
           </div>
           <div>
-            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Active Chains</div>
-            <div className="text-3xl font-bold text-[#00B5E2]">7/7</div>
+            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Paying chain</div>
+            <div className="text-3xl font-bold text-[#00B5E2]">Base</div>
           </div>
           <div>
-            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Trial Onramp</div>
-            <div className="text-3xl font-bold text-[#A3FF00]">ACTIVE</div>
+            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Sprint checkout</div>
+            <div className="text-3xl font-bold text-[#FF7B00]">open</div>
           </div>
         </div>
       </section>
@@ -308,9 +273,9 @@ export default function Home() {
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-white uppercase tracking-tight flex items-center gap-3">
               <Shield size={28} className="text-[#00B5E2]" />
-              Machine SKUs — 23 Revenue Streams
+              Catalog rows
             </h2>
-            <p className="text-[#8C92A4] mt-2 font-sans">Catalog of 23 SKUs. Only SkillProof Sprint checkout is live (Stripe). Machine x402 endpoints are listed; most are not settling yet. OpenAPI currently publishes 8 paths, not 15.</p>
+            <p className="text-[#8C92A4] mt-2 font-sans">The full list is /offers.json. RecallGuard Match is the only row with a settled receipt, and that receipt is an operator self-test. Sprint checkout is open. No Sprint charge was verified from the Stripe account connected here.</p>
           </div>
 
           {/* Category Tabs */}
@@ -368,9 +333,9 @@ export default function Home() {
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-white uppercase tracking-tight flex items-center gap-3">
               <Code2 size={28} className="text-[#00B5E2]" />
-              API Reference — 15 Endpoints
+              RecallGuard routes that answer
             </h2>
-            <p className="text-[#8C92A4] mt-2 font-sans">All endpoints support trial tokens (Bearer) and x402 payments. Full spec at <a href="/openapi.json" className="text-[#00B5E2] hover:underline">/openapi.json</a></p>
+            <p className="text-[#8C92A4] mt-2 font-sans">Host <a href="https://recallguard-api.vercel.app" className="text-[#00B5E2] hover:underline">recallguard-api.vercel.app</a>. Docs at <a href="https://recallguard-docs.vercel.app" className="text-[#00B5E2] hover:underline">recallguard-docs.vercel.app</a>. No trial token and no bearer bypass.</p>
           </div>
 
           <div className="overflow-x-auto">
@@ -400,24 +365,13 @@ export default function Home() {
 
           {/* Machine SDK Usage */}
           <div className="mt-16 p-6 rounded-xl border border-[#8C92A4]/20 bg-[#0f1423]">
-            <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2"><Terminal size={20} /> Autonomous Agent Integration (TypeScript)</h3>
-            <pre className="text-sm text-[#F4F1EA] overflow-x-auto"><code>{`import { NanoEmpireClient } from "nanoempire-sdk";
+            <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2"><Terminal size={20} /> Unpaid match call</h3>
+            <pre className="text-sm text-[#F4F1EA] overflow-x-auto"><code>{`curl -si -X POST https://recallguard-api.vercel.app/api/v1/match \\
+  -H "content-type: application/json" \\
+  -d '{"items":[{"name":"example","brand":"example","upc":"000000000000"}]}'
 
-// Zero-config: auto-falls back to free trial if no wallet/key provided
-const client = new NanoEmpireClient({
-  network: "base", // or "ethereum", "arbitrum", "optimism", "polygon", "solana"
-  privateKey: process.env.AGENT_WALLET_KEY, // optional for paid mode
-});
-
-// Autonomous matching with built-in x402 payment handler
-const result = await client.recallguard.match({
-  items: ["Stroller Model X", "Organic Infant Formula Batch 402"],
-});
-
-console.log(result.flagged); // Replay proof + recall advisories
-
-// Auto-handles 402: catches challenge, signs micro-tx on Base USDC, 
-// attaches X-PAYMENT, retries seamlessly.`}</code></pre>
+# Expect HTTP 402. The challenge network string is base.
+# maxAmountRequired is 100000 (6 decimals, $0.10). This page does not sign a payment.`}</code></pre>
           </div>
         </div>
       </section>
@@ -426,35 +380,22 @@ console.log(result.flagged); // Replay proof + recall advisories
       <section id="playground" className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-white uppercase tracking-tight">Agent Integration Studio</h2>
-            <p className="text-[#8C92A4] mt-2 font-sans">Multi-framework native hooks for instant x402 compliance.</p>
+            <h2 className="text-3xl font-bold text-white uppercase tracking-tight">How to call RecallGuard</h2>
+            <p className="text-[#8C92A4] mt-2 font-sans">The panel on the right is a simulator. It does not submit a Base transaction.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="rounded-xl border border-[#8C92A4]/20 bg-[#0f1423] p-0 overflow-hidden">
               <div className="flex border-b border-[#8C92A4]/20 bg-[#07090D] text-xs">
-                <div className="px-4 py-3 border-r border-[#8C92A4]/20 text-[#00B5E2] font-bold bg-white/5">TypeScript SDK</div>
-                <div className="px-4 py-3 border-r border-[#8C92A4]/20 text-[#8C92A4] hover:text-white cursor-pointer">Python</div>
-                <div className="px-4 py-3 border-r border-[#8C92A4]/20 text-[#8C92A4] hover:text-white cursor-pointer">cURL</div>
+                <div className="px-4 py-3 border-r border-[#8C92A4]/20 text-[#00B5E2] font-bold bg-white/5">cURL</div>
               </div>
               <div className="p-6 overflow-x-auto text-sm text-[#F4F1EA]">
-                <pre><code>{`import { NanoEmpireClient } from "nanoempire-sdk";
+                <pre><code>{`curl -s https://recallguard-api.vercel.app/api/v1/health
 
-const client = new NanoEmpireClient({
-  network: "base",
-  privateKey: process.env.AGENT_WALLET_KEY,
-});
+curl -si https://recallguard-api.vercel.app/api/v1/feed?limit=1
 
-// Claim trial (50 free credits)
-await client.claimTrial("my_shopping_bot");
-
-// Screen inventory against 12,430+ recalls
-const matches = await client.recallguard.match([
-  "Kids Bunk Bed Model 402",
-  "Lithium Battery Pack X",
-]);
-
-console.log(matches.flagged_count);`}</code></pre>
+# Docs: https://recallguard-docs.vercel.app
+# There is no nanoempire-sdk package and no trial token.`}</code></pre>
               </div>
             </div>
 
@@ -473,7 +414,7 @@ console.log(matches.flagged_count);`}</code></pre>
               <Server size={28} className="text-[#00B5E2]" />
               MCP Service Registry
             </h2>
-            <p className="text-[#8C92A4] mt-2 font-sans">Discover, price, and connect to autonomous machine tools.</p>
+            <p className="text-[#8C92A4] mt-2 font-sans">Demo MCP endpoints. This page has not verified an x402 settlement on them. They are not RecallGuard.</p>
           </div>
           <MarketplaceGrid />
         </div>

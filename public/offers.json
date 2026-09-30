@@ -7,7 +7,8 @@
     "payment_link": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c",
     "chains": [
       "stripe"
-    ]
+    ],
+    "note": "Payment Link is open. No collected Stripe charge was visible on 2026-09-30. The Stripe account connected in this session is sandbox-only. An open checkout is not a receipt."
   },
   "skillproof-standard": {
     "price_cad": 1500,
@@ -170,23 +171,19 @@
     "payment": "x402",
     "status": "planned",
     "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ]
+      "eip155:8453"
+    ],
+    "note": "GET https://recallguard-api.vercel.app/api/v1/feed returned HTTP 402 on 2026-09-30. Challenge network string is base. Amount 50000 atomic USDC ($0.05). No settled receipt."
   },
   "recallguard-match": {
     "price_usdc": 0.1,
     "buyer": "machine",
     "payment": "x402",
-    "status": "planned",
+    "status": "live",
     "chains": [
-      "eip155:8453",
-      "eip155:42161"
-    ]
+      "eip155:8453"
+    ],
+    "note": "Self-test settlement verified 2026-09-29. One $0.10 Base USDC payment, block 51961194, tx 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999. Operator wallets only, not an outside payer. Challenge network string is base."
   },
   "recallguard-webhook": {
     "price_usdc": 0.02,
@@ -194,10 +191,10 @@
     "payment": "x402",
     "status": "planned",
     "chains": [
-      "eip155:1",
       "eip155:8453"
     ],
-    "asset": "USDC"
+    "asset": "USDC",
+    "note": "POST https://recallguard-api.vercel.app/api/v1/webhook returned 404 on 2026-09-30."
   },
   "irv-advisory-single": {
     "price_usdc": 500.0,

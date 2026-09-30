@@ -10,7 +10,7 @@ type Tollbooth = {
   rate: string;
   asset: string;
   endpoint: string;
-  status: "LIVE" | "BETA";
+  status: "DEMO" | "BETA";
   description: string;
 };
 
@@ -19,41 +19,41 @@ const TOLLBOOTHS: Tollbooth[] = [
     id: "01",
     name: "WeatherTollbooth",
     category: "ORACLE_METEOROLOGY",
-    rate: "0.05 USDC",
-    asset: "Solana / Base",
+    rate: "unverified",
+    asset: "unverified",
     endpoint: "https://nano-mcp-weather-yvbxeel47a-uc.a.run.app",
-    status: "LIVE",
-    description: "Meteorological real-time telemetry stream. Deterministic x402 pay-per-query challenge protocol.",
+    status: "DEMO",
+    description: "Demo meteorology endpoint. x402 settlement on this URL is not verified on this page.",
   },
   {
     id: "02",
     name: "CryptoPriceOracle",
     category: "MARKET_INTELLIGENCE",
-    rate: "0.01 USDC",
-    asset: "Solana / Base",
+    rate: "unverified",
+    asset: "unverified",
     endpoint: "https://nano-mcp-cryptopriceoracle-yvbxeel47a-uc.a.run.app",
-    status: "LIVE",
-    description: "Sub-second aggregate cross-exchange pricing oracle engineered for autonomous high-frequency agents.",
+    status: "DEMO",
+    description: "Demo price endpoint. x402 settlement on this URL is not verified on this page.",
   },
   {
     id: "03",
     name: "IPGeoLocator",
     category: "ROUTING_NETWORK",
-    rate: "0.01 USDC",
-    asset: "Solana / Base",
+    rate: "unverified",
+    asset: "unverified",
     endpoint: "https://nano-mcp-ipgeolocator-yvbxeel47a-uc.a.run.app",
-    status: "LIVE",
-    description: "BGP / Autonomous System Number physical geolocation resolution with anti-sybil attribution tags.",
+    status: "DEMO",
+    description: "Demo geolocation endpoint. x402 settlement on this URL is not verified on this page.",
   },
   {
     id: "04",
     name: "PublicJokeGenerator",
     category: "SYNTHETIC_CULTURE",
-    rate: "0.01 USDC",
-    asset: "Solana / Base",
+    rate: "unverified",
+    asset: "unverified",
     endpoint: "https://nano-mcp-publicjokegenerator-yvbxeel47a-uc.a.run.app",
-    status: "LIVE",
-    description: "Structured humorous copy generation and social-proof banter for autonomous Twitter/X bots.",
+    status: "DEMO",
+    description: "Demo text endpoint. x402 settlement on this URL is not verified on this page.",
   },
 ];
 
@@ -71,7 +71,7 @@ export function MarketplaceGrid() {
       {/* Editorial Header */}
       <div className="flex items-center gap-3 text-xs tracking-widest uppercase text-[#8C92A4] mb-3">
         <span className="text-[#FF7B00]">[03]</span>
-        <span>PRODUCTION_TOLLBOOTH_REGISTRY</span>
+        <span>DEMO_ENDPOINTS_SETTLEMENT_NOT_VERIFIED</span>
         <span className="h-[1px] flex-1 bg-[#8C92A4]/20"></span>
       </div>
 
@@ -87,7 +87,7 @@ export function MarketplaceGrid() {
                   <span className="text-[#FF7B00] font-bold">[{item.id}]</span>
                   <span className="text-[#8C92A4] text-[11px] uppercase tracking-wider">{item.category}</span>
                 </div>
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider text-[#A3FF00] bg-[#A3FF00]/10 border border-[#A3FF00]/30">
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider text-[#FF7B00] bg-[#FF7B00]/10 border border-[#FF7B00]/30">
                   {item.status}
                 </span>
               </div>
