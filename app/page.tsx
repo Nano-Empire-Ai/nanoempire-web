@@ -2,7 +2,15 @@ import React from "react";
 import { ConnectEntityModal } from "@/components/wallet/ConnectEntityModal";
 import { MarketplaceGrid } from "@/components/tollbooth/MarketplaceGrid";
 import { InteractiveTollboothPlayground } from "@/components/tollbooth/InteractiveTollboothPlayground";
+import DoorA from "@/components/DoorA";
+import DoorB from "@/components/DoorB";
+import { VisionParserSandbox } from "@/components/cro/VisionParserSandbox";
+import { DogfoodReceiptsWidget } from "@/components/cro/DogfoodReceiptsWidget";
+import { PricingTierTranslation } from "@/components/cro/PricingTierTranslation";
+import { ArchitectureAuditModal } from "@/components/cro/ArchitectureAuditModal";
+import { QuickstartSnippet } from "@/components/cro/QuickstartSnippet";
 import { ArrowUpRight, Terminal, Zap, Activity, Server, Code2, Globe, Shield, Database, CreditCard, Download, Link2, ExternalLink, BookOpen, Wrench } from "lucide-react";
+
 
 const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in section for nanoempireai.com.
      Paste inside <main>. Self-contained: no external CSS/JS. Hermes: adjust
@@ -125,11 +133,11 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-6 text-sm">
             <div className="hidden md:flex items-center gap-6 text-[#8C92A4]">
-              <a href="#playground" className="hover:text-white transition-colors flex items-center gap-1"><Zap size={14} /> Simulator</a>
-              <a href="#catalog" className="hover:text-white transition-colors flex items-center gap-1"><Server size={14} /> MCP Catalog</a>
-              <a href="#skus" className="hover:text-white transition-colors flex items-center gap-1"><Shield size={14} /> Machine SKUs</a>
-              <a href="#api" className="hover:text-white transition-colors flex items-center gap-1"><Code2 size={14} /> API Docs</a>
-              <a href="/recall-roulette" className="text-[#FF7B00] hover:underline flex items-center gap-1"><Activity size={14} /> Recall Roulette</a>
+              <a href="#vision-sandbox" className="hover:text-white transition-colors flex items-center gap-1"><Zap size={14} /> Vision Sandbox</a>
+              <a href="#dogfood-signals" className="hover:text-white transition-colors flex items-center gap-1"><Activity size={14} /> Dogfood Proof</a>
+              <a href="#pricing-tiers" className="hover:text-white transition-colors flex items-center gap-1"><CreditCard size={14} /> Pricing</a>
+              <a href="#architecture-audit" className="text-[#A3FF00] hover:underline flex items-center gap-1"><Shield size={14} /> Free Audit</a>
+              <a href="#skus" className="hover:text-white transition-colors flex items-center gap-1"><Server size={14} /> Machine SKUs</a>
               <a href="/openapi.json" className="text-[#00B5E2] hover:underline flex items-center gap-1"><BookOpen size={14} /> OpenAPI</a>
               <a href="/llms.txt" className="text-[#00B5E2] hover:underline flex items-center gap-1"><Terminal size={14} /> /llms.txt</a>
             </div>
@@ -178,6 +186,9 @@ export default function Home() {
                   <BookOpen size={16} /> OpenAPI Spec
                 </a>
               </div>
+
+              {/* Above the fold SDK Quickstart */}
+              <QuickstartSnippet />
 
               {/* SDK Install */}
               <div className="mt-8 space-y-3">
@@ -238,14 +249,31 @@ export default function Home() {
                     <div className="text-[#A3FF00] font-medium">One match self-test has settled</div>
                     <div className="text-[#8C92A4] text-xs">Base block 51961194 on 2026-09-29. Operator wallets. Feed has no settled receipt.</div>
                   </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Telemetry */}
+    {/* Interactive Vision Parser Sandbox */}
+    <VisionParserSandbox />
+
+    {/* Dogfooding Receipts & Provable Telemetry */}
+    <DogfoodReceiptsWidget />
+
+    {/* Unified Pricing Rails */}
+    <PricingTierTranslation />
+
+    {/* Free Architecture & Trust Audit Lead Magnet */}
+    <ArchitectureAuditModal />
+
+    {/* Two Doors Split */}
+    <DoorA />
+    <DoorB />
+
+
+                {/* Telemetry */}
       <section className="py-12 border-b border-[#8C92A4]/15 bg-black/40">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>

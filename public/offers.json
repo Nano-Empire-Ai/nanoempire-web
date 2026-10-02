@@ -238,18 +238,43 @@
     "asset": "USDC"
   },
   "irv-corpus-access": {
-    "price_usdc": 5000,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "building",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ],
-    "asset": "USDC"
+      "price_usdc": 5000,
+      "buyer": "machine",
+      "payment": "x402",
+      "status": "building",
+      "chains": [
+        "eip155:1",
+        "eip155:8453",
+        "eip155:42161",
+        "eip155:10",
+        "eip155:137",
+        "solana:mainnet"
+      ],
+      "asset": "USDC"
+    },
+    "decision-gate": {
+      "price_usdc": 0.005,
+      "price_nano_hosted_usdc": 0.005,
+      "price_hybrid_usdc": 0.002,
+      "price_local_sidecar_usdc": 0.0,
+      "buyer": "machine",
+      "payment": "x402",
+      "status": "planned",
+      "chains": [
+        "eip155:1",
+        "eip155:8453",
+        "eip155:42161",
+        "eip155:10",
+        "eip155:137",
+        "solana:mainnet"
+      ],
+      "asset": "USDC",
+      "models": [
+        "tev1:0.8b",
+        "tev1:4b",
+        "nimble:9b"
+      ],
+      "attribution_header": "X-Attribution: source=decision-gate,sku=decision-gate-nano|hybrid",
+      "note": "Signed off: Nano-hosted $0.005/call, Hybrid $0.002/fallback, Local Sidecar free. Planned until Ollama models deployed on Nano infrastructure."
+    }
   }
-}
