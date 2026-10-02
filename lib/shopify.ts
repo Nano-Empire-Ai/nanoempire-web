@@ -1,3 +1,4 @@
+import '@shopify/shopify-api/adapters/node';
 import { shopifyApi, ApiVersion } from '@shopify/shopify-api';
 import { SQLiteSessionStorage } from '@shopify/shopify-app-session-storage-sqlite';
 

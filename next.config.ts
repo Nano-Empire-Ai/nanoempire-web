@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Optimized for Native Vercel Deployment
-  output: 'export',
+  // Optimized for Native Vercel Deployment (Removed output: 'export' to support dynamic API routes)
   images: {
     unoptimized: true,
   },
@@ -11,9 +10,6 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  experimental: {
-    turbo: false,
   },
 };
 
