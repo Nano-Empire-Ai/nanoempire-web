@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nano Empire — manifests</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem;background:#0b0e13;color:#e8eef6}
+  a{color:#3dff9e}
+  table{width:100%;border-collapse:collapse;margin-top:1rem}
+  th,td{border:1px solid #1d2430;padding:.5rem;text-align:left}
+  th{background:#10141b}
+  .note{color:#9aa7ba;font-size:.9rem}
+</style>
+</head>
+<body>
+<h1>Manifests</h1>
+<p>Unique MCP tool count is <strong>12</strong>. HuggingBay and VirtualCard Cloud Run services currently return the same health payload as <code>nano-empire-mcp</code> — they are not separate products.</p>
+<p>Proof corpus: <a href="https://github.com/roblambert9/skillproof-verifications">skillproof-verifications</a></p>
+<table>
+<thead><tr><th>Server</th><th>Tools</th><th>Status</th><th>Notes</th></tr></thead>
+<tbody id="rows"><tr><td colspan="4">Loading…</td></tr></tbody>
+</table>
+<p class="note">Intake: <a href="mailto:rob@nanoempireai.com">rob@nanoempireai.com</a> · Sprint $500 · Standard $1,500</p>
+<script>
+fetch('/data/manifests.json')
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    document.getElementById('rows').innerHTML = (d.servers || []).map(function(s){
+      return '<tr><td><a href="' + s.url + '">' + s.name + '</a></td><td>' + s.tools + '</td><td>' + s.status + '</td><td>' + (s.notes || '') + '</td></tr>';
+    }).join('');
+  })
+  .catch(function(){
+    document.getElementById('rows').innerHTML = '<tr><td colspan="4">Failed to load data/manifests.json</td></tr>';
+  });
+</script>
+</body>
+</html>

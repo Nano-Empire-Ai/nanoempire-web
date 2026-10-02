@@ -1,280 +1,118 @@
 {
-  "skillproof-sprint": {
-    "price_cad": 500,
-    "buyer": "human",
-    "payment": "stripe",
-    "status": "planned",
-    "payment_link": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c",
-    "chains": [
-      "stripe"
-    ],
-    "note": "Payment Link is open. No collected Stripe charge was visible on 2026-09-30. The Stripe account connected in this session is sandbox-only. An open checkout is not a receipt."
+  "name": "Nano Empire — additive offer mesh",
+  "updated": "2026-09-22",
+  "policy": "ADD only. No stream is retired. Each SKU maps to venue categories from the 1000-place list.",
+  "honesty": {
+    "unique_mcp_tools": 12,
+    "huggingbay_virtualcard": "same Cloud Run image as nano-empire-mcp until split",
+    "lifetime_revenue_usd": 0,
+    "stripe": "test mode until operator connects live"
   },
-  "skillproof-standard": {
-    "price_cad": 1500,
-    "buyer": "human",
-    "payment": "stripe",
-    "status": "building",
-    "chains": [
-      "stripe"
-    ],
-    "note": "Early Adopter: $1500 for first 5. Steady State: $2500"
-  },
-  "skillproof-rush": {
-    "price_cad": 2500,
-    "buyer": "human",
-    "payment": "stripe",
-    "status": "building",
-    "chains": [
-      "stripe"
-    ],
-    "note": "24h priority execution queue"
-  },
-  "skillproof-vc-diligence": {
-    "price_cad": 3500,
-    "buyer": "human",
-    "payment": "stripe",
-    "status": "building",
-    "chains": [
-      "stripe"
-    ],
-    "note": "Pre-seed/seed architectural diligence"
-  },
-  "skillproof-fleet-red-team": {
-    "price_cad": 1000,
-    "buyer": "human",
-    "payment": "stripe",
-    "status": "building",
-    "chains": [
-      "stripe"
-    ],
-    "note": "Per skill overage. Fleet-wide security audit"
-  },
-  "skillproof-triage-x402": {
-    "price_usdc": 0.01,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ],
-    "asset": "USDC"
-  },
-  "skillproof-deep-scan": {
-    "price_usdc": 0.5,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ],
-    "asset": "USDC"
-  },
-  "skillproof-triage-l402": {
-    "price_sats": 750,
-    "buyer": "machine",
-    "payment": "l402",
-    "status": "building",
-    "chains": [
-      "l402:mainnet"
-    ],
-    "asset": "BTC"
-  },
-  "skillproof-deep-scan-l402": {
-    "price_sats": 37500,
-    "buyer": "machine",
-    "payment": "l402",
-    "status": "building",
-    "chains": [
-      "l402:mainnet"
-    ],
-    "asset": "BTC"
-  },
-  "virtual-card-mcp": {
-    "price_usdc": 0.02,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "chains": [
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10"
-    ],
-    "asset": "USDC"
-  },
-  "intel-feed-api": {
-    "price_usdc": 0.05,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ],
-    "asset": "USDC"
-  },
-  "trust-manifest": {
-    "price_usdc": 50.0,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "building",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ],
-    "asset": "USDC"
-  },
-  "clearing-house": {
-    "fee_bps": 500,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "building",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet",
-      "l402:mainnet"
-    ],
-    "asset": "multi"
-  },
-  "moneyleg-sidecar": {
-    "price_usd": 0,
-    "buyer": "internal",
-    "payment": "none",
-    "status": "internal",
-    "chains": []
-  },
-  "recallguard-feed": {
-    "price_usdc": 0.05,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "chains": [
-      "eip155:8453"
-    ],
-    "note": "GET https://recallguard-api.vercel.app/api/v1/feed returned HTTP 402 on 2026-09-30. Challenge network string is base. Amount 50000 atomic USDC ($0.05). No settled receipt."
-  },
-  "recallguard-match": {
-    "price_usdc": 0.1,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "live",
-    "chains": [
-      "eip155:8453"
-    ],
-    "note": "Self-test settlement verified 2026-09-29. One $0.10 Base USDC payment, block 51961194, tx 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999. Operator wallets only, not an outside payer. Challenge network string is base."
-  },
-  "recallguard-webhook": {
-    "price_usdc": 0.02,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "chains": [
-      "eip155:8453"
-    ],
-    "asset": "USDC",
-    "note": "POST https://recallguard-api.vercel.app/api/v1/webhook returned 404 on 2026-09-30."
-  },
-  "irv-advisory-single": {
-    "price_usdc": 500.0,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "building",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ],
-    "asset": "USDC"
-  },
-  "irv-feed-subscription": {
-    "price_usdc_monthly": 200,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "building",
-    "chains": [
-      "eip155:1",
-      "eip155:8453",
-      "eip155:42161",
-      "eip155:10",
-      "eip155:137",
-      "solana:mainnet"
-    ],
-    "asset": "USDC"
-  },
-  "irv-webhook": {
-    "price_usdc": 0.05,
-    "buyer": "machine",
-    "payment": "x402",
-    "status": "planned",
-    "chains": [
-      "eip155:1",
-      "eip155:8453"
-    ],
-    "asset": "USDC"
-  },
-  "irv-corpus-access": {
-      "price_usdc": 5000,
-      "buyer": "machine",
-      "payment": "x402",
-      "status": "building",
-      "chains": [
-        "eip155:1",
-        "eip155:8453",
-        "eip155:42161",
-        "eip155:10",
-        "eip155:137",
-        "solana:mainnet"
-      ],
-      "asset": "USDC"
+  "skus": [
+    {
+      "id": "skillproof-sprint",
+      "price_usd": 500,
+      "buyer": "human or agent operator",
+      "pay": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c ($500 CAD)",
+      "artifact": "Ed25519 trust manifest",
+      "live": true,
+      "venue_categories": ["mcp-registry", "mcp-gateway", "agent-marketplace", "security-platform", "awesome-list"]
     },
-    "decision-gate": {
-      "price_usdc": 0.005,
-      "price_nano_hosted_usdc": 0.005,
-      "price_hybrid_usdc": 0.002,
-      "price_local_sidecar_usdc": 0.0,
+    {
+      "id": "skillproof-standard",
+      "price_usd": 1500,
+      "buyer": "human",
+      "pay": "mailto after 5 paid sprints",
+      "artifact": "full battery + offline-verifiable manifest",
+      "live": true,
+      "venue_categories": ["mcp-registry", "security-platform"]
+    },
+    {
+      "id": "skillproof-continuous",
+      "price_usd": 300,
+      "period": "month",
+      "buyer": "human",
+      "pay": "mailto / Stripe subscription when live",
+      "live": "offer listed, billing not wired",
+      "venue_categories": ["mcp-registry", "dev-platform"]
+    },
+    {
+      "id": "mcp-x402-tools",
+      "price_usd": 0.02,
+      "unit": "call",
       "buyer": "machine",
-      "payment": "x402",
-      "status": "planned",
-      "chains": [
-        "eip155:1",
-        "eip155:8453",
-        "eip155:42161",
-        "eip155:10",
-        "eip155:137",
-        "solana:mainnet"
-      ],
-      "asset": "USDC",
-      "models": [
-        "tev1:0.8b",
-        "tev1:4b",
-        "nimble:9b"
-      ],
-      "attribution_header": "X-Attribution: source=decision-gate,sku=decision-gate-nano|hybrid",
-      "note": "Signed off: Nano-hosted $0.005/call, Hybrid $0.002/fallback, Local Sidecar free. Planned until Ollama models deployed on Nano infrastructure."
+      "pay": "x402 on https://nano-empire-mcp-yvbxeel47a-uc.a.run.app",
+      "tools_unique": 12,
+      "live": true,
+      "venue_categories": ["x402-ecosystem", "mcp-gateway", "mcp-registry", "agent-network"]
+    },
+    {
+      "id": "huggingbay-mcp",
+      "price_usd": 0.02,
+      "buyer": "machine",
+      "pay": "x402",
+      "live": "url up, same image as mcp-x402-tools",
+      "venue_categories": ["x402-ecosystem", "mcp-registry"]
+    },
+    {
+      "id": "virtual-card-mcp",
+      "price_usd": 0.02,
+      "buyer": "machine",
+      "pay": "x402",
+      "live": "url up, same image as mcp-x402-tools",
+      "venue_categories": ["x402-ecosystem"]
+    },
+    {
+      "id": "skillproof-triage-x402",
+      "price_usdc": "0.01",
+      "network": "base",
+      "buyer": "machine",
+      "pay": "POST /v1/triage → HTTP 402 exact USDC; set X402_PAY_TO to enable",
+      "artifact": "402 challenge + Sprint Stripe URL in body. Facilitator verify not wired yet.",
+      "live": "code on disk",
+      "endpoint": "/v1/triage"
+    },
+    {
+      "id": "quote-box",
+      "buyer": "machine",
+      "pay": "quote free; Sprint $500 via Stripe after Jev classifies tier/risk",
+      "live": false,
+      "code": "empire/imported/skillproof-quote-box-v1",
+      "jev": "Jev returns only tier+risk row IDs. Prices are code constants. Never let Jev emit dollars.",
+      "blocked_by": "TYPESAFE_AI_API_KEY + live Stripe",
+      "venue_categories": ["x402-ecosystem", "mcp-registry"]
+    },
+    {
+      "id": "skillproof-jev-gate",
+      "price_usd": 500,
+      "buyer": "teams shipping Jev PreToolUse / MCP gates",
+      "pay": "SkillProof Sprint against the gate, not the chat model",
+      "artifact": "signed battery on allow/ask/deny + injection set",
+      "live": "offer not listed on site yet — ADD",
+      "why": "awesome-jev already has 269+ GitHub projects; gates fail polite-authority injection (~10%). Nobody sells behavioral proof of those gates.",
+      "venue_categories": ["security-platform", "awesome-list", "mcp-registry"]
+    },
+    {
+      "id": "moneyleg-sidecar",
+      "buyer": "internal / partner gateway",
+      "pay": "SIMULATED until live Stripe/x402",
+      "live": false,
+      "pack": "empire/moneyleg-sidecar-deploy-v1.zip",
+      "venue_categories": []
+    },
+    {
+      "id": "compute-tape",
+      "buyer": "GPU neocloud human",
+      "pay": "invoice $750 diagnostic (outreach queue)",
+      "live": "copy exists, /tape 404",
+      "venue_categories": ["cloud-marketplace", "dev-platform"]
+    },
+    {
+      "id": "dtc-video-ads",
+      "buyer": "human brand (Solawave etc.)",
+      "pay": "human invoice",
+      "live": "Arthur pipeline, $0 collected",
+      "venue_categories": ["direct"]
     }
-  }
+  ]
+}

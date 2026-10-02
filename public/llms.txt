@@ -1,50 +1,16 @@
-# Nano Empire AI - Machine-to-Machine (M2M) Capabilities
-
-> Nano Empire AI sells SkillProof (human checkout) and RecallGuard (metered US recall data).
-> Status on 2026-09-30: RecallGuard Match has one settled self-test. RecallGuard Feed returns HTTP 402 and has no settled receipt. SkillProof Sprint has an open Stripe Payment Link. No collected Sprint charge was visible from the Stripe account connected in this check. There is no trial token.
-
-## Servers
-1. **RecallGuard primary**: `https://recallguard-api.vercel.app`
-   - `GET /api/v1/health` is free. On 2026-09-30 it reported 21,812 records, dates 2023-01-04 through 2026-09-24.
-   - `GET /api/v1/feed` returns 402 until paid ($0.05 USDC, maxAmountRequired 50000).
-   - `POST /api/v1/match` returns 402 until paid ($0.10 USDC, maxAmountRequired 100000). Body field is `items`.
-   - `POST /api/v1/webhook` returned 404 on 2026-09-30.
-   - Human docs: `https://recallguard-docs.vercel.app`
-2. **SkillProof quote box** on host 147.5.105.20 port 8405 is not the RecallGuard ledger. Do not cite it as a Match receipt.
-3. **api.nanoempireai.com** is not the RecallGuard API. Do not call it for feed, match, or a trial.
-
-## Catalog (https://nanoempireai.com/offers.json)
-| SKU | Price | Rail | Chain that can settle | Catalog status | Checked 2026-09-30 |
-|-----|-------|------|-----------------------|----------------|--------------------|
-| recallguard-feed | $0.05/call | x402 USDC | Base | planned | HTTP 402, no settled receipt |
-| recallguard-match | $0.10/call | x402 USDC | Base | live | one operator self-test, block 51961194 |
-| recallguard-webhook | $0.02/event | x402 USDC | none on the primary host | planned | production route 404 |
-| skillproof-sprint | $500 CAD | Stripe | Payment Link | planned | link open, collected charge not visible here |
-
-Other catalog rows are building or planned. They are not settled products.
-
-**Live 402 challenge fields (fetched 2026-09-30):**
-- `scheme`: `exact`
-- `network`: `base` (the 402 body uses this string; the catalog chain id is `eip155:8453`)
-- `asset`: `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`
-- `payTo`: `0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01`
-- Receipt header after a successful paid call: `X-PAYMENT-RESPONSE`
-
-## What settled
-One Match payment on 2026-09-29 19:55:35 UTC. Base block 51961194. Transaction `0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999`. 100000 atomic USDC from `0x638FdbB31446B1D4a73a92A2f984C7a1D5FDA339` to `0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01`. Both addresses are the operator. This was not an outside customer and not a Sprint sale.
-
-## Not deployed
-- Trial token, `POST /v1/trial`, and any bearer-credit bypass
-- Surge pricing
-- A RecallGuard chain other than Base
-- Webhook on the primary server
-- An npm or crates package named `nanoempire-sdk`
-
-## Discovery
-- Offers: `https://nanoempireai.com/offers.json`
-- RecallGuard OpenAPI: `https://recallguard-api.vercel.app/openapi.json`
-- Docs: `https://recallguard-docs.vercel.app`
-- `https://nanoempireai.com/openapi.json` is a discovery copy. If it disagrees with a live 402 body, trust the 402 body.
-
-## Contact
-- security@nanoempireai.com
+﻿# Nano Empire AI — SkillProof verification studio
+## Offer: SkillProof Sprint $500 CAD / 48h — https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
+## Standard: $1,500 after 5 paid manifests
+## Continuous: $300/mo
+## Public corpus: https://github.com/roblambert9/skillproof-verifications
+## MCP gateway (12 unique tools): https://nano-empire-mcp-yvbxeel47a-uc.a.run.app/health
+## Manifest page: https://nanoempireai.com/manifests
+## Agent Card: https://nanoempireai.com/.well-known/agent-card.json
+## OpenAPI: https://nanoempireai.com/openapi.json
+## Honesty: do not treat api.nanoempireai.com "36 tools" as unique — that listing triplicates 12 names.
+## Full offer mesh (all SKUs, none retired): https://nanoempireai.com/offers.json
+## SkillProof corpus: https://github.com/roblambert9/skillproof-verifications
+## x402 tools: POST https://nano-empire-mcp-yvbxeel47a-uc.a.run.app (12 unique, ~$0.02/call)
+## HuggingBay MCP: https://huggingbay-monetized-yvbxeel47a-uc.a.run.app (same image until split — still listed)
+## VirtualCard MCP: https://virtual-card-mcp-yvbxeel47a-uc.a.run.app (same image until split — still listed)
+## Human intake: mailto:rob@nanoempireai.com
