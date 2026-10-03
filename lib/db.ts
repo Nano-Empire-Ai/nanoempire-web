@@ -16,6 +16,25 @@ export async function initDb() {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
+
+  await client.execute(`
+    CREATE TABLE IF NOT EXISTS merchant_alerts (
+      id TEXT PRIMARY KEY,
+      shop TEXT,
+      product_id TEXT,
+      recall_data TEXT,
+      crypto_seal TEXT,
+      notified INTEGER DEFAULT 0,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+}
+
+export async function createMerchantAlert(id: string, shop: string, productId: string, recallData: any, cryptoSeal: string) {
+  await client.execute({
+    sql: 'INSERT INTO merchant_alerts (id, shop, product_id, recall_data, crypto_seal) VALUES (?, ?, ?, ?, ?)',
+    args: [id, shop, productId, JSON.stringify(recallData), cryptoSeal]
+  });
 }
 
 export async function saveScan(id: string, sessionId: string, email: string, data: any) {
@@ -46,4 +65,16 @@ export async function getScanById(id: string) {
     args: [id],
   });
   return result.rows[0];
+}
+
+export async function initNhtsaDb() {
+  await client.execute(` 
+    CREATE TABLE IF NOT EXISTS vin_decode_cache (
+      vin TEXT PRIMARY KEY,
+      make TEXT,
+      model TEXT,
+      model_year TEXT,
+      decoded_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
 }

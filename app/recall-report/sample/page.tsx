@@ -1,14 +1,17 @@
-import { AlertTriangle, ShieldAlert, FileText, CheckCircle, Printer } from 'lucide-react';
-import Link from 'next/link';
+'use client';
 
-export default function RecallReportSample() {
+import React from 'react';
+import Link from 'next/link';
+import { ShieldAlert, Printer, AlertTriangle, Info, CheckCircle2 } from 'lucide-react';
+
+export default function AutomotiveSampleReport() {
   return (
-    <div className="min-h-screen bg-white text-neutral-900 selection:bg-rose-500/30 print:bg-white print:text-black">
+    <div className="min-h-screen bg-white text-neutral-900 font-sans">
       
       {/* Print / Top Bar (hidden on print) */}
       <div className="bg-neutral-900 text-white p-4 flex justify-between items-center print:hidden">
         <div className="flex items-center gap-2">
-          <ShieldAlert className="w-5 h-5 text-rose-400" />
+          <ShieldAlert className="w-5 h-5 text-blue-400" />
           <span className="font-semibold">RecallGuard Compliance</span>
         </div>
         <div className="flex items-center gap-4">
@@ -24,124 +27,152 @@ export default function RecallReportSample() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-8 py-12">
+      <div className="max-w-4xl mx-auto px-8 py-12">
         {/* Header Section */}
-        <header className="border-b-4 border-neutral-900 pb-8 mb-8 flex justify-between items-end">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-sm font-bold mb-4 uppercase tracking-wider">
-              <AlertTriangle className="w-4 h-4" /> Official Compliance Report
-            </div>
-            <h1 className="text-4xl font-extrabold tracking-tight mb-2">Inventory Recall Audit</h1>
-            <p className="text-xl text-neutral-600">Generated for <span className="font-semibold text-neutral-900">Sample Retailer LLC</span></p>
+        <header className="border-b-4 border-neutral-900 pb-8 mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-bold mb-4 uppercase tracking-wider">
+            <ShieldAlert className="w-4 h-4" /> Recall Exposure Report — SAMPLE
           </div>
-          <div className="text-right text-sm text-neutral-500">
-            <p className="font-mono">ID: RG-AUDIT-8921-X</p>
-            <p>Date: {new Date().toLocaleDateString()}</p>
-            <p>Scanned Items: 1,500</p>
-            <p>Database: FDA, CPSC (21,812 records)</p>
+          <h1 className="text-4xl font-extrabold tracking-tight mb-4">Vehicle Risk Assessment</h1>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <div>
+              <p><span className="font-semibold text-neutral-500">Vehicle:</span> 2022 Ford F-150 (VIN on file)</p>
+              <p><span className="font-semibold text-neutral-500">Prepared by:</span> RecallGuard · {new Date().toISOString().split('T')[0]}</p>
+            </div>
+            <div>
+              <p><span className="font-semibold text-neutral-500">Source:</span> U.S. National Highway Traffic Safety Administration (NHTSA) recall database, checked today.</p>
+            </div>
           </div>
         </header>
 
-        {/* Executive Summary */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Executive Summary</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-rose-50 border border-rose-200 p-6 rounded-xl">
-              <div className="text-rose-600 text-sm font-bold uppercase mb-2">Total Recalls Found</div>
-              <div className="text-5xl font-black text-rose-700">3</div>
-            </div>
-            <div className="bg-orange-50 border border-orange-200 p-6 rounded-xl">
-              <div className="text-orange-600 text-sm font-bold uppercase mb-2">High Severity (Class I)</div>
-              <div className="text-5xl font-black text-orange-700">1</div>
-            </div>
-            <div className="bg-emerald-50 border border-emerald-200 p-6 rounded-xl">
-              <div className="text-emerald-600 text-sm font-bold uppercase mb-2">Cleared Items</div>
-              <div className="text-5xl font-black text-emerald-700">1,497</div>
-            </div>
-          </div>
+        {/* Executive Summary (Bottom Line) */}
+        <section className="mb-10 bg-neutral-50 border border-neutral-200 p-6 rounded-xl">
+          <h2 className="text-xl font-bold mb-2 flex items-center gap-2">
+            <Info className="w-5 h-5 text-blue-600" /> Bottom Line
+          </h2>
+          <p className="text-lg leading-relaxed text-neutral-800">
+            <strong>23 open recall campaigns</strong> match this vehicle&apos;s make, model, and model year. Three are safety-critical — a driveshaft fracture risk, a trailer-brake software fault, and a steering-column wiring fault. All three are repaired free of charge by a Ford dealer.
+          </p>
         </section>
 
-        {/* Detailed Findings */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Detailed Findings</h2>
+        {/* Priority Recalls */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 border-b border-neutral-200 pb-2">
+            <AlertTriangle className="w-6 h-6 text-rose-600" /> 
+            Priority Recalls <span className="text-sm font-normal text-neutral-500">(Act on these first)</span>
+          </h2>
+          
           <div className="space-y-6">
             
-            {/* Finding 1 */}
-            <div className="border border-neutral-200 rounded-xl overflow-hidden shadow-sm break-inside-avoid">
-              <div className="bg-rose-600 text-white px-6 py-4 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <AlertTriangle className="w-5 h-5" />
-                  <span className="font-bold">CRITICAL SEVERITY (FDA Class I)</span>
-                </div>
-                <span className="text-sm opacity-80 uppercase tracking-wider">Immediate Action Required</span>
-              </div>
-              <div className="p-6">
-                <div className="flex flex-col md:flex-row md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-1">Boppy Newborn Lounger</h3>
-                    <p className="text-neutral-500">Brand: The Boppy Company</p>
-                  </div>
-                  <div className="text-left md:text-right mt-4 md:mt-0">
-                    <div className="text-sm text-neutral-500 uppercase font-bold tracking-wider mb-1">Matched UPC</div>
-                    <div className="font-mono text-lg bg-neutral-100 px-3 py-1 rounded inline-block">00041808401345</div>
-                  </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6 mt-6 pt-6 border-t border-neutral-100">
-                  <div>
-                    <h4 className="font-bold text-neutral-900 mb-2">Hazard / Defect</h4>
-                    <p className="text-neutral-700">Infants can suffocate if they roll, move, or are placed on the lounger in a position that obstructs breathing.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-neutral-900 mb-2">Required Action</h4>
-                    <p className="text-neutral-700">Stop selling immediately. Isolate inventory and contact the manufacturer for a refund or safe disposal instructions.</p>
-                  </div>
-                </div>
+            {/* Priority 1 */}
+            <div className="border-l-4 border-rose-600 pl-4">
+              <h3 className="text-xl font-bold mb-2">1. Driveshaft fracture — Campaign <span className="font-mono text-rose-700 bg-rose-50 px-2 py-0.5 rounded">21V986000</span></h3>
+              <div className="space-y-2 text-neutral-700">
+                <p><strong className="text-neutral-900">What it means:</strong> The driveshaft can break while driving. If it does, you can lose drive power or vehicle control.</p>
+                <p><strong className="text-neutral-900">Fix:</strong> Dealer inspects and repairs the driveshaft and re-attaches underbody insulators. Free.</p>
+                <p className="bg-rose-50 text-rose-900 p-3 rounded-md mt-2 inline-block">
+                  <strong>Action:</strong> Call your Ford dealer, reference campaign 21V986000, book the inspection.
+                </p>
               </div>
             </div>
 
-            {/* Finding 2 */}
-            <div className="border border-neutral-200 rounded-xl overflow-hidden shadow-sm break-inside-avoid">
-              <div className="bg-orange-500 text-white px-6 py-4 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <AlertTriangle className="w-5 h-5" />
-                  <span className="font-bold">MODERATE SEVERITY (CPSC)</span>
-                </div>
-                <span className="text-sm opacity-80 uppercase tracking-wider">Pull from Shelves</span>
+            {/* Priority 2 */}
+            <div className="border-l-4 border-orange-500 pl-4">
+              <h3 className="text-xl font-bold mb-2">2. Trailer brake control fault — Campaign <span className="font-mono text-orange-700 bg-orange-50 px-2 py-0.5 rounded">22V193000</span></h3>
+              <div className="space-y-2 text-neutral-700">
+                <p><strong className="text-neutral-900">What it means:</strong> The integrated trailer brake can stop working, which lengthens stopping distance when towing.</p>
+                <p><strong className="text-neutral-900">Fix:</strong> Dealer updates the brake control module software. Free.</p>
+                <p className="bg-orange-50 text-orange-900 p-3 rounded-md mt-2 inline-block">
+                  <strong>Action:</strong> Reference campaign 22V193000 at your next service visit.
+                </p>
               </div>
-              <div className="p-6">
-                <div className="flex flex-col md:flex-row md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-1">Mainstays Electric Mini Chopper</h3>
-                    <p className="text-neutral-500">Brand: Walmart / Mainstays</p>
-                  </div>
-                  <div className="text-left md:text-right mt-4 md:mt-0">
-                    <div className="text-sm text-neutral-500 uppercase font-bold tracking-wider mb-1">Matched Item Name</div>
-                    <div className="font-mono text-lg bg-neutral-100 px-3 py-1 rounded inline-block">Mainstays Mini Food Chopper</div>
-                  </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6 mt-6 pt-6 border-t border-neutral-100">
-                  <div>
-                    <h4 className="font-bold text-neutral-900 mb-2">Hazard / Defect</h4>
-                    <p className="text-neutral-700">The chopper's blade can operate unexpectedly during assembly or when not enclosed in the bowl, posing a laceration hazard.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-neutral-900 mb-2">Required Action</h4>
-                    <p className="text-neutral-700">Remove from retail shelves and e-commerce listings. Customers may return to store for full refund.</p>
-                  </div>
-                </div>
+            </div>
+
+            {/* Priority 3 */}
+            <div className="border-l-4 border-rose-600 pl-4">
+              <h3 className="text-xl font-bold mb-2">3. Steering column wiring — Campaign <span className="font-mono text-rose-700 bg-rose-50 px-2 py-0.5 rounded">22V253000</span></h3>
+              <div className="space-y-2 text-neutral-700">
+                <p><strong className="text-neutral-900">What it means:</strong> Damaged wiring can keep the steering column from moving as designed in a crash, raising injury risk.</p>
+                <p><strong className="text-neutral-900">Fix:</strong> Dealer inspects and repairs the wiring harness. Free.</p>
+                <p className="bg-rose-50 text-rose-900 p-3 rounded-md mt-2 inline-block">
+                  <strong>Action:</strong> Reference campaign 22V253000, book the inspection.
+                </p>
               </div>
             </div>
 
           </div>
         </section>
 
-        <footer className="mt-16 pt-8 border-t border-neutral-200 text-center text-neutral-500 text-sm">
-          <p className="font-bold text-neutral-900 mb-2 flex justify-center items-center gap-2">
-            <ShieldAlert className="w-4 h-4 text-rose-500" />
-            RecallGuard Compliance Audits
+        {/* All Campaigns Table */}
+        <section className="mb-12 break-inside-avoid">
+          <h2 className="text-2xl font-bold mb-4 border-b border-neutral-200 pb-2">All 23 Matching Campaigns</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-neutral-100 text-neutral-600 text-sm uppercase tracking-wider">
+                  <th className="p-3 border-b border-neutral-200">Campaign</th>
+                  <th className="p-3 border-b border-neutral-200">System</th>
+                  <th className="p-3 border-b border-neutral-200">Announced</th>
+                </tr>
+              </thead>
+              <tbody className="text-neutral-800">
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-mono">21V986000</td>
+                  <td className="p-3 font-medium">Driveshaft</td>
+                  <td className="p-3 text-neutral-500">Dec 2021</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-mono">22V193000</td>
+                  <td className="p-3 font-medium">Trailer brake control</td>
+                  <td className="p-3 text-neutral-500">Mar 2022</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-mono">22V253000</td>
+                  <td className="p-3 font-medium">Steering column</td>
+                  <td className="p-3 text-neutral-500">Apr 2022</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-mono">22V623000</td>
+                  <td className="p-3 font-medium">Driveshaft</td>
+                  <td className="p-3 text-neutral-500">Aug 2022</td>
+                </tr>
+                <tr className="border-b border-neutral-100">
+                  <td className="p-3 font-mono">22V675000</td>
+                  <td className="p-3 font-medium">Wheel lugs/nuts</td>
+                  <td className="p-3 text-neutral-500">Sep 2022</td>
+                </tr>
+                <tr>
+                  <td colSpan={3} className="p-4 text-center text-neutral-500 italic bg-neutral-50">
+                    ... (18 additional campaigns omitted) ...<br/>
+                    <span className="text-sm">Full list with official remedy text available on request.</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* What to do next */}
+        <section className="mb-12 bg-blue-50 border border-blue-200 p-6 rounded-xl break-inside-avoid">
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-blue-900">
+            <CheckCircle2 className="w-5 h-5" /> What to do next
+          </h2>
+          <ul className="space-y-3 text-blue-900 list-disc list-inside">
+            <li>Call your Ford dealer with the three priority campaign numbers above.</li>
+            <li>All recall repairs are free by law — never pay for one.</li>
+            <li>Confirm your specific VIN at nhtsa.gov/recalls or with the dealer, since some campaigns cover only certain build dates.</li>
+          </ul>
+        </section>
+
+        {/* Honesty Caveat & Footer */}
+        <footer className="mt-8 pt-8 border-t border-neutral-200 text-neutral-500 text-sm leading-relaxed">
+          <p className="mb-4">
+            <strong>How this report was made:</strong> your VIN was decoded to its make/model/year and checked against every NHTSA campaign for that vehicle — 21,812 recall records in the current database. A match means your vehicle is in a recalled group ("potentially affected"); the dealer confirms whether your specific VIN is included. This report is informational, not legal advice.
           </p>
-          <p>This report is cryptographically sealed and verified against official FDA and CPSC databases.</p>
-          <p className="mt-1">Generated by Nano Empire AI • nanoempireai.com</p>
+          <div className="bg-neutral-100 p-3 rounded font-mono text-xs text-center">
+            SAMPLE REPORT — generated from a test VIN pattern to demonstrate format. Not a real vehicle assessment.
+          </div>
         </footer>
 
       </div>

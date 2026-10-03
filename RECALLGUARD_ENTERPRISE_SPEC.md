@@ -54,3 +54,11 @@ While the enterprise book-matching play matures (30-90 day sales cycle), we depl
 6.  **Replay Attack Prevention:** If the exact same `X-PAYMENT` header is submitted twice, does the server reject the second attempt (preventing double-spend)?
 
 *Deliverable:* A 3-page PDF scorecard showing Pass/Fail for each test, latency metrics, and a "Fix It" code snippet for their engineering team.
+
+
+### [2026-10-02 Update] NHTSA Spec v0.2: Automated VIN Decoding
+**Pivot from v0.1:** Bulk NHTSA feeds do *not* carry VIN ranges. The match predicate is updated.
+*   **The Intermediary Step:** We hit the vPIC API (https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/{vin}) to translate client VINs into structured Make/Model/Year triples.
+*   **The Match Predicate:** We match the decoded triples against the NHTSA ecallsByVehicle database.
+*   **Honesty Caveat:** This matches entities as "potentially affected" (subset isolation by plant/build-date requires manual manufacturer lookup). Do not pitch VIN-level strict confirmation.
+

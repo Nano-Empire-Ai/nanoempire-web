@@ -15,7 +15,7 @@ import { ArrowUpRight, Terminal, Zap, Activity, Server, Code2, Globe, Shield, Da
 const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in section for nanoempireai.com.
      Paste inside <main>. Self-contained: no external CSS/JS. Hermes: adjust
      the order-email placeholder before publishing. -->
-<section id="verification-menu" style="max-width:720px;margin:3rem auto;padding:0 1.5rem;font-family:system-ui,sans-serif;line-height:1.6;">
+<section id="verification-menu" style={{maxWidth: '720px', margin: '3rem auto', padding: '0 1.5rem', fontFamily: 'system-ui,sans-serif', lineHeight: '1.6'}}>
   <h2>Verify it before you trust it.</h2>
   <p>We run adversarial batteries against live agent skills and MCP servers,
   then issue a signed, offline-verifiable Trust Manifest. Scanners guess —
@@ -23,27 +23,27 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
   humans. <strong>91%</strong> is the measured prompt-injection success rate
   on OpenClaw-style stacks. Your listing deserves a number, not a hope.</p>
 
-  <div style="display:grid;gap:1rem;margin:2rem 0;">
-    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
-      <h3 style="margin-top:0;">Agent Identity Verification — $500 / 48h</h3>
+  <div style={{display: 'grid', gap: '1rem', margin: '2rem 0'}}>
+    <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
+      <h3 style={{marginTop: '0'}}>Agent Identity Verification — $500 / 48h</h3>
       <p>Binds a listing's claims to demonstrated behavior. Claim inflation
       and hidden capabilities reported as findings. For marketplaces:
       embed the manifest in the listing.</p>
     </div>
-    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
-      <h3 style="margin-top:0;">Injection-Resistance Report — $500 / 48h</h3>
+    <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
+      <h3 style={{marginTop: '0'}}>Injection-Resistance Report — $500 / 48h</h3>
       <p>180 adversarial ops across 5 payload categories, 3 seeds. A
       per-category scorecard with live-verified effects — your injection
       number, demonstrated.</p>
     </div>
-    <div style="border:1px solid #ddd;border-radius:8px;padding:1.25rem;">
-      <h3 style="margin-top:0;">Memory / Wallet Audit — $1,500 / 5 days</h3>
+    <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
+      <h3 style={{marginTop: '0'}}>Memory / Wallet Audit — $1,500 / 5 days</h3>
       <p>For agents with persistent memory and transaction access. Poisoned
       context attacks run against a synthetic wallet harness. An
       unauthorized attempt — even refused — fails the audit.</p>
     </div>
-    <div style="border:2px solid #111;border-radius:8px;padding:1.25rem;">
-          <h3 style="margin-top:0;">Machine SKUs — RecallGuard</h3>
+    <div style={{border: '2px solid #111', borderRadius: '8px', padding: '1.25rem'}}>
+          <h3 style={{marginTop: '0'}}>Machine SKUs — RecallGuard</h3>
           <p>Feed and match are the x402 doors on https://recallguard-api.vercel.app. Match has one Base self-test. Feed returns 402 and has no settled receipt. There is no trial token. Ports 8405 and 8420 are not that paywall.</p>
         </div>
   </div>
@@ -53,9 +53,9 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
   that produced it. Identity binds claims to behavior; it isn't KYC.</p>
 
   <p><a href="mailto:rob@nanoempireai.com?subject=SkillProof%20verification%20order"
-  style="display:inline-block;background:#111;color:#fff;padding:.75rem 1.5rem;border-radius:6px;text-decoration:none;">
+  style={{display: 'inline-block', background: '#111', color: '#fff', padding: '.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none'}}>
   Order a verification</a></p>
-  <p style="font-size:.85rem;color:#555;">Fixed price, confirmed in writing
+  <p style={{fontSize: '.85rem', color: '#555'}}>Fixed price, confirmed in writing
   before we start. No meter, no surprise.</p>
 </section>`;
 
@@ -271,6 +271,204 @@ export default function Home() {
     {/* Two Doors Split */}
     <DoorA />
     <DoorB />
+
+
+{/* --- IMPORTED LANDING SECTIONS --- */}
+
+<section className="block" id="economics">
+    <div className="wrap">
+      <div className="sec-head rv"><span className="sec-num">01</span><h2 className="sec-title">The agentic economy, answered.</h2></div>
+      <p className="sec-sub rv">Economic theory names the problems. We sell the answers — one product per problem, each purchasable by a machine, each emitting proof.</p>
+
+      <div className="trow rv">
+        <div className="theory">THE PRINCIPAL–AGENT PROBLEM</div>
+        <div className="arrow">→</div>
+        <div className="product">
+          <h3>SkillProof trust manifests <span className="tag">FLAGSHIP</span></h3>
+          <p>Behavioral verification of agent skills and MCP servers. We execute an adversarial battery against the live skill, check the invariants, and issue a signed Ed25519 manifest — offline-verifiable, bound to the code hash, revocable. Proof the agent behaved, not a scanner's opinion.</p>
+        </div>
+      </div>
+
+      <div className="trow rv">
+        <div className="theory">TRANSACTION COSTS</div>
+        <div className="arrow">→</div>
+        <div className="product">
+          <h3>Machine tollbooth</h3>
+          <p>x402 micropayments for agent-to-agent calls — fractions of a cent per call, settled machine-to-machine. Coordination priced below the cost of a sales call, because there is no sales call.</p>
+        </div>
+      </div>
+
+      <div className="trow rv">
+        <div className="theory">MECHANISM DESIGN</div>
+        <div className="arrow">→</div>
+        <div className="product">
+          <h3>Fair-market oracle</h3>
+          <p>Auctions and approvals with provable rules. When agents bid, negotiate, and settle, the market mechanics are stated up front and verifiable after — no hidden thumbs on the scale.</p>
+        </div>
+      </div>
+
+      <div className="trow rv">
+        <div className="theory">SEARCH &amp; MATCHING</div>
+        <div className="arrow">→</div>
+        <div className="product">
+          <h3>Intel feed</h3>
+          <p>A discovery API of verified skills. Agents don't just need counterparties — they need trustworthy ones. Every entry in the feed carries its verification record.</p>
+        </div>
+      </div>
+
+      <div className="trow rv">
+        <div className="theory">AUTOMATION RISK</div>
+        <div className="arrow">→</div>
+        <div className="product">
+          <h3>Battery gate</h3>
+          <p>A per-run adversarial gate for agent actions — injection, exfiltration, and policy-escape payloads, executed before anything ships. Each run emits a signed attestation: the compliance artifact for the agentic age.</p>
+        </div>
+      </div>
+
+      <div className="footnote rv">
+        <b>PLATFORM ECONOMICS →</b> the strategy, not a product. Whoever owns the rails taxes the economy. So we own ours: verification, metering, and settlement run on infrastructure we control. Own the rails, don't rent them.
+      </div>
+    </div>
+  </section>
+<section className="block" id="proofs">
+    <div className="wrap">
+      <div className="sec-head rv"><span className="sec-num">02</span><h2 className="sec-title">Proofs, not promises.</h2></div>
+      <p className="sec-sub rv">Our verification corpus. Four of five MCP servers put through the battery — and we publish the failures with the same signature as the passes.</p>
+
+      <div className="corpus rv">
+        <div className="corpus-head">
+          <span className="stat"><b>5 evaluated</b> &nbsp;· 1 pass_with_notes · 4 fail</span>
+          <span className="stat mono"><a href="https://github.com/roblambert9/skillproof-verifications">github.com/roblambert9/skillproof-verifications</a></span>
+        </div>
+        <div className="crow">
+          <span className="id">#01</span>
+          <span className="target">filesystem server v0.6.3<span className="note">228 ops · 0 invariant violations</span></span>
+          <span className="badge pass">PASS_WITH_NOTES</span>
+        </div>
+        <div className="crow">
+          <span className="id">#02</span>
+          <span className="target">fetch</span>
+          <span className="badge fail">FAIL</span>
+        </div>
+        <div className="crow">
+          <span className="id">#03</span>
+          <span className="target">demo-postgres</span>
+          <span className="badge fail">FAIL</span>
+        </div>
+        <div className="crow">
+          <span className="id">#04</span>
+          <span className="target">demo-sqlite</span>
+          <span className="badge fail">FAIL</span>
+        </div>
+        <div className="crow">
+          <span className="id">#07</span>
+          <span className="target">memory server</span>
+          <span className="badge fail">FAIL</span>
+        </div>
+      </div>
+      <p className="proof-line rv"><strong>We publish our failures.</strong> A verification service that only ever passes is a marketing department. Every manifest in the corpus is signed, inspectable, and permanent — including the four that failed.</p>
+    </div>
+  </section>
+<section className="block" id="services">
+    <div className="wrap">
+      <div className="sec-head rv"><span className="sec-num">03</span><h2 className="sec-title">Services, priced for machines.</h2></div>
+      <p className="sec-sub rv">Three tiers. Skill Sprint is live Stripe ($500 CAD). Standard and Continuous are email intake. Machine 402 for Sprint is not wired yet.</p>
+
+      <div className="cards">
+        <div className="card rv">
+          <div className="tier">Skill Sprint</div>
+          <div className="price">$500<small> CAD</small></div>
+          <div className="per">per skill · 48 hours</div>
+          <p>One skill, one adversarial battery, one signed trust manifest in 48 hours. The fastest way to prove a skill behaves.</p>
+          <a className="btn small solid" href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c">Pay $500 CAD</a>
+        </div>
+        <div className="card rv">
+          <div className="tier">Skill Standard</div>
+          <div className="price">$1,500</div>
+          <div className="per">per skill · full verification</div>
+          <div className="cond">unlocks after 5 paid manifests</div>
+          <p>The full workup: deep battery, cross-skill probes, and a manifest your counterparties can verify offline.</p>
+          <a className="btn small" href="#intake">Start intake</a>
+        </div>
+        <div className="card rv">
+          <div className="tier">Skill Continuous</div>
+          <div className="price">$300<small>/mo</small></div>
+          <div className="per">per skill · ongoing</div>
+          <p>Verification that doesn't expire. Re-battery on every release, manifest rotation, and revocation the moment a regression lands.</p>
+          <a className="btn small" href="#intake">Start intake</a>
+        </div>
+      </div>
+
+      <div className="rail-note rv">
+        <span className="p">◈</span>
+        <span>Skill Sprint checkout is live Stripe ($500 CAD). After payment we start the 48h battery — the manifest is not instant. x402 machine settlement for Sprint is not live yet. Standard and Continuous still go through email.</span>
+      </div>
+    </div>
+  </section>
+<section className="block" id="agents">
+    <div className="wrap">
+      <div className="sec-head rv"><span className="sec-num">04</span><h2 className="sec-title">If you're an agent, start here.</h2></div>
+      <p className="sec-sub rv">This site is machine-readable by design. No scraping, no guessing — pull the descriptors and transact.</p>
+
+      <div className="agent-grid">
+        <div className="code rv"><span className="cm"># who we are</span><br />GET <a href="/.well-known/agent-card.json">/.well-known/agent-card.json</a><br /><br /><span className="cm"># the machine interface</span><br />GET <a href="/openapi.json">/openapi.json</a><br /><br /><span className="cm"># the short version</span><br />GET <a href="/llms.txt">/llms.txt</a><br /><br /><span className="cm"># the registry of verified skills</span><br />GET <a href="/manifests">/manifests</a></div>
+        <div className="agent-copy rv">
+          <p><strong>Discovery is a first-class surface.</strong> The same manifests humans read are published as structured data for agents — capabilities, pricing, and verification records included.</p>
+          <p><strong>Payment is a protocol, not a process.</strong> Requests that require payment answer <span className="mono">402</span> with machine-readable terms. Pay, retry, receive your signed manifest.</p>
+          <p><strong>Trust is offline-verifiable.</strong> Every manifest is Ed25519-signed and bound to a code hash. Verify it without calling us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section className="block" id="intake">
+    <div className="wrap">
+      <div className="sec-head rv"><span className="sec-num">05</span><h2 className="sec-title">Start an intake.</h2></div>
+      <p className="sec-sub rv">Sprint is <a href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c">$500 CAD on Stripe</a>. Put the skill URL in the memo or email <a href="mailto:rob@nanoempireai.com">rob@nanoempireai.com</a> with the packet below. Standard / Continuous: email only. Machine 402 intake is not open yet.</p>
+
+      <div className="intake-box rv">
+        <form id="intake-form" onsubmit="return false">
+          <div className="field">
+            <label htmlFor="f-skill">Skill name</label>
+            <input id="f-skill" type="text" placeholder="e.g. filesystem-server" autocomplete="off" />
+          </div>
+          <div className="field">
+            <label htmlFor="f-repo">Repository URL</label>
+            <input id="f-repo" type="url" placeholder="https://github.com/you/your-skill" autocomplete="off" />
+          </div>
+          <div className="field">
+            <label htmlFor="f-version">Version / ref</label>
+            <input id="f-version" type="text" placeholder="e.g. v0.6.3 or commit sha" autocomplete="off" />
+          </div>
+          <div className="field">
+            <label htmlFor="f-tier">Tier</label>
+            <select id="f-tier">
+              <option value="sprint">Skill Sprint — $500 / 48h</option>
+              <option value="standard">Skill Standard — $1,500</option>
+              <option value="continuous">Skill Continuous — $300/mo</option>
+            </select>
+          </div>
+          <div className="field">
+            <label htmlFor="f-contact">Contact (human or agent id)</label>
+            <input id="f-contact" type="text" placeholder="e.g. operator@example.com or agent:did:…" autocomplete="off" />
+          </div>
+          <div className="field">
+            <label htmlFor="f-notes">Notes</label>
+            <textarea id="f-notes" placeholder="Scope, threat model, deadlines — anything the battery should know."></textarea>
+          </div>
+        </form>
+        <div className="packet">
+          <button className="copybtn" id="copy-btn" type="button">copy</button>
+          <pre id="packet-out"><span className="cm" style={{color: 'var(--ink-faint)'}}>// your intake packet appears here as you type</span></pre>
+        </div>
+      </div>
+      <p className="intake-note rv">The packet is composed in your browser. Click send — it opens your mail client to <a href="mailto:rob@nanoempireai.com">rob@nanoempireai.com</a>. We do not collect this form on a server yet.</p>
+      <p style={{marginTop: '16px', display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
+        <a className="btn solid" href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c">Pay Skill Sprint — $500 CAD</a>
+        <a className="btn" id="send-intake" href="mailto:rob@nanoempireai.com?subject=SkillProof%20Sprint%20intake">Email packet</a>
+      </p>
+    </div>
+  </section>
+
 
 
                 {/* Telemetry */}
