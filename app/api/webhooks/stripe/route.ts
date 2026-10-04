@@ -85,4 +85,4 @@ async function fulfillOrder(session: Stripe.Checkout.Session, sku: string) {
   }
 }
 
-export const config = { runtime: 'nodejs' };
+export const runtime = 'nodejs';
