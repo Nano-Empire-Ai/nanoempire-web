@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 import { randomUUID } from 'crypto';
 import { initDb, saveScan } from '@/lib/db';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_mock', {
   apiVersion: '2023-10-16',
 });
 
