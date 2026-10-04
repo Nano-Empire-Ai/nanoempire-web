@@ -8,12 +8,12 @@ export function QuickstartSnippet() {
   const [copied, setCopied] = useState(false);
 
   const pythonSnippet = `import nanoempire as ne
-client = ne.Client(api_key="sk_live_paper_mode")
+client = ne.Client(api_key="demo_paper_key")
 dag = client.vision.parse("flowchart TD; AgentA-->AgentB")
 print(f"Verified DAG: {dag.id} | x402 Price: {dag.price_usd} USDC")`;
 
   const curlSnippet = `curl -X POST https://nanoempireai.com/api/v1/parse \\
-  -H "X-API-Key: sk_live_paper_mode" \\
+  -H "X-API-Key: demo_paper_key" \\
   -H "Content-Type: application/json" \\
   -d '{"diagram": "graph TD; A-->B"}'`;
 

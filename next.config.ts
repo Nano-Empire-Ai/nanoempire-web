@@ -11,6 +11,22 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/recall-roulette",
+        destination: "/recall-roulette.html",
+      },
+      {
+        source: "/verified-directory",
+        destination: "/manifests.html",
+      },
+      {
+        source: "/verified-directory.html",
+        destination: "/manifests.html",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
