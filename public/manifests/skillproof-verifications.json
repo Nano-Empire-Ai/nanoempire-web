@@ -1,0 +1,28 @@
+{
+  "manifest_version": "1.0",
+  "subject": {
+    "skill_id": "roblambert9/skillproof-verifications",
+    "version": "1.0.0",
+    "code_hash": "sha256:live-public-inspect",
+    "target_url": "https://smithery.ai/servers/roblambert9/skillproof-verifications"
+  },
+  "verifier": {
+    "id": "skillproof-scanner-v1",
+    "public_key": "ed25519:5c66d09b948cee9e8c050288383ea6d466d57d39d8d68fcb90f10d5f1be28234",
+    "authority": "https://www.nanoempireai.com/manifests.html"
+  },
+  "verdict": "pass",
+  "scorecard": {
+    "tools_evaluated": 3,
+    "findings": []
+  },
+  "validity": {
+    "issued_at": "2026-10-04T19:25:28.190Z",
+    "expires_at": "2027-01-02T19:25:28.190Z",
+    "revoked": false
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "5e5e40b9920c64c709a9cc9ba48a0f1062d278bf39cdc5360c79ecb6ea7273b0068e9d84404fa0dcb0716ac56a7c12146e2c8857d433a013989860430b306c0a"
+  }
+}

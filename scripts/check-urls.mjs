@@ -9,7 +9,7 @@ const paths = [
   "/", "/offers.json", "/llms.txt", "/manifests.html", "/audit-offer.html",
   "/recall-roulette", "/recall-roulette.html", "/recallguard-docs",
   "/recall-report", "/recall-report/sample", "/.well-known/agent-card.json",
-  "/verified-directory", ...extra,
+  "/verified-directory", "/manifests/skillproof-verifications.json", ...extra,
 ];
 
 // Also probe every https URL on this host listed in offers.json.
