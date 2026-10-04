@@ -9,11 +9,10 @@ const WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || '';
 
 // Maps Stripe price IDs to our SKU IDs
 const PRICE_TO_SKU: Record<string, string> = {
-  // Fill in after creating Stripe products
-  // 'price_xxx': 'recallguard-report',
-  // 'price_yyy': 'recallguard-monitoring',
-  // 'price_zzz': 'skillproof-standard',
-  // 'price_www': 'skillproof-sprint',
+  'price_1UMqVDKm83mOzFpMlMZIRTw5': 'recallguard-report',
+  'price_1UMqWcKm83mOzFpMYaAXtgzU': 'recallguard-monitoring',
+  'price_1UMqXSKm83mOzFpMbU3q5uEE': 'skillproof-standard',
+  'price_1UMqYGKm83mOzFpMvcdaLlCI': 'skillproof-sprint',
 };
 
 export async function POST(req: NextRequest) {

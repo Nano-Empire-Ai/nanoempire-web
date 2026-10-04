@@ -18,7 +18,7 @@
       "capability": "compliance-report",
       "manifest": null,
       "status": "live",
-      "stripe_price_id": "price_xxx"
+      "stripe_price_id": "price_1UMqVDKm83mOzFpMlMZIRTw5"
     },
     {
       "id": "recallguard-monitoring",
@@ -33,7 +33,7 @@
       "capability": "continuous-monitoring",
       "manifest": null,
       "status": "live",
-      "stripe_price_id": "price_yyy"
+      "stripe_price_id": "price_1UMqWcKm83mOzFpMYaAXtgzU"
     },
     {
       "id": "skillproof-standard",
@@ -48,7 +48,7 @@
       "capability": "adversarial-verification",
       "manifest": null,
       "status": "live",
-      "stripe_price_id": "price_zzz"
+      "stripe_price_id": "price_1UMqXSKm83mOzFpMbU3q5uEE"
     },
     {
       "id": "skillproof-sprint",
@@ -63,7 +63,7 @@
       "capability": "adversarial-verification",
       "manifest": null,
       "status": "live",
-      "stripe_price_id": "price_www"
+      "stripe_price_id": "price_1UMqYGKm83mOzFpMvcdaLlCI"
     },
     {
       "id": "recallguard-match",

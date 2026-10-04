@@ -26,14 +26,7 @@ export async function POST(req: Request) {
       payment_method_types: ['card'],
       line_items: [
         {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: 'RecallGuard Compliance Report',
-              description: 'One-time deep scan and certified PDF report',
-            },
-            unit_amount: 3000, // $30.00
-          },
+          price: 'price_1UMqVDKm83mOzFpMlMZIRTw5',
           quantity: 1,
         },
       ],
