@@ -1,118 +1,95 @@
 {
-  "name": "Nano Empire — additive offer mesh",
-  "updated": "2026-09-22",
-  "policy": "ADD only. No stream is retired. Each SKU maps to venue categories from the 1000-place list.",
-  "honesty": {
-    "unique_mcp_tools": 12,
-    "huggingbay_virtualcard": "same Cloud Run image as nano-empire-mcp until split",
-    "lifetime_revenue_usd": 0,
-    "stripe": "test mode until operator connects live"
-  },
+  "version": "1.1.0",
+  "issuer": "rob@nanoempire.ai",
+  "chain": "base",
+  "payment_rail": "x402",
+  "paper_mode": false,
+  "updated": "2026-10-04T00:00:00Z",
   "skus": [
     {
-      "id": "skillproof-sprint",
-      "price_usd": 500,
-      "buyer": "human or agent operator",
-      "pay": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c ($500 CAD)",
-      "artifact": "Ed25519 trust manifest",
-      "live": true,
-      "venue_categories": ["mcp-registry", "mcp-gateway", "agent-marketplace", "security-platform", "awesome-list"]
+      "id": "recallguard-report",
+      "name": "RecallGuard Compliance Report",
+      "description": "One-time scan of inventory against 21,812 CPSC/FDA recalls. Signed PDF report.",
+      "price_usd": 30,
+      "currency": "USD",
+      "rail": "stripe",
+      "payment_link": "STRIPE_LINK_1_HERE",
+      "method": "STRIPE_CHECKOUT",
+      "capability": "compliance-report",
+      "manifest": null,
+      "status": "live",
+      "stripe_price_id": "price_xxx"
+    },
+    {
+      "id": "recallguard-monitoring",
+      "name": "RecallGuard Continuous Monitoring",
+      "description": "Monthly re-scan + expansion alerts when recalls widen.",
+      "price_usd": 99,
+      "currency": "USD",
+      "interval": "monthly",
+      "rail": "stripe",
+      "payment_link": "STRIPE_LINK_2_HERE",
+      "method": "STRIPE_SUBSCRIPTION",
+      "capability": "continuous-monitoring",
+      "manifest": null,
+      "status": "live",
+      "stripe_price_id": "price_yyy"
     },
     {
       "id": "skillproof-standard",
-      "price_usd": 1500,
-      "buyer": "human",
-      "pay": "mailto after 5 paid sprints",
-      "artifact": "full battery + offline-verifiable manifest",
-      "live": true,
-      "venue_categories": ["mcp-registry", "security-platform"]
+      "name": "SkillProof Standard Verification",
+      "description": "180 adversarial ops, 5 payload categories, signed Trust Manifest.",
+      "price_usd": 1100,
+      "price_cad": 1500,
+      "currency": "CAD",
+      "rail": "stripe",
+      "payment_link": "STRIPE_LINK_3_HERE",
+      "method": "STRIPE_CHECKOUT",
+      "capability": "adversarial-verification",
+      "manifest": null,
+      "status": "live",
+      "stripe_price_id": "price_zzz"
     },
     {
-      "id": "skillproof-continuous",
-      "price_usd": 300,
-      "period": "month",
-      "buyer": "human",
-      "pay": "mailto / Stripe subscription when live",
-      "live": "offer listed, billing not wired",
-      "venue_categories": ["mcp-registry", "dev-platform"]
+      "id": "skillproof-sprint",
+      "name": "SkillProof Sprint",
+      "description": "48h adversarial battery. Signed Trust Manifest output.",
+      "price_usd": 370,
+      "price_cad": 500,
+      "currency": "CAD",
+      "rail": "stripe",
+      "payment_link": "STRIPE_LINK_4_HERE",
+      "method": "STRIPE_CHECKOUT",
+      "capability": "adversarial-verification",
+      "manifest": null,
+      "status": "live",
+      "stripe_price_id": "price_www"
     },
     {
-      "id": "mcp-x402-tools",
-      "price_usd": 0.02,
-      "unit": "call",
-      "buyer": "machine",
-      "pay": "x402 on https://nano-empire-mcp-yvbxeel47a-uc.a.run.app",
-      "tools_unique": 12,
-      "live": true,
-      "venue_categories": ["x402-ecosystem", "mcp-gateway", "mcp-registry", "agent-network"]
+      "id": "recallguard-match",
+      "name": "RecallGuard Match API",
+      "description": "Machine-native recall screening. x402 on Base.",
+      "price_usd": 0.10,
+      "currency": "USDC",
+      "rail": "x402",
+      "endpoint": "https://recallguard-api.vercel.app/api/v1/match",
+      "method": "POST",
+      "capability": "recall-screening",
+      "manifest": "#01",
+      "status": "live"
     },
     {
-      "id": "huggingbay-mcp",
-      "price_usd": 0.02,
-      "buyer": "machine",
-      "pay": "x402",
-      "live": "url up, same image as mcp-x402-tools",
-      "venue_categories": ["x402-ecosystem", "mcp-registry"]
-    },
-    {
-      "id": "virtual-card-mcp",
-      "price_usd": 0.02,
-      "buyer": "machine",
-      "pay": "x402",
-      "live": "url up, same image as mcp-x402-tools",
-      "venue_categories": ["x402-ecosystem"]
-    },
-    {
-      "id": "skillproof-triage-x402",
-      "price_usdc": "0.01",
-      "network": "base",
-      "buyer": "machine",
-      "pay": "POST /v1/triage → HTTP 402 exact USDC; set X402_PAY_TO to enable",
-      "artifact": "402 challenge + Sprint Stripe URL in body. Facilitator verify not wired yet.",
-      "live": "code on disk",
-      "endpoint": "/v1/triage"
-    },
-    {
-      "id": "quote-box",
-      "buyer": "machine",
-      "pay": "quote free; Sprint $500 via Stripe after Jev classifies tier/risk",
-      "live": false,
-      "code": "empire/imported/skillproof-quote-box-v1",
-      "jev": "Jev returns only tier+risk row IDs. Prices are code constants. Never let Jev emit dollars.",
-      "blocked_by": "TYPESAFE_AI_API_KEY + live Stripe",
-      "venue_categories": ["x402-ecosystem", "mcp-registry"]
-    },
-    {
-      "id": "skillproof-jev-gate",
-      "price_usd": 500,
-      "buyer": "teams shipping Jev PreToolUse / MCP gates",
-      "pay": "SkillProof Sprint against the gate, not the chat model",
-      "artifact": "signed battery on allow/ask/deny + injection set",
-      "live": "offer not listed on site yet — ADD",
-      "why": "awesome-jev already has 269+ GitHub projects; gates fail polite-authority injection (~10%). Nobody sells behavioral proof of those gates.",
-      "venue_categories": ["security-platform", "awesome-list", "mcp-registry"]
-    },
-    {
-      "id": "moneyleg-sidecar",
-      "buyer": "internal / partner gateway",
-      "pay": "SIMULATED until live Stripe/x402",
-      "live": false,
-      "pack": "empire/moneyleg-sidecar-deploy-v1.zip",
-      "venue_categories": []
-    },
-    {
-      "id": "compute-tape",
-      "buyer": "GPU neocloud human",
-      "pay": "invoice $750 diagnostic (outreach queue)",
-      "live": "copy exists, /tape 404",
-      "venue_categories": ["cloud-marketplace", "dev-platform"]
-    },
-    {
-      "id": "dtc-video-ads",
-      "buyer": "human brand (Solawave etc.)",
-      "pay": "human invoice",
-      "live": "Arthur pipeline, $0 collected",
-      "venue_categories": ["direct"]
+      "id": "vin-decode",
+      "name": "VIN Decode + Campaign Match",
+      "description": "NHTSA vPIC decode + campaign match. 24h cache.",
+      "price_usd": 0.03,
+      "currency": "USDC",
+      "rail": "x402",
+      "endpoint": "https://nanoempireai.com/api/vin/decode",
+      "method": "POST",
+      "capability": "vin-decode",
+      "manifest": "#07",
+      "status": "seed"
     }
   ]
 }

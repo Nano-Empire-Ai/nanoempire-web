@@ -1,16 +1,62 @@
-﻿# Nano Empire AI — SkillProof verification studio
-## Offer: SkillProof Sprint $500 CAD / 48h — https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
-## Standard: $1,500 after 5 paid manifests
-## Continuous: $300/mo
-## Public corpus: https://github.com/roblambert9/skillproof-verifications
-## MCP gateway (12 unique tools): https://nano-empire-mcp-yvbxeel47a-uc.a.run.app/health
-## Manifest page: https://nanoempireai.com/manifests
-## Agent Card: https://nanoempireai.com/.well-known/agent-card.json
-## OpenAPI: https://nanoempireai.com/openapi.json
-## Honesty: do not treat api.nanoempireai.com "36 tools" as unique — that listing triplicates 12 names.
-## Full offer mesh (all SKUs, none retired): https://nanoempireai.com/offers.json
-## SkillProof corpus: https://github.com/roblambert9/skillproof-verifications
-## x402 tools: POST https://nano-empire-mcp-yvbxeel47a-uc.a.run.app (12 unique, ~$0.02/call)
-## HuggingBay MCP: https://huggingbay-monetized-yvbxeel47a-uc.a.run.app (same image until split — still listed)
-## VirtualCard MCP: https://virtual-card-mcp-yvbxeel47a-uc.a.run.app (same image until split — still listed)
-## Human intake: mailto:rob@nanoempireai.com
+# Nano Empire AI — Agent Discovery File
+# Updated: 2026-05-23
+# Purpose: Machine-readable service catalog for autonomous agents
+
+## Identity
+name: Nano Empire AI
+issuer: rob@nanoempire.ai
+chain: base
+payment_rail: x402
+paper_mode: true
+docs: https://nanoempireai.com/manifests.html
+offers: https://nanoempireai.com/offers.json
+
+## Services
+
+### recallguard-match
+capability: recall-screening
+price: 0.10 USDC
+method: POST
+endpoint: https://recallguard-api.vercel.app/api/v1/match
+input_schema: {"items": [{"name": "string", "brand": "string", "upc": "string"}]}
+output_schema: {"matches": [{"recall_id": "string", "severity": "string", "hazard": "string", "remedy": "string"}]}
+manifest: #01
+status: live
+
+### recallguard-feed
+capability: recall-feed
+price: 0.05 USDC
+method: GET
+endpoint: https://recallguard-api.vercel.app/api/v1/feed
+params: since, until, source, severity, limit, cursor
+manifest: #02
+status: live
+
+### vin-decode
+capability: vin-decode
+price: 0.03 USDC
+method: POST
+endpoint: https://nanoempireai.com/api/vin/decode
+input_schema: {"vin": "string", "modelyear": "string?"}
+output_schema: {"decoded": {...}, "campaigns": [{"campaign_id": "string", "status": "string", "component": "string"}], "cache_hit": "boolean"}
+manifest: #07
+status: seed
+
+### skillproof-sprint
+capability: adversarial-verification
+price: 500 CAD
+method: HUMAN
+endpoint: https://nanoempireai.com/skillproof
+status: live
+
+## Payment Protocol
+challenge: HTTP 402 + JSON body
+receipt_header: X-402-Receipt
+verification: /api/v1/receipts/verify
+paper_mode_note: Receipts auto-approved locally. On-chain settlement pending first live transaction.
+
+## Trust
+manifests_page: https://nanoempireai.com/manifests.html
+signing_algorithm: HMAC-SHA256
+signer: rob@nanoempire.ai
+receipt_log: https://nanoempireai.com/api/v1/receipts
