@@ -5,23 +5,5 @@ Allow: /
 # Sitemap
 Sitemap: https://nanoempireai.com/sitemap.xml
 
-# Disallow admin/private paths
-Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
-Disallow: /_next/
-Disallow: /api/v1/
-
-# Allow discovery files
-Allow: /offers.json
-Allow: /openapi.json
-Allow: /llms.txt
-Allow: /agents.json
-Allow: /sitemap.xml
-Allow: /robots.txt
-Allow: /.well-known/agent-card.json
-Allow: /recall-roulette
-Allow: /recall-roulette.html
-
 # Crawl delay
 Crawl-delay: 10
