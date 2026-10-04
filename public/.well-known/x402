@@ -1,0 +1,67 @@
+{
+  "version": "1.0.0",
+  "name": "Nano Empire AI - RecallGuard & Agent Intelligence",
+  "description": "Autonomous Agent Tooling and x402 Micropayment Ecosystem on Base",
+  "facilitator": "cdp",
+  "network": "base",
+  "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+  "documentation": "https://www.nanoempireai.com/llms.txt",
+  "endpoints": [
+    {
+      "path": "/api/v1/match",
+      "full_url": "https://recallguard-api.vercel.app/api/v1/match",
+      "method": "POST",
+      "price": "0.10",
+      "currency": "USDC",
+      "description": "Real-time product recall screening against CPSC and FDA enforcement databases",
+      "extensions": {
+        "bazaar": {
+          "category": "compliance",
+          "service": "recallguard",
+          "input": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "description": "Product name, UPC, or manufacturer to screen"
+              }
+            },
+            "required": ["query"]
+          },
+          "output": {
+            "type": "object",
+            "properties": {
+              "status": {"type": "string"},
+              "matches": {"type": "array"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/vin/decode",
+      "full_url": "https://www.nanoempireai.com/api/vin/decode",
+      "method": "POST",
+      "price": "0.03",
+      "currency": "USDC",
+      "description": "NHTSA vPIC decode and safety campaign defect match",
+      "extensions": {
+        "bazaar": {
+          "category": "automotive",
+          "service": "vin-decode",
+          "input": {
+            "type": "object",
+            "properties": {
+              "vin": {
+                "type": "string",
+                "description": "17-character Vehicle Identification Number"
+              }
+            },
+            "required": ["vin"]
+          }
+        }
+      }
+    }
+  ]
+}
