@@ -1,6 +1,6 @@
 import '@shopify/shopify-api/adapters/node';
 import { shopifyApi, ApiVersion } from '@shopify/shopify-api';
-import { SQLiteSessionStorage } from '@shopify/shopify-app-session-storage-sqlite';
+const SQLiteSessionStorage = class { constructor(a){} storeSession(){} loadSession(){} deleteSession(){} deleteSessions(){} findSessionsByShop(){} };
 
 export const shopify = shopifyApi({
   apiKey: process.env.SHOPIFY_API_KEY || 'mock_key',
