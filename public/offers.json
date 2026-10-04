@@ -79,17 +79,30 @@
       "status": "live"
     },
     {
-      "id": "vin-decode",
-      "name": "VIN Decode + Campaign Match",
-      "description": "NHTSA vPIC decode + campaign match. 24h cache.",
-      "price_usd": 0.03,
-      "currency": "USDC",
-      "rail": "x402",
-      "endpoint": "https://nanoempireai.com/api/vin/decode",
-      "method": "POST",
-      "capability": "vin-decode",
-      "manifest": "#07",
-      "status": "seed"
+          "id": "vin-decode",
+          "name": "VIN Decode + Campaign Match",
+          "description": "NHTSA vPIC decode + campaign match. 24h cache.",
+          "price_usd": 0.03,
+          "currency": "USDC",
+          "rail": "x402",
+          "endpoint": "https://nanoempireai.com/api/vin/decode",
+          "method": "POST",
+          "capability": "vin-decode",
+          "manifest": "#07",
+          "status": "seed"
+        },
+        {
+          "id": "verified-directory-listing",
+          "name": "Verified Directory Listing",
+          "description": "Paid directory listing for MCP server authors. Includes Trust Manifest on manifests.html + llms.txt entry.",
+          "price_usd": 500,
+          "currency": "CAD",
+          "rail": "stripe",
+          "payment_link": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c",
+          "method": "STRIPE_CHECKOUT",
+          "capability": "directory-listing",
+          "manifest": "directory",
+          "status": "live"
+        }
+      ]
     }
-  ]
-}

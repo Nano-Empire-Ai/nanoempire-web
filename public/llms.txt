@@ -1,5 +1,5 @@
 # Nano Empire AI — Agent Discovery File
-# Updated: 2026-05-23
+# Updated: 2026-10-04
 # Purpose: Machine-readable service catalog for autonomous agents
 
 ## Identity
@@ -7,7 +7,7 @@ name: Nano Empire AI
 issuer: rob@nanoempire.ai
 chain: base
 payment_rail: x402
-paper_mode: true
+paper_mode: false
 docs: https://nanoempireai.com/manifests.html
 offers: https://nanoempireai.com/offers.json
 
@@ -32,6 +32,49 @@ params: since, until, source, severity, limit, cursor
 manifest: #02
 status: live
 
+### recallguard-report
+capability: compliance-report
+price: 30 USD
+method: STRIPE_CHECKOUT
+endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
+status: live
+
+### recallguard-monitoring
+capability: continuous-monitoring
+price: 99 USD/month
+method: STRIPE_SUBSCRIPTION
+endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
+status: live
+
+### skillproof-sprint
+capability: adversarial-verification
+price: 500 CAD
+method: STRIPE_CHECKOUT
+endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
+status: live
+
+### skillproof-standard
+capability: adversarial-verification
+price: 1500 CAD
+method: STRIPE_CHECKOUT
+endpoint: mailto:rob@nanoempire.ai
+status: live
+
+### skillproof-continuous
+capability: adversarial-verification
+price: 300 CAD/month
+method: STRIPE_SUBSCRIPTION
+endpoint: mailto:rob@nanoempire.ai
+status: live
+
+### verified-directory-listing
+capability: directory-listing
+price: 500 CAD
+method: STRIPE_CHECKOUT
+endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
+manifest: directory
+status: live
+
 ### vin-decode
 capability: vin-decode
 price: 0.03 USDC
@@ -42,11 +85,18 @@ output_schema: {"decoded": {...}, "campaigns": [{"campaign_id": "string", "statu
 manifest: #07
 status: seed
 
-### skillproof-sprint
+### skillproof-standard
 capability: adversarial-verification
-price: 500 CAD
-method: HUMAN
-endpoint: https://nanoempireai.com/skillproof
+price: 1500 CAD
+method: STRIPE_CHECKOUT
+endpoint: mailto:rob@nanoempire.ai
+status: live
+
+### skillproof-continuous
+capability: adversarial-verification
+price: 300 CAD/month
+method: STRIPE_SUBSCRIPTION
+endpoint: mailto:rob@nanoempire.ai
 status: live
 
 ## Payment Protocol
