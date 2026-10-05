@@ -102,7 +102,15 @@ function run(){
     }
   });
   const pct=Math.round(hitItems/items.length*100);
-  out.innerHTML='<div class="score">'+hitItems+" of "+items.length+" items flagged ("+pct+'%)</div>'+html;
+  let cta = "";
+  if (hitItems > 0) {
+    cta = "<div class='card' style='background:#1e293b;border:2px solid #3b82f6;text-align:center;padding:18px;margin:20px 0;'>"
+      + "<h3 style='margin:0 0 8px;color:#60a5fa;'>&#9888; Action Required: Recalled Items Detected</h3>"
+      + "<p style='margin:0 0 14px;color:#cbd5e1;font-size:0.95rem;'>Your items overlap active federal safety recalls. Download your official, signed CPSC/FDA compliance report with remedy protocols and liability mitigation documentation.</p>"
+      + "<a href='https://buy.stripe.com/28E8wQ3zK16L5eb4ZOfAc0d' target='_blank' style='display:inline-block;background:#2563eb;color:#fff;font-weight:700;padding:12px 24px;border-radius:8px;text-decoration:none;'>Download Signed Compliance Report ($30) &rarr;</a>"
+      + "</div>";
+  }
+  out.innerHTML='<div class="score">'+hitItems+" of "+items.length+" items flagged ("+pct+'%)</div>'+cta+html;
   out.scrollIntoView({behavior:"smooth", block:"start"});
 }
 </script>
