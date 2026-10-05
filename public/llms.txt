@@ -94,6 +94,17 @@ output_schema: {"decoded": {...}, "campaigns": [{"campaign_id": "string", "statu
 manifest: #07
 status: seed
 
+### sensorium-parse
+capability: diagram-to-workflow
+price: 0.025 USD
+network: base
+rail: trial_or_x402
+method: POST
+endpoint: https://nanoempireai.com/api/v1/parse
+trial_endpoint: https://www.nanoempireai.com/v1/trial
+sdk_npm: nanoempire-sdk@1.1.2
+status: live
+
 ## Payment Protocol
 challenge: HTTP 402 + JSON body
 receipt_headers: X-PAYMENT-RESPONSE, X-402-Receipt

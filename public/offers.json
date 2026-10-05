@@ -89,6 +89,19 @@
       "capability": "vin-decode",
       "manifest": "#07",
       "status": "seed"
+    },
+    {
+      "id": "sensorium-parse",
+      "name": "Sensorium Vision Parser API",
+      "description": "Parse Excalidraw diagrams into executable agent DAG workflows with cryptographic proofs.",
+      "price_usd": 0.025,
+      "currency": "USD",
+      "rail": "trial_or_x402",
+      "endpoint": "https://nanoempireai.com/api/v1/parse",
+      "trial_endpoint": "https://www.nanoempireai.com/v1/trial",
+      "method": "POST",
+      "capability": "diagram-to-workflow",
+      "status": "live"
     }
   ]
 }
