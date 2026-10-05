@@ -66,19 +66,18 @@ method: STRIPE_SUBSCRIPTION
 endpoint: https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e
 status: live
 
-### verified-directory-listing
+### directory-listing-placement
 capability: directory-listing
 price: 500 CAD
 method: STRIPE_CHECKOUT
-endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
-manifest: directory
+endpoint: https://buy.stripe.com/3csaEZ2vG2aP4a7bIQ
 status: live
 
 ### skillproof-sprint
 capability: adversarial-verification
 price: 500 CAD
 method: STRIPE_CHECKOUT
-endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
+endpoint: https://buy.stripe.com/3csaEZ2vG2aP4a7bIQ
 status: live
 
 ### vin-decode
