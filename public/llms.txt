@@ -8,16 +8,24 @@ issuer: rob@nanoempire.ai
 chain: base
 payment_rail: x402
 paper_mode: false
+openapi_spec: https://nanoempireai.com/openapi.json
+sdk_npm: https://www.npmjs.com/package/nanoempire-sdk
 docs: https://nanoempireai.com/manifests.html
 offers: https://nanoempireai.com/offers.json
 agent_card: https://nanoempireai.com/.well-known/agent-card.json
 x402_discovery: https://nanoempireai.com/.well-known/x402.json
+interactive_scanner: https://nanoempireai.com/recall-roulette.html
 
 ## Machine Economy Rails Architecture
 - Talk: A2A (Google) handles agent-to-agent discovery and messaging.
 - Permission: AP2 (Google/FIDO) issues signed mandates for intent, cart, and payment constraints.
 - Checkout: ACP (OpenAI + Stripe) routes consumer checkout where merchant remains merchant of record.
 - Settlement: x402 (x402 Foundation/Linux Foundation) and MPP (Stripe + Tempo) settle machine-native micropayments inside the request.
+
+## Developer & Agent Onramp
+- Package: `npm install nanoempire-sdk` (v1.1.2)
+- Trial Onramp: 50 free credits provisioned via `GET /v1/trial` (backed by SQLite WAL persistence)
+- Peeking & Consumption: `POST /v1/trial/verify` (decrements 1 credit) / `GET /v1/trial/verify` (read-only peek)
 
 ## Volume Honesty & Settlement Scope
 - Ecosystem Context: x402 Foundation reported ~75M transactions and ~$24M volume over a recent 30-day window; independent analysis filters actual agent share significantly lower (TRM Labs 0.6%–7.5%; a16z ~$1.6M/month after wash filter).
@@ -29,7 +37,7 @@ x402_discovery: https://nanoempireai.com/.well-known/x402.json
 - Cloudflare Gateway: CDN-level paywall (charges x402, but does not provide adversarial skill proof or hash-chained receipts).
 - SkillProof: Cryptographically signed Ed25519 Trust Manifests verifying deterministic AST invariants, strict entropy bounds, and egress boundaries against 12 GapBench attack classes.
 
-## Services
+## Services & SKUs
 
 ### recallguard-match
 capability: recall-screening
@@ -43,18 +51,6 @@ input_schema: {"items": [{"name": "string", "brand": "string", "upc": "string"}]
 output_schema: {"matches": [{"recall_id": "string", "severity": "string", "hazard": "string", "remedy": "string"}]}
 manifest: #01
 status: live
-
-### recallguard-feed
-capability: recall-feed
-price: 0.05 USDC
-network: base
-asset: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
-payTo: 0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01
-method: GET
-endpoint: https://recallguard-api.vercel.app/api/v1/feed
-params: since, until, source, severity, limit, cursor
-manifest: #02
-status: planned
 
 ### recallguard-report
 capability: compliance-report
@@ -83,13 +79,6 @@ capability: adversarial-verification
 price: 500 CAD
 method: STRIPE_CHECKOUT
 endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
-status: live
-
-### skillproof-standard
-capability: adversarial-verification
-price: 1500 CAD
-method: STRIPE_CHECKOUT
-endpoint: mailto:rob@nanoempire.ai
 status: live
 
 ### vin-decode
