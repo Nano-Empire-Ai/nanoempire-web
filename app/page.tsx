@@ -425,7 +425,7 @@ export default function Home() {
           <div className="price">$30<small> USD</small></div>
           <div className="per">one-time scan · instant PDF</div>
           <p>Scan your inventory against 21,812 CPSC/FDA recalls. Official signed compliance report with remedy protocols.</p>
-          <a className="btn small solid" href="https://buy.stripe.com/28E8wQ3zK16L5eb4ZOfAc0d" target="_blank">Order Report ($30)</a>
+          <a className="btn small solid" href="https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f" target="_blank">Order Report ($30)</a>
         </div>
         <div className="card rv">
           <div className="tier">Recall Monitoring</div>

@@ -56,7 +56,7 @@ status: live
 capability: compliance-report
 price: 30 USD
 method: STRIPE_CHECKOUT
-endpoint: https://buy.stripe.com/28E8wQ3zK16L5eb4ZOfAc0d
+endpoint: https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f
 status: live
 
 ### recallguard-monitoring

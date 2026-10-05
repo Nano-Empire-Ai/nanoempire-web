@@ -13,12 +13,12 @@
       "price_usd": 30,
       "currency": "USD",
       "rail": "stripe",
-      "payment_link": "https://buy.stripe.com/28E8wQ3zK16L5eb4ZOfAc0d",
+      "payment_link": "https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f",
       "method": "STRIPE_CHECKOUT",
       "capability": "compliance-report",
       "manifest": null,
       "status": "live",
-      "stripe_price_id": "price_1UMqVDKm83mOzFpMlMZIRTw5"
+      "stripe_price_id": "price_1UNFK3Km83mOzFpMnQqM1nUS"
     },
     {
       "id": "recallguard-monitoring",
