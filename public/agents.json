@@ -31,9 +31,11 @@
           "network": "base",
           "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
+          "facilitator": "coinbase-x402-facilitator",
+          "receipt_headers": ["X-PAYMENT-RESPONSE", "X-402-Receipt"],
           "offers": "https://nanoempireai.com/offers.json",
           "openapi": "https://nanoempireai.com/openapi.json",
-          "verified_on": "2026-09-30"
+          "verified_on": "2026-10-05"
         }
       }
     ]

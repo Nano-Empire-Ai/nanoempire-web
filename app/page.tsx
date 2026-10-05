@@ -262,6 +262,60 @@ export default function Home() {
     {/* Dogfooding Receipts & Provable Telemetry */}
     <DogfoodReceiptsWidget />
 
+    {/* Machine-Native Protocol Rails & Settlement Honesty */}
+    <section className="py-16 px-6 border-b border-[#8C92A4]/20 bg-[#0A0D14]">
+      <div className="max-w-7xl mx-auto space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div className="text-xs uppercase tracking-widest text-[#00B5E2] font-mono mb-2">Protocol Architecture &amp; Honest Volume</div>
+            <h2 className="text-3xl font-extrabold uppercase text-white tracking-tight">The Four Machine-Economy Rails</h2>
+          </div>
+          <div className="text-xs text-[#8C92A4] font-mono border border-white/10 px-3 py-1.5 rounded bg-white/5">
+            Updated: 2026-10-05 · Primary Source Verification
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="p-5 rounded-lg border border-[#8C92A4]/20 bg-[#07090D] space-y-3">
+            <div className="text-xs text-[#8C92A4] uppercase font-mono">1. Talk</div>
+            <div className="text-lg font-bold text-white">Google A2A</div>
+            <p className="text-sm text-[#8C92A4] font-sans">Agent-to-agent discovery and structured messaging. Defines how autonomous units talk.</p>
+          </div>
+          <div className="p-5 rounded-lg border border-[#8C92A4]/20 bg-[#07090D] space-y-3">
+            <div className="text-xs text-[#8C92A4] uppercase font-mono">2. Permission</div>
+            <div className="text-lg font-bold text-[#A3FF00]">Google / FIDO AP2</div>
+            <p className="text-sm text-[#8C92A4] font-sans">Signed policy mandates: intent, cart, and spend bounds without human present. Does not move money.</p>
+          </div>
+          <div className="p-5 rounded-lg border border-[#8C92A4]/20 bg-[#07090D] space-y-3">
+            <div className="text-xs text-[#8C92A4] uppercase font-mono">3. Checkout</div>
+            <div className="text-lg font-bold text-[#FF7B00]">OpenAI / Stripe ACP</div>
+            <p className="text-sm text-[#8C92A4] font-sans">Purchases through seller PSP where merchant stays merchant of record. Optimized for retail and fiat.</p>
+          </div>
+          <div className="p-5 rounded-lg border border-[#00B5E2]/40 bg-[#00B5E2]/5 space-y-3">
+            <div className="text-xs text-[#00B5E2] uppercase font-mono">4. Settlement</div>
+            <div className="text-lg font-bold text-[#00B5E2]">x402 &amp; MPP</div>
+            <p className="text-sm text-[#8C92A4] font-sans">Pay inside the request (HTTP 402 on Base) and session-streamed micropayments. Our live settlement rail.</p>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-lg border border-white/10 bg-white/5 space-y-4 font-sans text-sm text-[#8C92A4]">
+          <div className="flex items-center gap-2 text-white font-mono text-xs uppercase font-bold tracking-wider">
+            <Shield size={14} className="text-[#A3FF00]" />
+            Volume Honesty &amp; Verified Counterweight
+          </div>
+          <p>
+            The x402 Foundation reported ~75M transactions and ~$24M volume over a recent 30-day window. Independent forensics filter actual agent share significantly lower: TRM Labs measures 0.6%–7.5% real agent volume, and a16z estimates ~$1.6M/month after wash-trading filters. Nano Empire maintains zero hype: outside settled customer count is currently 0 (one verified operator self-test on Base block 51961194).
+          </p>
+          <div className="pt-2 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+            <span>Paywall is now a CDN feature (Cloudflare Monetization Gateway). Proof of skill is not.</span>
+            <a href="/manifests.html" className="text-[#00B5E2] hover:underline flex items-center gap-1">
+              Explore SkillProof Invariant Manifests <ArrowUpRight size={12} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* Unified Pricing Rails */}
     <PricingTierTranslation />
 
