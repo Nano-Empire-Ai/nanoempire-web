@@ -29,7 +29,7 @@ CHECKS = [
         "name": "Service Discovery (/llms.txt)",
         "url": f"{PRODUCTION_DOMAIN}/llms.txt",
         "expected_status": 200,
-        "validate": lambda body: "Machine Economy Rails Architecture" in body and "buy.stripe.com/28E8wQ3zK16L5eb4ZOfAc0d" in body
+        "validate": lambda body: "Machine Economy Rails Architecture" in body and "buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f" in body
     },
     {
         "name": "Offers Catalog (/offers.json)",
