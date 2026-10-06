@@ -27,7 +27,11 @@ async function proxyRequest(url: string, options: RequestInit) {
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const agent_id = searchParams.get('agent_id') || '';
-  return proxyRequest(`${QUOTE_BOX_URL}/v1/trial?agent_id=${agent_id}`, { method: 'GET' });
+  // quote-box only accepts POST, so we proxy GET as POST with query param in body
+  return proxyRequest(`${QUOTE_BOX_URL}/v1/trial`, {
+    method: 'POST',
+    body: JSON.stringify({ agent_id }),
+  });
 }
 
 export async function POST(req: NextRequest) {
