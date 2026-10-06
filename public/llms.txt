@@ -26,6 +26,7 @@ interactive_scanner: https://nanoempireai.com/recall-roulette.html
 - Package: `npm install nanoempire-sdk` (v1.1.2)
 - Trial Onramp: 50 free credits provisioned via `GET /v1/trial` (backed by SQLite WAL persistence)
 - Peeking & Consumption: `POST /v1/trial/verify` (decrements 1 credit) / `GET /v1/trial/verify` (read-only peek)
+- Viral Referral: Every trial claim returns `referral_code` — "Refer an agent → both get +10 credits". Share via `tweet_url` in response.
 
 ## Volume Honesty & Settlement Scope
 - Ecosystem Context: x402 Foundation reported ~75M transactions and ~$24M volume over a recent 30-day window; independent analysis filters actual agent share significantly lower (TRM Labs 0.6%–7.5%; a16z ~$1.6M/month after wash filter).

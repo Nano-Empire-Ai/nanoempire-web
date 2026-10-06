@@ -24,18 +24,55 @@ async function proxyRequest(url: string, options: RequestInit) {
   }
 }
 
+function extractReferralCode(auth: string | null): string | null {
+  if (!auth || !auth.startsWith('Bearer ')) return null;
+  const token = auth.slice(7);
+  // Extract referral code from token if embedded, or return null
+  return null; // Token parsing would go here
+}
+
 export async function GET(req: NextRequest) {
   const auth = req.headers.get('authorization');
-  return proxyRequest(`${QUOTE_BOX_URL}/v1/trial/verify`, {
+  const referralCode = extractReferralCode(auth);
+  const resp = await proxyRequest(`${QUOTE_BOX_URL}/v1/trial/verify`, {
     method: 'GET',
     headers: auth ? { Authorization: auth } : {},
   });
+  if (referralCode) {
+    try {
+      const text = await resp.text();
+      const data = JSON.parse(text);
+      data.referral_code = referralCode;
+      return new NextResponse(JSON.stringify(data), {
+        status: resp.status,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    } catch {
+      return resp;
+    }
+  }
+  return resp;
 }
 
 export async function POST(req: NextRequest) {
   const auth = req.headers.get('authorization');
-  return proxyRequest(`${QUOTE_BOX_URL}/v1/trial/verify`, {
+  const referralCode = extractReferralCode(auth);
+  const resp = await proxyRequest(`${QUOTE_BOX_URL}/v1/trial/verify`, {
     method: 'POST',
     headers: auth ? { Authorization: auth } : {},
   });
+  if (referralCode) {
+    try {
+      const text = await resp.text();
+      const data = JSON.parse(text);
+      data.referral_code = referralCode;
+      return new NextResponse(JSON.stringify(data), {
+        status: resp.status,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    } catch {
+      return resp;
+    }
+  }
+  return resp;
 }
