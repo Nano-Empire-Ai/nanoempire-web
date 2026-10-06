@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const ORCHESTRATOR_URL = process.env.ORCHESTRATOR_URL || 'http://147.5.105.20:8080';
 const QUOTE_BOX_URL = process.env.QUOTE_BOX_URL || 'http://147.5.105.20:8405';
 
 async function proxyRequest(url: string, options: RequestInit) {
@@ -28,7 +27,7 @@ async function proxyRequest(url: string, options: RequestInit) {
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const agent_id = searchParams.get('agent_id') || '';
-  return proxyRequest(`${ORCHESTRATOR_URL}/v1/trial?agent_id=${agent_id}`, { method: 'GET' });
+  return proxyRequest(`${QUOTE_BOX_URL}/v1/trial?agent_id=${agent_id}`, { method: 'GET' });
 }
 
 export async function POST(req: NextRequest) {
