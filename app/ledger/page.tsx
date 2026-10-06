@@ -1,6 +1,5 @@
-"use client";
-
 import React, { useEffect, useState } from 'react';
+import LedgerFeed from './LedgerFeed';
 
 type Transaction = {
   tx_id: string;
@@ -54,6 +53,11 @@ export default function TransparentYieldLedger() {
             </div>
           </div>
         </header>
+
+        {/* Live Cryptographic Settlement Feed */}
+        <section className="mb-12">
+          <LedgerFeed />
+        </section>
 
         <main>
           <div className="overflow-x-auto">
