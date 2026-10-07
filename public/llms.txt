@@ -82,12 +82,6 @@ method: STRIPE_CHECKOUT
 endpoint: https://buy.stripe.com/3csaEZ2vG2aP4a7bIQ
 status: live
 
-### skillproof-sprint
-capability: adversarial-verification
-price: 500 CAD
-method: STRIPE_CHECKOUT
-endpoint: https://buy.stripe.com/3csaEZ2vG2aP4a7bIQ
-status: live
 
 ### vin-decode
 capability: vin-decode

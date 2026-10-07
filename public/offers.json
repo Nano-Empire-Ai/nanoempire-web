@@ -36,21 +36,6 @@
       "stripe_price_id": "price_1UMqWcKm83mOzFpMYaAXtgzU"
     },
     {
-      "id": "skillproof-sprint",
-      "name": "SkillProof Sprint",
-      "description": "48h automated adversarial battery (180 injection + 20 honest ops). Signed Trust Manifest output.",
-      "price_usd": 370,
-      "price_cad": 500,
-      "currency": "CAD",
-      "rail": "stripe",
-      "payment_link": "https://buy.stripe.com/3csaEZ2vG2aP4a7bIQ",
-            "method": "STRIPE_CHECKOUT",
-            "capability": "adversarial-verification",
-            "manifest": null,
-            "status": "live",
-            "stripe_price_id": "price_1UMqYGKm83mOzFpMvcdaLlCI"
-    },
-    {
       "id": "verified-directory-listing",
       "name": "Directory Listing — Placement",
       "description": "Paid placement slot for MCP server authors in the Nano Empire AI directory, with an entry on manifests.html and in llms.txt. Placement only: no testing, no verification, no audit, no endorsement of any kind.",

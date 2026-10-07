@@ -123,7 +123,7 @@
     {
       "id": "skillproof",
       "name": "SkillProof",
-      "description": "Adversarial test battery against a skill or MCP server, returning a signed Ed25519 trust manifest. Status: human / Stripe (no x402 verify path answers as of 2026-09-27). Price: skillproof-sprint 500 CAD (offers.json status: planned); tiers skillproof-standard 1500, skillproof-rush 2500, skillproof-vc-diligence 3500, skillproof-fleet-red-team 1000 CAD per offers.json.",
+      "description": "Adversarial test battery against a skill or MCP server, returning a signed Ed25519 trust manifest. Verifies deterministic AST invariants and entropy bounds.",
       "tags": [
         "verification",
         "mcp",
