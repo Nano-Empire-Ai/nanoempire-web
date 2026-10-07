@@ -19,11 +19,13 @@ ledger_feed: https://nanoempireai.com/api/ledger/feed
 revenue_telemetry: https://nanoempireai.com/api/dashboard/revenue
 badge_engine: https://nanoempireai.com/api/badge/{owner}/{repo}
 
-## Machine Economy Rails Architecture
-- Talk: A2A (Google) handles agent-to-agent discovery and messaging.
-- Permission: AP2 (Google/FIDO) issues signed mandates for intent, cart, and payment constraints.
-- Checkout: ACP (OpenAI + Stripe) routes consumer checkout where merchant remains merchant of record.
-- Settlement: x402 (x402 Foundation/Linux Foundation) and MPP (Stripe + Tempo) settle machine-native micropayments inside the request.
+## Machine Economy Rails Architecture (Uncollapsed 5-Layer Stack)
+- Talk: A2A (Google origin, Linux Foundation, Agentic AI Foundation 2026-08-27, v1.0 March 2026). Agent Card is discovery. Does not move money.
+- Context & Tools: MCP (Model Context Protocol, AAIF). Context hydration and tool calls. Not money.
+- Mandate: AP2 (Google, FIDO Alliance). Cryptographically signed intent, cart, and spend bounds. Does not settle.
+- Checkout: ACP (OpenAI + Stripe, beta). Routes checkout where merchant remains merchant of record.
+- Settlement: x402 (Linux Foundation operational 2026-07-14, ~40 members including Visa, Mastercard, Stripe, Google, AWS, Circle) & MPP (Stripe + Tempo 2026-03-18, capped session streaming). Circle Q2: 99.3% USDC.
+- Card Rails: Visa Intelligent Commerce & Mastercard Agent Pay for Machines (2026-06-10). Virtual card bridge to legacy networks.
 
 ## Developer & Agent Onramp
 - Package: `npm install nanoempire-sdk` (v1.1.2)
@@ -31,9 +33,12 @@ badge_engine: https://nanoempireai.com/api/badge/{owner}/{repo}
 - Peeking & Consumption: `POST /v1/trial/verify` (decrements 1 credit) / `GET /v1/trial/verify` (read-only peek)
 - Viral Referral: Every trial claim returns `referral_code` — "Refer an agent → both get +10 credits". Share via `tweet_url` in response.
 
-## Volume Honesty & Settlement Scope
-- Ecosystem Context: x402 Foundation reported ~75M transactions and ~$24M volume over a recent 30-day window; independent analysis filters actual agent share significantly lower (TRM Labs 0.6%–7.5%; a16z ~$1.6M/month after wash filter).
-- Nano Empire Settled Receipts: 1 operator self-test on Base block 51961194 (tx: 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999). Outside customer count: 0.
+## Volume Honesty & Settlement Scope (Fact-Checked Primary Prints)
+- Visa & Artemis (July 2026): ~109.6M x402 transactions, ~$15M settled volume since May 2025 (mean ~$0.14). MPP initial: ~$25K across ~115K transactions.
+- x402 Foundation (Oct 2026): ~75M transactions, ~$24M in recent 30-day window (sub-dollar micropayments).
+- TRM Labs (13 Sep 2026): 198.9M settlements, $52.7M gross; filtered to $25.62M commerce. Only 0.6%–7.5% of value showed autonomous agent behavior (cannot reliably separate agents from automated scripts).
+- Coinbase Print (April 2026): 165M transactions, $50M claimed, 480k agents (disputed; valid only alongside TRM filter).
+- Nano Empire Settled Receipts: 1 operator self-test on Base block 51961194 (2026-09-29, operator-to-operator). Outside customer count: 0. Honesty is our moat.
 
 ## Proof & Trust Differentiation
 - ERC-8004: Minted on-chain identity registry (identity claim, not behavioral proof).
