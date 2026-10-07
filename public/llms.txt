@@ -15,6 +15,9 @@ offers: https://nanoempireai.com/offers.json
 agent_card: https://nanoempireai.com/.well-known/agent-card.json
 x402_discovery: https://nanoempireai.com/.well-known/x402.json
 interactive_scanner: https://nanoempireai.com/recall-roulette.html
+ledger_feed: https://nanoempireai.com/api/ledger/feed
+revenue_telemetry: https://nanoempireai.com/api/dashboard/revenue
+badge_engine: https://nanoempireai.com/api/badge/{owner}/{repo}
 
 ## Machine Economy Rails Architecture
 - Talk: A2A (Google) handles agent-to-agent discovery and messaging.
