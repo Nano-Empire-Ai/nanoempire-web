@@ -12,6 +12,7 @@ const SAMPLE_VINS = [
 ];
 
 const QUOTE_BOX_URL = process.env.QUOTE_BOX_URL || 'http://147.5.105.20:8405';
+const NANOEMPIRE_API = process.env.NANOEMPIRE_API || 'https://www.nanoempireai.com';
 const VIN_DECODE_ENDPOINT = '/api/vin/decode';
 const TRIAL_CLAIM_ENDPOINT = '/v1/trial';
 const TRIAL_VERIFY_ENDPOINT = '/v1/trial/verify';
@@ -51,7 +52,7 @@ async function verifyTrialDecrement(trialToken: string): Promise<{ credits_remai
 }
 
 async function decodeVinWithTrial(vin: string, trialToken: string) {
-  const targetUrl = `${QUOTE_BOX_URL}${VIN_DECODE_ENDPOINT}`;
+  const targetUrl = `${NANOEMPIRE_API}${VIN_DECODE_ENDPOINT}`;
   
   const res = await fetch(targetUrl, {
     method: 'POST',
