@@ -119,3 +119,10 @@ manifests_page: https://nanoempireai.com/manifests.html
 signing_algorithm: Ed25519
 signer: rob@nanoempire.ai
 receipt_log: https://nanoempireai.com/api/v1/receipts
+
+## Monetized MCP Server Fleet (@monetize)
+- postgres-mcp: https://github.com/roblambert9/postgres-mcp | Registries: Smithery, mcp.so | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
+- filesystem-mcp: https://github.com/roblambert9/filesystem-mcp | Registries: AgentOps, LangChain | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
+- github-mcp: https://github.com/roblambert9/github-mcp | Registries: Glama, PulseMCP | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
+- sqlite-mcp: https://github.com/roblambert9/sqlite-mcp | Registries: Smithery, mcp.so | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
+- browser-mcp: https://github.com/roblambert9/browser-mcp | Registries: AgentOps, Glama | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
