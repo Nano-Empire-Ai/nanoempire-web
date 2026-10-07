@@ -79,7 +79,7 @@ status: live
 capability: directory-listing
 price: 500 CAD
 method: STRIPE_CHECKOUT
-endpoint: https://buy.stripe.com/3csaEZ2vG2aP4a7bIQ
+endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
 status: live
 
 

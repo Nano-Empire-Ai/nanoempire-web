@@ -42,7 +42,7 @@
       "price_usd": 500,
       "currency": "CAD",
       "rail": "stripe",
-            "payment_link": "https://buy.stripe.com/3csaEZ2vG2aP4a7bIQ",
+            "payment_link": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c",
             "method": "STRIPE_CHECKOUT",
             "capability": "directory-listing",
             "manifest": "directory",
