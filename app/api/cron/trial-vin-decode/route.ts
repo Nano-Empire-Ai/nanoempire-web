@@ -11,15 +11,14 @@ const SAMPLE_VINS = [
   '1C4RJFAG5FC000000', // Jeep Grand Cherokee
 ];
 
-const ORCHESTRATOR_BASE = process.env.ORCHESTRATOR_BASE || 'https://api.nanoempireai.com';
-const LOCAL_API_BASE = process.env.LOCAL_API_BASE || ''; // Use relative URLs in production
+const QUOTE_BOX_URL = process.env.QUOTE_BOX_URL || 'http://147.5.105.20:8405';
 const VIN_DECODE_ENDPOINT = '/api/vin/decode';
-const TRIAL_CLAIM_ENDPOINT = '/api/v1/trial';
-const TRIAL_VERIFY_ENDPOINT = '/api/v1/trial/verify';
+const TRIAL_CLAIM_ENDPOINT = '/v1/trial';
+const TRIAL_VERIFY_ENDPOINT = '/v1/trial/verify';
 
 async function claimTrial(agentId: string): Promise<{ trial_token: string; credits: number } | null> {
   try {
-    const baseUrl = LOCAL_API_BASE || ORCHESTRATOR_BASE;
+    const baseUrl = QUOTE_BOX_URL;
     const res = await fetch(`${baseUrl}${TRIAL_CLAIM_ENDPOINT}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -35,7 +34,7 @@ async function claimTrial(agentId: string): Promise<{ trial_token: string; credi
 
 async function verifyTrialDecrement(trialToken: string): Promise<{ credits_remaining: number; ok: boolean } | null> {
   try {
-    const baseUrl = LOCAL_API_BASE || ORCHESTRATOR_BASE;
+    const baseUrl = QUOTE_BOX_URL;
     const res = await fetch(`${baseUrl}${TRIAL_VERIFY_ENDPOINT}`, {
       method: 'POST',
       headers: {
@@ -51,8 +50,8 @@ async function verifyTrialDecrement(trialToken: string): Promise<{ credits_remai
   }
 }
 
-async function decodeVinWithTrial(vin: string, trialToken: string, origin: string) {
-  const targetUrl = `${origin}${VIN_DECODE_ENDPOINT}`;
+async function decodeVinWithTrial(vin: string, trialToken: string) {
+  const targetUrl = `${QUOTE_BOX_URL}${VIN_DECODE_ENDPOINT}`;
   
   const res = await fetch(targetUrl, {
     method: 'POST',
@@ -106,7 +105,7 @@ export async function GET(req: NextRequest) {
 
     try {
       // 2. Call VIN decode with trial auth
-      const decodeRes = await decodeVinWithTrial(vin, trialToken!, origin);
+      const decodeRes = await decodeVinWithTrial(vin, trialToken!);
       
       if (decodeRes.status === 402) {
         // Trial token not accepted by vin/decode (expects x402), fallback to paper mode receipt
