@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button';
 export const metadata = {
   title: 'SkillProof Case Studies — Verified Behavioral Evidence',
   description: 'Adversarial security and claim verification case studies for AI agents and MCP servers.',
+  alternates: {
+    canonical: '/case-studies',
+  },
 };
 
 export default function CaseStudiesPage() {

@@ -13,17 +13,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.nanoempireai.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Nano Empire | Machine Economy API Gateway",
   description: "The API Gateway for the Autonomous Machine Economy. Pay-per-call x402 endpoints, Cerberus MAB routing, and instant Stripe AgentFi virtual cards.",
   keywords: ["AI Agents", "MCP", "x402", "Solana", "Base", "Machine Economy", "API Gateway", "Cerberus"],
   openGraph: {
     title: "Nano Empire AI",
     description: "The autonomous machine economy gateway. Execute API calls via stablecoin micropayments.",
-    url: "https://nanoempireai.com",
+    url: "https://www.nanoempireai.com",
     siteName: "Nano Empire AI",
     images: [
       {
-        url: "https://nanoempireai.com/og.png",
+        url: "/og.png",
         width: 1200,
         height: 630,
       },

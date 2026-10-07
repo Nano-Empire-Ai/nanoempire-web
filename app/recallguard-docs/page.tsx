@@ -4,6 +4,9 @@ import { ShieldCheck, Terminal, Database, Cpu, CheckCircle, ExternalLink, ArrowR
 export const metadata = {
   title: "RecallGuard API Documentation | Nano Empire",
   description: "Machine-readable vehicle & product recall detection endpoints. x402 settlement on Base.",
+  alternates: {
+    canonical: "/recallguard-docs",
+  },
 };
 
 export default function RecallGuardDocs() {

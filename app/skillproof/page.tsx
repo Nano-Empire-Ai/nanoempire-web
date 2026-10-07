@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button';
 export const metadata = {
   title: 'SkillProof Verification Catalog — Nano Empire AI',
   description: 'Cryptographic behavioral verification tiers for autonomous AI agents, tool layers, and MCP servers.',
+  alternates: {
+    canonical: '/skillproof',
+  },
 };
 
 const TIERS = [
