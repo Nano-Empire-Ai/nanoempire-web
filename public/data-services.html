@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano Empire | AI-Enriched Data Services</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #171717;
+            --text: #ededed;
+            --text-muted: #a3a3a3;
+            --accent: #2563eb;
+            --border: #262626;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: #fff;
+        }
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+            flex-grow: 1;
+        }
+        .features li {
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+        .features li::before {
+            content: "✓";
+            color: var(--accent);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--text);
+            color: var(--bg);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: opacity 0.2s;
+        }
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+        .cta-button.premium {
+            background-color: var(--accent);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Productized AI Data</h1>
+            <p class="subtitle">Stop buying software. Buy the clean, AI-enriched data you actually need. Delivered in 24 hours.</p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h2>RecallGuard Pro</h2>
+                <div class="price">$500 <span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/ list</span></div>
+                <ul class="features">
+                    <li>Cross-reference inventory against CPSC/FDA</li>
+                    <li>Up to 10,000 SKUs per batch</li>
+                    <li>Flag regulatory warnings & safety holds</li>
+                    <li>Delivered as clean CSV</li>
+                </ul>
+                <a href="https://buy.stripe.com/6oU9AU1rC2aPbCzdwkfAc0m" class="cta-button">Order Dataset</a>
+            </div>
+
+            <div class="card">
+                <h2>VIN Intelligence</h2>
+                <div class="price">$500 <span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/ list</span></div>
+                <ul class="features">
+                    <li>Decodes 17-character VINs</li>
+                    <li>Cross-reference NHTSA safety recalls</li>
+                    <li>Up to 10,000 VINs per batch</li>
+                    <li>Remedy instructions included</li>
+                </ul>
+                <a href="https://buy.stripe.com/4gM6oIgmw02HdKH4ZOfAc0n" class="cta-button">Order Dataset</a>
+            </div>
+
+            <div class="card" style="border-color: var(--accent);">
+                <h2>MCP Security Audit</h2>
+                <div class="price">$2,500 <span style="font-size: 1rem; color: var(--text-muted); font-weight: normal;">/ audit</span></div>
+                <ul class="features">
+                    <li>180-Vector Adversary Engine scan</li>
+                    <li>Red-team simulated attacks</li>
+                    <li>Tollbooth bypass & injection testing</li>
+                    <li>SkillProof Trust Manifest delivery</li>
+                </ul>
+                <a href="https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o" class="cta-button premium">Book Audit</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

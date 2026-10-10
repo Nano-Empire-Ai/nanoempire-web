@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/fetch-episodes.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "vercel-build": "node scripts/fetch-episodes.mjs && next build"
   },
   "dependencies": {
     "@libsql/client": "^0.18.0",

@@ -7,34 +7,32 @@ export function QuickstartSnippet() {
   const [tab, setTab] = useState<"ts" | "python" | "curl">("ts");
   const [copied, setCopied] = useState(false);
 
-  const tsSnippet = `// npm install nanoempire-sdk
-import { NanoEmpireClient } from "nanoempire-sdk";
+  const tsSnippet = `// Direct x402 Fetch Example (RecallGuard Match)
+const res = await fetch("https://recallguard-api.vercel.app/api/v1/match", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ items: [{ name: "Fisher-Price cradle", brand: "Mattel" }] })
+});
 
-const client = new NanoEmpireClient();
-// 1. Claim 50 free credits on trial onramp (SQLite WAL)
-const trial = await client.claimTrial("my-agent-swarm");
-console.log("Trial Token:", trial.trial_token);
+// Expect HTTP 402 with challenge details:
+// accepts: [{ scheme: "exact", network: "base", maxAmountRequired: "100000" }]
+console.log("Status:", res.status);`;
 
-// 2. Automated x402 challenge handling inside the call
-const result = await client.verifyTrial(trial.trial_token);
-console.log("Credits remaining:", result.credits_remaining);`;
+  const pythonSnippet = `# Direct x402 Request via requests / httpx
+import requests
 
-  const pythonSnippet = `import nanoempire as ne
-client = ne.Client(api_key="demo_paper_key")
-# 1. Free Trial Claim (50 credits)
-trial = client.claim_trial(agent_id="my-python-swarm")
+res = requests.post(
+    "https://recallguard-api.vercel.app/api/v1/match",
+    json={"items": [{"name": "Fisher-Price cradle", "brand": "Mattel"}]}
+)
+# Returns HTTP 402 until payment authorization header is provided
+print(res.status_code, res.json())`;
 
-# 2. Automated x402 settlement on Base USDC
-dag = client.vision.parse("flowchart TD; AgentA-->AgentB")
-print(f"Verified DAG: {dag.id} | x402 Price: {dag.price_usd} USDC")`;
+  const curlSnippet = `# 1. Query free health endpoint (21,812 records)
+curl -s https://recallguard-api.vercel.app/api/v1/health
 
-  const curlSnippet = `# 1. Claim 50 Free Trial Credits
-curl -X POST https://nanoempireai.com/v1/trial \\
-  -H "Content-Type: application/json" \\
-  -d '{"agent_id": "curl-agent"}'
-
-# 2. Match inventory against 21,812 recalls (HTTP 402 on Base)
-curl -X POST https://recallguard-api.vercel.app/api/v1/match \\
+# 2. Match inventory items (returns HTTP 402 challenge on Base)
+curl -si -X POST https://recallguard-api.vercel.app/api/v1/match \\
   -H "Content-Type: application/json" \\
   -d '{"items": [{"name": "NEWDERY power bank"}]}'`;
 

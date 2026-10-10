@@ -1,0 +1,5 @@
+<svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="40" rx="8" fill="#0A0F1D" stroke="#00E5FF" stroke-width="1.5"/>
+  <circle cx="24" cy="20" r="10" fill="#FFD700"/>
+  <text x="44" y="25" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600">Featured on Fazier</text>
+</svg>

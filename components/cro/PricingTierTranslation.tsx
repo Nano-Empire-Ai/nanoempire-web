@@ -108,10 +108,10 @@ export function PricingTierTranslation() {
 
           <div className="mt-8 pt-6 border-t border-[#8C92A4]/15">
             <a
-              href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"
+              href="mailto:rob@nanoempireai.com?subject=Pro%20Agentic%20Team%20Inquiry%20($49/mo)"
               className="w-full py-3.5 rounded-lg bg-[#00B5E2] hover:bg-[#009ac0] text-black font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#00B5E2]/20"
             >
-              <Zap size={15} /> Upgrade to Pro ($49/mo)
+              <Zap size={15} /> Contact for Pro Setup ($49/mo)
             </a>
           </div>
         </div>

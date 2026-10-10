@@ -33,7 +33,7 @@ function issue402Challenge() {
       wallet: TREASURY_WALLET,
       nonce: crypto.randomUUID().slice(0, 12),
       expires_in: 300,
-      paper_mode: true,
+      paper_mode: false,
     },
     {
       status: 402,
@@ -42,14 +42,40 @@ function issue402Challenge() {
   );
 }
 
-function verifyReceipt(req: NextRequest): boolean {
+async function verifyReceipt(req: NextRequest): Promise<boolean> {
   const receipt = req.headers.get('X-402-Receipt');
   if (!receipt) return false;
-  // Paper mode: accept any base64 receipt
-  // Production: verify on-chain tx signature here
+  
   try {
     const parsed = JSON.parse(atob(receipt));
-    return parsed.amount >= PRICE_USD;
+    
+    // Stripe Fiat Verification
+    if (parsed.provider === 'stripe' && parsed.tx) {
+      const res = await fetch(`https://api.stripe.com/v1/payment_intents/${parsed.tx}`, {
+        headers: { Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}` }
+      });
+      if (!res.ok) return false;
+      const pi = await res.json();
+      return pi.status === 'succeeded' && pi.amount >= Math.floor(PRICE_USD * 100);
+    }
+
+    // Base Chain USDC Verification
+    if (parsed.chain === 'base' && parsed.tx) {
+      const rpcRes = await fetch('https://mainnet.base.org', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'eth_getTransactionReceipt',
+          params: [parsed.tx]
+        })
+      });
+      const txData = await rpcRes.json();
+      return txData && txData.result && txData.result.status === '0x1';
+    }
+
+    return false;
   } catch {
     return false;
   }
@@ -126,7 +152,7 @@ export async function POST(req: NextRequest) {
   if (!receiptHeader) {
     return issue402Challenge();
   }
-  if (!verifyReceipt(req)) {
+  if (!(await verifyReceipt(req))) {
     return NextResponse.json({ error: 'Invalid receipt' }, { status: 402 });
   }
 
@@ -200,7 +226,7 @@ export async function POST(req: NextRequest) {
     receipt: {
       vin_prefix: vin.slice(0, 8),
       timestamp: new Date().toISOString(),
-      paper_mode: true,
+      paper_mode: false,
     },
   });
 }
@@ -213,6 +239,6 @@ export async function GET() {
     version: '0.1.0',
     price_usd: PRICE_USD,
     cache_size: cache.size,
-    paper_mode: true,
+    paper_mode: false,
   });
 }

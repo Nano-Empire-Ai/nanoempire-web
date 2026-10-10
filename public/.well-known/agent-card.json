@@ -1,6 +1,6 @@
 {
   "name": "Nano Empire AI",
-  "description": "SkillProof human checkout plus RecallGuard metered recall data. Unsigned discovery card. RecallGuard host https://recallguard-api.vercel.app returns HTTP 402 for feed and match on Base. One Match self-test settled 2026-09-29 (block 51961194, operator wallets, not an outside customer). Feed has no settled receipt. No trial token. Port 8405 is the quote box, not the RecallGuard ledger. api.nanoempireai.com is not the RecallGuard API.",
+  "description": "Machine-payable US product-recall data (RecallGuard, x402 on Base) and human-purchased SkillProof verification of agent skills and MCP servers.",
   "supportedInterfaces": [
     {
       "url": "https://recallguard-api.vercel.app/api/v1",
@@ -12,7 +12,7 @@
     "organization": "Nano Empire AI",
     "url": "https://nanoempireai.com"
   },
-  "version": "1.2.0",
+  "version": "1.4.0",
   "documentationUrl": "https://nanoempireai.com/llms.txt",
   "capabilities": {
     "streaming": false,
@@ -21,142 +21,90 @@
     "extensions": [
       {
         "uri": "https://github.com/google-agentic-commerce/a2a-x402",
-        "description": "x402 payment terms. One RecallGuard Match self-test settled on Base on 2026-09-29. Operator wallets only. Feed has no settled receipt.",
+        "description": "x402 payment terms for RecallGuard feed and match.",
         "required": false,
         "params": {
-          "paper_mode": false,
-          "settlement_scope": "recallguard-match self-test only",
-          "outside_customer": false,
-          "first_machine_tx": "0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999",
           "network": "base",
           "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
           "facilitator": "coinbase-x402-facilitator",
           "receipt_headers": ["X-PAYMENT-RESPONSE", "X-402-Receipt"],
+          "settlement_scope": "recallguard-match operator self-test only",
+          "outside_customer": false,
+          "first_machine_tx": "0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999",
           "offers": "https://nanoempireai.com/offers.json",
           "openapi": "https://nanoempireai.com/openapi.json",
-          "verified_on": "2026-10-05"
+          "limits": "https://nanoempireai.com/llms.txt"
         }
       }
     ]
   },
-  "defaultInputModes": [
-    "application/json"
-  ],
-  "defaultOutputModes": [
-    "application/json"
-  ],
+  "defaultInputModes": ["application/json"],
+  "defaultOutputModes": ["application/json"],
   "skills": [
     {
       "id": "recallguard-feed",
       "name": "RecallGuard feed",
-      "description": "Normalized US recall records (CPSC, openFDA food, drug, device). 21,812 records on 2026-09-30 (2023-01-04 to 2026-09-24). GET https://recallguard-api.vercel.app/api/v1/feed returns HTTP 402. Price 0.05 USDC. Network string base. No settled receipt.",
-      "tags": [
-        "recalls",
-        "cpsc",
-        "fda",
-        "product-safety"
-      ],
-      "examples": [
-        "GET https://recallguard-api.vercel.app/api/v1/feed?source=cpsc&since=2026-09-01"
-      ],
-      "inputModes": [
-        "application/json"
-      ],
-      "outputModes": [
-        "application/json"
-      ]
+      "description": "Normalized US recall records (CPSC, FDA). GET returns HTTP 402 until paid. 0.05 USDC per call.",
+      "tags": ["recalls", "cpsc", "fda", "product-safety"],
+      "examples": ["GET https://recallguard-api.vercel.app/api/v1/feed?limit=50"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"]
     },
     {
       "id": "recallguard-match",
       "name": "RecallGuard match",
-      "description": "Match inventory items against the recall set. POST https://recallguard-api.vercel.app/api/v1/match with {\"items\":[{\"name\",\"brand\",\"upc\"}]} returns HTTP 402 until paid. Price 0.1 USDC. Network string base. One self-test settled 2026-09-29, Base block 51961194, tx 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999. Operator wallets, not an outside customer.",
-      "tags": [
-        "recalls",
-        "inventory",
-        "matching"
-      ],
-      "examples": [
-        "POST https://recallguard-api.vercel.app/api/v1/match {\"items\":[{\"name\":\"stroller\",\"brand\":\"Graco\"}]}"
-      ],
-      "inputModes": [
-        "application/json"
-      ],
-      "outputModes": [
-        "application/json"
-      ]
+      "description": "Match inventory items against the recall set. POST returns HTTP 402 until paid. 0.10 USDC per call.",
+      "tags": ["recalls", "inventory", "matching"],
+      "examples": ["POST https://recallguard-api.vercel.app/api/v1/match {\"items\":[{\"name\":\"stroller\",\"brand\":\"Graco\",\"upc\":\"\"}]}"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"]
     },
     {
-      "id": "irv-advisory-single",
-      "name": "IRV advisory",
-      "description": "Signed incident-response verification advisory for a single incident. Status: building (no public endpoint returns 200 as of 2026-09-27). Price when available: 500.0 USDC per advisory via x402 (offers.json).",
-      "tags": [
-        "incident-response",
-        "advisory",
-        "signed"
-      ],
+      "id": "skillproof-sprint",
+      "name": "SkillProof Sprint (human checkout)",
+      "description": "48-hour adversarial battery against one skill or MCP server, returning a signed Ed25519 trust manifest. Paid by Stripe, 500 CAD. Not machine-payable.",
+      "tags": ["verification", "mcp", "red-team", "trust-manifest"],
       "examples": [],
-      "inputModes": [
-        "application/json"
-      ],
-      "outputModes": [
-        "application/json"
-      ]
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"]
     },
     {
-      "id": "irv-feed-subscription",
-      "name": "IRV feed",
-      "description": "Continuous feed of signed IRV advisories. Status: building (no public endpoint returns 200 as of 2026-09-27). Price when available: 200 USDC per month via x402 (offers.json).",
-      "tags": [
-        "incident-response",
-        "feed",
-        "signed"
-      ],
-      "examples": [],
-      "inputModes": [
-        "application/json"
-      ],
-      "outputModes": [
-        "application/json"
-      ]
+      "id": "recallguard-pro",
+      "name": "RecallGuard Pro Compliance Report",
+      "description": "Human-checkout data service: CPSC/FDA/NHTSA recall compliance report for e-commerce catalogs. 24h delivery. $500 CAD via Stripe.",
+      "tags": ["compliance", "recalls", "ecommerce", "data-service"],
+      "examples": ["Checkout: https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"]
     },
     {
-      "id": "skillproof",
-      "name": "SkillProof",
-      "description": "Adversarial test battery against a skill or MCP server, returning a signed Ed25519 trust manifest. Status: human / Stripe (no x402 verify path answers as of 2026-09-27). Price: skillproof-sprint 500 CAD (offers.json status: planned); tiers skillproof-standard 1500, skillproof-rush 2500, skillproof-vc-diligence 3500, skillproof-fleet-red-team 1000 CAD per offers.json.",
-      "tags": [
-        "verification",
-        "mcp",
-        "red-team",
-        "trust-manifest"
-      ],
-      "examples": [],
-      "inputModes": [
-        "application/json"
-      ],
-      "outputModes": [
-        "application/json"
-      ]
+      "id": "vin-intelligence",
+      "name": "VIN Intelligence Report",
+      "description": "Human-checkout data service: NHTSA campaign match for auto fleets & dealerships. 24h delivery. $500 CAD via Stripe.",
+      "tags": ["vin", "nhtsa", "automotive", "fleet", "data-service"],
+      "examples": ["Checkout: https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"]
     },
     {
-      "id": "skillproof-triage-x402",
-      "name": "SkillProof quote box: triage and audit",
-      "description": "Machine quote box on 147.5.105.20 port 8405 (plain HTTP). POST http://147.5.105.20:8405/v1/triage {\"name\",\"description\"} answered 200 without payment on 2026-09-27 (paywall not enforced); listed price 0.01 USDC (offers.json skillproof-triage-x402, status planned). POST http://147.5.105.20:8405/v1/audit {\"intended_action\"} answered 402 with an L402-style placeholder challenge, not x402; listed price 0.50 USDC. Paid delivery unverified. paper mode, no paid receipt.",
-      "tags": [
-        "verification",
-        "triage",
-        "quote"
-      ],
-      "examples": [
-        "POST http://147.5.105.20:8405/v1/triage {\"name\":\"server-fetch\",\"description\":\"MCP fetch server\"}"
-      ],
-      "inputModes": [
-        "application/json"
-      ],
-      "outputModes": [
-        "application/json"
-      ]
+      "id": "mcp-security-audit",
+      "name": "MCP Security Audit",
+      "description": "Human-checkout data service: 180-vector adversarial battery + Trust Manifest for MCP servers. 48h delivery. $2,500 CAD via Stripe.",
+      "tags": ["mcp", "security", "audit", "trust-manifest", "data-service"],
+      "examples": ["Checkout: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"]
     }
   ],
-  "iconUrl": "https://nanoempireai.com/favicon.ico"
+  "iconUrl": "https://nanoempireai.com/favicon.ico",
+  "contacts": [
+    {
+      "name": "Hana Lambert",
+      "role": "Executive Operations",
+      "email": "hana@nanoempireai.com",
+      "phone": "+1-343-501-5003",
+      "priority": "critical"
+    }
+  ]
 }

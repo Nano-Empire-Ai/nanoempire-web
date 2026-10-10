@@ -1,9 +1,4 @@
-# robots.txt for nanoempireai.com
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://nanoempireai.com/sitemap.xml
-
-# Crawl delay
-Crawl-delay: 10
+Sitemap: https://www.nanoempireai.com/sitemap.xml

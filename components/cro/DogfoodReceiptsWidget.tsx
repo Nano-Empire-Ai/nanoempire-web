@@ -79,10 +79,10 @@ export function DogfoodReceiptsWidget() {
               DOGFOODING LEDGER · PROVABLE TRUST
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white uppercase font-mono">
-              Live Hash-Chained Revenue Ledger
+              Hash-Chained Revenue Ledger (Demo Simulation)
             </h3>
             <p className="text-[#8C92A4] mt-1 text-sm font-sans max-w-xl">
-              We run our own swarms on this exact infrastructure. Every transaction emits an Ed25519-signed receipt and state hash chained into our sovereign telemetry.
+              Internal test swarms simulating high-frequency settlement. 1 real self-test settled on Base block 51961194; outside paying customer count is currently 0.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export function DogfoodReceiptsWidget() {
             <div className="p-3 bg-[#07090D] border border-[#8C92A4]/20 rounded-lg">
               <div className="text-[10px] text-[#8C92A4] uppercase">Simulated Volume</div>
               <div className="text-lg font-bold text-white mt-0.5">$1,270.00 USDC</div>
-              <div className="text-[10px] text-emerald-400">100% Paper Verified</div>
+              <div className="text-[10px] text-amber-400">Simulated / Demo Data</div>
             </div>
             <div className="p-3 bg-[#07090D] border border-[#8C92A4]/20 rounded-lg">
               <div className="text-[10px] text-[#8C92A4] uppercase">Blended Margin</div>

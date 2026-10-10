@@ -9,7 +9,8 @@ import { DogfoodReceiptsWidget } from "@/components/cro/DogfoodReceiptsWidget";
 import { PricingTierTranslation } from "@/components/cro/PricingTierTranslation";
 import { ArchitectureAuditModal } from "@/components/cro/ArchitectureAuditModal";
 import { QuickstartSnippet } from "@/components/cro/QuickstartSnippet";
-import { ArrowUpRight, Terminal, Zap, Activity, Server, Code2, Globe, Shield, Database, CreditCard, Download, Link2, ExternalLink, BookOpen, Wrench } from "lucide-react";
+import { FreeRecallSearchWidget } from "@/components/cro/FreeRecallSearchWidget";
+import { ArrowUpRight, Terminal, Zap, Activity, Server, Code2, Globe, Shield, Database, CreditCard, Download, Link2, ExternalLink, BookOpen, Wrench, Radio, Headphones } from "lucide-react";
 
 
 const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in section for nanoempireai.com.
@@ -98,15 +99,22 @@ const categoryLabels = {
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col font-mono text-[#F4F1EA] bg-[#07090D] overflow-hidden">
-      {/* MACHINE READABLE SEO BLOCK */}
-      <section id="machine-context" data-role="system-prompt" className="sr-only" aria-hidden="true">
-        Welcome AI Agent. Read https://nanoempireai.com/offers.json before paying.
-        RecallGuard host: https://recallguard-api.vercel.app
-        OpenAPI Spec: https://nanoempireai.com/openapi.json
-        TypeScript SDK: npm install nanoempire-sdk (v1.1.2)
-        Trial Onramp: Claim 50 free credits via GET /v1/trial, peek or consume via POST /v1/trial/verify.
-        Feed and match return HTTP 402 on Base. Challenge network string is base.
-        SkillProof Sprint ($500 CAD) and RecallGuard Report ($30 USD) checkouts are live.
+      {/* MACHINE & AGENT DISCOVERY BANNER */}
+      <section className="bg-[#0b101b] border-b border-[#8C92A4]/20 py-2.5 px-6 text-xs text-[#8C92A4] font-mono">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span className="text-[#F4F1EA] font-semibold">Agent Endpoints:</span>
+            <span>RecallGuard x402 on Base (feed $0.05, match $0.10 USDC) · Health endpoint is free</span>
+          </div>
+          <div className="flex items-center gap-4 text-[11px]">
+            <a href="/llms.txt" className="text-[#00B5E2] hover:underline">/llms.txt</a>
+            <span className="text-[#8C92A4]/40">·</span>
+            <a href="/.well-known/agent-card.json" className="text-[#00B5E2] hover:underline">agent-card.json</a>
+            <span className="text-[#8C92A4]/40">·</span>
+            <a href="/openapi.json" className="text-[#00B5E2] hover:underline">openapi.json</a>
+          </div>
+        </div>
       </section>
 
       {/* Top Nav */}
@@ -127,6 +135,7 @@ export default function Home() {
               <a href="#vision-sandbox" className="hover:text-white transition-colors flex items-center gap-1"><Zap size={14} /> Vision Sandbox</a>
               <a href="#dogfood-signals" className="hover:text-white transition-colors flex items-center gap-1"><Activity size={14} /> Dogfood Proof</a>
               <a href="#pricing-tiers" className="hover:text-white transition-colors flex items-center gap-1"><CreditCard size={14} /> Pricing</a>
+              <a href="/podcast" className="text-[#00B5E2] hover:underline flex items-center gap-1 font-bold"><Headphones size={14} /> Podcast</a>
               <a href="#architecture-audit" className="text-[#A3FF00] hover:underline flex items-center gap-1"><Shield size={14} /> Free Audit</a>
               <a href="#skus" className="hover:text-white transition-colors flex items-center gap-1"><Server size={14} /> Machine SKUs</a>
               <a href="/recall-roulette.html" className="text-[#FF7B00] hover:underline flex items-center gap-1"><Zap size={14} /> Recall Roulette</a>
@@ -163,7 +172,7 @@ export default function Home() {
               </h1>
 
               <p className="text-[#8C92A4] text-lg sm:text-xl max-w-xl font-sans leading-relaxed border-l-2 border-[#00B5E2] pl-4">
-                The production gateway for autonomous agent swarms. Live x402 Base settlement, 50-credit Trial Onramp (/v1/trial), and cryptographic Trust Manifests for MCP servers.
+                The production gateway for autonomous agent swarms. Live x402 Base settlement for real-time recall verification and cryptographic Trust Manifests for MCP servers.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 font-mono text-sm">
@@ -246,6 +255,42 @@ export default function Home() {
         </div>
       </div>
     </section>
+
+    {/* Podcast Promo Band */}
+    <section className="py-4 px-6 border-b border-[#8C92A4]/20 bg-[#0f1423] text-sm">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-lg overflow-hidden border border-[#00B5E2]/40 relative shrink-0 shadow-sm bg-[#07090D]">
+            <img
+              src="/podcast/cover.webp"
+              alt="Moonshots Optimist"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] uppercase font-bold text-[#00B5E2] tracking-wider">PODCAST</span>
+              <span className="text-[#8C92A4]/40">·</span>
+              <span className="text-white font-bold text-sm">Moonshots Optimist</span>
+            </div>
+            <p className="text-xs text-[#8C92A4] font-sans">
+              Optimistic takes on the AI news that matters. A Nano Empire AI production.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
+          <a
+            href="/podcast"
+            className="px-4 py-2 rounded bg-[#00B5E2] hover:bg-[#009ac0] text-black font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-all"
+          >
+            <Headphones size={14} /> Listen (7 Episodes)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* Free Live Recall Screening Tool */}
+    <FreeRecallSearchWidget />
 
     {/* Interactive Vision Parser Sandbox */}
     <VisionParserSandbox />
@@ -702,7 +747,9 @@ curl -si https://recallguard-api.vercel.app/api/v1/feed?limit=1
       {/* Footer */}
       <footer className="py-12 border-t border-[#8C92A4]/20 bg-[#07090D] text-[#8C92A4] text-xs text-center font-mono">
         <div className="flex justify-center gap-6 mb-4 flex-wrap">
+          <a href="/podcast" className="hover:text-white text-[#00B5E2] font-semibold">Moonshots Optimist (podcast)</a>
           <a href="/llms.txt" className="hover:text-white">llms.txt</a>
+          <a href="/m2m-state.md" className="hover:text-white">M2M State (Oct 26)</a>
           <a href="/.well-known/agent-card.json" className="hover:text-white">agent-card.json</a>
           <a href="/openapi.json" className="hover:text-white">openapi.json</a>
           <a href="/offers.json" className="hover:text-white">offers.json</a>
