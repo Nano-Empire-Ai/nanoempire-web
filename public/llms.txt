@@ -65,21 +65,21 @@ status: live
 capability: compliance-report
 price: 30 USD
 method: STRIPE_CHECKOUT
-endpoint: https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f
+endpoint: https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k
 status: live
 
 ### recallguard-monitoring
 capability: continuous-monitoring
-price: 99 USD/month
+price: 99 CAD/month
 method: STRIPE_SUBSCRIPTION
 endpoint: https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e
 status: live
 
 ### directory-listing-placement
 capability: directory-listing
-price: 500 CAD
+price: 500 USD
 method: STRIPE_CHECKOUT
-endpoint: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
+endpoint: https://buy.stripe.com/6oUcN6fis5n14a7dwkfAc0l
 status: live
 
 
@@ -124,4 +124,4 @@ receipt_log: https://nanoempireai.com/api/v1/receipts
 - filesystem-mcp: https://github.com/roblambert9/filesystem-mcp | Registries: AgentOps, LangChain | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
 - github-mcp: https://github.com/roblambert9/github-mcp | Registries: Glama, PulseMCP | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
 - sqlite-mcp: https://github.com/roblambert9/sqlite-mcp | Registries: Smithery, mcp.so | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
-- browser-mcp: https://github.com/roblambert9/browser-mcp | Registries: AgentOps, Glama | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits
+- browser-mcp: https://github.com/roblambert9/browser-mcp | Registries: AgentOps, Glama | Pricing: $0.01 USDC (Solana) | 50 Free Trial Credits

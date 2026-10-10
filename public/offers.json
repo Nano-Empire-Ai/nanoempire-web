@@ -1,10 +1,10 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "issuer": "rob@nanoempire.ai",
   "chain": "base",
   "payment_rail": "x402",
   "paper_mode": false,
-  "updated": "2026-10-05T12:00:00Z",
+  "updated": "2026-10-10T00:25:00Z",
   "skus": [
     {
       "id": "recallguard-report",
@@ -13,19 +13,18 @@
       "price_usd": 30,
       "currency": "USD",
       "rail": "stripe",
-      "payment_link": "https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f",
+      "payment_link": "https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k",
       "method": "STRIPE_CHECKOUT",
       "capability": "compliance-report",
       "manifest": null,
-      "status": "live",
-      "stripe_price_id": "price_1UNFK3Km83mOzFpMnQqM1nUS"
+      "status": "live"
     },
     {
       "id": "recallguard-monitoring",
       "name": "RecallGuard Continuous Monitoring",
       "description": "Monthly re-scan + expansion alerts when recalls widen.",
       "price_usd": 99,
-      "currency": "USD",
+      "currency": "CAD",
       "interval": "monthly",
       "rail": "stripe",
       "payment_link": "https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e",
@@ -37,23 +36,22 @@
     },
     {
       "id": "verified-directory-listing",
-      "name": "Directory Listing — Placement",
+      "name": "Directory Listing \u2014 Placement",
       "description": "Paid placement slot for MCP server authors in the Nano Empire AI directory, with an entry on manifests.html and in llms.txt. Placement only: no testing, no verification, no audit, no endorsement of any kind.",
       "price_usd": 500,
-      "currency": "CAD",
+      "currency": "USD",
       "rail": "stripe",
-            "payment_link": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c",
-            "method": "STRIPE_CHECKOUT",
-            "capability": "directory-listing",
-            "manifest": "directory",
-            "status": "live",
-            "stripe_price_id": "price_1UMqYGKm83mOzFpMvcdaLlCI"
-          },
+      "payment_link": "https://buy.stripe.com/6oUcN6fis5n14a7dwkfAc0l",
+      "method": "STRIPE_CHECKOUT",
+      "capability": "directory-listing",
+      "manifest": "directory",
+      "status": "live"
+    },
     {
       "id": "recallguard-match",
       "name": "RecallGuard Match API",
       "description": "Machine-native recall screening. x402 on Base.",
-      "price_usd": 0.10,
+      "price_usd": 0.1,
       "currency": "USDC",
       "rail": "x402",
       "endpoint": "https://recallguard-api.vercel.app/api/v1/match",
