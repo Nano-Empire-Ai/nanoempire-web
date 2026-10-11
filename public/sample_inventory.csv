@@ -1,6 +1,51 @@
-UPC,Brand,Name,Description
-00041808401345,The Boppy Company,Boppy Newborn Lounger,Infant lounger that poses a suffocation risk
-,Walmart,Mainstays Mini Food Chopper,Electric mini chopper with a laceration hazard
-12345678901234,SafeBrand,Normal T-Shirt,Just a standard cotton shirt, nothing recalled here
-00040000504104,Mars,Snickers Bar,Contains peanuts but accurately labeled
-0888222444555,Fisher-Price,Rock 'n Play Sleeper,Recalled infant sleeper
+SKU,UPC,Brand,Title,Category,RetailPrice,Condition
+SKU-1001,084013450001,The Boppy Company,Boppy Original Newborn Lounger Elephant Love Gray,Baby & Nursery,44.99,Customer Return
+SKU-1002,088515710002,Fisher-Price,Auto Rock 'n Play Sleeper with SmartConnect,Baby & Nursery,79.99,Overstock
+SKU-1003,810043370014,Cosori,CP158-AF Premium 5.8-Quart Air Fryer Matte Black,Kitchen & Dining,119.99,Customer Return
+SKU-1004,074451100045,Kids II,Ingenuity Moonlight Lullaby Soothing Sleeper,Baby & Nursery,64.99,Customer Return
+SKU-1005,607869270051,Contigo,Kids Cleanable Water Bottle with Silicone Spout 14oz,Kitchen & Dining,14.99,Customer Return
+SKU-1006,028877650062,DeWalt,DWS779 12-Inch Sliding Compound Miter Saw,Power Tools,399.00,Customer Return
+SKU-1007,887276180073,Samsung,WA45H7000AW 4.5 cu. ft. Top Load Washer,Appliances,749.00,Customer Return
+SKU-1008,011120250084,Ninja,Foodi 10-in-1 XL Pro Air Fry Oven DT201,Kitchen & Dining,299.99,Like New
+SKU-1009,088563040095,Apple,AirPods Pro 2nd Gen with MagSafe USB-C,Electronics,249.00,Open Box
+SKU-1010,045242500101,Milwaukee,M18 FUEL 1/2-Inch Hammer Drill Kit,Power Tools,299.00,Overstock
+SKU-1011,047406140112,Anker,737 Power Bank PowerCore 24K,Electronics,149.99,Customer Return
+SKU-1012,810038850123,Instant Pot,Duo Plus 9-in-1 Electric Pressure Cooker 6 Qt,Kitchen & Dining,129.99,Like New
+SKU-1013,031262070134,Sony,WH-1000XM5 Wireless Noise-Canceling Headphones,Electronics,399.99,Customer Return
+SKU-1014,088381850145,Makita,18V LXT Lithium-Ion Cordless 6-1/2 Inch Circular Saw,Power Tools,159.00,Overstock
+SKU-1015,840103210156,Keurig,K-Supreme Plus Smart Coffee Maker,Kitchen & Dining,189.99,Customer Return
+SKU-1016,047701000167,Graco,Extend2Fit Convertible Car Seat Gotham,Baby & Nursery,239.99,Overstock
+SKU-1017,887276520178,Logitech,MX Master 3S Wireless Performance Mouse,Electronics,99.99,Like New
+SKU-1018,043318000189,Bose,QuietComfort 45 Bluetooth Wireless Headphones,Electronics,329.00,Customer Return
+SKU-1019,050875810190,Cuisinart,14-Cup Food Processor Custom Stainless Steel,Kitchen & Dining,249.95,Customer Return
+SKU-1020,084000000201,Lodge,Pre-Seasoned Cast Iron Skillet 10.25 Inch,Kitchen & Dining,19.90,Overstock
+SKU-1021,810014360212,YETI,Rambler 20 oz Stainless Steel Tumbler with MagSlider,Outdoor & Sports,35.00,Overstock
+SKU-1022,810072240223,Dyson,V15 Detect Cordless Vacuum Cleaner,Home & Kitchen,749.99,Customer Return
+SKU-1023,027242920234,PlayStation,DualSense Wireless Controller White,Gaming,69.99,Customer Return
+SKU-1024,840080580245,iRobot,Roomba j7+ Self-Emptying Robot Vacuum,Home & Kitchen,799.99,Customer Return
+SKU-1025,042111300256,Stanley,Adventure Quencher Travel Tumbler 40 oz,Home & Kitchen,45.00,Overstock
+SKU-1026,088381500267,Makita,Impact Gold 38-Piece Torsion Bit Set,Power Tools,29.97,Overstock
+SKU-1027,888462000278,Fitbit,Charge 6 Fitness Tracker with Heart Rate,Electronics,159.95,Like New
+SKU-1028,099999000289,Breville,the Barista Express Espresso Machine,Kitchen & Dining,699.95,Customer Return
+SKU-1029,088515500290,KitchenAid,Artisan Series 5-Quart Stand Mixer Empire Red,Kitchen & Dining,449.99,Like New
+SKU-1030,076440400301,Coleman,Sundome Camping Tent 4-Person,Outdoor & Sports,69.99,Overstock
+SKU-1031,045242000312,Milwaukee,SHOCKWAVE Impact Duty Driver Bit Set 40-Piece,Power Tools,19.97,Overstock
+SKU-1032,011120000323,Shark,Navigator Lift-Away Deluxe Upright Vacuum,Home & Kitchen,199.99,Customer Return
+SKU-1033,088591100334,DEWALT,20V MAX Cordless Drill Combo Kit 2-Tool,Power Tools,229.00,Like New
+SKU-1034,047701100345,Graco,Pack 'n Play On The Go Playard,Baby & Nursery,79.99,Overstock
+SKU-1035,074451200356,Baby Einstein,4-in-1 Kickin' Tunes Music and Language Play Gym,Baby & Nursery,49.99,Overstock
+SKU-1036,810058900367,Owala,FreeSip Insulated Stainless Steel Water Bottle 24 oz,Sports & Outdoors,27.99,Like New
+SKU-1037,043318100378,Bose,SoundLink Flex Bluetooth Portable Speaker,Electronics,149.00,Like New
+SKU-1038,088563100389,Apple,Watch SE 2nd Gen GPS 40mm Midnight,Electronics,249.00,Customer Return
+SKU-1039,887276200390,Samsung,T7 Shield 1TB Portable SSD USB 3.2,Electronics,109.99,Like New
+SKU-1040,050875000401,Cuisinart,Griddler Five Contact Grill and Griddle,Kitchen & Dining,119.95,Customer Return
+SKU-1041,840103000412,Kindle,Paperwhite 16GB 6.8-Inch Display,Electronics,149.99,Like New
+SKU-1042,028877000423,DEWALT,Atomic 20V MAX Compact Circular Saw 4-1/2-Inch,Power Tools,149.00,Overstock
+SKU-1043,027242000434,Sony,PlayStation VR2 Horizon Call of the Mountain Bundle,Gaming,599.99,Customer Return
+SKU-1044,045242200445,Milwaukee,FASTBACK 6-in-1 Folding Utility Knife,Hand Tools,19.97,Overstock
+SKU-1045,810014000456,YETI,Tundra 45 Hard Cooler White,Outdoor & Sports,325.00,Overstock
+SKU-1046,088563200467,Beats,Studio Pro Wireless Bluetooth Noise Cancelling,Electronics,349.99,Customer Return
+SKU-1047,888462100478,Google,Pixel Buds Pro Wireless Earbuds Charcoal,Electronics,199.99,Like New
+SKU-1048,042111000489,Hydro Flask,Wide Mouth Straw Lid Water Bottle 32 oz,Sports & Outdoors,44.95,Overstock
+SKU-1049,076440000490,Coleman,Classic Propane Camping Stove 2-Burner,Outdoor & Sports,64.99,Overstock
+SKU-1050,011120300501,Ninja,Air Fryer Pro 4-in-1 with 5-QT Capacity,Kitchen & Dining,119.99,Customer Return
