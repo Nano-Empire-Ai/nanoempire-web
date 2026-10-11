@@ -40,11 +40,11 @@ export default function RecallReportPage() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        throw new Error(data.error || 'Failed to create checkout session');
+        window.location.href = `https://buy.stripe.com/6oU14o6LW8zd5ebgIwfAc0p?prefilled_email=${encodeURIComponent(email)}`;
       }
     } catch (error: any) {
-      console.error('Checkout error:', error);
-      alert('Error initiating checkout. Please try again.');
+      console.error('Checkout error, redirecting to payment link:', error);
+      window.location.href = `https://buy.stripe.com/6oU14o6LW8zd5ebgIwfAc0p?prefilled_email=${encodeURIComponent(email)}`;
     } finally {
       setIsCheckingOut(false);
     }
@@ -88,13 +88,13 @@ export default function RecallReportPage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-sm font-medium mb-6 border border-rose-500/20">
             <ShieldAlert className="w-4 h-4" />
-            FDA & CPSC Recall Database Synced
+            North American Safety Registry (US & Canada)
           </div>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Check your inventory against <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">21,812 recalls</span>.
+            Check your inventory against <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">46,642 recalls</span>.
           </h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-            Upload your inventory CSV. We instantly cross-reference UPCs, brand names, and descriptions against the canonical federal recall database.
+            Upload your inventory CSV. We instantly cross-reference UPCs, brands, and product titles against official US (CPSC, FDA) and Canadian (Health Canada, Transport Canada, CFIA) safety notices.
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export default function RecallReportPage() {
               className="w-full mt-6 bg-white text-black hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-lg py-4 rounded-xl flex items-center justify-center gap-2 transition-colors"
             >
               {isScanning ? (
-                <><Loader2 className="w-5 h-5 animate-spin" /> Scanning 21,812 records...</>
+                <><Loader2 className="w-5 h-5 animate-spin" /> Scanning 46,642 records...</>
               ) : (
                 <>Run Compliance Scan <ChevronRight className="w-5 h-5" /></>
               )}
@@ -168,7 +168,7 @@ export default function RecallReportPage() {
                   <FileText className="w-6 h-6 text-neutral-400 mb-4" />
                   <h3 className="text-xl font-semibold mb-2">One-Time Report</h3>
                   <p className="text-neutral-400 text-sm mb-6">Full PDF & CSV export of all matches, hazard severity, and next steps for removal.</p>
-                  <div className="text-3xl font-bold mb-4">$30</div>
+                  <div className="text-3xl font-bold mb-4">$49 <span className="text-sm text-neutral-500 font-normal">USD</span></div>
                   <input 
                     type="email" 
                     placeholder="Enter your email to receive the report"
@@ -192,9 +192,14 @@ export default function RecallReportPage() {
                   <h3 className="text-xl font-semibold mb-2 text-rose-100">Continuous Monitoring</h3>
                   <p className="text-neutral-400 text-sm mb-6">Daily automated checks. We email you immediately when a new recall hits your inventory.</p>
                   <div className="text-3xl font-bold mb-6 text-white">$99 <span className="text-lg text-neutral-500 font-normal">/mo</span></div>
-                  <button className="w-full bg-rose-500 text-white py-3 rounded-lg font-medium hover:bg-rose-600 transition-colors flex items-center justify-center gap-2">
+                  <a 
+                    href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-rose-500 text-white py-3 rounded-lg font-medium hover:bg-rose-600 transition-colors flex items-center justify-center gap-2 text-center"
+                  >
                     Start Protection
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

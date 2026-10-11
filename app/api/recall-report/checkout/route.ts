@@ -41,6 +41,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ url: session.url });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("Stripe session creation failed, returning live fallback payment link:", error);
+    // Graceful fallback to verified live payment link with email prefilled
+    return NextResponse.json({ 
+      url: `https://buy.stripe.com/6oU14o6LW8zd5ebgIwfAc0p?prefilled_email=${encodeURIComponent(typeof email === 'string' ? email : '')}` 
+    });
   }
 }
