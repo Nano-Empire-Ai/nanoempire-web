@@ -16,11 +16,19 @@ export async function POST(req: Request) {
     const matchedItems = [];
 
     for (const item of items) {
-      // Normalize input item based on what papa parse gives us
-      // CSV might have 'UPC', 'Brand', 'Name', 'Description'
-      const upc = item.upc || item.UPC || item.gtin || item.GTIN || '';
-      const brand = item.brand || item.Brand || item.manufacturer || item.Manufacturer || '';
-      const name = item.name || item.Name || item.product || item.Product || item.description || item.Description || '';
+      // Normalize input item based on any case or alternate headers
+      const keys = Object.keys(item);
+      const findVal = (candidates: string[]) => {
+        for (const c of candidates) {
+          const matchKey = keys.find(k => k.trim().toLowerCase() === c.toLowerCase());
+          if (matchKey && item[matchKey]) return String(item[matchKey]).trim();
+        }
+        return '';
+      };
+
+      const upc = findVal(['upc', 'gtin', 'ean', 'barcode', 'asin']);
+      const brand = findVal(['brand', 'manufacturer', 'vendor', 'make']);
+      const name = findVal(['title', 'name', 'product', 'product_name', 'item', 'item_title', 'description']);
 
       if (!name && !upc) continue;
 
