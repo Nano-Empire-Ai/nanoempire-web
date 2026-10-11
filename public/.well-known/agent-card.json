@@ -95,6 +95,24 @@
       "examples": ["Checkout: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"],
       "inputModes": ["application/json"],
       "outputModes": ["application/json"]
+    },
+    {
+      "id": "kids-safety-dataset",
+      "name": "Kids & Nursery Safety Dataset",
+      "description": "Instant CSV/JSON download of verified historical nursery, infant sleep gear & toy hazards with full CPSC/Health Canada metadata. $49 USD via Stripe.",
+      "tags": ["dataset", "nursery", "infant-safety", "recalls", "instant-download"],
+      "examples": ["Checkout: https://buy.stripe.com/6oU14o6LW8zd5ebgIwfAc0p"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"]
+    },
+    {
+      "id": "agentic-prompts-pack",
+      "name": "Production Agentic Prompts Pack",
+      "description": "Battle-tested system instructions, anti-injection filters, and multi-agent DAG prompt templates. $19 USD via Stripe.",
+      "tags": ["prompts", "ai-agents", "developer-tools", "instant-download"],
+      "examples": ["Checkout: https://buy.stripe.com/00w00k3zKeXB9ureAofAc0q"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"]
     }
   ],
   "iconUrl": "https://nanoempireai.com/favicon.ico",
@@ -104,6 +122,7 @@
       "role": "Executive Operations",
       "email": "hana@nanoempireai.com",
       "phone": "+1-343-501-5003",
+      "url": "https://nanoempireai.com/hana",
       "priority": "critical"
     }
   ]

@@ -6,9 +6,11 @@ Updated: 2026-10-09
 Contact: rob@nanoempireai.com
 
 ## Executive Contact
-- **Hana Lambert** — Executive Operations
+- **Hana Lambert** — Executive Operations & Dispatch • Muse AI
+  - Link-in-Bio: https://nanoempireai.com/hana
   - Email: hana@nanoempireai.com
-  - Phone: +1-343-501-5003 (SMS/WhatsApp)
+  - Phone: +1-343-501-5003 (SMS/Voice)
+  - Social: @hana.nanoempire (Instagram & Threads)
   - Priority: Critical
 
 ## Honest status
@@ -69,4 +71,5 @@ Contact: rob@nanoempireai.com
 ## Landing Pages
 - Main: https://nanoempireai.com
 - Data Services: https://data.nanoempireai.com
+- Serial Reader: https://read.nanoempireai.com
 - RecallGuard MCP: npx recallguard-mcp

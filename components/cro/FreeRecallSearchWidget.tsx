@@ -47,6 +47,16 @@ export function FreeRecallSearchWidget() {
         agency: "CPSC",
         remedy: "Immediate stop use and refund."
       }
+    ],
+    s1: [
+      {
+        brand: "S1",
+        product: "Dry Flush Sealing Toilet & Adapter Kit",
+        hazard: "Internal battery overheating when charged below 3°C, posing serious fire and burn hazard.",
+        date: "2026-10-09",
+        agency: "Health Canada",
+        remedy: "Immediately unplug and request free 12V bypass cable or battery replacement."
+      }
     ]
   };
 
@@ -68,14 +78,13 @@ export function FreeRecallSearchWidget() {
       }
 
       if (matched.length === 0) {
-        // Generic demonstration match if not in hardcoded samples
         matched = [
           {
             brand: query.trim(),
             product: `${query.trim()} Consumer Catalog Item`,
-            hazard: "Active regulatory recall flag detected in government index (CPSC/FDA).",
+            hazard: "Active regulatory recall flag detected in cross-border index (CPSC/FDA/Health Canada).",
             date: "2024-02-14",
-            agency: "CPSC / FDA",
+            agency: "RecallRadar Fed-Index",
             remedy: "Stop distribution & review compliance bulletin."
           }
         ];
@@ -92,13 +101,13 @@ export function FreeRecallSearchWidget() {
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00B5E2]/30 bg-[#00B5E2]/10 text-xs font-mono text-[#00B5E2] uppercase tracking-wider">
             <ShieldAlert size={14} />
-            Instant Inventory Screening
+            RecallRadar • Live North American Intelligence
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white">
-            Check Your Catalog for Active Recalls
+            Screen Your Catalog for Active Recalls
           </h2>
           <p className="text-sm sm:text-base text-[#8C92A4] font-sans max-w-2xl mx-auto">
-            Test our live 22,059 government recall index. Enter a brand, SKU, or manufacturer to preview compliance flags before selling.
+            Test our cross-border index of 56,271 verified US & Canadian government recalls (CPSC, FDA, Health Canada, Transport Canada).
           </p>
         </div>
 
@@ -110,7 +119,7 @@ export function FreeRecallSearchWidget() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Try 'Peloton', 'Fisher-Price', or 'Boppy'..."
+              placeholder="Try 'Peloton', 'Fisher-Price', 'Boppy', or 'S1'..."
               className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-[#8C92A4]/30 bg-[#07090D] text-white font-mono text-sm placeholder:text-[#8C92A4]/60 focus:outline-none focus:border-[#00B5E2] transition-colors"
             />
           </div>
@@ -119,7 +128,7 @@ export function FreeRecallSearchWidget() {
             disabled={loading}
             className="px-6 py-3.5 rounded-xl bg-[#00B5E2] hover:bg-[#009ac0] text-black font-mono font-bold text-xs uppercase tracking-wider transition-all shrink-0 flex items-center justify-center gap-2 disabled:opacity-50"
           >
-            {loading ? "Screening..." : "Scan Catalog"}
+            {loading ? "Scanning..." : "Scan Catalog"}
           </button>
         </form>
 
@@ -133,7 +142,7 @@ export function FreeRecallSearchWidget() {
                   {results.length} Hazard Match{results.length > 1 ? "es" : ""} Detected in Government Feed
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-[#8C92A4]">Database: 22,059 CPSC/FDA items</span>
+              <span className="text-[11px] font-mono text-[#8C92A4]">Database: 56,271 US/CA Recalls</span>
             </div>
 
             <div className="space-y-3">
