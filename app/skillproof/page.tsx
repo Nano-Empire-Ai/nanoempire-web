@@ -46,8 +46,9 @@ const TIERS = [
     name: 'Agent Payments Permission Audit',
     price: '$2,500 CAD',
     timing: '5 business days',
-    status: 'NEW (EARLY ADOPTER)',
+    status: 'ACTIVE',
     popular: false,
+    stripeUrl: 'https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o',
     description: 'Behavioral proof that your agent cannot move money, invoice, or transfer funds without human approval.',
     features: [
       '500+ adversarial payment manipulation operations',
