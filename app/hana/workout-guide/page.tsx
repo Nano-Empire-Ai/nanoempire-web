@@ -115,20 +115,36 @@ export default function WorkoutGuidePage() {
 
       <div className="max-w-3xl mx-auto px-4 py-12">
         {/* Author Header */}
-        <div className="flex items-center gap-4 mb-8 bg-[#0D121D] border border-slate-800 p-4 rounded-2xl">
-          <img 
-            src="/hana/avatar.jpg" 
-            alt="Hannah" 
-            className="w-16 h-16 rounded-full object-cover border-2 border-rose-400/40 shadow-lg"
-          />
-          <div>
-            <div className="flex items-center gap-1.5">
-              <h1 className="text-lg font-bold text-white">Hannah</h1>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Verified Coach</span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 bg-[#0D121D] border border-slate-800 p-4 rounded-2xl">
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <img 
+                src="/hana/diner.png" 
+                alt="Hannah" 
+                className="w-16 h-16 rounded-full object-cover object-top border-2 border-rose-400/40 shadow-lg"
+              />
+              <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0D121D]" />
             </div>
-            <p className="text-xs text-slate-400 mt-0.5">
-              Small-town Canadian waitress by night • Fitness coach by day • Mexico & Mustang Dreamer 🇨🇦🇲🇽
-            </p>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <h1 className="text-lg font-bold text-white">Hannah</h1>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Verified Coach</span>
+              </div>
+              <p className="text-xs text-slate-400 mt-0.5 max-w-sm">
+                Small-town Canadian waitress by night • Fitness coach by day • Mexico & Mustang Dreamer 🇨🇦🇲🇽
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 self-start sm:self-auto bg-[#07090e] p-1.5 rounded-xl border border-slate-800/80">
+            <img 
+              src="/hana/gym.jpg" 
+              alt="Hannah Fitness Coach" 
+              className="w-10 h-10 rounded-lg object-cover"
+            />
+            <div className="text-[11px] pr-2">
+              <span className="block font-semibold text-slate-200">100% At-Home</span>
+              <span className="text-rose-400 font-mono">No Gym Needed</span>
+            </div>
           </div>
         </div>
 

@@ -125,6 +125,46 @@ export default function HanaBioPage() {
           </p>
         </div>
 
+        {/* Canonical Lookbook / Photo Reel */}
+        <div className="w-full mb-6">
+          <div className="flex items-center justify-between mb-2.5 px-1">
+            <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Moments & Vibe</span>
+            <span className="text-[11px] font-mono text-rose-400">@hannah_fit_hustle</span>
+          </div>
+          <div className="flex gap-2.5 overflow-x-auto pb-2 scrollbar-none snap-x snap-mandatory">
+            <div className="snap-center shrink-0 w-32 h-44 rounded-xl overflow-hidden border border-slate-800 bg-[#0d121c] relative group shadow-md">
+              <img src="/hana/diner.png" alt="Night Shift Diner Break" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+              <div className="absolute inset-x-0 bottom-0 p-1.5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                <p className="text-[10px] font-medium text-white truncate">Diner Shift ☕</p>
+              </div>
+            </div>
+            <div className="snap-center shrink-0 w-32 h-44 rounded-xl overflow-hidden border border-slate-800 bg-[#0d121c] relative group shadow-md">
+              <img src="/hana/gym.jpg" alt="Post-Workout Glow" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="absolute inset-x-0 bottom-0 p-1.5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                <p className="text-[10px] font-medium text-white truncate">Fitness Coach 🏋️‍♀️</p>
+              </div>
+            </div>
+            <div className="snap-center shrink-0 w-32 h-44 rounded-xl overflow-hidden border border-slate-800 bg-[#0d121c] relative group shadow-md">
+              <img src="/hana/couch.png" alt="Cozy Downtime" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="absolute inset-x-0 bottom-0 p-1.5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                <p className="text-[10px] font-medium text-white truncate">Downtime ✨</p>
+              </div>
+            </div>
+            <div className="snap-center shrink-0 w-32 h-44 rounded-xl overflow-hidden border border-slate-800 bg-[#0d121c] relative group shadow-md">
+              <img src="/hana/porch.jpg" alt="Summer Sunshine" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="absolute inset-x-0 bottom-0 p-1.5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                <p className="text-[10px] font-medium text-white truncate">Summer Porch 🌿</p>
+              </div>
+            </div>
+            <div className="snap-center shrink-0 w-32 h-44 rounded-xl overflow-hidden border border-slate-800 bg-[#0d121c] relative group shadow-md">
+              <img src="/hana/outdoor.jpg" alt="Mexico & Mustang Dream" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="absolute inset-x-0 bottom-0 p-1.5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                <p className="text-[10px] font-medium text-white truncate">Mexico Dream 🇲🇽</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Featured Lead Magnet Hero */}
         <div className="w-full mb-6">
           <Link
