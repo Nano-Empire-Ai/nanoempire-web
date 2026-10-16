@@ -42,27 +42,45 @@ export async function POST(req: Request) {
       }
     }
     
-    await initDb();
     const scanId = randomUUID();
+    try {
+      await initDb();
+    } catch (dbErr) {
+      console.warn("DB init warning:", dbErr);
+    }
 
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items: [
-        {
-          price: 'price_1UMqVDKm83mOzFpMlMZIRTw5',
-          quantity: 1,
-        },
-      ],
-      mode: 'payment',
-      customer_email: email,
-      success_url: `${req.headers.get('origin')}/recall-report/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.get('origin')}/recall-report`,
-      metadata: { scanId },
+    try {
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [
+          {
+            price: 'price_1UMqVDKm83mOzFpMlMZIRTw5',
+            quantity: 1,
+          },
+        ],
+        mode: 'payment',
+        customer_email: email,
+        success_url: `${req.headers.get('origin') || 'https://www.nanoempireai.com'}/recall-report/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${req.headers.get('origin') || 'https://www.nanoempireai.com'}/recall-report`,
+        metadata: { scanId },
+      });
+
+      try {
+        await saveScan(scanId, session.id, email, fullScanData);
+      } catch (saveErr) {
+        console.warn("DB save warning:", saveErr);
+      }
+
+      if (session.url) {
+        return NextResponse.json({ url: session.url });
+      }
+    } catch (stripeErr) {
+      console.warn("Stripe session creation bypassed, falling back to direct payment link:", stripeErr);
+    }
+
+    return NextResponse.json({ 
+      url: `https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k?prefilled_email=${encodeURIComponent(parsedEmail)}` 
     });
-
-    await saveScan(scanId, session.id, email, fullScanData);
-
-    return NextResponse.json({ url: session.url });
   } catch (error: any) {
     console.error("Stripe session creation failed, returning live $30 payment link:", error);
     return NextResponse.json({ 
