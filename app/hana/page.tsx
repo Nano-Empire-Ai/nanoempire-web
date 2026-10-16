@@ -34,39 +34,30 @@ const LINKS = [
     featured: true,
   },
   {
-    title: "Daily AI Recall Brief",
-    subtitle: "2-minute morning briefing on critical consumer hazards, FDA alerts & CPSC recalls.",
-    badge: "Free Newsletter",
-    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    url: "https://daily-ai-recall-brief.beehiiv.com",
-    icon: Newspaper,
+    title: "Meet Hana — Fan Website & Origin Story",
+    subtitle: "Watch my diner break shift video, hear my story in my own voice, and see what drives me.",
+    badge: "Interactive Site",
+    badgeColor: "bg-rose-500/10 text-rose-300 border-rose-500/30",
+    url: "https://muse.ai/s/hana-fan-website-xnb6ixjyxfxjxhqb",
+    icon: Flame,
     featured: false,
   },
   {
-    title: "RecallRadar Live Safety Scanner",
-    subtitle: "Instant cross-border search across 46,642+ official US & Canadian product recalls.",
-    badge: "Live Tool",
-    badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-    url: "/recall-report",
-    icon: ShieldAlert,
-    featured: false,
-  },
-  {
-    title: "Kids & Nursery Safety Dataset",
-    subtitle: "Instant CSV/JSON download of nursery, infant sleep & toy hazards with full metadata.",
-    badge: "$49 Instant Download",
+    title: "The Mexico & Mustang Fund",
+    subtitle: "Help fuel my night shifts and support my dream of owning a Mustang & escaping the Canadian winter.",
+    badge: "Tip Jar",
     badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-    url: "https://buy.stripe.com/6oU14o6LW8zd5ebgIwfAc0p",
-    icon: Database,
+    url: "#tip-jar",
+    icon: Heart,
     featured: false,
   },
   {
-    title: "Production Agentic Prompts Pack",
-    subtitle: "Hardened system prompts, anti-injection guards & multi-agent orchestration templates.",
-    badge: "$19 Dev Bundle",
+    title: "Hana's Inner Circle (Club Vault)",
+    subtitle: "Behind-the-scenes downtime, unfiltered gym routines & private vault content.",
+    badge: "$9/mo Members",
     badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    url: "https://buy.stripe.com/00w00k3zKeXB9ureAofAc0q",
-    icon: Code2,
+    url: "https://muse.ai/s/hana-fan-website-xnb6ixjyxfxjxhqb",
+    icon: Sparkles,
     featured: false,
   },
 ];
@@ -101,7 +92,7 @@ export default function HanaBioPage() {
               <div className="w-full h-full rounded-full bg-[#0c1017] overflow-hidden border border-white/10">
                 <img
                   src="/hana/avatar.jpg"
-                  alt="Hannah"
+                  alt="Hana"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -114,7 +105,7 @@ export default function HanaBioPage() {
           </div>
 
           <div className="flex items-center gap-1.5">
-            <h1 className="text-2xl font-bold tracking-tight text-white">Hannah (Hana)</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-white">Hana</h1>
             <BadgeCheck className="w-5 h-5 text-rose-400 shrink-0" />
           </div>
           <p className="text-xs uppercase tracking-widest text-slate-400 font-mono mt-1">
@@ -129,7 +120,7 @@ export default function HanaBioPage() {
         <div className="w-full mb-6">
           <div className="flex items-center justify-between mb-2.5 px-1">
             <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Moments & Vibe</span>
-            <span className="text-[11px] font-mono text-rose-400">@hannah_fit_hustle</span>
+            <span className="text-[11px] font-mono text-rose-400">@hana.nanoempire</span>
           </div>
           <div className="flex gap-2.5 overflow-x-auto pb-2 scrollbar-none snap-x snap-mandatory">
             <div className="snap-center shrink-0 w-32 h-44 rounded-xl overflow-hidden border border-slate-800 bg-[#0d121c] relative group shadow-md">
@@ -325,7 +316,7 @@ export default function HanaBioPage() {
         {/* Footer */}
         <div className="w-full text-center px-4 py-3 text-[11px] text-slate-500">
           <p>
-            Hannah • Powered by Nano Empire AI.
+            Hana • Powered by Nano Empire AI.
           </p>
         </div>
       </main>

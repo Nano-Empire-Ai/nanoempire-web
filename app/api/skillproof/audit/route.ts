@@ -198,8 +198,9 @@ export async function POST(req: Request) {
         verification_method: 'https://www.nanoempireai.com/skillproof'
       },
       commercial_rails: {
-        sprint_audit_500: 'https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c',
-        payments_permission_audit_2500: 'https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o',
+        compliance_report_30: 'https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k',
+        continuous_monitoring_99: 'https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e',
+        annual_license_2400: 'mailto:licensing@nanoempireai.com',
       },
       badge_markdown: `[![SkillProof Verification](https://www.nanoempireai.com/api/badge/${encodeURIComponent(serverId)})](https://www.nanoempireai.com/skillproof)`
     };

@@ -14,42 +14,46 @@ export default function DoorB() {
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 text-left">
-              <h3 className="text-lg font-semibold text-white mb-2">SkillProof Sprint</h3>
-              <p className="text-slate-400 mb-4">$500 CAD — 48h injection-resistance battery</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Compliance Report</h3>
+              <p className="text-slate-400 mb-4">$30 USD — One-Time Inventory Audit</p>
               <ul className="text-sm text-slate-400 space-y-1 mb-4">
-                <li>• 180 adversarial ops across 5 categories</li>
-                <li>• Per-category block rates</li>
-                <li>• Ed25519 Trust Manifest</li>
+                <li>• 21,812 CPSC & FDA recall records</li>
+                <li>• Automated UPC / SKU cross-reference</li>
+                <li>• Signed PDF & CSV compliance audit</li>
               </ul>
-              <Link href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" target="_blank" rel="noopener">
-                <Button variant="outline" className="w-full">Buy Sprint →</Button>
+              <Link href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" target="_blank" rel="noopener">
+                <Button variant="outline" className="w-full">Unlock Report ($30) →</Button>
               </Link>
             </div>
             <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 text-left">
-              <h3 className="text-lg font-semibold text-white mb-2">MCP Verification</h3>
-              <p className="text-slate-400 mb-4">$800 — Identity + Injection + Exposure</p>
+              <h3 className="text-lg font-semibold text-white mb-2">RecallGuard Match API</h3>
+              <p className="text-slate-400 mb-4">$0.10 USDC — x402 on Base</p>
               <ul className="text-sm text-slate-400 space-y-1 mb-4">
-                <li>• OAuth/credential leak test</li>
-                <li>• 5-category injection battery</li>
-                <li>• File/shell exposure audit</li>
+                <li>• Machine-native HTTP 402 paywall</li>
+                <li>• Micro-settlement in USDC on Base</li>
+                <li>• Live on PyPI & npm</li>
               </ul>
-              <Button variant="outline" className="w-full" disabled>Contact for Access</Button>
+              <Link href="/recall-report">
+                <Button variant="outline" className="w-full">Test Scanner →</Button>
+              </Link>
             </div>
             <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 text-left">
-              <h3 className="text-lg font-semibold text-white mb-2">Marketplace Badge</h3>
-              <p className="text-slate-400 mb-4">Verified-MCP for Smithery/Glama</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Sovereign Data License</h3>
+              <p className="text-slate-400 mb-4">$2,400 / yr — Enterprise Feed Sync</p>
               <ul className="text-sm text-slate-400 space-y-1 mb-4">
-                <li>• Pre-listing verification</li>
-                <li>• Badge embed for listings</li>
-                <li>• Continuous monitoring</li>
+                <li>• Daily automated safety feed sync</li>
+                <li>• Complete enterprise export (CSV/JSON)</li>
+                <li>• Commercial catalog vetting license</li>
               </ul>
-              <Button variant="outline" className="w-full" disabled>Apply for Beta</Button>
+              <Link href="mailto:licensing@nanoempireai.com?subject=RecallRadar%20Enterprise%20Data%20License%20Inquiry">
+                <Button variant="outline" className="w-full">Contact Licensing ($2,400/yr)</Button>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/skillproof" className="w-full sm:w-auto">
+            <Link href="/recall-report" className="w-full sm:w-auto">
               <Button variant="default" className="w-full sm:w-auto">
-                View All SkillProof Products
+                Launch Live Compliance Scanner
               </Button>
             </Link>
             <Link href="/case-studies" className="w-full sm:w-auto">

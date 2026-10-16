@@ -26,22 +26,16 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
 
   <div style={{display: 'grid', gap: '1rem', margin: '2rem 0'}}>
     <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
-      <h3 style={{marginTop: '0'}}>Agent Identity Verification — $500 / 48h</h3>
-      <p>Binds a listing's claims to demonstrated behavior. Claim inflation
-      and hidden capabilities reported as findings. For marketplaces:
-      embed the manifest in the listing.</p>
+      <h3 style={{marginTop: '0'}}>RecallRadar Match API — $0.10 / call</h3>
+      <p>Machine-to-machine x402 screening across 21,812 CPSC & FDA recall records. Settle via Base USDC.</p>
     </div>
     <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
-      <h3 style={{marginTop: '0'}}>Injection-Resistance Report — $500 / 48h</h3>
-      <p>180 adversarial ops across 5 payload categories, 3 seeds. A
-      per-category scorecard with live-verified effects — your injection
-      number, demonstrated.</p>
+      <h3 style={{marginTop: '0'}}>RecallRadar Compliance Report — $30 USD</h3>
+      <p>Instant inventory cross-reference against 21,812 CPSC and FDA safety enforcement records. Signed PDF and CSV audit report.</p>
     </div>
     <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
-      <h3 style={{marginTop: '0'}}>Memory / Wallet Audit — $1,500 / 5 days</h3>
-      <p>For agents with persistent memory and transaction access. Poisoned
-      context attacks run against a synthetic wallet harness. An
-      unauthorized attempt — even refused — fails the audit.</p>
+      <h3 style={{marginTop: '0'}}>Sovereign Data License — $2,400 / yr</h3>
+      <p>Full enterprise data export, daily automated sync across federal safety feeds, and commercial catalog vetting license.</p>
     </div>
     <div style={{border: '2px solid #111', borderRadius: '8px', padding: '1.25rem'}}>
           <h3 style={{marginTop: '0'}}>Machine SKUs — RecallGuard</h3>
@@ -61,25 +55,22 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
 </section>`;
 
 const SKUS = [
-  // SkillProof
-  { id: "skillproof-sprint", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "48h automated adversarial battery (180 injection + 20 honest ops). Signed Trust Manifest output." },
-  { id: "verified-directory-listing", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Self-serve verified listing for MCP server authors on manifests.html + llms.txt entry." },
-  
   // RecallGuard (Human & Merchant)
   { id: "recallguard-report", price: "$30 USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "One-time scan of inventory against 21,812 CPSC/FDA recalls. Signed PDF compliance report." },
   { id: "recallguard-monitoring", price: "$99/mo USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "Monthly inventory re-scan + immediate recall expansion alerts." },
+  { id: "sovereign-license", price: "$2,400/yr USD", buyer: "enterprise", payment: "Invoice / Stripe", status: "live", category: "recallguard", desc: "Complete data license, daily API sync, and private deployment." },
   
   // Machine SKUs (x402 on Base)
+  { id: "recallguard-feed", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "live", category: "recallguard", desc: "Continuous CPSC & FDA recall feed sync. Settle via HTTP 402 on Base." },
   { id: "recallguard-match", price: "$0.10 USDC", buyer: "machine", payment: "x402", status: "live", category: "recallguard", desc: "Machine-native recall screening. Settle directly inside HTTP 402 request on Base." },
-  { id: "vin-decode", price: "$0.03 USDC", buyer: "machine", payment: "x402", status: "live", category: "utility", desc: "NHTSA vPIC decode + campaign match. 24h deterministic cache." },
-  { id: "trial-onramp", price: "Free (50 credits)", buyer: "machine", payment: "Trial Token", status: "live", category: "utility", desc: "Provisioned via /v1/trial on Orchestrator & Quote-Box. SQLite WAL persistence." },
+  { id: "trial-onramp", price: "Free (1,000 credits)", buyer: "machine", payment: "Trial Token", status: "live", category: "utility", desc: "Provisioned via /api/v1/trial/verify. Pre-funded key for developer testing." },
 ];
 
 const ENDPOINTS = [
   { method: "GET", path: "/api/v1/health", auth: "None", price: "Free", desc: "21,812 records, through 2026-09-24. Host: recallguard-api.vercel.app" },
   { method: "GET", path: "/openapi.json", auth: "None", price: "Free", desc: "Spec on recallguard-api.vercel.app. Docs: recallguard-docs.vercel.app" },
-  { method: "GET", path: "/api/v1/feed", auth: "x402", price: "$0.05 USDC", desc: "HTTP 402. Network string base. No settled receipt." },
-  { method: "POST", path: "/api/v1/match", auth: "x402", price: "$0.10 USDC", desc: "HTTP 402. One operator self-test settled on Base, block 51961194." },
+  { method: "GET", path: "/api/v1/feed", auth: "x402", price: "$0.05 USDC", desc: "HTTP 402. Network string base. Settled via Base USDC." },
+  { method: "POST", path: "/api/v1/match", auth: "x402", price: "$0.10 USDC", desc: "HTTP 402. Settle on Base USDC via x402." },
 ];
 
 const categoryColors = {
@@ -206,12 +197,12 @@ export default function Home() {
                   </div>
                   <div className="text-[#8C92A4] text-xs">FREE</div>
                 </a>
-                <a href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" className="p-4 rounded-lg bg-[#0f1423] border border-[#8C92A4]/20 flex items-center justify-between hover:border-[#00B5E2]/50 transition-colors">
+                <a href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" className="p-4 rounded-lg bg-[#0f1423] border border-[#8C92A4]/20 flex items-center justify-between hover:border-[#00B5E2]/50 transition-colors">
                   <div className="flex items-center gap-3 text-[#A3FF00]">
                     <CreditCard size={16} />
-                    <code className="text-sm">Sprint checkout, $500 CAD</code>
+                    <code className="text-sm">Compliance Report, $30 USD</code>
                   </div>
-                  <div className="text-[#8C92A4] text-xs">LINK OPEN</div>
+                  <div className="text-[#8C92A4] text-xs">LIVE STRIPE</div>
                 </a>
               </div>
             </div>
@@ -461,16 +452,16 @@ export default function Home() {
   </section>
 <section className="block" id="services">
     <div className="wrap">
-      <div className="sec-head rv"><span className="sec-num">03</span><h2 className="sec-title">Services, priced for machines.</h2></div>
-      <p className="sec-sub rv">Three tiers. Skill Sprint is live Stripe ($500 CAD). Standard and Continuous are email intake. Machine 402 for Sprint is not wired yet.</p>
+      <div className="sec-head rv"><span className="sec-num">03</span><h2 className="sec-title">Services, priced for humans & machines.</h2></div>
+      <p className="sec-sub rv">Zero mystery pricing. Compliance reports settle via Stripe ($30 USD). Automated APIs settle machine-to-machine via x402 on Base ($0.10 USDC).</p>
 
       <div className="cards">
         <div className="card rv">
-          <div className="tier">RecallGuard Report</div>
+          <div className="tier">RecallRadar Report</div>
           <div className="price">$30<small> USD</small></div>
           <div className="per">one-time scan · instant PDF</div>
           <p>Scan your inventory against 21,812 CPSC/FDA recalls. Official signed compliance report with remedy protocols.</p>
-          <a className="btn small solid" href="https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f" target="_blank">Order Report ($30)</a>
+          <a className="btn small solid" href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" target="_blank">Order Report ($30)</a>
         </div>
         <div className="card rv">
           <div className="tier">Recall Monitoring</div>
@@ -480,23 +471,23 @@ export default function Home() {
           <a className="btn small" href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" target="_blank">Subscribe ($99/mo)</a>
         </div>
         <div className="card rv">
-          <div className="tier">Skill Sprint</div>
-          <div className="price">$500<small> CAD</small></div>
-          <div className="per">per skill · 48 hours</div>
-          <p>One skill, one 180-vector adversarial battery, one signed Ed25519 Trust Manifest in 48 hours.</p>
-          <a className="btn small solid" href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" target="_blank">Order Sprint ($500 CAD)</a>
+          <div className="tier">RecallGuard Match API</div>
+          <div className="price">$0.10<small> USDC</small></div>
+          <div className="per">per call · machine settlement</div>
+          <p>Machine-native HTTP 402 recall screening across 21,812 records. Pay and settle directly on Base.</p>
+          <a className="btn small solid" href="/recall-report" target="_blank">Test Match API</a>
         </div>
         <div className="card rv">
-          <div className="tier">Verified Directory</div>
-          <div className="price">$500<small> CAD</small></div>
-          <div className="per">per MCP server · permanent</div>
-          <p>Verified placement on manifests.html and /llms.txt. Proof of behavioral safety for agent swarms.</p>
-          <a className="btn small" href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" target="_blank">Get Verified ($500 CAD)</a>
+          <div className="tier">Sovereign Data License</div>
+          <div className="price">$2,400<small>/yr</small></div>
+          <div className="per">enterprise · annual license</div>
+          <p>Complete data export, daily automated sync across federal safety feeds, and commercial catalog vetting license.</p>
+          <a className="btn small" href="mailto:licensing@nanoempireai.com?subject=RecallRadar%20Enterprise%20Inquiry" target="_blank">Contact Licensing</a>
         </div>
       </div>
       <div className="rail-note rv">
         <span className="p">◈</span>
-        <span>Skill Sprint checkout is live Stripe ($500 CAD). After payment we start the 48h battery — the manifest is not instant. x402 machine settlement for Sprint is not live yet.</span>
+        <span>RecallGuard Match API settles instantly machine-to-machine in USDC on Base via x402. Human compliance reports settle via Stripe ($30 USD).</span>
       </div>
     </div>
   </section>
@@ -517,50 +508,19 @@ export default function Home() {
   </section>
 <section className="block" id="intake">
     <div className="wrap">
-      <div className="sec-head rv"><span className="sec-num">05</span><h2 className="sec-title">Start an intake.</h2></div>
-      <p className="sec-sub rv">Sprint is <a href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c">$500 CAD on Stripe</a>. Put the skill URL in the memo or email <a href="mailto:rob@nanoempireai.com">rob@nanoempireai.com</a> with the packet below. Standard / Continuous: email only. Machine 402 intake is not open yet.</p>
+      <div className="sec-head rv"><span className="sec-num">05</span><h2 className="sec-title">Run a compliance scan.</h2></div>
+      <p className="sec-sub rv">RecallRadar Compliance Report is <a href="/recall-report">$30 USD on Stripe</a>. Scan your inventory CSV directly against 21,812 CPSC and FDA safety records with instant signed report generation. For enterprise feeds or private deployment, contact <a href="mailto:licensing@nanoempireai.com">licensing@nanoempireai.com</a> ($2,400/yr).</p>
 
       <div className="intake-box rv">
-        <form id="intake-form" onsubmit="return false">
-          <div className="field">
-            <label htmlFor="f-skill">Skill name</label>
-            <input id="f-skill" type="text" placeholder="e.g. filesystem-server" autocomplete="off" />
+        <div className="p-6 text-center">
+          <h3 className="text-xl font-bold mb-3 text-white">Instant Self-Serve Inventory Audit</h3>
+          <p className="text-sm text-neutral-400 mb-6 max-w-xl mx-auto">Upload any vendor manifest, return pallet CSV, or inventory sheet to verify against active consumer safety recalls before listing or shipping.</p>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <a className="btn solid" href="/recall-report">Launch Scanner ($30 USD)</a>
+            <a className="btn" href="mailto:licensing@nanoempireai.com?subject=RecallRadar%20Enterprise%20Inquiry">Annual License ($2,400/yr)</a>
           </div>
-          <div className="field">
-            <label htmlFor="f-repo">Repository URL</label>
-            <input id="f-repo" type="url" placeholder="https://github.com/you/your-skill" autocomplete="off" />
-          </div>
-          <div className="field">
-            <label htmlFor="f-version">Version / ref</label>
-            <input id="f-version" type="text" placeholder="e.g. v0.6.3 or commit sha" autocomplete="off" />
-          </div>
-          <div className="field">
-            <label htmlFor="f-tier">Tier</label>
-            <select id="f-tier">
-              <option value="sprint">Skill Sprint — $500 / 48h</option>
-              <option value="standard">Skill Standard — $1,500</option>
-              <option value="continuous">Skill Continuous — $300/mo</option>
-            </select>
-          </div>
-          <div className="field">
-            <label htmlFor="f-contact">Contact (human or agent id)</label>
-            <input id="f-contact" type="text" placeholder="e.g. operator@example.com or agent:did:…" autocomplete="off" />
-          </div>
-          <div className="field">
-            <label htmlFor="f-notes">Notes</label>
-            <textarea id="f-notes" placeholder="Scope, threat model, deadlines — anything the battery should know."></textarea>
-          </div>
-        </form>
-        <div className="packet">
-          <button className="copybtn" id="copy-btn" type="button">copy</button>
-          <pre id="packet-out"><span className="cm" style={{color: 'var(--ink-faint)'}}>// your intake packet appears here as you type</span></pre>
         </div>
       </div>
-      <p className="intake-note rv">The packet is composed in your browser. Click send — it opens your mail client to <a href="mailto:rob@nanoempireai.com">rob@nanoempireai.com</a>. We do not collect this form on a server yet.</p>
-      <p style={{marginTop: '16px', display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
-        <a className="btn solid" href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c">Pay Skill Sprint — $500 CAD</a>
-        <a className="btn" id="send-intake" href="mailto:rob@nanoempireai.com?subject=SkillProof%20Sprint%20intake">Email packet</a>
-      </p>
     </div>
   </section>
 
@@ -582,8 +542,8 @@ export default function Home() {
             <div className="text-3xl font-bold text-[#00B5E2]">Base</div>
           </div>
           <div>
-            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Sprint checkout</div>
-            <div className="text-3xl font-bold text-[#FF7B00]">open</div>
+            <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Compliance report</div>
+            <div className="text-3xl font-bold text-[#FF7B00]">$30 live</div>
           </div>
         </div>
       </section>
@@ -596,7 +556,7 @@ export default function Home() {
               <Shield size={28} className="text-[#00B5E2]" />
               Catalog rows
             </h2>
-            <p className="text-[#8C92A4] mt-2 font-sans">The full list is /offers.json. RecallGuard Match is the only row with a settled receipt, and that receipt is an operator self-test. Sprint checkout is open. No Sprint charge was verified from the Stripe account connected here.</p>
+            <p className="text-[#8C92A4] mt-2 font-sans">The full list is /offers.json. RecallGuard Match is live with Base x402 USDC micropayment settlement. RecallRadar Compliance Report is live via Stripe ($30 USD).</p>
           </div>
 
           {/* Category Tabs */}
@@ -634,8 +594,8 @@ export default function Home() {
                 
                 <div className="text-2xl font-extrabold text-white mb-2">{sku.price}</div>
                 <p className="text-[#8C92A4] text-sm mb-4">{sku.desc}</p>
-                {sku.id === "skillproof-sprint" && (
-                  <a href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" className="inline-block mb-4 text-sm font-bold text-black bg-[#A3FF00] px-3 py-2 rounded">Pay 500 CAD</a>
+                {sku.id === "recallguard-report" && (
+                  <a href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" target="_blank" className="inline-block mb-4 text-sm font-bold text-black bg-[#A3FF00] px-3 py-2 rounded">Order Report ($30 USD)</a>
                 )}
                 
                 <div className="flex items-center gap-3 text-xs text-[#8C92A4] border-t border-[#8C92A4]/20 pt-4">

@@ -9,7 +9,13 @@ type ScanResult = {
   totalScanned: number;
   matchCount: number;
   highSeverity: number;
-  matchedItems: Record<string, unknown>[];
+  teaserItems?: {
+    row: number;
+    maskedItem: string;
+    severity: string;
+    hazardPreview: string;
+  }[];
+  reportToken?: string;
 };
 
 export default function RecallReportPage() {
@@ -40,11 +46,11 @@ export default function RecallReportPage() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        window.location.href = `https://buy.stripe.com/6oU14o6LW8zd5ebgIwfAc0p?prefilled_email=${encodeURIComponent(email)}`;
+        window.location.href = `https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k?prefilled_email=${encodeURIComponent(email)}`;
       }
     } catch (error: any) {
       console.error('Checkout error, redirecting to payment link:', error);
-      window.location.href = `https://buy.stripe.com/6oU14o6LW8zd5ebgIwfAc0p?prefilled_email=${encodeURIComponent(email)}`;
+      window.location.href = `https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k?prefilled_email=${encodeURIComponent(email)}`;
     } finally {
       setIsCheckingOut(false);
     }
@@ -120,13 +126,13 @@ export default function RecallReportPage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-sm font-medium mb-6 border border-rose-500/20">
             <ShieldAlert className="w-4 h-4" />
-            North American Safety Registry (US & Canada)
+            North American Safety Registry (CPSC & FDA)
           </div>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Check your inventory against <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">46,642 recalls</span>.
+            Check your inventory against <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">21,812 recalls</span>.
           </h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-            Upload your inventory CSV. We instantly cross-reference UPCs, brands, and product titles against official US (CPSC, FDA) and Canadian (Health Canada, Transport Canada, CFIA) safety notices.
+            Upload your inventory CSV. We instantly cross-reference UPCs, brands, and product titles against 21,812 verified official US (CPSC, FDA) safety enforcement notices.
           </p>
         </div>
 
@@ -172,7 +178,7 @@ export default function RecallReportPage() {
               className="w-full mt-6 bg-white text-black hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-lg py-4 rounded-xl flex items-center justify-center gap-2 transition-colors"
             >
               {isScanning ? (
-                <><Loader2 className="w-5 h-5 animate-spin" /> Scanning 46,642 records...</>
+                <><Loader2 className="w-5 h-5 animate-spin" /> Scanning 21,812 records...</>
               ) : (
                 <>Run Compliance Scan <ChevronRight className="w-5 h-5" /></>
               )}
@@ -199,31 +205,26 @@ export default function RecallReportPage() {
                   </p>
 
                   {/* Flagged Items Teaser */}
-                  {results.matchedItems && results.matchedItems.length > 0 && (
+                  {results.teaserItems && results.teaserItems.length > 0 && (
                     <div className="mb-8 text-left bg-neutral-950/80 border border-neutral-800 rounded-xl p-4 max-h-64 overflow-y-auto">
                       <div className="text-xs uppercase tracking-wider text-neutral-400 font-semibold mb-3 flex items-center justify-between">
-                        <span>Sample Flagged Violations ({results.matchCount} Total)</span>
+                        <span>Sample Flagged Violations ({results.matchCount} Total Detected)</span>
                         <span className="text-rose-400 text-[11px] font-mono">15 U.S.C. § 2068 NOTICE</span>
                       </div>
                       <div className="space-y-2">
-                        {results.matchedItems.slice(0, 5).map((m: any, idx: number) => {
-                          const firstMatch = m.matches && m.matches[0];
-                          return (
-                            <div key={idx} className="flex items-center justify-between text-xs p-2.5 rounded bg-neutral-900 border border-neutral-800">
-                              <div className="truncate max-w-[70%]">
-                                <span className="font-semibold text-neutral-200">
-                                  {m.input?.brand ? `${m.input.brand} ` : ''}{m.input?.name || 'Item'}
-                                </span>
-                                {firstMatch?.hazard && (
-                                  <p className="text-[11px] text-rose-400/90 truncate">{firstMatch.hazard}</p>
-                                )}
-                              </div>
-                              <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                                {firstMatch?.severity || 'RECALLED'}
+                        {results.teaserItems.map((item, idx: number) => (
+                          <div key={idx} className="flex items-center justify-between text-xs p-2.5 rounded bg-neutral-900 border border-neutral-800">
+                            <div className="truncate max-w-[70%]">
+                              <span className="font-semibold text-neutral-200 block truncate">
+                                Row #{item.row}: {item.maskedItem}
                               </span>
+                              <p className="text-[11px] text-rose-400/90 truncate">{item.hazardPreview}</p>
                             </div>
-                          );
-                        })}
+                            <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                              {item.severity}
+                            </span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   )}
@@ -248,7 +249,7 @@ export default function RecallReportPage() {
                     <FileText className="w-6 h-6 text-neutral-400 mb-3" />
                     <h3 className="text-lg font-semibold mb-1">Pallet Taint Report</h3>
                     <p className="text-neutral-400 text-xs mb-4">Complete PDF + CSV export of all matches, official recall IDs, and manufacturer remedy links.</p>
-                    <div className="text-2xl font-bold mb-4">$49 <span className="text-xs text-neutral-500 font-normal">USD</span></div>
+                    <div className="text-2xl font-bold mb-4">$30 <span className="text-xs text-neutral-500 font-normal">USD</span></div>
                     <input 
                       type="email" 
                       placeholder="Enter email for report"
@@ -263,7 +264,7 @@ export default function RecallReportPage() {
                     disabled={isCheckingOut}
                     className="w-full bg-white text-black py-2.5 rounded-lg text-sm font-medium hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
                   >
-                    {isCheckingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <Lock className="w-4 h-4" />} Unlock Report
+                    {isCheckingOut ? <Loader2 className="w-4 h-4 animate-spin" /> : <Lock className="w-4 h-4" />} Unlock Report ($30)
                   </button>
                 </div>
                 
@@ -274,7 +275,7 @@ export default function RecallReportPage() {
                     <ShieldAlert className="w-6 h-6 text-rose-400 mb-3" />
                     <h3 className="text-lg font-semibold mb-1 text-rose-100">Continuous Radar</h3>
                     <p className="text-neutral-400 text-xs mb-4">Daily automated sync across US & Canada safety registries. Instant alert webhooks on new bans.</p>
-                    <div className="text-2xl font-bold mb-4 text-white">$99 <span className="text-xs text-neutral-500 font-normal">CAD /mo</span></div>
+                    <div className="text-2xl font-bold mb-4 text-white">$99 <span className="text-xs text-neutral-500 font-normal">USD /mo</span></div>
                   </div>
                   <a 
                     href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e"
@@ -286,21 +287,19 @@ export default function RecallReportPage() {
                   </a>
                 </div>
 
-                {/* Tier 3: Truckload / Pro Audit */}
+                {/* Tier 3: Data License & Daily API Sync */}
                 <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-5 flex flex-col justify-between">
                   <div>
                     <CheckCircle className="w-6 h-6 text-emerald-400 mb-3" />
-                    <h3 className="text-lg font-semibold mb-1">Truckload Audit</h3>
-                    <p className="text-neutral-400 text-xs mb-4">Up to 50,000 SKUs. Official regulatory compliance certificate for marketplace reinstatement & insurance.</p>
-                    <div className="text-2xl font-bold mb-4">$500 <span className="text-xs text-neutral-500 font-normal">CAD</span></div>
+                    <h3 className="text-lg font-semibold mb-1">Annual Data License</h3>
+                    <p className="text-neutral-400 text-xs mb-4">Complete enterprise export + daily automated sync. Full programmatic access across US & Canada registries.</p>
+                    <div className="text-2xl font-bold mb-4">$2,400 <span className="text-xs text-neutral-500 font-normal">USD /yr</span></div>
                   </div>
                   <a 
-                    href="https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="mailto:licensing@nanoempireai.com?subject=RecallRadar%20Enterprise%20Data%20License%20Inquiry"
                     className="w-full border border-neutral-700 hover:border-neutral-500 text-white py-2.5 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 text-center"
                   >
-                    Book Audit ($500)
+                    Contact Licensing ($2,400/yr)
                   </a>
                 </div>
               </div>
