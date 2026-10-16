@@ -33,6 +33,15 @@ export default function RecallReportPage() {
   
     setIsCheckingOut(true);
     try {
+      if (typeof window !== 'undefined' && results?.reportToken) {
+        localStorage.setItem('recallradar_report_token', results.reportToken);
+        localStorage.setItem('recallradar_email', email);
+      }
+    } catch {
+      // ignore storage errors
+    }
+
+    try {
       const res = await fetch('/api/recall-report/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

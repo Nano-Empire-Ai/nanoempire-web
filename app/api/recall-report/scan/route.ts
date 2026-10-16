@@ -55,7 +55,7 @@ export async function POST(req: Request) {
       if (res && res.match_count > 0) {
         matchCount++;
         const hasHighSev = res.matches.some((m: { severity: string }) => 
-          m.severity === 'serious' || m.severity === 'class-i'
+          m.severity === 'critical' || m.severity === 'serious' || m.severity === 'class-i'
         );
         if (hasHighSev) highSeverity++;
 
