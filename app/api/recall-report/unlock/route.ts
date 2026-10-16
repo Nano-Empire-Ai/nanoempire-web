@@ -28,11 +28,11 @@ export async function POST(req: Request) {
     let verifiedEmail = email || 'verified-buyer@nanoempireai.com';
     let paymentVerified = false;
 
-    // 1. Check Stripe session if sessionId provided and real Stripe key exists
-    if (sessionId && process.env.STRIPE_SECRET_KEY && !process.env.STRIPE_SECRET_KEY.includes('mock')) {
+    // 1. Verify paid Stripe Checkout Session via live Stripe API
+    if (sessionId && sessionId.startsWith('cs_') && process.env.STRIPE_SECRET_KEY && !process.env.STRIPE_SECRET_KEY.includes('mock')) {
       try {
         const session = await stripe.checkout.sessions.retrieve(sessionId);
-        if (session && (session.payment_status === 'paid' || session.status === 'complete')) {
+        if (session && session.payment_status === 'paid') {
           paymentVerified = true;
           verifiedEmail = session.customer_email || session.customer_details?.email || verifiedEmail;
         }
@@ -41,32 +41,33 @@ export async function POST(req: Request) {
       }
     }
 
-    // 2. Check DB if session exists in local/ephemeral DB
-    if (!reportData && sessionId) {
+    // 2. Check DB if session was marked paid via Stripe webhook
+    if (sessionId) {
       try {
         await initDb();
         const scan = await getScanBySession(sessionId);
-        if (scan && scan.scan_data) {
-          reportData = JSON.parse(scan.scan_data as string);
-          verifiedEmail = (scan.email as string) || verifiedEmail;
-          if (scan.status === 'paid') paymentVerified = true;
+        if (scan) {
+          if (scan.status === 'paid') {
+            paymentVerified = true;
+          }
+          if (!reportData && scan.scan_data) {
+            reportData = JSON.parse(scan.scan_data as string);
+            verifiedEmail = (scan.email as string) || verifiedEmail;
+          }
         }
       } catch (e) {
         console.warn('DB lookup warning:', e);
       }
     }
 
-    // 3. Decrypt stateless AES-256-GCM reportToken from browser storage
-    if (!reportData && typeof reportToken === 'string' && reportToken.length > 32) {
+    // 3. Only decrypt stateless AES-256-GCM reportToken AFTER paymentVerified is true
+    if (paymentVerified && !reportData && typeof reportToken === 'string' && reportToken.length > 32) {
       reportData = decryptReportPayload(reportToken);
-      if (sessionId || email) {
-        paymentVerified = true;
-      }
     }
 
-    if (!reportData || !paymentVerified) {
+    if (!paymentVerified || !reportData) {
       return NextResponse.json(
-        { error: 'Valid payment session or encrypted report token required to unlock.' },
+        { error: 'Payment verification required ($30.00 USD via Stripe Checkout) to unlock unredacted compliance report.' },
         { status: 402 }
       );
     }

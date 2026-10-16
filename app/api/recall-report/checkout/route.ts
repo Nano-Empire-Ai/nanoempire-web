@@ -50,18 +50,26 @@ export async function POST(req: Request) {
     }
 
     try {
+      const origin = req.headers.get('origin') || 'https://www.nanoempireai.com';
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         line_items: [
           {
-            price: 'price_1UMqVDKm83mOzFpMlMZIRTw5',
+            price_data: {
+              currency: 'usd',
+              unit_amount: 3000,
+              product_data: {
+                name: 'RecallRadar Compliance Report (15 U.S.C. § 2068)',
+                description: 'Full unredacted recall schedule (CSV + signed PDF certificate) across 21,812 CPSC & FDA safety records.',
+              },
+            },
             quantity: 1,
           },
         ],
         mode: 'payment',
         customer_email: email,
-        success_url: `${req.headers.get('origin') || 'https://www.nanoempireai.com'}/recall-report/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.get('origin') || 'https://www.nanoempireai.com'}/recall-report`,
+        success_url: `${origin}/recall-report/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${origin}/recall-report`,
         metadata: { scanId },
       });
 
@@ -72,7 +80,7 @@ export async function POST(req: Request) {
       }
 
       if (session.url) {
-        return NextResponse.json({ url: session.url });
+        return NextResponse.json({ url: session.url, sessionId: session.id });
       }
     } catch (stripeErr) {
       console.warn("Stripe session creation bypassed, falling back to direct payment link:", stripeErr);
