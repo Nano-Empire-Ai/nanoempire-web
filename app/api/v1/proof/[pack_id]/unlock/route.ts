@@ -31,8 +31,8 @@ export async function POST(
     body = {};
   }
 
-  const paymentProof = body.payment_proof || body;
-  const paymentMethod = paymentProof.method || (paymentProof.session_id ? 'stripe' : paymentProof.tx_hash ? 'x402' : null);
+  const xPaymentHeader = req.headers.get('x-payment') || paymentProof.x_payment || paymentProof.payment_header;
+  const paymentMethod = paymentProof.method || (paymentProof.session_id ? 'stripe' : (xPaymentHeader || paymentProof.payment_payload || paymentProof.tx_hash || paymentProof.transaction_hash) ? 'x402' : null);
 
   // STRICT FAIL-CLOSED VERIFICATION
   let isVerified = false;
@@ -40,40 +40,104 @@ export async function POST(
 
   if (paymentMethod === 'stripe') {
     const sessionId = paymentProof.session_id || paymentProof.payment_intent;
-    if (sessionId && typeof sessionId === 'string' && sessionId.length >= 10) {
-      // In production with STRIPE_SECRET_KEY, verify against Stripe API
-      const stripeKey = process.env.STRIPE_SECRET_KEY;
-      if (stripeKey) {
-        try {
-          const res = await fetch(`https://api.stripe.com/v1/checkout/sessions/${sessionId}`, {
-            headers: { Authorization: `Bearer ${stripeKey}` }
-          });
-          const session = await res.json();
-          if (session.payment_status === 'paid') {
-            isVerified = true;
-            unlockDetails = { method: 'stripe', session_id: sessionId, amount_paid: 30.00 };
-          }
-        } catch (e) {
-          isVerified = false;
-        }
-      } else {
-        // If no secret key configured on Vercel preview, allow test session pattern
-        if (sessionId.startsWith('cs_test_') || sessionId.startsWith('pi_test_')) {
+    const stripeKey = process.env.STRIPE_SECRET_KEY;
+    if (sessionId && typeof sessionId === 'string' && sessionId.length >= 10 && stripeKey) {
+      try {
+        const res = await fetch(`https://api.stripe.com/v1/checkout/sessions/${sessionId}`, {
+          headers: { Authorization: `Bearer ${stripeKey}` }
+        });
+        const session = await res.json();
+        if (session.payment_status === 'paid') {
           isVerified = true;
-          unlockDetails = { method: 'stripe_test', session_id: sessionId, amount_paid: 30.00 };
+          unlockDetails = { method: 'stripe', session_id: sessionId, amount_paid: 30.00 };
         }
+      } catch {
+        isVerified = false;
       }
     }
   } else if (paymentMethod === 'x402') {
-    const txHash = paymentProof.tx_hash || paymentProof.transaction_hash;
-    const network = paymentProof.network || 'base';
-    const payTo = paymentProof.pay_to || '0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01';
+    const facilitator = (process.env.X402_FACILITATOR_URL || 'https://facilitator.payai.network').replace(/\/+$/, '');
+    const payTo = '0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01';
+    const usdcBase = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
 
-    if (txHash && typeof txHash === 'string' && txHash.startsWith('0x') && txHash.length >= 64) {
-      // Base network USDC check
-      if (payTo.toLowerCase() === '0x90e23a7b6f6494a879d05ddc4278d0e55dec1e01') {
-        isVerified = true;
-        unlockDetails = { method: 'x402', tx_hash: txHash, network, pay_to: payTo };
+    // Path A: Standard x402 v1 buyer-signed payment payload (X-PAYMENT base64 JSON or payment_payload)
+    let signedPayload = paymentProof.payment_payload || null;
+    if (!signedPayload && xPaymentHeader) {
+      try {
+        signedPayload = JSON.parse(Buffer.from(String(xPaymentHeader), 'base64').toString('utf8'));
+      } catch {
+        signedPayload = null;
+      }
+    }
+
+    if (signedPayload && Number(signedPayload.x402Version) === 1 && signedPayload.scheme === 'exact' && signedPayload.network === 'base') {
+      const paymentRequirements = {
+        scheme: 'exact',
+        network: 'base',
+        maxAmountRequired: '30000000', // $30.00 USDC (6 decimals)
+        resource: `https://www.nanoempireai.com/api/v1/proof/${pack_id}/unlock`,
+        description: `RecallRadar Proof Pack Unlock (${pack_id})`,
+        mimeType: 'application/json',
+        payTo,
+        maxTimeoutSeconds: 60,
+        asset: usdcBase,
+        extra: { name: 'USD Coin', version: '2' }
+      };
+      try {
+        const vRes = await fetch(`${facilitator}/verify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ x402Version: 1, paymentPayload: signedPayload, paymentRequirements })
+        });
+        const vJson = await vRes.json();
+        if (vJson && vJson.isValid) {
+          const sRes = await fetch(`${facilitator}/settle`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ x402Version: 1, paymentPayload: signedPayload, paymentRequirements })
+          });
+          const sJson = await sRes.json();
+          if (sJson && sJson.success) {
+            isVerified = true;
+            unlockDetails = { method: 'x402_signed', transaction: sJson.transaction, payer: sJson.payer || vJson.payer, network: 'base', pay_to: payTo };
+          }
+        }
+      } catch {
+        isVerified = false;
+      }
+    } else {
+      // Path B: Mined Base Mainnet transaction hash verified against Base RPC
+      const txHash = paymentProof.tx_hash || paymentProof.transaction_hash;
+      if (txHash && typeof txHash === 'string' && /^0x[0-9a-fA-F]{64}$/.test(txHash)) {
+        try {
+          const rpcRes = await fetch('https://mainnet.base.org', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_getTransactionReceipt', params: [txHash] })
+          });
+          const rpcData = await rpcRes.json();
+          const receipt = rpcData?.result;
+          if (receipt && receipt.status === '0x1' && Array.isArray(receipt.logs)) {
+            const transferTopic = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
+            const expectedToTopic = '0x000000000000000000000000' + payTo.toLowerCase().slice(2);
+            for (const log of receipt.logs) {
+              const topics = (log.topics || []).map((t: string) => t.toLowerCase());
+              if (
+                String(log.address || '').toLowerCase() === usdcBase.toLowerCase() &&
+                topics.length >= 3 &&
+                topics[0] === transferTopic &&
+                topics[2] === expectedToTopic &&
+                BigInt(log.data || '0x0') >= BigInt(30000000)
+              ) {
+                isVerified = true;
+                unlockDetails = { method: 'x402_onchain', tx_hash: txHash, network: 'base', pay_to: payTo };
+                break;
+              }
+            }
+          }
+        } catch {
+          isVerified = false;
+        }
       }
     }
   }
