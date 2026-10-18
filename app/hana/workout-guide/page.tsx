@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Download, Sparkles, Heart, Flame, Shield, ArrowRight } from "lucide-react";
 
@@ -99,6 +99,7 @@ const WORKOUT_DAYS = [
 ];
 
 export default function WorkoutGuidePage() {
+  const [subscribed, setSubscribed] = useState(false);
   return (
     <div className="min-h-screen bg-[#07090E] text-slate-100 selection:bg-rose-500/30 selection:text-white">
       {/* Top Banner Nav */}
@@ -159,6 +160,47 @@ export default function WorkoutGuidePage() {
           <p className="text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
             15 to 20-minute realistic bodyweight workouts for busy, tired women who want to build real strength, tone up, and feel amazing without expensive gym memberships.
           </p>
+
+          {/* Email Capture — inline Beehiiv signup (above the download) */}
+          <div className="mt-8 max-w-xl mx-auto bg-gradient-to-br from-rose-950/40 via-[#0E131F] to-[#0A0E17] border border-rose-500/25 rounded-2xl p-6 text-left relative overflow-hidden">
+            <div className="flex items-center gap-2 text-rose-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <Sparkles className="w-4 h-4" /> Join my email list
+            </div>
+            <h2 className="text-xl font-bold text-white mb-2">Get my daily brief 💌</h2>
+            <p className="text-sm text-slate-300 leading-relaxed mb-4">
+              Loved the guide? Drop your email and I&apos;ll send you my Daily AI Recall Brief every morning — 5 quick bullets on product recalls and safety, so you and your family stay in the know. No spam, ever. Unsubscribe anytime.
+            </p>
+            {subscribed ? (
+              <p className="text-sm font-semibold text-emerald-400">You&apos;re in! 🎉 Watch your inbox tomorrow morning.</p>
+            ) : (
+              <form
+                action="https://magic.beehiiv.com/v1/0260eb70-fc32-4063-85e8-99d5c86bb2b2"
+                method="get"
+                target="beehiiv-hidden-frame"
+                onSubmit={() => setSubscribed(true)}
+                className="flex flex-col sm:flex-row gap-2"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  aria-label="Email address"
+                  className="flex-1 px-4 py-2.5 rounded-xl bg-[#07090E] border border-slate-700 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-rose-400"
+                />
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-semibold text-sm transition-all"
+                >
+                  Count me in
+                </button>
+              </form>
+            )}
+            <iframe name="beehiiv-hidden-frame" title="signup" className="hidden" aria-hidden="true" />
+            <p className="text-xs text-slate-500 mt-3">
+              Already grabbed this guide? Pop your email in anyway — the daily brief keeps you in the loop. 💕
+            </p>
+          </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <button 
