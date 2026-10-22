@@ -243,15 +243,19 @@
       <div class="glyph">↑</div>
       <h2>Drop a PDF here, or click to browse</h2>
       <p>Government RFP / SOW / compliance solicitation · max <span id="maxmb">25</span>&nbsp;MB</p>
-      <div class="picked" id="picked"></div>
+      <div class="safety-notice" style="background:rgba(255,90,90,0.12);border:1px solid rgba(255,90,90,0.35);border-radius:12px;padding:1.25rem;margin-bottom:1.5rem;font-size:0.85rem;color:var(--text-dim);line-height:1.7;">
+    <strong style="color:var(--danger);">PRELIMINARY PREVIEW ONLY — NOT A COMPLIANCE RULING</strong><br>
+    Secure server-assisted preview. Documents submitted here may be processed on our server. Do not submit confidential, regulated, personal health, legal-privileged, client-pricing, credential, or government-protected material. This is not legal, insurance, medical, procurement, or financial advice. Fatal or disqualifying requirements may exist in documents not supplied. Human verification is required before acting.
+  </div>
       <input type="file" id="file" accept="application/pdf,.pdf" hidden />
     </div>
     <div class="actions">
       <button class="primary" id="analyze" disabled>Analyze document</button>
       <button id="clear" hidden>Clear</button>
     </div>
-    <p class="hint">Runs locally · deterministic extraction · no document leaves this machine
-      unless the optional LLM pass is explicitly enabled.</p>
+    <p class="hint">Secure server-assisted preview. Documents submitted here may be processed on our server.
+      Do not submit confidential, regulated, personal health, legal-privileged, client-pricing, credential, or government-protected material.
+      This is not a compliance ruling. Human verification is required before acting.</p>
   </section>
 
   <div class="term" id="term"></div>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Universal Document Defense Portal — Free Triage in 60s | Nano Empire AI</title>
-<meta name="description" content="Drop any government RFP, commercial SOW, or insurance denial letter. Get instant Stop/Go/Clarify triage, missing document checklists, and trap defense in under 60 seconds.">
+<title>BidShield Pilot Document Intake — Invite-Only | Nano Empire AI</title>
+<meta name="description" content="BidShield is an invite-only pilot service that produces scope-honest, source-cited preliminary risk previews from public or non-sensitive business documents.">
 <style>
   :root {
     --bg: #0B0B0C;
@@ -22,7 +22,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-  
+
   nav { position: sticky; top: 0; z-index: 50; background: rgba(11,11,12,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
   nav .brand { font-family: var(--mono); font-weight: 700; color: var(--text); text-decoration: none; font-size: 0.95rem; }
@@ -37,52 +37,56 @@
   h1 em { font-style: normal; color: var(--accent); }
   .sub { font-size: 1.15rem; color: var(--text-dim); max-width: 680px; margin: 0 auto 2.5rem; }
 
-  /* Drop Zone */
-  .drop-box {
+  /* Safety Banner */
+  .safety-banner {
+    background: rgba(255,90,90,0.12);
+    border: 1px solid rgba(255,90,90,0.35);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+  .safety-banner h3 { color: var(--danger); font-size: 1rem; margin-bottom: 0.75rem; font-family: var(--mono); }
+  .safety-banner ul { list-style: none; font-size: 0.88rem; color: var(--text-dim); }
+  .safety-banner ul li { padding: 0.25rem 0 0.25rem 1.4rem; position: relative; }
+  .safety-banner ul li::before { content: "✕"; position: absolute; left: 0; color: var(--danger); font-weight: 700; }
+
+  /* Pilot Box */
+  .pilot-box {
     background: var(--panel);
-    border: 2px dashed var(--border);
+    border: 2px solid var(--border-accent);
     border-radius: 16px;
-    padding: 3.5rem 2rem;
+    padding: 3rem 2rem;
     text-align: center;
-    cursor: pointer;
-    transition: all 0.25s ease;
     margin-bottom: 3rem;
   }
-  .drop-box:hover, .drop-box.dragover { border-color: var(--accent); background: #181d26; }
-  .drop-box svg { width: 48px; height: 48px; stroke: var(--accent); fill: none; margin-bottom: 1rem; }
-  .drop-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .drop-desc { font-size: 0.92rem; color: var(--text-dim); margin-bottom: 1.5rem; }
-  .pill-row { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-  .pill { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.85rem; font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); }
-
-  /* Results Container */
-  .results { display: none; background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; }
-  .rec-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-weight: 700; padding: 0.4rem 0.9rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1.5rem; }
-  .rec-badge.stop { background: rgba(255,90,90,0.15); color: var(--danger); border: 1px solid rgba(255,90,90,0.3); }
-  .rec-badge.go { background: rgba(61,220,151,0.15); color: var(--accent); border: 1px solid rgba(61,220,151,0.3); }
-  .rec-badge.clarify { background: rgba(232,178,58,0.15); color: var(--warning); border: 1px solid rgba(232,178,58,0.3); }
-
-  /* Tiers */
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; position: relative; }
-  .card.featured { border-color: var(--accent); }
-  .card-badge { position: absolute; top: -10px; right: 20px; background: var(--accent); color: #000; font-family: var(--mono); font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; text-transform: uppercase; }
-  .card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .price { font-size: 2.2rem; font-weight: 800; font-family: var(--mono); margin: 1rem 0; color: var(--text); }
-  .price span { font-size: 0.9rem; color: var(--text-dim); font-weight: 400; }
-  .card ul { list-style: none; margin: 1.5rem 0; font-size: 0.92rem; }
-  .card ul li { padding: 0.4rem 0 0.4rem 1.4rem; position: relative; color: var(--text-dim); }
-  .card ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-  .btn { display: block; text-align: center; background: var(--accent); color: #0B0B0C; font-weight: 700; padding: 0.85rem 1.5rem; border-radius: 10px; text-decoration: none; font-family: var(--mono); font-size: 0.9rem; }
-  .btn.outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .pilot-box h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+  .pilot-box p { color: var(--text-dim); max-width: 600px; margin: 0 auto 1.5rem; }
+  .btn { display: inline-block; background: var(--accent); color: #0B0B0C; font-weight: 700; padding: 0.85rem 2rem; border-radius: 10px; text-decoration: none; font-family: var(--mono); font-size: 0.9rem; }
   .btn:hover { filter: brightness(1.1); }
+  .btn.outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
 
-  /* Trap Atlas Live Section */
-  .atlas-section { padding: 3rem 0; border-top: 1px solid var(--border); }
-  .atlas-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+  /* Preliminary Preview Notice */
+  .preview-notice {
+    background: rgba(232,178,58,0.08);
+    border: 1px solid rgba(232,178,58,0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .preview-notice strong { color: var(--warning); }
+
+  /* Field Notes */
+  .field-notes { padding: 3rem 0; border-top: 1px solid var(--border); }
+  .field-notes h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .field-notes p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; }
   .trap-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
   .trap-title { font-weight: 600; color: var(--text); }
   .trap-stat { font-family: var(--mono); color: var(--warning); font-size: 0.8rem; }
+  .trap-status { font-family: var(--mono); color: var(--text-dim); font-size: 0.7rem; padding: 0.15rem 0.5rem; border: 1px solid var(--border); border-radius: 4px; }
 
   footer { padding: 3rem 0 4rem; text-align: center; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); }
 </style>
@@ -90,107 +94,91 @@
 <body>
 
 <nav><div class="wrap">
-  <a class="brand" href="/">NANO_EMPIRE<span>//INGEST</span></a>
+  <a class="brand" href="/">NANO_EMPIRE<span>//BIDSHIELD</span></a>
   <div class="links">
     <a href="/">Home</a>
-    <a href="/rfp/">RFP Engine</a>
-    <a href="/tollbooth/">Tollbooth</a>
-    <a href="/decision-bus/">Decision Bus</a>
+    <a href="/bidshield/">BidShield</a>
+    <a href="/lab/">Lab</a>
   </div>
 </div></nav>
 
 <header><div class="wrap">
-  <div class="eyebrow">Institutional Paperwork Defense</div>
-  <h1>Drop Any Document. <br>Get <em>Stop / Go / Clarify</em> in 60s.</h1>
-  <p class="sub">Bureaucratic complexity costs small businesses and patients over $100B in silent administrative rejection. Our deterministic kernel extracts mandatory traps, missing schedules, and non-compliance risks instantly.</p>
+  <div class="eyebrow">BidShield Pilot Intake — Invite-Only</div>
+  <h1>Find the Clause <br>Before It Costs You the <em>Bid.</em></h1>
+  <p class="sub">BidShield produces scope-honest, source-cited preliminary risk previews from public or non-sensitive business documents. Full-package reviews require human verification and a confirmed legal/data-handling scope.</p>
 
-  <div class="drop-box" id="dropZone">
-    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-    <div class="drop-title">Drag & drop your document here</div>
-    <div class="drop-desc">Federal RFP, Provincial Tender, SOW, Insurance Denial Letter, or Contract PDF</div>
-    <div class="pill-row">
-      <span class="pill">PWGSC / PSPC</span>
-      <span class="pill">US FAR / DFARS</span>
-      <span class="pill">Commercial Payer Denials</span>
-      <span class="pill">Subcontractor Agreements</span>
-    </div>
-    <input type="file" id="fileInput" style="display:none" accept=".pdf,.txt,.docx">
+  <div class="safety-banner">
+    <h3>PUBLIC PREVIEW IS DISABLED — INVITE-ONLY PILOT</h3>
+    <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">Universal document upload is not available. Pilot access is granted by invitation only.</p>
+    <ul>
+      <li>Do not submit medical records, patient identifiers, or health information</li>
+      <li>Do not submit confidential client pricing, margins, or proprietary terms</li>
+      <li>Do not submit privileged legal documents, contracts under NDA, or attorney work product</li>
+      <li>Do not submit passwords, API keys, seeds, or any credentials</li>
+      <li>Do not submit government-protected, classified, or security-sensitive material</li>
+      <li>Do not submit personal identity documents, tax returns, or bank statements</li>
+    </ul>
   </div>
 
-  <div class="results" id="resultsBox">
-    <div id="recBadge" class="rec-badge clarify">CLARIFY REQUIRED (PRE-BID AUDIT)</div>
-    <h3 id="resultTitle" style="margin-bottom:0.75rem;font-size:1.2rem">Sample Analysis Generated</h3>
-    <p id="resultSummary" style="color:var(--text-dim);font-size:0.95rem;margin-bottom:1.5rem">Deterministic review surfaced 3 high-risk clauses and 2 missing referenced documents (Addendum #2, Crown Endorsement Rider).</p>
-    <a class="btn" href="https://buy.stripe.com/eVqeVe3zK02HbCz0JyfAc0s" style="display:inline-block">Order Full Package Review ($499) →</a>
+  <div class="pilot-box">
+    <h2>Request Pilot Access</h2>
+    <p>BidShield is currently available by invitation only. If you have a public tender, RFP, compliance packet, or non-sensitive business document you would like reviewed, request pilot access.</p>
+    <a class="btn" href="mailto:rob@nanoempireai.com?subject=BidShield%20Pilot%20Access%20Request">Request Pilot Access</a>
+    <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-dim)">No public file upload. No automated Fatal language in preliminary output. No purchase button until legal and data-handling scope is confirmed.</p>
+  </div>
+
+  <div class="preview-notice">
+    <strong>PRELIMINARY DOCUMENT PREVIEW ONLY</strong><br>
+    This is not a compliance ruling. This is not legal, insurance, medical, procurement, or financial advice. This preview may be based only on a public notice, partial package, or non-sensitive sample. Fatal or disqualifying requirements may exist in documents not supplied. Human verification is required before acting.
   </div>
 </div></header>
 
 <main class="wrap">
-  <div class="grid">
-    <div class="card">
-      <h3>Notice-Level Triage</h3>
-      <div class="price">$0 <span>/ free</span></div>
-      <p style="color:var(--text-dim);font-size:0.9rem">Instant pre-flight check to see if a solicitation or denial is worth committing capital and bid writing hours.</p>
-      <ul>
-        <li>Stop / Go / Clarify Recommendation</li>
-        <li>Detection of Missing Referenced Schedules</li>
-        <li>Initial Fatal Trap Scan</li>
-        <li>Processed locally in under 60 seconds</li>
-      </ul>
-      <a class="btn outline" href="#dropZone">Run Free Triage</a>
+  <div class="field-notes">
+    <h2>Administrative Trap Field Notes</h2>
+    <p>Candidate administrative trap patterns observed in limited reviewed specimens. Not statistically validated. Status labels reflect evidence maturity.</p>
+
+    <div class="trap-row">
+      <div>
+        <div class="trap-title">Additional Insured Crown Rider Wording</div>
+        <div style="color:var(--text-dim);font-size:0.8rem">PWGSC / PSPC Janitorial & Facilities Solicitations</div>
+      </div>
+      <div style="display:flex;gap:0.5rem;align-items:center">
+        <span class="trap-status">CANDIDATE</span>
+        <span class="trap-stat">Observed in 3 specimens</span>
+      </div>
     </div>
 
-    <div class="card featured">
-      <div class="card-badge">Commercial Protection</div>
-      <h3>Full Package Defense</h3>
-      <div class="price">$499 <span>/ review</span></div>
-      <p style="color:var(--text-dim);font-size:0.9rem">Comprehensive, line-by-line verification against the Public Trap Atlas with cryptographic receipt and complete compliance matrix.</p>
-      <ul>
-        <li>Every "Shall / Must / Will" Extracted</li>
-        <li>Excel Compliance Matrix with Page Anchors</li>
-        <li>Ed25519 Signed Audit Receipt</li>
-        <li>Human Reviewer Quality Assurance</li>
-        <li>Delivered in &lt; 48 Hours</li>
-      </ul>
-      <a class="btn" href="mailto:rob@nanoempireai.com?subject=Full%20Package%20Defense%20Review%20($499)">Order Package Review</a>
+    <div class="trap-row">
+      <div>
+        <div class="trap-title">Subcontractor WSIB Clearance Lapse</div>
+        <div style="color:var(--text-dim);font-size:0.8rem">Federal Construction & Maintenance Tenders</div>
+      </div>
+      <div style="display:flex;gap:0.5rem;align-items:center">
+        <span class="trap-status">CANDIDATE</span>
+        <span class="trap-stat">Observed in 3 specimens</span>
+      </div>
     </div>
-  </div>
 
-  <section class="atlas-section">
-    <div class="wrap" style="padding:0">
-      <h2>The Public Trap Atlas (Live Data)</h2>
-      <p style="color:var(--text-dim);font-size:0.95rem;margin-bottom:1.5rem">Recurring fatal failure modes documented by the kernel across thousands of public agency documents:</p>
-      
-      <div class="trap-row">
-        <div>
-          <div class="trap-title">Additional Insured Crown Rider Non-Compliance</div>
-          <div style="color:var(--text-dim);font-size:0.8rem">PWGSC / PSPC Janitorial & Facilities Solicitations</div>
-        </div>
-        <div class="trap-stat">62% disqualification rate</div>
+    <div class="trap-row">
+      <div>
+        <div class="trap-title">Retroactive Prior Authorization Window</div>
+        <div style="color:var(--text-dim);font-size:0.8rem">Commercial Healthcare Payer Rejections</div>
       </div>
-
-      <div class="trap-row">
-        <div>
-          <div class="trap-title">Subcontractor WSIB Clearance Certificate Lapse</div>
-          <div style="color:var(--text-dim);font-size:0.8rem">Federal Construction & Maintenance Tenders</div>
-        </div>
-        <div class="trap-stat">41% disqualification rate</div>
+      <div style="display:flex;gap:0.5rem;align-items:center">
+        <span class="trap-status">CANDIDATE</span>
+        <span class="trap-stat">Observed in 3 specimens</span>
       </div>
+    </div>
 
-      <div class="trap-row">
-        <div>
-          <div class="trap-title">Retroactive Prior Authorization Window Denial</div>
-          <div style="color:var(--text-dim);font-size:0.8rem">Commercial Healthcare Payer Rejections</div>
-        </div>
-        <div class="trap-stat">53% appeal loss rate</div>
+    <div class="trap-row">
+      <div>
+        <div class="trap-title">Unacknowledged Final 72-Hour Addendum</div>
+        <div style="color:var(--text-dim);font-size:0.8rem">Provincial & Municipal Bidding Portals</div>
       </div>
-
-      <div class="trap-row">
-        <div>
-          <div class="trap-title">Unacknowledged Final 72-Hour Addenda</div>
-          <div style="color:var(--text-dim);font-size:0.8rem">Provincial & Municipal Bidding Portals</div>
-        </div>
-        <div class="trap-stat">28% portal upload rejection</div>
+      <div style="display:flex;gap:0.5rem;align-items:center">
+        <span class="trap-status">CANDIDATE</span>
+        <span class="trap-stat">Observed in 3 specimens</span>
       </div>
     </div>
   </section>
@@ -198,44 +186,8 @@
 
 <footer>
   <div class="wrap">
-    <p>NANO EMPIRE AI INC. &copy; 2026 &middot; <a href="/llms.txt" style="color:var(--text-dim)">/llms.txt</a> &middot; Built for Humans &amp; Autonomous Agents</p>
+    <p>NANO EMPIRE AI INC. &copy; 2026 &middot; BidShield Pilot &middot; Invite-Only &middot; Not Legal, Insurance, Medical, Procurement, or Financial Advice</p>
   </div>
 </footer>
-
-<script>
-  const dropZone = document.getElementById('dropZone');
-  const fileInput = document.getElementById('fileInput');
-  const resultsBox = document.getElementById('resultsBox');
-  const resultTitle = document.getElementById('resultTitle');
-
-  dropZone.addEventListener('click', () => fileInput.click());
-
-  ['dragenter', 'dragover'].forEach(name => {
-    dropZone.addEventListener(name, (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
-  });
-
-  ['dragleave', 'drop'].forEach(name => {
-    dropZone.addEventListener(name, (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); });
-  });
-
-  dropZone.addEventListener('drop', (e) => {
-    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
-  });
-
-  fileInput.addEventListener('change', (e) => {
-    if (e.target.files.length) handleFile(e.target.files[0]);
-  });
-
-  function handleFile(file) {
-    resultTitle.textContent = `Analyzing: ${file.name} (${(file.size/1024).toFixed(1)} KB)...`;
-    resultsBox.style.display = 'block';
-    
-    // Simulate deterministic notice-level triage in browser
-    setTimeout(() => {
-      resultTitle.textContent = `Pre-Flight Triage Complete: ${file.name}`;
-      resultsBox.scrollIntoView({ behavior: 'smooth' });
-    }, 800);
-  }
-</script>
 </body>
 </html>

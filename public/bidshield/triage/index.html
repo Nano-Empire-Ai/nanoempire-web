@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BidShield Free Tender Triage — Preliminary Risk Snapshot | Nano Empire AI</title>
+<meta name="description" content="Free preliminary bid risk snapshot from a public tender URL. Documents to obtain, deadline watch, clarification questions. Not a compliance ruling.">
+<style>
+  :root {
+    --bg: #0B0B0C; --panel: #15181E; --border: #222831; --border-accent: #3ddc97;
+    --text: #F4F1EA; --text-dim: #8E98A8; --accent: #3ddc97; --warning: #E8B23A;
+    --danger: #FF5A5A; --mono: 'JetBrains Mono', ui-monospace, monospace; --sans: -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+  nav { position: sticky; top: 0; z-index: 50; background: rgba(11,11,12,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .brand { font-family: var(--mono); font-weight: 700; color: var(--text); text-decoration: none; font-size: 0.95rem; }
+  nav .brand span { color: var(--accent); }
+  nav .links { display: flex; gap: 1.25rem; font-size: 0.88rem; font-family: var(--mono); }
+  nav .links a { color: var(--text-dim); text-decoration: none; }
+  nav .links a:hover { color: var(--text); }
+  header { padding: 3rem 0 2rem; text-align: center; }
+  .eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .sub { font-size: 1.05rem; color: var(--text-dim); max-width: 640px; margin: 0 auto 2rem; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; margin-bottom: 1.5rem; }
+  .card h3 { font-size: 1.15rem; margin-bottom: 1rem; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 0.75rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text); font-family: var(--sans); font-size: 0.95rem;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+  .form-group textarea { min-height: 80px; resize: vertical; }
+  .btn { display: inline-block; background: var(--accent); color: #0B0B0C; font-weight: 700; padding: 0.85rem 2rem; border-radius: 10px; text-decoration: none; font-family: var(--mono); font-size: 0.9rem; border: none; cursor: pointer; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn.outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .preview-notice {
+    background: rgba(232,178,58,0.08); border: 1px solid rgba(232,178,58,0.3); border-radius: 12px;
+    padding: 1.5rem; margin: 2rem 0; font-size: 0.88rem; color: var(--text-dim); line-height: 1.7;
+  }
+  .preview-notice strong { color: var(--warning); }
+  .snapshot { display: none; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; margin-top: 2rem; }
+  .snapshot h3 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent); }
+  .snapshot .field { margin-bottom: 1rem; }
+  .snapshot .field-label { font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .snapshot .field-value { font-size: 0.95rem; color: var(--text); }
+  .snapshot .list { list-style: none; font-size: 0.9rem; }
+  .snapshot .list li { padding: 0.3rem 0 0.3rem 1.4rem; position: relative; color: var(--text-dim); }
+  .snapshot .list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+  .cta-box { background: var(--panel); border: 2px solid var(--border-accent); border-radius: 14px; padding: 2rem; text-align: center; margin-top: 2rem; }
+  .cta-box h3 { margin-bottom: 0.75rem; }
+  .cta-box p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1.5rem; }
+  footer { padding: 3rem 0 4rem; text-align: center; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); }
+  .share-btn { background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 0.6rem 1.5rem; border-radius: 8px; font-family: var(--mono); font-size: 0.85rem; cursor: pointer; margin-top: 1rem; }
+  .share-btn:hover { background: rgba(61,220,151,0.1); }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="/">NANO_EMPIRE<span>//TRIAGE</span></a>
+  <div class="links">
+    <a href="/">Home</a>
+    <a href="/bidshield/">BidShield</a>
+    <a href="/ingest/">Pilot Intake</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="eyebrow">BidShield Free Tender Triage</div>
+  <h1>Preliminary Bid Risk <em>Snapshot</em></h1>
+  <p class="sub">Paste a public tender URL or enter the details below. Get a shareable preliminary snapshot: documents to obtain, deadline watch, clarification questions. No file upload. No PHI. No compliance ruling.</p>
+</div></header>
+
+<main class="wrap">
+  <div class="preview-notice">
+    <strong>PRELIMINARY NOTICE-LEVEL TRIAGE ONLY</strong><br>
+    This is not a compliance ruling. This is not legal, insurance, medical, procurement, or financial advice. This snapshot is based only on the information you provide. Fatal or disqualifying requirements may exist in documents not supplied. Human verification is required before acting.
+  </div>
+
+  <div class="card">
+    <h3>Enter Tender Details</h3>
+    <div class="form-group">
+      <label>Tender URL (optional)</label>
+      <input type="url" id="tenderUrl" placeholder="https://canadabuys.canada.ca/en/tender-opportunities/...">
+    </div>
+    <div class="form-group">
+      <label>Tender Title *</label>
+      <input type="text" id="tenderTitle" placeholder="e.g. Janitorial Services — West Memorial Building">
+    </div>
+    <div class="form-group">
+      <label>Issuing Organization *</label>
+      <input type="text" id="issuer" placeholder="e.g. Public Works and Government Services Canada">
+    </div>
+    <div class="form-group">
+      <label>Closing Date *</label>
+      <input type="date" id="closingDate">
+    </div>
+    <div class="form-group">
+      <label>Clarification Deadline</label>
+      <input type="date" id="clarificationDate">
+    </div>
+    <div class="form-group">
+      <label>Site Visit / Mandatory Meeting Required?</label>
+      <select id="siteVisit">
+        <option value="unknown">Unknown</option>
+        <option value="yes">Yes — mandatory</option>
+        <option value="no">No</option>
+        <option value="optional">Optional</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Addendum Count (if known)</label>
+      <input type="number" id="addendumCount" placeholder="0" min="0">
+    </div>
+    <div class="form-group">
+      <label>Key Requirements Mentioned (paste from notice)</label>
+      <textarea id="requirements" placeholder="e.g. CGL $5M, WSIB clearance, 3 references, 36-month past performance window, mandatory site visit..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Insurance / Bonding Mentioned</label>
+      <input type="text" id="insurance" placeholder="e.g. Additional Insured Crown Rider, $5M CGL, WSIB clearance">
+    </div>
+    <button class="btn" onclick="generateSnapshot()">Generate Preliminary Snapshot</button>
+  </div>
+
+  <div class="snapshot" id="snapshot">
+    <h3>BidShield Preliminary Tender Snapshot</h3>
+    <div class="field"><div class="field-label">Tender</div><div class="field-value" id="snapTitle"></div></div>
+    <div class="field"><div class="field-label">Issuer</div><div class="field-value" id="snapIssuer"></div></div>
+    <div class="field"><div class="field-label">Closing Date</div><div class="field-value" id="snapClosing"></div></div>
+    <div class="field"><div class="field-label">Clarification Deadline</div><div class="field-value" id="snapClarification"></div></div>
+    <div class="field"><div class="field-label">Site Visit</div><div class="field-value" id="snapSiteVisit"></div></div>
+    <div class="field"><div class="field-label">Addenda</div><div class="field-value" id="snapAddenda"></div></div>
+
+    <div class="field"><div class="field-label">Documents to Obtain Before Pricing</div>
+      <ul class="list" id="snapDocs"></ul>
+    </div>
+    <div class="field"><div class="field-label">Deadline Watch</div>
+      <ul class="list" id="snapDeadlines"></ul>
+    </div>
+    <div class="field"><div class="field-label">Clarification Questions Worth Considering</div>
+      <ul class="list" id="snapQuestions"></ul>
+    </div>
+    <div class="field"><div class="field-label">High-Attention Clauses</div>
+      <ul class="list" id="snapClauses"></ul>
+    </div>
+
+    <div style="margin-top:1.5rem;padding:1rem;background:rgba(255,90,90,0.08);border:1px solid rgba(255,90,90,0.2);border-radius:8px;font-size:0.82rem;color:var(--text-dim);">
+      <strong style="color:var(--danger);">STATUS: Preliminary notice-level triage only. Not a compliance ruling.</strong><br>
+      This snapshot is based only on the information you provided. Fatal or disqualifying requirements may exist in documents not supplied. Human verification is required before acting. Do not submit confidential, regulated, personal health, legal-privileged, client-pricing, credential, or government-protected material.
+    </div>
+
+    <button class="share-btn" onclick="copySnapshot()">Copy Snapshot to Clipboard</button>
+  </div>
+
+  <div class="cta-box">
+    <h3>Want a Full-Package Review?</h3>
+    <p>BidShield offers invite-only full-package reviews with human verification and scope-honest reporting. Request pilot access.</p>
+    <a class="btn" href="mailto:rob@nanoempireai.com?subject=BidShield%20Pilot%20Access%20Request">Request Pilot Access</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>NANO EMPIRE AI INC. &copy; 2026 &middot; BidShield Free Triage &middot; Not Legal, Insurance, Medical, Procurement, or Financial Advice</p>
+  </div>
+</footer>
+
+<script>
+function generateSnapshot() {
+  const title = document.getElementById('tenderTitle').value.trim();
+  const issuer = document.getElementById('issuer').value.trim();
+  const closing = document.getElementById('closingDate').value;
+  const clarification = document.getElementById('clarificationDate').value;
+  const siteVisit = document.getElementById('siteVisit').value;
+  const addenda = document.getElementById('addendumCount').value || '0';
+  const reqs = document.getElementById('requirements').value.trim();
+  const insurance = document.getElementById('insurance').value.trim();
+
+  if (!title || !issuer || !closing) {
+    alert('Please fill in Tender Title, Issuing Organization, and Closing Date.');
+    return;
+  }
+
+  document.getElementById('snapTitle').textContent = title;
+  document.getElementById('snapIssuer').textContent = issuer;
+  document.getElementById('snapClosing').textContent = closing;
+  document.getElementById('snapClarification').textContent = clarification || 'Not specified';
+  document.getElementById('snapSiteVisit').textContent = siteVisit === 'unknown' ? 'Unknown — verify in full package' : siteVisit.charAt(0).toUpperCase() + siteVisit.slice(1);
+  document.getElementById('snapAddenda').textContent = addenda + ' (verify final count before submission)';
+
+  // Documents to obtain
+  const docs = [];
+  const reqLower = reqs.toLowerCase();
+  if (reqLower.includes('insurance') || insurance) docs.push('Certificate of Insurance with correct endorsement wording');
+  if (reqLower.includes('wsib') || reqLower.includes('clearance')) docs.push('WSIB clearance e-certificates for all subcontractors');
+  if (reqLower.includes('reference') || reqLower.includes('past performance')) docs.push('Past performance references within required date window');
+  if (reqLower.includes('bond') || reqLower.includes('bid bond')) docs.push('Bid bond / performance bond from approved surety');
+  if (reqLower.includes('site visit') || siteVisit === 'yes') docs.push('Site visit acknowledgement form (if mandatory)');
+  if (addenda !== '0') docs.push('All addenda acknowledged and initialed');
+  if (docs.length === 0) docs.push('Full tender package — obtain all referenced schedules and forms');
+  docs.push('Mandatory submission forms (check tender for numbered forms)');
+  const docsList = document.getElementById('snapDocs');
+  docsList.innerHTML = '';
+  docs.forEach(d => { const li = document.createElement('li'); li.textContent = d; docsList.appendChild(li); });
+
+  // Deadline watch
+  const deadlines = [];
+  deadlines.push('Closing date: ' + closing + ' — verify time zone and submission method');
+  if (clarification) deadlines.push('Clarification deadline: ' + clarification + ' — submit questions before this date');
+  if (siteVisit === 'yes') deadlines.push('Mandatory site visit — confirm date, time, and registration requirement');
+  if (addenda !== '0') deadlines.push('Addendum check — verify final addendum count 72 hours before close');
+  const dlList = document.getElementById('snapDeadlines');
+  dlList.innerHTML = '';
+  deadlines.forEach(d => { const li = document.createElement('li'); li.textContent = d; dlList.appendChild(li); });
+
+  // Clarification questions
+  const questions = [];
+  if (reqLower.includes('insurance')) questions.push('Confirm exact Additional Insured wording required (Crown endorsement vs standard)');
+  if (reqLower.includes('wsib')) questions.push('Confirm whether subcontractor WSIB clearances are required at bid or post-award');
+  if (addenda !== '0') questions.push('Confirm whether addendum acknowledgement form is required in submission envelope');
+  if (reqLower.includes('past performance') || reqLower.includes('reference')) questions.push('Confirm exact past performance date window (months from RFP release)');
+  if (reqLower.includes('bond')) questions.push('Confirm bond type, amount, and approved surety requirements');
+  if (questions.length === 0) questions.push('Review full package for clarification-worthy ambiguities before pricing');
+  const qList = document.getElementById('snapQuestions');
+  qList.innerHTML = '';
+  questions.forEach(q => { const li = document.createElement('li'); li.textContent = q; qList.appendChild(li); });
+
+  // High-attention clauses
+  const clauses = [];
+  if (insurance) clauses.push('Insurance: ' + insurance + ' — verify endorsement wording matches tender exactly');
+  if (reqLower.includes('mandatory') || reqLower.includes('shall') || reqLower.includes('must')) clauses.push('Mandatory requirements detected — review each for submission evidence');
+  if (addenda !== '0') clauses.push('Addendum risk — unacknowledged addenda may cause automated rejection');
+  if (siteVisit === 'yes') clauses.push('Mandatory site visit — failure to attend may disqualify');
+  if (clauses.length === 0) clauses.push('No high-attention clauses detected from provided information — full package review recommended');
+  const cList = document.getElementById('snapClauses');
+  cList.innerHTML = '';
+  clauses.forEach(c => { const li = document.createElement('li'); li.textContent = c; cList.appendChild(li); });
+
+  document.getElementById('snapshot').style.display = 'block';
+  document.getElementById('snapshot').scrollIntoView({ behavior: 'smooth' });
+}
+
+function copySnapshot() {
+  const title = document.getElementById('snapTitle').textContent;
+  const issuer = document.getElementById('snapIssuer').textContent;
+  const closing = document.getElementById('snapClosing').textContent;
+  const clarification = document.getElementById('snapClarification').textContent;
+  const siteVisit = document.getElementById('snapSiteVisit').textContent;
+  const addenda = document.getElementById('snapAddenda').textContent;
+
+  function getList(id) {
+    return Array.from(document.querySelectorAll('#' + id + ' li')).map(li => '  - ' + li.textContent).join('\n');
+  }
+
+  const text = `BidShield Preliminary Tender Snapshot
+Tender: ${title}
+Issuer: ${issuer}
+Closing: ${closing}
+Clarification deadline: ${clarification}
+Site visit: ${siteVisit}
+Addenda: ${addenda}
+
+Documents to obtain:
+${getList('snapDocs')}
+
+Deadline watch:
+${getList('snapDeadlines')}
+
+Clarification questions worth considering:
+${getList('snapQuestions')}
+
+High-attention clauses:
+${getList('snapClauses')}
+
+STATUS: Preliminary notice-level triage only. Not a compliance ruling.
+This snapshot is based only on the information provided. Fatal or disqualifying requirements may exist in documents not supplied. Human verification is required before acting.`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Snapshot copied to clipboard. Share it with your broker or bid writer.');
+  });
+}
+</script>
+</body>
+</html>

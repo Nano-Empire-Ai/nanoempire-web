@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BidShield — Pre-Bid Document Risk Review | Nano Empire AI</title>
+<meta name="description" content="BidShield helps small contractors, bid writers, and service firms review public tenders, RFPs, and compliance packets for buried deadlines, mandatory forms, insurance traps, addendum conflicts, and clarification-worthy ambiguities.">
+<style>
+  :root {
+    --bg: #0B0B0C;
+    --panel: #15181E;
+    --border: #222831;
+    --border-accent: #3ddc97;
+    --text: #F4F1EA;
+    --text-dim: #8E98A8;
+    --accent: #3ddc97;
+    --warning: #E8B23A;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  nav { position: sticky; top: 0; z-index: 50; background: rgba(11,11,12,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .brand { font-family: var(--mono); font-weight: 700; color: var(--text); text-decoration: none; font-size: 0.95rem; }
+  nav .brand span { color: var(--accent); }
+  nav .links { display: flex; gap: 1.25rem; font-size: 0.88rem; font-family: var(--mono); }
+  nav .links a { color: var(--text-dim); text-decoration: none; }
+  nav .links a:hover { color: var(--text); }
+
+  header { padding: 4.5rem 0 3rem; text-align: center; }
+  .eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1.25rem; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .sub { font-size: 1.15rem; color: var(--text-dim); max-width: 600px; margin: 0 auto 2.5rem; }
+
+  .pilot-box {
+    background: var(--panel);
+    border: 2px solid var(--border-accent);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .pilot-box h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+  .pilot-box p { color: var(--text-dim); max-width: 580px; margin: 0 auto 1.5rem; }
+  .btn { display: inline-block; background: var(--accent); color: #0B0B0C; font-weight: 700; padding: 0.85rem 2rem; border-radius: 10px; text-decoration: none; font-family: var(--mono); font-size: 0.9rem; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn.outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+
+  .section { margin: 3rem 0; }
+  .section h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+  .section p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.7; }
+  .section ul { list-style: none; font-size: 0.92rem; color: var(--text-dim); }
+  .section ul li { padding: 0.35rem 0 0.35rem 1.4rem; position: relative; }
+  .section ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+
+  .preview-notice {
+    background: rgba(232,178,58,0.08);
+    border: 1px solid rgba(232,178,58,0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .preview-notice strong { color: var(--warning); }
+
+  footer { padding: 3rem 0 4rem; text-align: center; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="/">NANO_EMPIRE<span>//BIDSHIELD</span></a>
+  <div class="links">
+    <a href="/">Home</a>
+    <a href="/bidshield/">BidShield</a>
+    <a href="/bidshield/triage/">Free Triage</a>
+    <a href="/ingest/">Pilot Intake</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="eyebrow">BidShield — Invite-Only Pilot</div>
+  <h1>Find the Clause <br>Before It Costs You the <em>Bid.</em></h1>
+  <p class="sub">BidShield helps small contractors, bid writers, and service firms review public tenders, RFPs, and compliance packets for buried deadlines, mandatory forms, insurance traps, addendum conflicts, and clarification-worthy ambiguities.</p>
+
+  <div class="pilot-box">
+    <h2>Current Status: Invite-Only Pilot</h2>
+    <p>BidShield is currently available by invitation only. Full-package reviews require human verification and a confirmed legal and data-handling scope.</p>
+    <a class="btn" href="mailto:rob@nanoempireai.com?subject=BidShield%20Pilot%20Access%20Request">Request Pilot Access</a>
+    <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-dim)">No public file upload. No automated Fatal language in preliminary output. No purchase button until legal and data-handling scope is confirmed.</p>
+  </div>
+
+  <div class="preview-notice">
+    <strong>PRELIMINARY DOCUMENT PREVIEW ONLY</strong><br>
+    This is not a compliance ruling. This is not legal, insurance, medical, procurement, or financial advice. This preview may be based only on a public notice, partial package, or non-sensitive sample. Fatal or disqualifying requirements may exist in documents not supplied. Human verification is required before acting.
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="section">
+    <h2>What BidShield Does</h2>
+    <p>BidShield produces scope-honest, source-cited preliminary risk previews from public or non-sensitive business documents. The output identifies:</p>
+    <ul>
+      <li>Buried deadlines and addendum conflicts</li>
+      <li>Mandatory forms and missing referenced schedules</li>
+      <li>Insurance and WSIB compliance traps</li>
+      <li>Clarification-worthy ambiguities</li>
+      <li>Document gaps and external dependencies</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>What BidShield Does Not Do</h2>
+    <ul>
+      <li>It does not issue compliance rulings</li>
+      <li>It does not replace legal, insurance, or procurement counsel</li>
+      <li>It does not process confidential, privileged, or regulated documents in public preview</li>
+      <li>It does not guarantee bid success or submission compliance</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>How It Works</h2>
+    <p>1. You share a public tender, RFP, or non-sensitive compliance packet.</p>
+    <p>2. The kernel extracts mandatory requirements, deadlines, and referenced documents.</p>
+    <p>3. A human reviewer verifies all Fatal and High findings against source documents.</p>
+    <p>4. You receive a scope-honest report with clear next actions, missing documents, and explicit limits.</p>
+  </div>
+
+  <div class="section">
+    <h2>Privacy and Data Handling</h2>
+    <p>Pilot intake accepts only public or non-sensitive business documents. Do not submit medical records, patient identifiers, confidential client pricing, privileged legal documents, credentials, or government-protected material.</p>
+    <p>Full-package reviews are performed with human verification and a confirmed legal and data-handling scope. Retention, deletion, and processing location are disclosed in the pilot engagement letter.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>NANO EMPIRE AI INC. &copy; 2026 &middot; BidShield &middot; Invite-Only Pilot &middot; Not Legal, Insurance, Medical, Procurement, or Financial Advice</p>
+  </div>
+</footer>
+</body>
+</html>
