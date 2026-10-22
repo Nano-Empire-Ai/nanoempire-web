@@ -18,9 +18,9 @@ const TIERS = [
     status: 'LIVE',
     popular: true,
     stripeUrl: 'https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k',
-    description: 'Instant inventory cross-reference against 21,812 CPSC and FDA safety enforcement actions with signed compliance report.',
+    description: 'Instant inventory cross-reference against 46,642 CPSC and FDA safety enforcement actions with signed compliance report.',
     features: [
-      'Cross-reference against 21,812 active federal recall records',
+      'Cross-reference against 46,642 active federal recall records',
       'Class I & serious hazard identification',
       'Automated SKU / UPC / title fuzzy matching',
       'Certified PDF & CSV export for marketplace compliance',
@@ -52,7 +52,7 @@ const TIERS = [
     stripeUrl: '',
     description: 'Complete data export, programmatic API access, and private command center deployment for enterprise platforms.',
     features: [
-      'Full normalized dataset export (21,812 records in CSV/JSON)',
+      'Full normalized dataset export (46,642 records in CSV/JSON)',
       'Daily programmatic sync feeds & webhooks',
       'Self-hosted or managed command center deployment',
       'Commercial catalog vetting and redistribution license',

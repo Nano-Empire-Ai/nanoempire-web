@@ -27,11 +27,11 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
   <div style={{display: 'grid', gap: '1rem', margin: '2rem 0'}}>
     <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
       <h3 style={{marginTop: '0'}}>RecallRadar Match API — $0.10 / call</h3>
-      <p>Machine-to-machine x402 screening across 21,812 CPSC & FDA recall records. Settle via Base USDC.</p>
+      <p>Machine-to-machine x402 screening across 46,642 CPSC & FDA recall records. Settle via Base USDC.</p>
     </div>
     <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
       <h3 style={{marginTop: '0'}}>RecallRadar Compliance Report — $30 USD</h3>
-      <p>Instant inventory cross-reference against 21,812 CPSC and FDA safety enforcement records. Signed PDF and CSV audit report.</p>
+      <p>Instant inventory cross-reference against 46,642 CPSC and FDA safety enforcement records. Signed PDF and CSV audit report.</p>
     </div>
     <div style={{border: '1px solid #ddd', borderRadius: '8px', padding: '1.25rem'}}>
       <h3 style={{marginTop: '0'}}>Sovereign Data License — $2,400 / yr</h3>
@@ -56,7 +56,7 @@ const VERIFICATION_MENU_HTML = `<!-- SkillProof Verification Menu — drop-in se
 
 const SKUS = [
   // RecallGuard (Human & Merchant)
-  { id: "recallguard-report", price: "$30 USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "One-time scan of inventory against 21,812 CPSC/FDA recalls. Signed PDF compliance report." },
+  { id: "recallguard-report", price: "$30 USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "One-time scan of inventory against 46,642 CPSC/FDA recalls. Signed PDF compliance report." },
   { id: "recallguard-monitoring", price: "$99/mo USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "Monthly inventory re-scan + immediate recall expansion alerts." },
   { id: "sovereign-license", price: "$2,400/yr USD", buyer: "enterprise", payment: "Invoice / Stripe", status: "live", category: "recallguard", desc: "Complete data license, daily API sync, and private deployment." },
   
@@ -67,7 +67,7 @@ const SKUS = [
 ];
 
 const ENDPOINTS = [
-  { method: "GET", path: "/api/v1/health", auth: "None", price: "Free", desc: "21,812 records, through 2026-09-24. Host: recallguard-api.vercel.app" },
+  { method: "GET", path: "/api/v1/health", auth: "None", price: "Free", desc: "46,642 records, through 2026-09-24. Host: recallguard-api.vercel.app" },
   { method: "GET", path: "/openapi.json", auth: "None", price: "Free", desc: "Spec on recallguard-api.vercel.app. Docs: recallguard-docs.vercel.app" },
   { method: "GET", path: "/api/v1/feed", auth: "x402", price: "$0.05 USDC", desc: "HTTP 402. Network string base. Settled via Base USDC." },
   { method: "POST", path: "/api/v1/match", auth: "x402", price: "$0.10 USDC", desc: "HTTP 402. Settle on Base USDC via x402." },
@@ -222,7 +222,7 @@ export default function Home() {
                   <div className="w-8 h-8 rounded bg-[#8C92A4]/20 flex items-center justify-center font-mono">1</div>
                   <div className="flex-1">
                     <div className="text-white font-medium">Read health</div>
-                    <div className="text-[#8C92A4] text-xs">GET https://recallguard-api.vercel.app/api/v1/health is free. 21,812 records, through 2026-09-24.</div>
+                    <div className="text-[#8C92A4] text-xs">GET https://recallguard-api.vercel.app/api/v1/health is free. 46,642 records, through 2026-09-24.</div>
                   </div>
                 </div>
                 <div className="flex justify-center text-[#8C92A4]">↓</div>
@@ -460,7 +460,7 @@ export default function Home() {
           <div className="tier">RecallRadar Report</div>
           <div className="price">$30<small> USD</small></div>
           <div className="per">one-time scan · instant PDF</div>
-          <p>Scan your inventory against 21,812 CPSC/FDA recalls. Official signed compliance report with remedy protocols.</p>
+          <p>Scan your inventory against 46,642 CPSC/FDA recalls. Official signed compliance report with remedy protocols.</p>
           <a className="btn small solid" href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" target="_blank">Order Report ($30)</a>
         </div>
         <div className="card rv">
@@ -474,7 +474,7 @@ export default function Home() {
           <div className="tier">RecallGuard Match API</div>
           <div className="price">$0.10<small> USDC</small></div>
           <div className="per">per call · machine settlement</div>
-          <p>Machine-native HTTP 402 recall screening across 21,812 records. Pay and settle directly on Base.</p>
+          <p>Machine-native HTTP 402 recall screening across 46,642 records. Pay and settle directly on Base.</p>
           <a className="btn small solid" href="/recall-report" target="_blank">Test Match API</a>
         </div>
         <div className="card rv">
@@ -509,7 +509,7 @@ export default function Home() {
 <section className="block" id="intake">
     <div className="wrap">
       <div className="sec-head rv"><span className="sec-num">05</span><h2 className="sec-title">Run a compliance scan.</h2></div>
-      <p className="sec-sub rv">RecallRadar Compliance Report is <a href="/recall-report">$30 USD on Stripe</a>. Scan your inventory CSV directly against 21,812 CPSC and FDA safety records with instant signed report generation. For enterprise feeds or private deployment, contact <a href="mailto:licensing@nanoempireai.com">licensing@nanoempireai.com</a> ($2,400/yr).</p>
+      <p className="sec-sub rv">RecallRadar Compliance Report is <a href="/recall-report">$30 USD on Stripe</a>. Scan your inventory CSV directly against 46,642 CPSC and FDA safety records with instant signed report generation. For enterprise feeds or private deployment, contact <a href="mailto:licensing@nanoempireai.com">licensing@nanoempireai.com</a> ($2,400/yr).</p>
 
       <div className="intake-box rv">
         <div className="p-6 text-center">
@@ -531,7 +531,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Recall records</div>
-            <strong className="text-3xl font-bold text-white">21812</strong>
+            <strong className="text-3xl font-bold text-white">46642</strong>
           </div>
           <div>
             <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Match settlements</div>

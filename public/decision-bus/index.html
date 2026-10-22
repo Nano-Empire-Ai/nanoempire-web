@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arthur Decision Bus - Live Market Friction Index | Nano Empire AI</title>
+<meta name="description" content="Real-time validated pain points and market friction from Hacker News, GitHub, Reddit, and freelance feeds. 52+ signals tracked.">
+<style>
+  :root { --bg:#0a0c10; --panel:#12151b; --border:#222831; --border-2:#2c3440; --text:#e8ebf0; --dim:#8b94a3; --accent:#3ddc97; --mono:'JetBrains Mono',monospace; --font:'Inter',system-ui,sans-serif; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6}
+  .wrap{max-width:960px;margin:0 auto;padding:0 1.5rem}
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,12,16,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  nav .brand{font-weight:700;color:var(--text);font-size:0.98rem;text-decoration:none}
+  nav .links{display:flex;gap:1.25rem;font-size:0.9rem}
+  nav .links a{color:var(--dim);text-decoration:none}
+  nav .links a:hover{color:var(--text)}
+  header{padding:3rem 0 2rem;text-align:center}
+  h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
+  h1 .hl{color:var(--accent)}
+  .sub{font-size:1rem;color:var(--dim);max-width:600px;margin:0 auto}
+  .live-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.75rem;color:var(--accent);margin-bottom:1rem}
+  .live-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:2rem 0}
+  .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center}
+  .stat-card .value{font-size:2rem;font-weight:700;color:var(--accent)}
+  .stat-card .label{font-size:0.85rem;color:var(--dim);margin-top:0.25rem}
+  table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:0.9rem}
+  th{text-align:left;padding:0.75rem;border-bottom:2px solid var(--border-2);font-family:var(--mono);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim)}
+  td{padding:0.75rem;border-bottom:1px solid var(--border);color:var(--dim)}
+  td:first-child{color:var(--text);font-weight:500}
+  .badge{display:inline-block;padding:0.2rem 0.6rem;border-radius:4px;font-size:0.75rem;font-family:var(--mono)}
+  .badge-validated{background:rgba(61,220,151,0.15);color:var(--accent)}
+  .badge-accumulating{background:rgba(217,161,61,0.15);color:#d9a13d}
+  footer{padding:3rem 0 4rem;text-align:center;color:var(--dim);font-size:0.85rem;border-top:1px solid var(--border)}
+  footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="/">Nano Empire AI</a>
+  <div class="links">
+    <a href="/">Home</a>
+    <a href="/rfp">RFP Teardown</a>
+    <a href="/grok-mcp">Grok MCP</a>
+    <a href="/tollbooth/">Tollbooth</a>
+    <a href="/decision-bus">Decision Bus</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="live-badge"><span class="live-dot"></span> LIVE FRICTION INDEX</div>
+  <h1>Arthur <span class="hl">Decision Bus</span></h1>
+  <p class="sub">Real-time market friction signals from Hacker News, GitHub, Reddit, and freelance feeds. 52+ signals tracked. 5 domains validated under 3-Strike Rule.</p>
+</div></header>
+
+<div class="wrap">
+  <div class="stat-grid">
+    <div class="stat-card"><div class="value">52</div><div class="label">Signals Ingested</div></div>
+    <div class="stat-card"><div class="value">5</div><div class="label">Validated Domains</div></div>
+    <div class="stat-card"><div class="value">5</div><div class="label">Sources Active</div></div>
+    <div class="stat-card"><div class="value">$19/mo</div><div class="label">Lowest Entry Price</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Problem Domain</th>
+        <th>Signals</th>
+        <th>Status</th>
+        <th>Stack Asset</th>
+        <th>Price</th>
+        <th>Sources</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AI Agent Payments & Metering</td>
+        <td>14</td>
+        <td><span class="badge badge-validated">VALIDATED</span></td>
+        <td>Nano Trust Stack / Tollbooth Pro</td>
+        <td>$19/mo</td>
+        <td>GitHub, HN</td>
+      </tr>
+      <tr>
+        <td>MCP Tool Migration</td>
+        <td>13</td>
+        <td><span class="badge badge-validated">VALIDATED</span></td>
+        <td>MCP Readiness Auditor</td>
+        <td>$99-299</td>
+        <td>GitHub, HN</td>
+      </tr>
+      <tr>
+        <td>API Rate Limiting & Throttling</td>
+        <td>12</td>
+        <td><span class="badge badge-validated">VALIDATED</span></td>
+        <td>Tollbooth Rate Limiter</td>
+        <td>$19/mo</td>
+        <td>GitHub, HN</td>
+      </tr>
+      <tr>
+        <td>Codebase Health & Dead Code</td>
+        <td>5</td>
+        <td><span class="badge badge-validated">VALIDATED</span></td>
+        <td>Topology Auditor</td>
+        <td>$149/audit</td>
+        <td>WWR RSS, HN</td>
+      </tr>
+      <tr>
+        <td>Agent Observability & Tracing</td>
+        <td>4</td>
+        <td><span class="badge badge-validated">VALIDATED</span></td>
+        <td>Arthur Trace Dashboard</td>
+        <td>$29/mo</td>
+        <td>GitHub, HN</td>
+      </tr>
+      <tr>
+        <td>GovCon & RFP Compliance</td>
+        <td>3</td>
+        <td><span class="badge badge-accumulating">ACCUMULATING</span></td>
+        <td>RFP Teardown Engine</td>
+        <td>$299</td>
+        <td>GitHub</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin:2rem 0">
+    <h2 style="font-size:1.2rem;margin-bottom:1rem">3-Strike Validation Rule</h2>
+    <p style="color:var(--dim);font-size:0.9rem">A domain is validated when it has 3+ signals across 2+ independent sources with at least 1 budget marker and build effort under 14 days. This prevents building for noise.</p>
+  </div>
+
+  <div style="margin:2rem 0">
+    <h2 style="font-size:1.2rem;margin-bottom:1rem">How to use this</h2>
+    <p style="color:var(--dim);font-size:0.9rem">This index updates daily at 6 AM. Each validated domain has an auto-generated spec and landing page in ops/validated_opportunities/. The system scans Hacker News, GitHub Issues, Reddit, Upwork RSS, and X/Twitter.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Nano Empire AI - Verification & Commerce Engine for the Agentic Age</p>
+    <p style="margin-top:0.5rem"><a href="/">Home</a> | <a href="/rfp">RFP Teardown</a> | <a href="/grok-mcp">Grok MCP</a> | <a href="/tollbooth/">Tollbooth</a></p>
+  </div>
+</footer>
+</body>
+</html>

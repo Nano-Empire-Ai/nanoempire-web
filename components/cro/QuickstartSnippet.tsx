@@ -28,7 +28,7 @@ res = requests.post(
 # Returns HTTP 402 until payment authorization header is provided
 print(res.status_code, res.json())`;
 
-  const curlSnippet = `# 1. Query free health endpoint (21,812 records)
+  const curlSnippet = `# 1. Query free health endpoint (46,642 records)
 curl -s https://recallguard-api.vercel.app/api/v1/health
 
 # 2. Match inventory items (returns HTTP 402 challenge on Base)
