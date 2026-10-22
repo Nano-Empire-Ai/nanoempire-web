@@ -32,7 +32,7 @@ Contact: rob@nanoempireai.com
 
 - Health (free): GET https://recallguard-api.vercel.app/api/v1/health
 
-- Feed, $0.10 per call: GET https://recallguard-api.vercel.app/api/v1/feed?limit=50
+- Feed, $0.05 per call: GET https://recallguard-api.vercel.app/api/v1/feed?limit=50
 
   Returns normalized CPSC and FDA recall records. Unpaid calls return HTTP 402.
 
@@ -70,9 +70,9 @@ Contact: rob@nanoempireai.com
 
 ## MCP Servers (x402 monetized via SecureFastMCP)
 
-- RecallRadar MCP: npx recallguard-mcp | npm: recallguard-mcp | Smithery: rob-c8hu/recallguard-mcp
+- RecallRadar MCP: npx recallguard-mcp | npm: recallguard-mcp
 
-  Tools: health (free), feed ($0.10 USDC), match ($0.10 USDC)
+  Tools: health (free), feed ($0.05 USDC), match ($0.10 USDC)
 
   x402 on Base, USDC settlement
 
