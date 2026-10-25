@@ -190,7 +190,7 @@ export default function CaseStudiesPage() {
         <div className="text-center py-12 px-6 rounded-2xl border border-[#00B5E2]/30 bg-gradient-to-b from-[#0f1423] to-[#07090D]">
           <h2 className="text-3xl font-bold text-white mb-4">Screen Your Catalog for Consumer Hazards</h2>
           <p className="text-[#8C92A4] max-w-xl mx-auto mb-8 text-sm">
-            Instant cross-reference against 46,642 CPSC and FDA safety enforcement actions. Certified PDF + CSV reports for liquidation pallets and marketplace catalogs.
+            Instant cross-reference against 56,271 CPSC and FDA safety enforcement actions. Certified PDF + CSV reports for liquidation pallets and marketplace catalogs.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/recall-report">
