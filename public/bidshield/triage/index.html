@@ -159,16 +159,60 @@
     <button class="share-btn" onclick="copySnapshot()">Copy Snapshot to Clipboard</button>
   </div>
 
-  <div class="cta-box">
-    <h3>Pre-Bid Risk Review — Self-Serve Pilot &amp; Full Package</h3>
-    <p>Download our live NRC Ottawa #87055 sample audit PDF (with SHA-256 verification and mandatory gate checklist), or book a 24-hour full-package review directly via Stripe.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-bottom:1.25rem;">
-      <a class="btn outline" href="/sample-bidshield-report.pdf" target="_blank" rel="noopener noreferrer">Download Sample Audit PDF (NRC #87055)</a>
-      <a class="btn" href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" target="_blank" rel="noopener noreferrer">$99 Urgent Annex Gap Scan</a>
-      <a class="btn" href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" target="_blank" rel="noopener noreferrer">$500 Full Package Review (48h)</a>
-      <a class="btn outline" href="https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o" target="_blank" rel="noopener noreferrer">$2,400 Deep Audit / Annual</a>
+  <div class="cta-box" style="text-align:left;">
+    <h3 style="text-align:center;">BidShield Is Priced Against Decision Exposure, Not Hours</h3>
+    <p style="text-align:center;">We are not selling a document. We are selling a cheaper, faster, more defensible decision under deadline.</p>
+    <div style="overflow-x:auto;margin-bottom:1.25rem;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;font-family:var(--mono);">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border);color:var(--accent);text-align:left;">
+            <th style="padding:0.5rem;">Buyer Job</th>
+            <th style="padding:0.5rem;">Anchor A: Labor at Risk</th>
+            <th style="padding:0.5rem;">Anchor B: Downside Exposure</th>
+            <th style="padding:0.5rem;">Combined Exposure</th>
+            <th style="padding:0.5rem;">Price</th>
+            <th style="padding:0.5rem;">Capture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.5rem;color:var(--text);">Federal Tender Bid/No-Bid</td>
+            <td style="padding:0.5rem;">$10,200 (120h &times; $85)</td>
+            <td style="padding:0.5rem;">$19,200 (10% &times; $2.4M &times; 8%)</td>
+            <td style="padding:0.5rem;color:var(--text);font-weight:700;">$29,400</td>
+            <td style="padding:0.5rem;color:var(--accent);font-weight:700;">$299 Pilot</td>
+            <td style="padding:0.5rem;">~1.0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.5rem;color:var(--text);">Claims / Appeals Readiness</td>
+            <td style="padding:0.5rem;">$2,400 (20h &times; $120)</td>
+            <td style="padding:0.5rem;">$6,250&ndash;$12,500</td>
+            <td style="padding:0.5rem;color:var(--text);font-weight:700;">$8,650&ndash;$14,900</td>
+            <td style="padding:0.5rem;color:var(--accent);font-weight:700;">$299 Pilot</td>
+            <td style="padding:0.5rem;">~2.0&ndash;3.5%</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem;color:var(--text);">Vendor Prequalification</td>
+            <td style="padding:0.5rem;">$1,200/bid ($12K/qtr)</td>
+            <td style="padding:0.5rem;">$5,000/bad award</td>
+            <td style="padding:0.5rem;color:var(--text);font-weight:700;">$6,200/bid</td>
+            <td style="padding:0.5rem;color:var(--accent);font-weight:700;">$499 Matrix</td>
+            <td style="padding:0.5rem;">~8.0%</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <p style="margin-bottom:0;font-size:0.82rem;">Questions or custom tender package? <a href="mailto:rob@nanoempireai.com?subject=BidShield%20Pilot%20Review" style="color:var(--accent);">rob@nanoempireai.com</a></p>
+    <p style="font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;">
+      <strong>Conservative Estimate Basis:</strong> Federal janitorial midpoint ($2.4M from $1.8M&ndash;$3.0M comparable range, 10% fatal-clause miss probability, 8% gross margin). Figures are conservative decision-support estimates, not legal advice, certification, or a guarantee of compliance.<br>
+      <strong>$99 Urgent Annex Gap Scan (&lt;72h to close — Strictly Scoped Triage, Not a Discount):</strong> 4-hour turnaround. One-page list of missing annexes, hard deadlines, and top fatal-risk flags only. Does not include full stop/go recommendation, compliance matrix, clarification strategy, or evidence chain.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-bottom:1rem;">
+      <a class="btn outline" href="/sample-bidshield-report.pdf" target="_blank" rel="noopener noreferrer">Download Sample PDF (with JEV Footer)</a>
+      <a class="btn" href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" target="_blank" rel="noopener noreferrer">$299 Stop/Go Pilot / $499 Matrix</a>
+      <a class="btn outline" href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" target="_blank" rel="noopener noreferrer">$99 Urgent Annex Gap Scan (&lt;72h Only)</a>
+      <a class="btn outline" href="https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o" target="_blank" rel="noopener noreferrer">$2,500 Deep Audit</a>
+    </div>
+    <p style="margin-bottom:0;font-size:0.82rem;text-align:center;">Want to calibrate these anchors for your solicitation? Email <a href="mailto:rob@nanoempireai.com?subject=BidShield%20Decision%20Exposure%20Review" style="color:var(--accent);">rob@nanoempireai.com</a></p>
   </div>
 </main>
 
