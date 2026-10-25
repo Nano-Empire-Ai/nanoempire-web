@@ -1,75 +1,111 @@
 # Nano Empire AI
 
-> Machine-payable US product-recall data (RecallGuard, paid per call in USDC on Base via x402) and human-purchased verification of agent skills and MCP servers (SkillProof).
+> Machine-payable US product-recall data (RecallRadar, paid per call in USDC on Base via x402).
 
-Updated: 2026-10-09
+Updated: 2026-10-13
+
 Contact: rob@nanoempireai.com
 
 ## Executive Contact
+
 - **Hana Lambert** — Executive Operations & Dispatch • Muse AI
+
   - Link-in-Bio: https://nanoempireai.com/hana
+
   - Email: hana@nanoempireai.com
+
   - Phone: +1-343-501-5003 (SMS/Voice)
+
   - Social: @hana.nanoempire (Instagram & Threads)
+
   - Priority: Critical
 
 ## Honest status
-- One RecallGuard Match self-test has settled on Base (block 51961194, 2026-09-29, operator wallets).
+
+- One RecallRadar Match self-test has settled on Base (block 51961194, 2026-09-29, operator wallets).
+
 - Outside paying customers: 0.
+
 - Anything not listed under "Live" below is not available yet.
 
 ## Live: machine endpoints (x402, Base, USDC)
+
 - Health (free): GET https://recallguard-api.vercel.app/api/v1/health
+
 - Feed, $0.05 per call: GET https://recallguard-api.vercel.app/api/v1/feed?limit=50
+
   Returns normalized CPSC and FDA recall records. Unpaid calls return HTTP 402.
+
 - Match, $0.10 per call: POST https://recallguard-api.vercel.app/api/v1/match
+
   Input: {"items":[{"name":"string","brand":"string","upc":"string"}]}
+
   Output: {"matches":[{"recall_id":"string","severity":"string","hazard":"string","remedy":"string"}]}
+
   Unpaid calls return HTTP 402.
 
 ## Payment terms
+
 - Protocol: x402 (HTTP 402 challenge, pay, retry)
+
 - Network: base
+
 - Asset (Base USDC): 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+
 - Pay to: 0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01
+
 - Facilitator: coinbase-x402-facilitator
+
 - Receipt headers: X-PAYMENT-RESPONSE, X-402-Receipt
 
-## Live: human checkout (Stripe, not machine-payable)
-- SkillProof Sprint, 500 CAD, 48 hours: 180-operation adversarial battery, signed Ed25519 trust manifest.
-  Checkout: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c
-
 ## Discovery files
+
 - OpenAPI: https://nanoempireai.com/openapi.json
+
 - Agent card: https://nanoempireai.com/.well-known/agent-card.json
+
 - Offers: https://nanoempireai.com/offers.json
+
 - Trust manifests: https://nanoempireai.com/manifests.html
 
 ## MCP Servers (x402 monetized via SecureFastMCP)
-- RecallGuard MCP: npx recallguard-mcp | npm: recallguard-mcp | Smithery: rob-c8hu/recallguard-mcp
+
+- RecallRadar MCP: npx recallguard-mcp | npm: recallguard-mcp
+
   Tools: health (free), feed ($0.05 USDC), match ($0.10 USDC)
+
   x402 on Base, USDC settlement
+
   Repo: https://github.com/roblambert9/recallguard-mcp
+
 - postgres-mcp: npx postgres-mcp | npm: postgres-mcp | Smithery: rob-c8hu/postgres-mcp
+
 - redis-mcp: npx redis-mcp | npm: redis-mcp | Smithery: rob-c8hu/redis-mcp
+
 - elasticsearch-mcp: npx elasticsearch-mcp | npm: elasticsearch-mcp | Smithery: rob-c8hu/elasticsearch-mcp
+
 - github-mcp: npx github-mcp | npm: github-mcp | Smithery: rob-c8hu/github-mcp
+
 - filesystem-mcp: npx filesystem-mcp | npm: filesystem-mcp | Smithery: rob-c8hu/filesystem-mcp
+
 - browser-mcp: npx browser-mcp | npm: browser-mcp | Smithery: rob-c8hu/browser-mcp
+
 - sqlite-mcp: npx sqlite-mcp | npm: sqlite-mcp | Smithery: rob-c8hu/sqlite-mcp
+
 - slack-mcp: npx slack-mcp | npm: slack-mcp | Smithery: rob-c8hu/slack-mcp
+
 - stripe-mcp: npx stripe-mcp | npm: stripe-mcp | Smithery: rob-c8hu/stripe-mcp
 
 ## Not available yet (do not call)
+
 - Trial credits, SDK package, SkillProof via x402, incident-response advisories, VIN decode.
 
-## Data Services (Human Checkout — Stripe)
-- RecallGuard Pro: $500 CAD — CPSC/FDA/NHTSA recall compliance report for e-commerce catalogs. 24h delivery. Checkout: https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f
-- VIN Intelligence: $500 CAD — NHTSA campaign match for auto fleets & dealerships. 24h delivery. Checkout: https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f
-- MCP Security Audit: $2,500 CAD — 180-vector adversarial battery + Trust Manifest. 48h delivery. Checkout: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0f
-
 ## Landing Pages
+
 - Main: https://nanoempireai.com
+
 - Data Services: https://data.nanoempireai.com
+
 - Serial Reader: https://read.nanoempireai.com
-- RecallGuard MCP: npx recallguard-mcp
+
+- RecallRadar MCP: npx recallguard-mcp

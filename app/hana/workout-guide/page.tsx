@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Download, Sparkles, Heart, Flame, Shield, ArrowRight } from "lucide-react";
 
@@ -100,6 +100,7 @@ const WORKOUT_DAYS = [
 
 export default function WorkoutGuidePage() {
   const [subscribed, setSubscribed] = useState(false);
+  const submitFlag = useRef(false);
   return (
     <div className="min-h-screen bg-[#07090E] text-slate-100 selection:bg-rose-500/30 selection:text-white">
       {/* Top Banner Nav */}
@@ -174,15 +175,18 @@ export default function WorkoutGuidePage() {
               <p className="text-sm font-semibold text-emerald-400">You&apos;re in! 🎉 Watch your inbox tomorrow morning.</p>
             ) : (
               <form
-                action="https://magic.beehiiv.com/v1/0260eb70-fc32-4063-85e8-99d5c86bb2b2"
-                method="get"
+                action="https://magic.beehiiv.com/v1/0260eb70-fc32-4063-85e8-99d5c86bb2b2?index"
+                method="post"
                 target="beehiiv-hidden-frame"
-                onSubmit={() => setSubscribed(true)}
+                onSubmit={() => {
+                  submitFlag.current = true;
+                  setTimeout(() => setSubscribed(true), 8000);
+                }}
                 className="flex flex-col sm:flex-row gap-2"
               >
                 <input
                   type="email"
-                  name="email"
+                  name="signup[email]"
                   required
                   placeholder="you@example.com"
                   aria-label="Email address"
@@ -196,7 +200,15 @@ export default function WorkoutGuidePage() {
                 </button>
               </form>
             )}
-            <iframe name="beehiiv-hidden-frame" title="signup" className="hidden" aria-hidden="true" />
+            <iframe
+              name="beehiiv-hidden-frame"
+              title="signup"
+              className="hidden"
+              aria-hidden="true"
+              onLoad={() => {
+                if (submitFlag.current) setSubscribed(true);
+              }}
+            />
             <p className="text-xs text-slate-500 mt-3">
               Already grabbed this guide? Pop your email in anyway — the daily brief keeps you in the loop. 💕
             </p>

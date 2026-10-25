@@ -20,18 +20,6 @@
       "status": "live"
     },
     {
-      "id": "recallradar-pro",
-      "name": "RecallRadar Pro Catalog Audit",
-      "description": "Human-checkout data service: CPSC/FDA/Health Canada recall compliance report for e-commerce catalogs. 24h delivery.",
-      "price_usd": 500,
-      "currency": "CAD",
-      "rail": "stripe",
-      "payment_link": "https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f",
-      "method": "STRIPE_CHECKOUT",
-      "capability": "compliance-report",
-      "status": "live"
-    },
-    {
       "id": "recallradar-monitoring",
       "name": "RecallRadar Continuous Monitoring",
       "description": "Monthly re-scan + expansion alerts when recalls widen across US and Canadian federal safety feeds.",
@@ -68,30 +56,6 @@
       "payment_link": "https://buy.stripe.com/00w00k3zKeXB9ureAofAc0q",
       "method": "STRIPE_CHECKOUT",
       "capability": "digital-product",
-      "status": "live"
-    },
-    {
-      "id": "skillproof-sprint",
-      "name": "SkillProof Sprint",
-      "description": "48-hour automated adversarial battery (180 vectors) against an MCP server or agent tool. Returns signed Ed25519 Trust Manifest.",
-      "price_usd": 500,
-      "currency": "CAD",
-      "rail": "stripe",
-      "payment_link": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c",
-      "method": "STRIPE_CHECKOUT",
-      "capability": "security-audit",
-      "status": "live"
-    },
-    {
-      "id": "mcp-security-audit",
-      "name": "MCP Binary & Desktop Security Audit",
-      "description": "Deep black-box decompilation and behavioral audit for closed-source MCP servers, Electron packages, and CLI binaries.",
-      "price_usd": 2500,
-      "currency": "CAD",
-      "rail": "stripe",
-      "payment_link": "https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o",
-      "method": "STRIPE_CHECKOUT",
-      "capability": "security-audit",
       "status": "live"
     },
     {

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>x402 Tollbooth — Autonomous Agent Payment Gateway | Nano Empire AI</title>
+<meta name="description" content="Meter API calls and monetize AI agents with x402 HTTP 402 payments, streaming micropayments, and cryptographic Ed25519 vouchers. Python SDK on PyPI.">
+<style>
+  :root { --bg:#0a0c10; --panel:#12151b; --border:#222831; --border-2:#2c3440; --text:#e8ebf0; --dim:#8b94a3; --accent:#3ddc97; --mono:'JetBrains Mono',monospace; --font:'Inter',system-ui,sans-serif; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6}
+  .wrap{max-width:880px;margin:0 auto;padding:0 1.5rem}
+  h1{font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin-bottom:1rem}
+  h1 .hl{color:var(--accent)}
+  .sub{font-size:1.08rem;color:var(--dim);max-width:560px;margin:0 auto 2.25rem}
+  .btn{display:inline-block;background:var(--accent);color:#06140d;font-weight:600;border-radius:10px;padding:0.75rem 1.4rem;font-size:0.98rem;text-decoration:none}
+  .btn:hover{filter:brightness(1.08)}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1rem 0}
+  .card h3{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem}
+  .card p{color:var(--dim);font-size:0.95rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+  .price{font-size:2rem;font-weight:700;color:var(--accent)}
+  .price span{font-size:0.95rem;color:var(--dim);font-weight:400}
+  pre{background:#07090d;border:1px solid var(--border-2);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.88rem;overflow-x:auto;color:#3ddc97;margin:1rem 0}
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,12,16,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  nav .brand{font-weight:700;color:var(--text);font-size:0.98rem;text-decoration:none}
+  nav .links{display:flex;gap:1.25rem;font-size:0.9rem}
+  nav .links a{color:var(--dim);text-decoration:none}
+  nav .links a:hover{color:var(--text)}
+  section{padding:2.5rem 0;border-top:1px solid var(--border)}
+  h2{font-size:1.35rem;font-weight:600;margin-bottom:1.25rem}
+  ul{list-style:none;padding:0}
+  ul li{padding:0.5rem 0 0.5rem 1.5rem;position:relative;color:var(--dim)}
+  ul li::before{content:"+";position:absolute;left:0;color:var(--accent)}
+  footer{padding:3rem 0 4rem;text-align:center;color:var(--dim);font-size:0.85rem;border-top:1px solid var(--border)}
+  footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="/">Nano Empire AI</a>
+  <div class="links">
+    <a href="/">Home</a>
+    <a href="/rfp/">RFP Teardown</a>
+    <a href="/tollbooth/">Tollbooth</a>
+    <a href="/grok-mcp/">Grok MCP</a>
+    <a href="/decision-bus/">Decision Bus</a>
+  </div>
+</div></nav>
+
+<header style="padding:5rem 0 3.5rem;text-align:center">
+<div class="wrap">
+  <div class="eyebrow" style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:1.25rem">M2M Settlement Infrastructure</div>
+  <h1>Monetize Any API with <span class="hl">x402 Tollbooth</span></h1>
+  <p class="sub">Pay-per-call metering, streaming micropayments, and cryptographic Ed25519 vouchers for autonomous agent swarms. No monthly subscriptions or credit card forms required by the calling agent.</p>
+  <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
+    <a class="btn" href="https://pypi.org/project/nano-empire-tollbooth/" target="_blank">Install SDK — PyPI</a>
+    <a class="btn" style="background:transparent;border:1px solid var(--border-2);color:var(--text)" href="#quickstart">Quickstart Docs</a>
+  </div>
+</div>
+</header>
+
+<main class="wrap">
+  <section id="features">
+    <h2>Why Autonomous Agents Need Tollbooth</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>HTTP 402 Native</h3>
+        <p>Return standard HTTP 402 Payment Required challenges that AI agents and MCP tools understand natively. Settle inside the HTTP request.</p>
+      </div>
+      <div class="card">
+        <h3>Ed25519 Signed Vouchers</h3>
+        <p>Emit tamper-proof, offline-verifiable execution receipts for every settled machine-to-machine transaction. Audit trails without blockchain lock-in.</p>
+      </div>
+      <div class="card">
+        <h3>Zero Human Friction</h3>
+        <p>Autonomous agents cannot fill out Stripe checkout forms. Tollbooth lets them pay in stablecoin micropayments or pre-authorized budget tokens.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quickstart">
+    <h2>1-Minute Python Quickstart</h2>
+    <p style="color:var(--dim);margin-bottom:0.75rem">Install the official SDK directly from PyPI:</p>
+    <pre><code>pip install nano-empire-tollbooth</code></pre>
+
+    <p style="color:var(--dim);margin-top:1.5rem;margin-bottom:0.75rem">Protect any FastAPI or Flask route with one decorator:</p>
+    <pre><code>from fastapi import FastAPI
+from nano_empire_tollbooth import TollboothGate
+
+app = FastAPI()
+gate = TollboothGate(price_usdc=0.05, network="base")
+
+@app.get("/api/v1/compute")
+@gate.protect()
+async def compute_payload():
+    return {"status": "computed", "data": [1, 2, 3]}</code></pre>
+  </section>
+
+  <section id="pricing">
+    <h2>Production Deployment Tiers</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Community Edition</h3>
+        <div class="price">Free <span>/ open source</span></div>
+        <p style="margin:1rem 0">Self-hostable Python middleware. Settle x402 on Base or Solana devnet.</p>
+        <a class="btn" style="background:transparent;border:1px solid var(--border-2);color:var(--text)" href="https://github.com/Nano-Empire-Ai/nanoempire-web" target="_blank">GitHub Repository</a>
+      </div>
+      <div class="card" style="border-color:var(--accent)">
+        <h3>Tollbooth Pro Managed</h3>
+        <div class="price">$19 <span>/ month</span></div>
+        <p style="margin:1rem 0">Managed Oracle Cloud / Cloudflare Edge proxy, automated SQLite WAL ledger sync, and webhook refund rails.</p>
+        <a class="btn" href="mailto:rob@nanoempireai.com?subject=Tollbooth%20Pro%20Managed%20Inquiry">Get Managed Pro</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Nano Empire AI Inc. &copy; 2026 &middot; The Machine Economy Runs on Protocol &middot; <a href="/llms.txt">/llms.txt</a></p>
+  </div>
+</footer>
+</body>
+</html>

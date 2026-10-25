@@ -68,7 +68,7 @@ export default function CaseStudiesPage() {
             <div>
               <h3 className="text-white font-semibold mb-2 uppercase tracking-wide text-xs">Scope & Battery</h3>
               <p className="text-[#8C92A4] leading-relaxed">
-                SkillProof Sprint ($500 CAD) • 48-hour execution • 5 agents sampled from public registry • 200 adversarial ops executed across 5 core attack categories.
+                Automated Adversarial Battery • 48-hour execution • 5 agents sampled from public registry • 200 adversarial ops executed across 5 core attack categories.
               </p>
             </div>
           </div>
@@ -188,19 +188,19 @@ export default function CaseStudiesPage() {
 
         {/* Bottom CTA */}
         <div className="text-center py-12 px-6 rounded-2xl border border-[#00B5E2]/30 bg-gradient-to-b from-[#0f1423] to-[#07090D]">
-          <h2 className="text-3xl font-bold text-white mb-4">Prove Your Agent Stack Is Secure</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Screen Your Catalog for Consumer Hazards</h2>
           <p className="text-[#8C92A4] max-w-xl mx-auto mb-8 text-sm">
-            Fixed price in writing. 48-hour turnaround. Signed, offline-verifiable Trust Manifest.
+            Instant cross-reference against 46,642 CPSC and FDA safety enforcement actions. Certified PDF + CSV reports for liquidation pallets and marketplace catalogs.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" target="_blank" rel="noopener">
+            <Link href="/recall-report">
               <Button variant="default" className="text-base px-8 py-4">
-                Order SkillProof Sprint ($500 CAD)
+                Run Compliance Scan ($30 USD)
               </Button>
             </Link>
-            <Link href="/skillproof">
+            <Link href="mailto:licensing@nanoempireai.com?subject=RecallRadar%20Enterprise%20Inquiry">
               <Button variant="outline" className="text-base px-8 py-4">
-                View All Tiers & SKUs
+                Enterprise Data License ($2,400/yr)
               </Button>
             </Link>
           </div>

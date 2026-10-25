@@ -1,7 +1,10 @@
 import { createClient } from '@libsql/client';
 
+const isVercel = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const defaultDbUrl = isVercel ? 'file:/tmp/local.db' : 'file:local.db';
+
 const client = createClient({
-  url: process.env.DATABASE_URL || 'file:local.db',
+  url: process.env.DATABASE_URL || defaultDbUrl,
   authToken: process.env.DATABASE_AUTH_TOKEN,
 });
 

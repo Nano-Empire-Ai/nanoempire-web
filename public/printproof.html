@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintProof — Pre-Press Forensic Check for Self-Publishers | Nano Empire AI</title>
+    <meta name="description" content="PrintProof runs a forensic check on your book's interior PDF before your printer does: pagination parity, TOC drift, placeholder leakage, unembedded fonts and more. $29 one-time. Join the waitlist.">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #171717;
+            --text: #ededed;
+            --text-muted: #a3a3a3;
+            --accent: #2563eb;
+            --border: #262626;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container { max-width: 820px; margin: 0 auto; padding: 4rem 2rem; }
+        header { text-align: center; margin-bottom: 3rem; }
+        h1 { font-size: 2.6rem; margin-bottom: 1rem; letter-spacing: -0.02em; line-height: 1.15; }
+        p.subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 620px; margin: 0 auto; }
+        h2 { font-size: 1.6rem; margin-top: 3rem; }
+        .killer {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .killer h3 { margin: 0 0 0.4rem 0; font-size: 1.1rem; }
+        .killer p { margin: 0; color: var(--text-muted); }
+        .steps { color: var(--text-muted); }
+        .steps li { margin-bottom: 0.6rem; }
+        .cta-box {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .price { font-size: 2rem; font-weight: bold; color: #fff; margin: 0.5rem 0; }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        footer { text-align: center; color: var(--text-muted); margin-top: 4rem; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your printer will reject this PDF.<br>Find out before they do.</h1>
+            <p class="subtitle">PrintProof is an automated forensic check for self-publishers' interior PDFs — the layout errors that survive your visual check and die on press, caught with page numbers before KDP, IngramSpark, or your print shop ever sees the file.</p>
+        </header>
+
+        <h2>The 7 pre-press killers</h2>
+
+        <div class="killer">
+            <h3>1. Pagination parity</h3>
+            <p>One-page spreads landing on even pages flip the left/right order of every spread after them. In one real 83-page cookbook, a single parity break scrambled 18 spreads.</p>
+        </div>
+        <div class="killer">
+            <h3>2. Blank-page runs</h3>
+            <p>Three or more consecutive blank pages read as a production error, and skipped page numbers get files rejected outright.</p>
+        </div>
+        <div class="killer">
+            <h3>3. TOC page-count drift</h3>
+            <p>If your table of contents was generated from an earlier pagination pass, every page reference after the drift is wrong — and no upload checker flags it.</p>
+        </div>
+        <div class="killer">
+            <h3>4. Trailing separators</h3>
+            <p>A leftover separator at the end of a chapter file can render as a full printed page of nothing but dots.</p>
+        </div>
+        <div class="killer">
+            <h3>5. Placeholder and QC leakage</h3>
+            <p>"Lorem", "TK", "TODO", draft notes, and internal QC blocks hiding after your last chapter. One nearly printed inside a $404.82 keepsake book.</p>
+        </div>
+        <div class="killer">
+            <h3>6. The unrendered dedication</h3>
+            <p>Front matter that's commented out in your source never makes it to the PDF. If you don't check the final file, you find out from a reader.</p>
+        </div>
+        <div class="killer">
+            <h3>7. Font embedding</h3>
+            <p>One unembedded font and the file that looked perfect on your machine breaks on theirs. The most common silent killer of all.</p>
+        </div>
+
+        <h2>How it works</h2>
+        <ol class="steps">
+            <li><strong>Upload your interior PDF</strong> — the final file, exactly as you'd send it to the printer.</li>
+            <li><strong>Get the forensic report</strong> — every check scored FAIL / FIX / PASS, with page numbers and the fix in plain language. A check that couldn't run is reported as not run, never as passed.</li>
+            <li><strong>Fix and print with confidence</strong> — no more rejection emails that say "does not meet specifications" and nothing else.</li>
+        </ol>
+
+        <div class="cta-box">
+            <p style="margin:0; color: var(--text-muted);">Launching soon</p>
+            <p class="price">$29 one-time. No subscription.</p>
+            <p style="color: var(--text-muted); margin: 0.5rem auto; max-width: 480px;">Join the waitlist to be first in line at launch — and tell us which printer you use, so the checks match your press.</p>
+            <a class="cta-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeEAcVw2YR1ByvBtD0PWQlgckkJMhJ9koOGpBhXvMQjaU71Ig/viewform">Join the PrintProof waitlist</a>
+        </div>
+
+        <footer>PrintProof by Nano Empire AI · Built from a real cookbook print run that went wrong three times before it went right.</footer>
+    </div>
+</body>
+</html>

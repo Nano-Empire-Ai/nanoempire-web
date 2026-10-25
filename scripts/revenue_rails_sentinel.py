@@ -29,14 +29,14 @@ CHECKS = [
         "name": "Service Discovery (/llms.txt)",
         "url": f"{PRODUCTION_DOMAIN}/llms.txt",
         "expected_status": 200,
-        "validate": lambda body: "Machine Economy Rails Architecture" in body and "buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f" in body
+        "validate": lambda body: "RecallRadar" in body and "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01" in body
     },
     {
         "name": "Offers Catalog (/offers.json)",
         "url": f"{PRODUCTION_DOMAIN}/offers.json",
         "method": "GET",
         "expected_status": 200,
-        "validate": lambda body: "STRIPE_LINK_" not in body and "recallguard-report" in body
+        "validate": lambda body: "STRIPE_LINK_" not in body and "recallradar-report" in body
     },
     {
         "name": "RecallGuard Match API (HTTP 402 Rail)",
@@ -45,6 +45,28 @@ CHECKS = [
         "data": b'{"items":[{"name":"test"}]}',
         "expected_status": 402,
         "validate": lambda body: True
+    },
+    {
+        "name": "API3 / Enterprise Trial Verifier (/api/v1/trial/verify)",
+        "url": f"{PRODUCTION_DOMAIN}/api/v1/trial/verify",
+        "method": "GET",
+        "headers": {"Authorization": "Bearer trial_api3_bNqEoww1cX5sBJgX5vqfC5zCAdOzXNyq"},
+        "expected_status": 200,
+        "validate": lambda body: "credits_remaining" in body and "api3" in body
+    },
+    {
+        "name": "AEO Discovery Beacon (/.well-known/agent.json)",
+        "url": f"{PRODUCTION_DOMAIN}/.well-known/agent.json",
+        "method": "GET",
+        "expected_status": 200,
+        "validate": lambda body: "NanoEmpire AI Autonomous Tollbooth" in body and "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01" in body
+    },
+    {
+        "name": "Cryptographic Proof Packs (/api/v1/proof-packs)",
+        "url": f"{PRODUCTION_DOMAIN}/api/v1/proof-packs",
+        "method": "GET",
+        "expected_status": 200,
+        "validate": lambda body: "nanoempire-proof-engine" in body
     }
 ]
 
@@ -59,7 +81,9 @@ def run_sentinel():
     for check in CHECKS:
         method = check.get("method", "GET")
         data = check.get("data", None)
-        req = urllib.request.Request(check["url"], data=data, headers=headers, method=method)
+        req_headers = dict(headers)
+        req_headers.update(check.get("headers", {}))
+        req = urllib.request.Request(check["url"], data=data, headers=req_headers, method=method)
         if data:
             req.add_header("Content-Type", "application/json")
         status_code = None
