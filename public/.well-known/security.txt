@@ -1,0 +1,9 @@
+Contact: mailto:security@nanoempireai.com
+Contact: mailto:rob@nanoempireai.com
+Expires: 2027-10-25T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://www.nanoempireai.com/.well-known/security.txt
+Policy: https://www.nanoempireai.com/llms.txt
+Acknowledgments: https://github.com/roblambert9/skillproof-verifications
+# Scope: RecallGuard x402 API, SkillProof Ed25519 Manifest Signer, BidShield Triage Kernel
+# Bounty: Up to $500 CAD for reproducible signature forgery, x402 settlement bypass, or SSRF/RCE on production endpoints.
