@@ -1,12 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Optimized for Native Vercel Deployment (Removed output: 'export' to support dynamic API routes)
+  // Optimized for Native Vercel Deployment (supports dynamic API routes & Turbopack)
   images: {
     unoptimized: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
