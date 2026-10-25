@@ -179,7 +179,7 @@ export function DogfoodReceiptsWidget() {
         <div className="mt-6 pt-4 border-t border-[#8C92A4]/15 flex flex-wrap items-center justify-between text-xs text-[#8C92A4] font-mono gap-4">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>Cryptographic Verification Battery: Operational (1,334 passing tests · 167 Vision DAG tests)</span>
+            <span>Cryptographic Verification Battery: Operational (1,334 passing tests)</span>
           </div>
           <a
             href="/manifests.html"
