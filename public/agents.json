@@ -12,7 +12,7 @@
     "organization": "Nano Empire AI",
     "url": "https://nanoempireai.com"
   },
-  "version": "1.2.0",
+  "version": "1.3.0",
   "documentationUrl": "https://nanoempireai.com/llms.txt",
   "capabilities": {
     "streaming": false,
@@ -32,10 +32,27 @@
           "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
           "facilitator": "coinbase-x402-facilitator",
-          "receipt_headers": ["X-PAYMENT-RESPONSE", "X-402-Receipt"],
+          "receipt_headers": [
+            "X-PAYMENT-RESPONSE",
+            "X-402-Receipt"
+          ],
           "offers": "https://nanoempireai.com/offers.json",
           "openapi": "https://nanoempireai.com/openapi.json",
-          "verified_on": "2026-10-05"
+          "verified_on": "2026-10-26"
+        }
+      },
+      {
+        "uri": "https://personalagentprotocol.org/ext/v1",
+        "description": "Sierra + Meta Personal Agent Protocol descriptor",
+        "required": false,
+        "params": {
+          "poppy_endpoint": "https://nanoempireai.com/.well-known/poppy.json",
+          "auth_modes": [
+            "guest",
+            "x402_signature",
+            "dpop_bound_jwt"
+          ],
+          "single_loop_skill_disclosure": true
         }
       }
     ]
@@ -155,6 +172,29 @@
       ],
       "outputModes": [
         "application/json"
+      ]
+    },
+    {
+      "id": "bidshield-triage",
+      "name": "BidShield Federal Triage",
+      "description": "Pre-bid fatal-clause detection & Annex gap audit for federal Canadian / US tenders (Buyandsell / SAM.gov). Returns quantified Decision Exposure (JEV).  Annex Scan /  Pilot /  Full Audit.",
+      "tags": [
+        "procurement",
+        "triage",
+        "compliance",
+        "legal",
+        "rfp"
+      ],
+      "examples": [
+        "https://nanoempireai.com/bidshield/triage/"
+      ],
+      "inputModes": [
+        "application/json",
+        "application/pdf"
+      ],
+      "outputModes": [
+        "application/json",
+        "application/pdf"
       ]
     }
   ],

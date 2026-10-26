@@ -1,99 +1,76 @@
 # Nano Empire AI
 
-> Machine-payable US product-recall data (RecallRadar, paid per call in USDC on Base via x402).
+> Machine-payable US product-recall data (RecallRadar, paid per call in USDC on Base via x402) and offline-verifiable SkillProof Trust Manifests.
 
-Updated: 2026-10-13
+Updated: 2026-10-26
 
 Contact: rob@nanoempireai.com
+
+## Architecture & Agent Operating Model (Anthropic Oct 2026 Guidance)
+
+- Single Main Agent Loop with progressive disclosure of skills and tools. Nano Empire exposes atomic tools via MCP and x402 endpoints rather than requiring multi-agent overhead for linear tasks.
+- Isolated adversarial DAGs are reserved for verification sandboxes (SkillProof Sprint test batteries).
+- Complete M2M briefing and protocol synthesis: https://nanoempireai.com/m2m-state.md
 
 ## Executive Contact
 
 - **Hana Lambert** — Executive Operations & Dispatch • Muse AI
-
   - Link-in-Bio: https://nanoempireai.com/hana
-
   - Email: hana@nanoempireai.com
-
   - Phone: +1-343-501-5003 (SMS/Voice)
-
   - Social: @hana.nanoempire (Instagram & Threads)
-
   - Priority: Critical
 
 ## Honest status
 
 - One RecallRadar Match self-test has settled on Base (block 51961194, 2026-09-29, operator wallets).
-
 - Outside paying customers: 0.
-
 - Anything not listed under "Live" below is not available yet.
 
 ## Live: machine endpoints (x402, Base, USDC)
 
 - Health (free): GET https://recallguard-api.vercel.app/api/v1/health
-
 - Feed, $0.05 per call: GET https://recallguard-api.vercel.app/api/v1/feed?limit=50
-
   Returns normalized CPSC and FDA recall records. Unpaid calls return HTTP 402.
-
 - Match, $0.10 per call: POST https://recallguard-api.vercel.app/api/v1/match
-
   Input: {"items":[{"name":"string","brand":"string","upc":"string"}]}
-
   Output: {"matches":[{"recall_id":"string","severity":"string","hazard":"string","remedy":"string"}]}
-
   Unpaid calls return HTTP 402.
 
 ## Payment terms
 
 - Protocol: x402 (HTTP 402 challenge, pay, retry)
-
 - Network: base
-
 - Asset (Base USDC): 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
-
 - Pay to: 0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01
-
 - Facilitator: coinbase-x402-facilitator
-
 - Receipt headers: X-PAYMENT-RESPONSE, X-402-Receipt
 
 ## Discovery files
 
+- Poppy (Personal Agent Protocol): https://nanoempireai.com/.well-known/poppy.json
+- Agent card (A2A): https://nanoempireai.com/.well-known/agent-card.json
+- Machine Agents descriptor: https://nanoempireai.com/agents.json
 - OpenAPI: https://nanoempireai.com/openapi.json
-
-- Agent card: https://nanoempireai.com/.well-known/agent-card.json
-
 - Offers: https://nanoempireai.com/offers.json
-
 - Trust manifests: https://nanoempireai.com/manifests.html
+- M2M State Briefing: https://nanoempireai.com/m2m-state.md
 
 ## MCP Servers (x402 monetized via SecureFastMCP)
 
 - RecallRadar MCP: npx recallguard-mcp | npm: recallguard-mcp
-
   Tools: health (free), feed ($0.05 USDC), match ($0.10 USDC)
-
   x402 on Base, USDC settlement
-
   Repo: https://github.com/roblambert9/recallguard-mcp
 
 - postgres-mcp: npx postgres-mcp | npm: postgres-mcp | Smithery: rob-c8hu/postgres-mcp
-
 - redis-mcp: npx redis-mcp | npm: redis-mcp | Smithery: rob-c8hu/redis-mcp
-
 - elasticsearch-mcp: npx elasticsearch-mcp | npm: elasticsearch-mcp | Smithery: rob-c8hu/elasticsearch-mcp
-
 - github-mcp: npx github-mcp | npm: github-mcp | Smithery: rob-c8hu/github-mcp
-
 - filesystem-mcp: npx filesystem-mcp | npm: filesystem-mcp | Smithery: rob-c8hu/filesystem-mcp
-
 - browser-mcp: npx browser-mcp | npm: browser-mcp | Smithery: rob-c8hu/browser-mcp
-
 - sqlite-mcp: npx sqlite-mcp | npm: sqlite-mcp | Smithery: rob-c8hu/sqlite-mcp
-
 - slack-mcp: npx slack-mcp | npm: slack-mcp | Smithery: rob-c8hu/slack-mcp
-
 - stripe-mcp: npx stripe-mcp | npm: stripe-mcp | Smithery: rob-c8hu/stripe-mcp
 
 ## Not available yet (do not call)
@@ -103,9 +80,7 @@ Contact: rob@nanoempireai.com
 ## Landing Pages
 
 - Main: https://nanoempireai.com
-
+- BidShield Federal Triage: https://nanoempireai.com/bidshield/triage/
 - Data Services: https://data.nanoempireai.com
-
 - Serial Reader: https://read.nanoempireai.com
-
 - RecallRadar MCP: npx recallguard-mcp

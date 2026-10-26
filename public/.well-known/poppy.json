@@ -1,0 +1,37 @@
+{
+  "$schema": "https://personalagentprotocol.org/schemas/v1/poppy.json",
+  "name": "Nano Empire AI",
+  "version": "0.1.0",
+  "description": "Autonomous verified data and verification endpoints. RecallGuard x402 on Base, SkillProof invariant manifests, and BidShield federal procurement triage.",
+  "provider": {
+    "organization": "Nano Empire AI",
+    "url": "https://nanoempireai.com"
+  },
+  "protocol": "PAP/1.0",
+  "auth_modes": [
+    "guest",
+    "x402_signature",
+    "dpop_bound_jwt"
+  ],
+  "channels": [
+    "api",
+    "mcp",
+    "a2a"
+  ],
+  "capabilities": [
+    "recall_verification",
+    "trust_manifests",
+    "bid_triage"
+  ],
+  "agent_card": "https://nanoempireai.com/.well-known/agent-card.json",
+  "x402_terms": "https://nanoempireai.com/offers.json",
+  "llms_manifest": "https://nanoempireai.com/llms.txt",
+  "briefing": "https://nanoempireai.com/m2m-state.md",
+  "endpoints": {
+    "health": "https://recallguard-api.vercel.app/api/v1/health",
+    "feed": "https://recallguard-api.vercel.app/api/v1/feed",
+    "match": "https://recallguard-api.vercel.app/api/v1/match"
+  },
+  "single_loop_skill_disclosure": true,
+  "updated_at": "2026-10-26"
+}

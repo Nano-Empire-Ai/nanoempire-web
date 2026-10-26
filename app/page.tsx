@@ -182,6 +182,10 @@ export default function Home() {
 
             <span className="text-[#8C92A4]/40">·</span>
 
+            <a href="/.well-known/poppy.json" className="text-[#00B5E2] hover:underline">poppy.json</a>
+
+            <span className="text-[#8C92A4]/40">·</span>
+
             <a href="/openapi.json" className="text-[#00B5E2] hover:underline">openapi.json</a>
 
           </div>
@@ -848,7 +852,7 @@ export default function Home() {
 
           <div className="text-xs text-[#8C92A4] font-mono border border-white/10 px-3 py-1.5 rounded bg-white/5">
 
-            Updated: 2026-10-25 · Next Corpus Refresh: 2026-10-26
+            Updated: 2026-10-26 · Next Corpus Refresh: 2026-10-27
 
           </div>
 
@@ -862,9 +866,9 @@ export default function Home() {
 
             <div className="text-xs text-[#8C92A4] uppercase font-mono">1. Talk</div>
 
-            <div className="text-lg font-bold text-white">Google A2A</div>
+            <div className="text-lg font-bold text-white">Google A2A &amp; Sierra Poppy</div>
 
-            <p className="text-sm text-[#8C92A4] font-sans">Agent-to-agent discovery and structured messaging. Defines how autonomous units talk.</p>
+            <p className="text-sm text-[#8C92A4] font-sans">Agent-to-agent discovery and Personal Agent Protocol (A2A Agent Card + Poppy PAP). How autonomous units talk.</p>
 
           </div>
 
@@ -874,7 +878,7 @@ export default function Home() {
 
             <div className="text-lg font-bold text-[#A3FF00]">Google / FIDO AP2</div>
 
-            <p className="text-sm text-[#8C92A4] font-sans">Signed policy mandates: intent, cart, and spend bounds without human present. Does not move money.</p>
+            <p className="text-sm text-[#8C92A4] font-sans">Signed policy mandates: intent, cart, and spend bounds without human present. Identity and authorization gates.</p>
 
           </div>
 
@@ -882,9 +886,9 @@ export default function Home() {
 
             <div className="text-xs text-[#8C92A4] uppercase font-mono">3. Checkout</div>
 
-            <div className="text-lg font-bold text-[#FF7B00]">OpenAI / Stripe ACP</div>
+            <div className="text-lg font-bold text-[#FF7B00]">OpenAI ACP · Mastercard · Visa</div>
 
-            <p className="text-sm text-[#8C92A4] font-sans">Purchases through seller PSP where merchant stays merchant of record. Optimized for retail and fiat.</p>
+            <p className="text-sm text-[#8C92A4] font-sans">Purchases through seller PSP with delegate tokens (Mastercard Agent Pay, Visa TAP). Fiat checkout with cardholder binding.</p>
 
           </div>
 
@@ -894,7 +898,7 @@ export default function Home() {
 
             <div className="text-lg font-bold text-[#00B5E2]">x402 &amp; MPP</div>
 
-            <p className="text-sm text-[#8C92A4] font-sans">Pay inside the request (HTTP 402 on Base) and session-streamed micropayments. Our live settlement rail.</p>
+            <p className="text-sm text-[#8C92A4] font-sans">Pay inside the request (HTTP 402 on Base USDC) and session streaming. Open Linux Foundation standard across ~57 member orgs.</p>
 
           </div>
 
@@ -914,7 +918,7 @@ export default function Home() {
 
           <p>
 
-            The x402 Foundation reported ~75M transactions and ~$24M volume over a recent 30-day window. Independent forensics filter actual agent share significantly lower: TRM Labs measures 0.6%–7.5% real agent volume, and a16z estimates ~$1.6M/month after wash-trading filters. Nano Empire maintains zero hype: outside settled customer count is currently 0 (one verified operator self-test on Base block 51961194).
+            The Linux Foundation x402 Foundation (~57 member orgs including Coinbase, Cloudflare, Stripe, Visa, Mastercard, AWS, Google, Shopify) tracks ~195M cumulative transactions and ~$42M gross volume (recent 30-day window ~75M txs / ~$24M), overwhelmingly sub-cent micropayments for inference, tools, and API calls. Forensics note commercial merchant volume is earlier: TRM Labs measures 0.6%–7.5% real-economy agent volume, and Mastercard / Visa are in early access machine pilots. Nano Empire maintains zero hype: outside settled customer count is currently 0 (one verified operator self-test on Base block 51961194).
 
           </p>
 
@@ -1246,7 +1250,7 @@ export default function Home() {
 
       <div className="agent-grid">
 
-        <div className="code rv"><span className="cm"># who we are</span><br />GET <a href="/.well-known/agent-card.json">/.well-known/agent-card.json</a><br /><br /><span className="cm"># the machine interface</span><br />GET <a href="/openapi.json">/openapi.json</a><br /><br /><span className="cm"># the short version</span><br />GET <a href="/llms.txt">/llms.txt</a><br /><br /><span className="cm"># the registry of verified skills</span><br />GET <a href="/manifests">/manifests</a></div>
+        <div className="code rv"><span className="cm"># who we are</span><br />GET <a href="/.well-known/agent-card.json">/.well-known/agent-card.json</a><br />GET <a href="/.well-known/poppy.json">/.well-known/poppy.json</a><br /><br /><span className="cm"># the machine interface</span><br />GET <a href="/openapi.json">/openapi.json</a><br /><br /><span className="cm"># the short version &amp; briefing</span><br />GET <a href="/llms.txt">/llms.txt</a><br />GET <a href="/m2m-state.md">/m2m-state.md</a><br /><br /><span className="cm"># the registry of verified skills</span><br />GET <a href="/manifests">/manifests</a></div>
 
         <div className="agent-copy rv">
 
@@ -1673,6 +1677,7 @@ curl -si https://recallguard-api.vercel.app/api/v1/feed?limit=1
           <a href="/m2m-state.md" className="hover:text-white">M2M State (Oct 26)</a>
 
           <a href="/.well-known/agent-card.json" className="hover:text-white">agent-card.json</a>
+          <a href="/.well-known/poppy.json" className="hover:text-white">poppy.json</a>
 
           <a href="/openapi.json" className="hover:text-white">openapi.json</a>
 
