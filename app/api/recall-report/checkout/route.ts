@@ -60,7 +60,7 @@ export async function POST(req: Request) {
               unit_amount: 3000,
               product_data: {
                 name: 'RecallRadar Compliance Report (15 U.S.C. § 2068)',
-                description: 'Full unredacted recall schedule (CSV + signed PDF certificate) across 34,212 CPSC & FDA safety records.',
+                description: 'Full unredacted recall schedule (CSV + signed PDF certificate) across 46,642 US & Canadian (CPSC, FDA & Health Canada) safety records.',
               },
             },
             quantity: 1,

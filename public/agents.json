@@ -67,7 +67,7 @@
     {
       "id": "recallguard-feed",
       "name": "RecallGuard feed",
-      "description": "Normalized US recall records (CPSC, openFDA food, drug, device). 34,212 records on 2026-09-30 (2023-01-04 to 2026-09-24). GET https://recallguard-api.vercel.app/api/v1/feed returns HTTP 402. Price 0.05 USDC. Network string base. No settled receipt.",
+      "description": "Normalized US & Canadian recall records (46,642 total: 12,430 US CPSC/FDA + 34,212 Health Canada/CFIA/TC as of 2026-10-11). GET https://recallguard-api.vercel.app/api/v1/feed returns HTTP 402. Price 0.05 USDC. Network string base. No settled receipt.",
       "tags": [
         "recalls",
         "cpsc",
