@@ -116,6 +116,9 @@ export function FreeRecallSearchWidget() {
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8C92A4]" size={18} />
             <input
+              id="catalog-search-input"
+              name="catalogQuery"
+              aria-label="Scan catalog for active recalls"
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -164,22 +167,69 @@ export function FreeRecallSearchWidget() {
               ))}
             </div>
 
-            {/* High-Ticket Conversion CTA */}
-            <div className="p-6 rounded-2xl border-2 border-[#00B5E2] bg-gradient-to-r from-[#00B5E2]/15 via-[#07090D] to-[#0A0D14] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+            {/* High-Converting Multi-Tier Revenue CTAs */}
+            <div className="p-6 rounded-2xl border-2 border-[#00B5E2] bg-gradient-to-r from-[#00B5E2]/15 via-[#07090D] to-[#0A0D14] flex flex-col gap-5 shadow-xl">
               <div className="space-y-1 text-center sm:text-left">
-                <h3 className="text-base font-bold text-white uppercase tracking-tight">
-                  Protect Your Entire Inventory
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-mono font-bold uppercase tracking-wider">
+                  <CheckCircle2 size={12} /> Instant Compliance Deliverable
+                </div>
+                <h3 className="text-lg font-bold text-white uppercase tracking-tight">
+                  Protect Your Catalog & Avoid Marketplace Suspension
                 </h3>
                 <p className="text-xs text-[#8C92A4] font-sans">
-                  Don't risk marketplace suspension or liability. Send your full CSV (up to 10,000 SKUs) for a certified 24-hour audit.
+                  Amazon, Shopify, and retail insurers require official documentation. Choose your verification tier:
                 </p>
               </div>
-              <a
-                href="https://buy.stripe.com/6oU9AU1rC2aPbCzdwkfAc0m"
-                className="px-6 py-3 rounded-xl bg-[#00B5E2] hover:bg-[#009ac0] text-black font-mono font-bold text-xs uppercase tracking-wider shrink-0 flex items-center gap-2 shadow-lg transition-all"
-              >
-                Order Full Audit ($500) <ArrowRight size={14} />
-              </a>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                {/* Tier 1: $30 Impulse Buy */}
+                <div className="p-4 rounded-xl border border-[#00B5E2]/50 bg-[#07090D]/80 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="text-[10px] font-mono text-[#00B5E2] uppercase font-bold">Single Audit</div>
+                    <div className="text-xl font-extrabold text-white font-mono">$30 <span className="text-xs text-[#8C92A4] font-normal">USD</span></div>
+                    <p className="text-[11px] text-[#8C92A4] font-sans mt-1">Instant signed PDF & CSV compliance certificate for your SKU.</p>
+                  </div>
+                  <a
+                    href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k"
+                    className="w-full py-2.5 rounded-lg bg-[#00B5E2] hover:bg-[#009ac0] text-black font-mono font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all shadow"
+                  >
+                    Get Report ($30) <ArrowRight size={13} />
+                  </a>
+                </div>
+
+                {/* Tier 2: $99/mo Recurring MRR */}
+                <div className="p-4 rounded-xl border border-[#A3FF00]/40 bg-[#07090D]/80 flex flex-col justify-between space-y-3 relative">
+                  <div className="absolute -top-2.5 right-3 px-2 py-0.5 rounded bg-[#A3FF00] text-black text-[9px] font-mono font-bold uppercase tracking-wider">
+                    Recommended
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-mono text-[#A3FF00] uppercase font-bold">Continuous Defense</div>
+                    <div className="text-xl font-extrabold text-white font-mono">$99 <span className="text-xs text-[#8C92A4] font-normal">/mo</span></div>
+                    <p className="text-[11px] text-[#8C92A4] font-sans mt-1">Monthly automated re-scans & instant recall expansion alerts.</p>
+                  </div>
+                  <a
+                    href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e"
+                    className="w-full py-2.5 rounded-lg bg-[#A3FF00] hover:bg-[#8ee600] text-black font-mono font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all shadow"
+                  >
+                    Subscribe ($99/mo) <ArrowRight size={13} />
+                  </a>
+                </div>
+
+                {/* Tier 3: $500 Full CSV Audit */}
+                <div className="p-4 rounded-xl border border-[#8C92A4]/30 bg-[#07090D]/80 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="text-[10px] font-mono text-[#8C92A4] uppercase font-bold">10,000 SKUs</div>
+                    <div className="text-xl font-extrabold text-white font-mono">$500 <span className="text-xs text-[#8C92A4] font-normal">CAD</span></div>
+                    <p className="text-[11px] text-[#8C92A4] font-sans mt-1">Full vendor manifest or return pallet batch audit within 24 hours.</p>
+                  </div>
+                  <a
+                    href="https://buy.stripe.com/6oU9AU1rC2aPbCzdwkfAc0m"
+                    className="w-full py-2.5 rounded-lg border border-[#8C92A4]/40 hover:border-white text-white hover:text-white font-mono font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all"
+                  >
+                    Batch Audit ($500) <ArrowRight size={13} />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         )}

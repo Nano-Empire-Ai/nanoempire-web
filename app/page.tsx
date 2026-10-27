@@ -95,6 +95,11 @@ const SKUS = [
 
   
 
+  // SkillProof & BidShield (Human & Enterprise)
+  { id: "skillproof-sprint", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "48-hour 180-vector adversarial verification battery for MCP servers and skills. Emits signed Ed25519 Trust Manifest." },
+  { id: "bidshield-triage", price: "$99 USD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Urgent <72h solicitation fatal flaw scan. Missing annexes checklist & bond penalty exposure review." },
+  { id: "bidshield-pilot", price: "$299 USD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Full tender requirement matrix, 5-gate compliance cross-walk, and certified exception audit." },
+
   // Machine SKUs (x402 on Base)
 
   { id: "recallguard-feed", price: "$0.05 USDC", buyer: "machine", payment: "x402", status: "live", category: "recallguard", desc: "Continuous CPSC & FDA recall feed sync. Settle via HTTP 402 on Base." },
@@ -226,6 +231,7 @@ export default function Home() {
 
             <div className="hidden xl:flex items-center gap-5 text-[#8C92A4] text-xs font-mono">
 
+              <a href="/bidshield/capsule" className="text-[#a78bfa] hover:underline flex items-center gap-1 font-bold border border-[#a78bfa]/30 bg-[#a78bfa]/10 px-2 py-0.5 rounded"><Shield size={13} /> BNOA Capsule</a>
               <a href="/bidshield/triage/" className="text-[#3ddc97] hover:underline flex items-center gap-1 font-bold"><Shield size={13} /> BidShield Triage</a>
 
               <a href="/ingest/" className="text-[#00B5E2] hover:underline flex items-center gap-1 font-bold"><Database size={13} /> Trap Atlas</a>
@@ -308,6 +314,9 @@ export default function Home() {
 
               <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
 
+                <a href="/bidshield/capsule" className="px-5 py-3 rounded bg-[#a78bfa] hover:bg-[#9061f9] text-black font-bold tracking-wider uppercase transition-all flex items-center gap-2 shadow-lg shadow-[#a78bfa]/20">
+                  <Shield size={15} /> Air-Gapped BNOA Capsule
+                </a>
                 <a href="/bidshield/triage/" className="px-5 py-3 rounded bg-[#3ddc97] hover:bg-[#34c787] text-black font-bold tracking-wider uppercase transition-all flex items-center gap-2 shadow-lg shadow-[#3ddc97]/20">
 
                   <Shield size={15} /> Free BidShield Triage
@@ -639,6 +648,20 @@ export default function Home() {
           <div className="text-xs uppercase tracking-widest text-[#8C92A4] font-mono">Autonomous Tools &amp; Public Wedges</div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <a href="/bidshield/capsule" className="p-5 rounded-xl border border-[#a78bfa]/40 bg-[#0f1423] hover:border-[#a78bfa] transition-all group flex flex-col justify-between shadow-lg hover:shadow-[#a78bfa]/10">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-[#a78bfa] bg-[#a78bfa]/10 px-2 py-0.5 rounded border border-[#a78bfa]/30">AIR-GAPPED · ZERO EGRESS</span>
+                  <ArrowUpRight size={16} className="text-[#a78bfa] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">BNOA Sovereign Capsule</h3>
+                <p className="text-xs text-[#8C92A4] font-sans leading-relaxed">
+                  Browser-enforced CSP blackout (default-src &apos;none&apos;). Salted SHA-256 Merkle commitments and FIDO2/ECDSA P-256 human mandate signing for sensitive network ops and RFP triage.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#a78bfa] font-semibold">Launch Air-Gapped Capsule →</div>
+            </a>
 
             <a href="/bidshield/triage/" className="p-5 rounded-xl border border-[#3ddc97]/40 bg-[#0f1423] hover:border-[#3ddc97] transition-all group flex flex-col justify-between">
 

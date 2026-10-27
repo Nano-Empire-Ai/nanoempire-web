@@ -24,7 +24,7 @@ const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://recallguard-api.vercel.app https://api.stripe.com https://basescan.org; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://buy.stripe.com;",
+      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://recallguard-api.vercel.app https://api.stripe.com https://basescan.org https://vercel.live wss://*.pusher.com; frame-src 'self' https://vercel.live https://js.stripe.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://buy.stripe.com;",
   },
 ];
 
