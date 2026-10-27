@@ -18,7 +18,7 @@ const TIERS = [
     status: 'LIVE',
     popular: true,
     stripeUrl: 'https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k',
-    description: 'Instant inventory cross-reference against 46,642 CPSC and FDA safety enforcement actions with signed compliance report.',
+    description: 'Instant inventory cross-reference against 46,642 US & Canadian (12,430 CPSC/FDA + 34,212 Health Canada) safety enforcement actions with signed compliance report.',
     features: [
       'Cross-reference against 46,642 active federal recall records',
       'Class I & serious hazard identification',

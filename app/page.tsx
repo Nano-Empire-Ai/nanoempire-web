@@ -87,7 +87,7 @@ const SKUS = [
 
   // RecallGuard (Human & Merchant)
 
-  { id: "recallguard-report", price: "$30 USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "One-time scan of inventory against 46,642 CPSC/FDA recalls. Signed PDF compliance report." },
+  { id: "recallguard-report", price: "$30 USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "One-time scan of inventory against 46,642 US & Canadian recalls (12,430 US CPSC/FDA + 34,212 Health Canada). Signed PDF compliance report." },
 
   { id: "recallguard-monitoring", price: "$99/mo USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "Monthly inventory re-scan + immediate recall expansion alerts." },
 
@@ -1176,7 +1176,7 @@ export default function Home() {
 
           <div className="per">one-time scan · instant PDF</div>
 
-          <p>Scan your inventory against 46,642 CPSC/FDA recalls. Official signed compliance report with remedy protocols.</p>
+          <p>Scan your inventory against 46,642 US & Canadian recalls (12,430 US CPSC/FDA + 34,212 Health Canada). Official signed compliance report with remedy protocols.</p>
 
           <a className="btn small solid" href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" target="_blank">Order Report ($30)</a>
 
@@ -1274,7 +1274,7 @@ export default function Home() {
 
       <div className="sec-head rv"><span className="sec-num">05</span><h2 className="sec-title">Run a compliance scan.</h2></div>
 
-      <p className="sec-sub rv">RecallRadar Compliance Report is <a href="/recall-report">$30 USD on Stripe</a>. Scan your inventory CSV directly against 46,642 CPSC and FDA safety records with instant signed report generation. For enterprise feeds or private deployment, contact <a href="mailto:licensing@nanoempireai.com">licensing@nanoempireai.com</a> ($2,400/yr).</p>
+      <p className="sec-sub rv">RecallRadar Compliance Report is <a href="/recall-report">$30 USD on Stripe</a>. Scan your inventory CSV directly against 46,642 US & Canadian safety records (12,430 US CPSC/FDA + 34,212 Health Canada) with instant signed report generation. For enterprise feeds or private deployment, contact <a href="mailto:licensing@nanoempireai.com">licensing@nanoempireai.com</a> ($2,400/yr).</p>
 
 
 
@@ -1318,7 +1318,7 @@ export default function Home() {
 
             <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Recall records</div>
 
-            <strong className="text-3xl font-bold text-white">46,642</strong>
+            <strong className="text-3xl font-bold text-white">46,642</strong><div className="text-[11px] text-[#8C92A4] mt-1 font-mono">12,430 US (CPSC/FDA) + 34,212 Canada</div>
 
           </div>
 
