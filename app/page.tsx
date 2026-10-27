@@ -61,10 +61,6 @@ const VERIFICATION_MENU_HTML = `<section id="verification-menu" style="max-width
       <h3 style="margin-top: 0;">RecallRadar Compliance Report — $30 USD</h3>
       <p>Instant inventory cross-reference against 46,642 US & Canadian safety enforcement records. Signed PDF and CSV audit report.</p>
     </div>
-    <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1.25rem;">
-      <h3 style="margin-top: 0;">SkillProof Sprint — $500 CAD</h3>
-      <p>Targeted adversarial verification battery for MCP servers &amp; agent skills. Typical turnaround is 2–5 business days depending on scope. Deliverable includes a signed Ed25519 Trust Manifest and reproducible findings.</p>
-    </div>
     <div style="border: 2px solid #111; border-radius: 8px; padding: 1.25rem;">
       <h3 style="margin-top: 0;">Sovereign Data License — $2,400 / yr</h3>
       <p>Full enterprise data export, daily automated sync across federal safety feeds, and commercial catalog vetting license.</p>
@@ -75,10 +71,8 @@ const VERIFICATION_MENU_HTML = `<section id="verification-menu" style="max-width
   attacks failed — not that no attack exists. Every finding cites the op
   that produced it. Identity binds claims to behavior; it isn't KYC.</p>
 
-  <p><a href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" target="_blank" rel="noopener noreferrer"
-  style="display: inline-block; background: #111; color: #fff; padding: .75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600;">
-  Order SkillProof Sprint ($500 CAD)</a></p>
-  <p style="font-size: .85rem; color: #555;">Fixed price, self-serve Stripe checkout. No meter, no surprise.</p>
+  <p><a href="/skillproof" style="display: inline-block; background: #111; color: #fff; padding: .75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600;">Explore SkillProof Trust Manifests →</a></p>
+  <p style="font-size: .85rem; color: #555;">Offline-verifiable Ed25519 manifests and test batteries.</p>
 </section>`;
 
 
