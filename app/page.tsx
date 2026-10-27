@@ -846,7 +846,7 @@ export default function Home() {
 
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2">RecallGuard &amp; BNOA Glasses HUD</h3>
+                <h3 className="text-lg font-bold text-white mb-2">RecallRadar &amp; BNOA Glasses HUD</h3>
 
                 <p className="text-xs text-[#8C92A4] font-sans leading-relaxed">
 

@@ -13,7 +13,7 @@ export default function TermsPage() {
         <section className="space-y-3 text-sm text-[#8C92A4] leading-relaxed">
           <h2 className="text-lg font-bold text-white font-mono uppercase">1. Scope of Services</h2>
           <p>
-            Nano Empire AI Inc. (&quot;Nano Empire&quot;) provides machine-payable product recall data APIs (RecallGuard via HTTP 402 on Base), self-serve inventory compliance reports (RecallRadar via Stripe), adversarial MCP verification manifests (SkillProof), and deterministic solicitation/claim audit reports (BidShield &amp; ClaimShield).
+            Nano Empire AI (&quot;Nano Empire&quot;, operated as a sole proprietorship by Robert Lambert) provides machine-payable product recall data APIs (RecallGuard via HTTP 402 on Base), self-serve inventory compliance reports (RecallRadar via Stripe), adversarial MCP verification manifests (SkillProof), and deterministic solicitation/claim audit reports (BidShield &amp; ClaimShield).
           </p>
         </section>
 
