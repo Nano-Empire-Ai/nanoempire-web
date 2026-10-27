@@ -53,6 +53,25 @@
           ],
           "single_loop_skill_disclosure": true
         }
+      },
+      {
+        "uri": "https://standards.nanoempireai.com/ext/agent-governance/v1",
+        "description": "Enterprise agent governance, accountable human supervisor, and deterministic kill criteria (SK Telecom standard)",
+        "required": false,
+        "params": {
+          "accountable_supervisor": "Robert Lambert (Principal Operator)",
+          "supervisor_contact": "rob@nanoempireai.com",
+          "agent_employee_id": "NE-FLEET-001",
+          "operating_status": "SUPERVISED_PRODUCTION",
+          "max_daily_budget_usdc": 10.0,
+          "network_isolation_policy": "AIR_GAPPED_LOCAL_EXTRACTION",
+          "kill_criteria": [
+            "Unverified outbound email dispatch attempt without human operator gate",
+            "Single transaction spend exceeding .00 USDC without signed mandate",
+            "Non-zero hallucinated citation rate in preliminary reports",
+            "Socket or DNS creation attempt during document defense parsing"
+          ]
+        }
       }
     ]
   },

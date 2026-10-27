@@ -33,5 +33,18 @@
     "match": "https://recallguard-api.vercel.app/api/v1/match"
   },
   "single_loop_skill_disclosure": true,
-  "updated_at": "2026-10-26"
+  "updated_at": "2026-10-26",
+  "governance": {
+    "accountable_supervisor": "Robert Lambert (rob@nanoempireai.com)",
+    "operating_mode": "supervised",
+    "agent_employee_id": "NE-FLEET-001",
+    "kill_switch_enabled": true,
+    "max_daily_budget_usdc": 10.0,
+    "network_isolation": "air_gapped_local_kernel",
+    "termination_triggers": [
+      "unverified_outbound_dispatch",
+      "budget_exceedance",
+      "socket_leak_in_airgap"
+    ]
+  }
 }
