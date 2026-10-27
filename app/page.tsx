@@ -62,8 +62,8 @@ const VERIFICATION_MENU_HTML = `<section id="verification-menu" style="max-width
       <p>Instant inventory cross-reference against 46,642 US & Canadian safety enforcement records. Signed PDF and CSV audit report.</p>
     </div>
     <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1.25rem;">
-      <h3 style="margin-top: 0;">SkillProof Adversarial Sprint — $500 CAD</h3>
-      <p>48-hour 180-vector adversarial battery for MCP servers & agent skills. Emits an Ed25519-signed Trust Manifest pinned to code SHA-256.</p>
+      <h3 style="margin-top: 0;">SkillProof Sprint — $500 CAD</h3>
+      <p>Targeted adversarial verification battery for MCP servers &amp; agent skills. Typical turnaround is 2–5 business days depending on scope. Deliverable includes a signed Ed25519 Trust Manifest and reproducible findings.</p>
     </div>
     <div style="border: 2px solid #111; border-radius: 8px; padding: 1.25rem;">
       <h3 style="margin-top: 0;">Sovereign Data License — $2,400 / yr</h3>
@@ -96,7 +96,7 @@ const SKUS = [
   
 
   // SkillProof & BidShield (Human & Enterprise)
-  { id: "skillproof-sprint", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "48-hour 180-vector adversarial verification battery for MCP servers and skills. Emits signed Ed25519 Trust Manifest." },
+  { id: "skillproof-sprint", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Targeted adversarial verification battery for MCP servers and skills. Typical turnaround is 2–5 business days depending on scope. Deliverable includes a signed Ed25519 Trust Manifest and reproducible findings." },
   { id: "bidshield-triage", price: "$99 USD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Urgent <72h solicitation fatal flaw scan. Missing annexes checklist & bond penalty exposure review." },
   { id: "bidshield-pilot", price: "$299 USD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Full tender requirement matrix, 5-gate compliance cross-walk, and certified exception audit." },
 
