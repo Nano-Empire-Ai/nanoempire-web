@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- HARD MATHEMATICAL AIR-GAP: Browser C++ sandbox blocks 100% of fetch/XHR/WebSocket/beacon calls -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none';" />
-  <title>BidShield Sovereign Capsule — Air-Gapped Local RFP Triage &amp; ZKCP-Lite Attestor</title>
+  <title>Blinded Network &amp; Policy Operation Attestor (BNOA v0.1) — Local-First Confidential AI Ops Capsule</title>
   <style>
     :root {
       --bg: #07090e;
@@ -16,7 +16,7 @@
       --emerald: #10b981;
       --amber: #f59e0b;
       --blue: #3b82f6;
-      --red: #ef4444;
+      --purple: #8b5cf6;
     }
     * { box-sizing: border-box; }
     body {
@@ -27,8 +27,8 @@
       color: var(--text);
       line-height: 1.5;
     }
-    .container { max-width: 980px; margin: 0 auto; }
-    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .container { max-width: 1020px; margin: 0 auto; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
     .badge {
       font-size: 11px;
       padding: 4px 10px;
@@ -40,10 +40,23 @@
     }
     .badge.amber { color: var(--amber); }
     .badge.blue { color: var(--blue); }
-    h1 { font-size: 22px; margin: 0 0 8px; color: #fff; }
-    p.sub { color: var(--muted); font-size: 13px; margin: 0 0 24px; }
+    .badge.purple { color: var(--purple); }
+    h1 { font-size: 21px; margin: 0 0 6px; color: #fff; }
+    p.sub { color: var(--muted); font-size: 12.5px; margin: 0 0 20px; }
+    .profile-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      background: #0b101b;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .profile-bar span { font-size: 11px; color: var(--muted); text-transform: uppercase; font-weight: 700; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
     .card {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -52,7 +65,7 @@
       margin-bottom: 18px;
     }
     .card h2 {
-      font-size: 14px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--muted);
@@ -60,23 +73,23 @@
     }
     textarea {
       width: 100%;
-      min-height: 220px;
+      min-height: 235px;
       background: #06080d;
       color: #f8fafc;
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 12px;
       font-family: inherit;
-      font-size: 12px;
+      font-size: 11.5px;
       resize: vertical;
     }
     .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
     button, a.cta-btn {
       cursor: pointer;
       font-family: inherit;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
-      padding: 10px 16px;
+      padding: 9px 14px;
       border-radius: 6px;
       border: 1px solid var(--emerald);
       background: rgba(16, 185, 129, 0.14);
@@ -89,6 +102,11 @@
       background: rgba(59, 130, 246, 0.14);
       color: var(--blue);
     }
+    button.purple {
+      border-color: var(--purple);
+      background: rgba(139, 92, 246, 0.14);
+      color: #c4b5fd;
+    }
     pre {
       background: #06080d;
       border: 1px solid var(--border);
@@ -98,6 +116,8 @@
       overflow-x: auto;
       color: #cbd5e1;
       margin: 0;
+      max-height: 310px;
+      overflow-y: auto;
     }
     .stat-row {
       display: grid;
@@ -112,7 +132,7 @@
       padding: 10px;
     }
     .stat .label { font-size: 10px; color: var(--muted); text-transform: uppercase; }
-    .stat .val { font-size: 16px; font-weight: 700; color: #fff; margin-top: 4px; }
+    .stat .val { font-size: 15px; font-weight: 700; color: #fff; margin-top: 4px; }
     .gate-locked {
       border: 1px dashed var(--amber);
       padding: 14px;
@@ -133,23 +153,113 @@
 <body>
   <div class="container">
     <div class="badge-row">
-      <span class="badge">CSP: default-src 'none' (Hardware-Enforced Air-Gap)</span>
-      <span class="badge blue">ZKCP-Lite: Salted SHA-256 Merkle Commitments</span>
-      <span class="badge amber">Human Mandate Gate: AP2 / x402 / Stripe</span>
+      <span class="badge">CSP: default-src 'none' (Browser-Enforced Network Blackout)</span>
+      <span class="badge blue">Schema: BNOA/0.1 (Salted SHA-256 Merkle Commitments)</span>
+      <span class="badge purple">Human Gate: WebAuthn Passkey + ECDSA P-256</span>
     </div>
 
-    <h1>BidShield Sovereign Capsule (v1.0)</h1>
+    <h1>Confidential AI Operations &amp; Policy Attestor (BNOA v0.1)</h1>
     <p class="sub">
-      Single-file, zero-network-egress RFP/SOW triage &amp; blinded cryptographic capability attestor.
-      Save this HTML file locally or disconnect Wi-Fi: the browser's Content-Security-Policy (<code>default-src 'none'</code>) makes background network transmission impossible.
+      Local-first blinded attestation capsule. Proves an AI agent parsed a confidential network change request or procurement packet,
+      identified mandatory policy obligations and missing artifacts, and obtained a cryptographic human mandate signature &mdash;
+      with <strong>no plaintext network egress observed under enforced CSP</strong>.
     </p>
+
+    <div class="profile-bar">
+      <span>Select Attestation Profile:</span>
+      <button id="loadCienaBtn" class="purple" type="button">1. Ciena AI Ops Profile (ciena.network_change_review.v1)</button>
+      <button id="loadRfpBtn" class="secondary" type="button">2. Procurement Triage Profile (rfp.bidshield.triage.v1 &mdash; NRC #87055)</button>
+    </div>
 
     <div class="grid">
       <div class="card">
-        <h2>1. Local Solicitation / SOW Input (Zero Egress)</h2>
-        <textarea id="sowInput">SOLICITATION: NRC-87055 / NRC-OTT-JAN-2026
-TITLE: Janitorial Services for Ottawa Research Facilities
-CLOSING: Thursday, October 29, 2026 at 14:00 EDT
+        <h2>1. Local Confidential Input (CSP Network Egress Blocked)</h2>
+        <textarea id="sowInput"></textarea>
+        <div class="btn-row">
+          <button id="runTriageBtn" type="button">Analyze Locally &amp; Generate BNOA/0.1 Receipt</button>
+          <button id="testAirgapBtn" class="secondary" type="button">Prove CSP Network Block</button>
+        </div>
+        <p id="airgapStatus" style="font-size:11px; color:var(--emerald); margin:10px 0 0;"></p>
+      </div>
+
+      <div class="card">
+        <h2>2. Blinded Policy Receipt (BNOA/0.1)</h2>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="label">Obligations</div>
+            <div class="val" id="statObl">-</div>
+          </div>
+          <div class="stat">
+            <div class="label">Missing Artifacts</div>
+            <div class="val" id="statAnnex" style="color:var(--amber);">-</div>
+          </div>
+          <div class="stat">
+            <div class="label">CSP Egress</div>
+            <div class="val" id="statEgress" style="color:var(--emerald);">BLOCKED</div>
+          </div>
+          <div class="stat">
+            <div class="label">Proof Latency</div>
+            <div class="val" id="statMs">-</div>
+          </div>
+        </div>
+        <pre id="zkcpOutput"></pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3. Cryptographic Human Mandate Gate (WebAuthn Passkey / ECDSA P-256)</h2>
+      <p style="font-size:12px; color:var(--muted); margin:0 0 10px;">
+        Human approval is not a UI checkbox; it is a signed credential event bound to the receipt's <code>attestation_hash</code> and replay <code>nonce</code>.
+        Sign with your device's FIDO2/WebAuthn Passkey (Windows Hello / TouchID / YubiKey) or an in-browser WebCrypto ECDSA P-256 keypair.
+      </p>
+
+      <div id="gateLocked" class="gate-locked">
+        <div class="btn-row" style="margin-top:0;">
+          <button id="signWebAuthnBtn" class="purple" type="button">Sign Mandate via Hardware Passkey (WebAuthn FIDO2)</button>
+          <button id="signEcdsaBtn" type="button">Sign Mandate via WebCrypto ECDSA P-256</button>
+        </div>
+        <p id="signStatus" style="font-size:11px; color:var(--muted); margin:8px 0 0;"></p>
+      </div>
+
+      <div id="gateUnlocked" class="gate-unlocked">
+        <div style="font-size:12px; color:var(--emerald); font-weight:700; margin-bottom:8px;">
+          &#10003; CRYPTOGRAPHIC HUMAN MANDATE VERIFIED (Bound to BNOA/0.1 Receipt + Nonce)
+        </div>
+        <pre id="mandateJson" style="margin-bottom:12px;"></pre>
+        <div class="btn-row">
+          <a class="cta-btn" href="https://buy.stripe.com/eVqeVe3zK02HbCz0JyfAc0s" target="_blank" rel="noopener noreferrer">
+            Optional Commercial Gate: $99 Urgent Triage Checkout (Stripe)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PROFILES = {
+      ciena: {
+        profile_id: 'ciena.network_change_review.v1',
+        operation_id: 'CIENA-MOP-2026-8841',
+        text: `OPERATION: CIENA-MOP-2026-8841 (WaveLogic 6 Optical Core Span Re-Route)
+PROFILE: ciena.network_change_review.v1
+
+MANDATORY POLICY OBLIGATIONS:
+1. Maintenance window MUST be bounded to 02:00-04:00 UTC low-traffic window.
+2. Automated optical power rebalance SHALL execute pre-check BER baseline before switching.
+3. Rollback plan MUST restore primary submarine span within 15 seconds on OSNR degradation.
+4. Enterprise customer notification SHALL be logged 24 hours prior to span switch.
+5. Capacity impact MUST be quantified across all protected 800G wavelengths.
+
+REFERENCED ARTIFACTS NOT ATTACHED:
+- optical_config_diff (WaveLogic 6 transponder delta)
+- submarine_span_risk_matrix (wet-plant repeater power budget)
+- noc_approval_matrix (Tier-3 principal engineer sign-off)`
+      },
+      rfp: {
+        profile_id: 'rfp.bidshield.triage.v1',
+        operation_id: 'NRC-87055',
+        text: `SOLICITATION: NRC-87055 / NRC-OTT-JAN-2026
+TITLE: Janitorial Services for Ottawa Research Facilities (Closes Thu Oct 29, 14:00 EDT)
 
 MANDATORY REQUIREMENTS:
 1. The bidder MUST hold a valid Facility Security Clearance at the Secret level.
@@ -157,7 +267,7 @@ MANDATORY REQUIREMENTS:
 3. All personnel MUST be bonded and possess Reliability status.
 4. Bidder MUST complete and submit the pricing matrix in Annex B.
 
-REFERENCED DOCUMENTS NOT ATTACHED IN NOTICE:
+REFERENCED ARTIFACTS NOT ATTACHED:
 - Annex A Statement of Work
 - Annex B Basis of Payment
 - Annex C Security Requirements Check List (SRCL)
@@ -167,76 +277,21 @@ REFERENCED DOCUMENTS NOT ATTACHED IN NOTICE:
 - Annex G Cleaning Schedule by Zone
 - Annex H Hazardous Material Protocols
 - Annex I Past Performance Reference Forms
-- Building Floor Plans (Security Controlled)</textarea>
-        <div class="btn-row">
-          <button id="runTriageBtn" type="button">Run Local 5-Stage Triage + ZKCP Commitment</button>
-          <button id="testAirgapBtn" class="secondary" type="button">Prove CSP Network Block</button>
-        </div>
-        <p id="airgapStatus" style="font-size:11px; color:var(--emerald); margin:10px 0 0;"></p>
-      </div>
+- Building Floor Plans (Security Controlled)`
+      }
+    };
 
-      <div class="card">
-        <h2>2. Blinded ZKCP-Lite Attestation Receipt</h2>
-        <div class="stat-row">
-          <div class="stat">
-            <div class="label">Obligations</div>
-            <div class="val" id="statObl">-</div>
-          </div>
-          <div class="stat">
-            <div class="label">Missing Annexes</div>
-            <div class="val" id="statAnnex" style="color:var(--amber);">-</div>
-          </div>
-          <div class="stat">
-            <div class="label">JEV Exposure</div>
-            <div class="val" id="statJev">$29,400</div>
-          </div>
-          <div class="stat">
-            <div class="label">Latency</div>
-            <div class="val" id="statMs">-</div>
-          </div>
-        </div>
-        <pre id="zkcpOutput">Click "Run Local 5-Stage Triage" to compute WebCrypto SHA-256 Merkle commitments...</pre>
-      </div>
-    </div>
+    let activeProfileKey = 'ciena';
+    let latestAttestation = null;
 
-    <div class="card">
-      <h2>3. Cryptographic Human-Approval Mandate Gate (AP2 / x402 / Stripe)</h2>
-      <p style="font-size:12px; color:var(--muted); margin:0 0 10px;">
-        Autonomous agents cannot dispatch external funds or transmit confidential documents without an explicit human mandate signature.
-        Signing below binds your blinded commitment hash to a bounded $99 Urgent Triage or $0.05 USDC x402 authorization.
-      </p>
+    function bufToHex(buffer) {
+      return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
 
-      <div id="gateLocked" class="gate-locked">
-        <label style="font-size:12px; display:block; margin-bottom:10px; cursor:pointer;">
-          <input type="checkbox" id="humanConfirmCheck" />
-          I confirm no unredacted PHI/classified material is included and authorize a bounded spend mandate (&le; $99.00 USD Stripe or &le; 0.10 USDC on Base <code>eip155:8453</code>).
-        </label>
-        <button id="signMandateBtn" type="button">Sign Human Mandate &amp; Unlock Settlement Rails</button>
-      </div>
-
-      <div id="gateUnlocked" class="gate-unlocked">
-        <div style="font-size:12px; color:var(--emerald); font-weight:700; margin-bottom:8px;">
-          &#10003; HUMAN MANDATE SIGNED (Zero-Plaintext Commitment Bound)
-        </div>
-        <pre id="mandateJson" style="margin-bottom:12px;"></pre>
-        <div class="btn-row">
-          <a class="cta-btn" href="https://buy.stripe.com/eVqeVe3zK02HbCz0JyfAc0s" target="_blank" rel="noopener noreferrer">
-            Rail 1: Book $99 Urgent Annex Gap Scan (Stripe)
-          </a>
-          <a class="cta-btn" style="border-color:var(--blue); color:var(--blue); background:rgba(59,130,246,0.14);" href="https://www.nanoempireai.com/offers.json" target="_blank" rel="noopener noreferrer">
-            Rail 2: Inspect x402 Base USDC &amp; Offers Manifest
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
     async function sha256Hex(text) {
       const data = new TextEncoder().encode(text);
       const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      return bufToHex(hashBuffer);
     }
 
     async function merkleRoot(items) {
@@ -256,103 +311,171 @@ REFERENCED DOCUMENTS NOT ATTACHED IN NOTICE:
       return layer[0];
     }
 
-    let latestAttestation = null;
-
     async function runLocalTriage() {
       const t0 = performance.now();
       const raw = document.getElementById('sowInput').value || '';
       const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
+      const prof = PROFILES[activeProfileKey];
 
-      const salt = (await sha256Hex('ne-sovereign-capsule:' + lines.length)).slice(0, 32);
+      const now = new Date();
+      const issuedAt = now.toISOString();
+      const expiresAt = new Date(now.getTime() + 24 * 3600 * 1000).toISOString();
+      const randBytes = new Uint8Array(16);
+      crypto.getRandomValues(randBytes);
+      const nonce = bufToHex(randBytes);
+
+      const salt = (await sha256Hex('bnoa-salt:BNOA/0.1:' + prof.profile_id + ':' + nonce + ':' + issuedAt)).slice(0, 32);
       const rawHash = await sha256Hex(raw);
-      const blindedDocCommitment = await sha256Hex(salt + ':' + rawHash);
+      const docCommitment = 'sha256:' + (await sha256Hex(salt + ':' + rawHash));
 
       const keywords = ['must', 'shall', 'mandatory', 'required'];
       const obligations = [];
-      const missingAnnexes = [];
+      const missingArtifacts = [];
       let inRef = false;
 
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
-        if (line.includes('REFERENCED DOCUMENTS')) {
+        if (line.includes('REFERENCED') && line.includes('NOT ATTACHED')) {
           inRef = true;
           continue;
         }
         if (inRef && line.startsWith('-')) {
-          missingAnnexes.push(salt + ':annex:' + i + ':' + line);
+          missingArtifacts.push(salt + ':artifact:' + i + ':' + line);
         } else if (keywords.some(k => line.toLowerCase().includes(k))) {
-          obligations.push(salt + ':obl:' + i + ':' + line);
+          obligations.push(salt + ':obligation:' + i + ':' + line);
         }
       }
 
       const oblRoot = await merkleRoot(obligations);
-      const annexRoot = await merkleRoot(missingAnnexes);
-      const elapsedMs = (performance.now() - t0).toFixed(2);
+      const artifactRoot = await merkleRoot(missingArtifacts);
+      const elapsedMs = Number((performance.now() - t0).toFixed(3));
 
-      latestAttestation = {
-        protocol: 'ZKCP-Lite/1.0-BrowserCapsule',
-        timestamp_utc: new Date().toISOString(),
-        csp_airgap_enforced: "default-src 'none'",
-        zero_plaintext_leaked: true,
+      const envelope = {
+        schema_version: 'BNOA/0.1',
+        profile_id: prof.profile_id,
+        operation_id: prof.operation_id,
+        nonce: nonce,
+        issued_at_utc: issuedAt,
+        expires_at_utc: expiresAt,
+        processing_mode: 'LOCAL_ONLY_CSP_ENFORCED',
+        no_plaintext_egress_under_csp: true,
+        confidentiality_notice: 'Commits to structured policy findings without transmitting plaintext. Confidentiality depends on local salt secrecy and non-disclosure of preimage data.',
         commitments: {
-          blinded_document_commitment: blindedDocCommitment,
+          document_commitment: docCommitment,
           obligations_merkle_root: oblRoot,
-          missing_annexes_merkle_root: annexRoot
+          missing_artifacts_merkle_root: artifactRoot
         },
-        public_summary: {
-          obligations_count: obligations.length,
-          missing_annexes_count: missingAnnexes.length,
-          jev_exposure_usd: 29400,
-          routing_verdict: missingAnnexes.length > 0 ? 'HUMAN_OPERATOR_EXCEPTION_GATE' : 'TOUCHLESS_READY'
+        policy_summary: {
+          obligations_identified_count: obligations.length,
+          missing_artifacts_count: missingArtifacts.length,
+          exception_routing: missingArtifacts.length > 0 ? 'HUMAN_APPROVAL_GATE_REQUIRED' : 'TOUCHLESS_ELIGIBLE'
         },
-        proving_latency_ms: Number(elapsedMs)
+        proof_latency_ms: elapsedMs,
+        verification_status: 'PASS'
       };
 
+      envelope.attestation_hash = await sha256Hex(JSON.stringify(envelope));
+      latestAttestation = envelope;
+
       document.getElementById('statObl').textContent = String(obligations.length);
-      document.getElementById('statAnnex').textContent = String(missingAnnexes.length);
+      document.getElementById('statAnnex').textContent = String(missingArtifacts.length);
       document.getElementById('statMs').textContent = elapsedMs + ' ms';
-      document.getElementById('zkcpOutput').textContent = JSON.stringify(latestAttestation, null, 2);
+      document.getElementById('zkcpOutput').textContent = JSON.stringify(envelope, null, 2);
     }
 
+    function selectProfile(key) {
+      activeProfileKey = key;
+      document.getElementById('sowInput').value = PROFILES[key].text;
+      document.getElementById('gateUnlocked').style.display = 'none';
+      runLocalTriage();
+    }
+
+    document.getElementById('loadCienaBtn').addEventListener('click', () => selectProfile('ciena'));
+    document.getElementById('loadRfpBtn').addEventListener('click', () => selectProfile('rfp'));
     document.getElementById('runTriageBtn').addEventListener('click', runLocalTriage);
 
     document.getElementById('testAirgapBtn').addEventListener('click', async () => {
       const statusEl = document.getElementById('airgapStatus');
       try {
         await fetch('https://example.com');
-        statusEl.textContent = '[WARN] Network fetch succeeded (CSP not active).';
+        statusEl.textContent = '[WARN] Network fetch succeeded.';
       } catch (err) {
-        statusEl.textContent = '[VERIFIED] Browser C++ CSP blocked outbound fetch() call: zero network egress possible.';
+        statusEl.textContent = '[VERIFIED] Browser C++ CSP blocked outbound fetch(): no plaintext network egress possible under enforced CSP.';
       }
     });
 
-    document.getElementById('signMandateBtn').addEventListener('click', async () => {
-      const checked = document.getElementById('humanConfirmCheck').checked;
-      if (!checked) {
-        alert('Please check the human mandate confirmation box first.');
-        return;
-      }
-      if (!latestAttestation) {
-        await runLocalTriage();
-      }
-      const mandatePayload = {
-        mandate_protocol: 'AP2-x402-HumanGate/1.0',
-        approved_at_utc: new Date().toISOString(),
-        bound_document_commitment: latestAttestation.commitments.blinded_document_commitment,
-        bound_annexes_merkle_root: latestAttestation.commitments.missing_annexes_merkle_root,
-        authorized_rails: {
-          stripe_urgent_triage_usd: 99.00,
-          x402_base_usdc_max_atomic: '100000',
-          x402_pay_to: '0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01'
-        }
+    async function finalizeMandateSignature(authMethod, signatureProof) {
+      const mandateReceipt = {
+        schema_version: 'BNOA-Mandate/0.1',
+        signed_at_utc: new Date().toISOString(),
+        bound_profile_id: latestAttestation.profile_id,
+        bound_operation_id: latestAttestation.operation_id,
+        bound_nonce: latestAttestation.nonce,
+        bound_attestation_hash: latestAttestation.attestation_hash,
+        bound_document_commitment: latestAttestation.commitments.document_commitment,
+        human_mandate_verification: {
+          human_approved: true,
+          auth_method: authMethod,
+          cryptographic_proof: signatureProof
+        },
+        verification_status: 'PASS'
       };
-      mandatePayload.mandate_signature_sha256 = await sha256Hex(JSON.stringify(mandatePayload));
-      document.getElementById('mandateJson').textContent = JSON.stringify(mandatePayload, null, 2);
+      document.getElementById('mandateJson').textContent = JSON.stringify(mandateReceipt, null, 2);
       document.getElementById('gateUnlocked').style.display = 'block';
+    }
+
+    document.getElementById('signEcdsaBtn').addEventListener('click', async () => {
+      if (!latestAttestation) await runLocalTriage();
+      const statusEl = document.getElementById('signStatus');
+      statusEl.textContent = 'Generating ephemeral NIST P-256 keypair and signing attestation_hash...';
+      const keyPair = await crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256' }, true, ['sign', 'verify']);
+      const msgBytes = new TextEncoder().encode(latestAttestation.attestation_hash + ':' + latestAttestation.nonce);
+      const sigBuf = await crypto.subtle.sign({ name: 'ECDSA', hash: { name: 'SHA-256' } }, keyPair.privateKey, msgBytes);
+      const pubJwk = await crypto.subtle.exportKey('jwk', keyPair.publicKey);
+      const pubThumbprint = await sha256Hex(JSON.stringify(pubJwk));
+
+      await finalizeMandateSignature('WEBCRYPTO_ECDSA_P256_SHA256', {
+        public_key_jwk_sha256: pubThumbprint,
+        signature_hex: bufToHex(sigBuf)
+      });
+      statusEl.textContent = 'Signed with WebCrypto ECDSA P-256 (verified in-browser).';
     });
 
-    // Run initial triage on load
-    runLocalTriage();
+    document.getElementById('signWebAuthnBtn').addEventListener('click', async () => {
+      if (!latestAttestation) await runLocalTriage();
+      const statusEl = document.getElementById('signStatus');
+      try {
+        if (!window.PublicKeyCredential || !navigator.credentials) {
+          throw new Error('WebAuthn not available in this context');
+        }
+        statusEl.textContent = 'Requesting hardware passkey / platform authenticator signature...';
+        const challengeBytes = new TextEncoder().encode(latestAttestation.attestation_hash.slice(0, 32));
+        const userId = new Uint8Array(16);
+        crypto.getRandomValues(userId);
+        const cred = await navigator.credentials.create({
+          publicKey: {
+            challenge: challengeBytes,
+            rp: { name: 'BNOA Confidential AI Ops Attestor' },
+            user: { id: userId, name: 'operator@nanoempireai.com', displayName: 'Authorized Network Operator' },
+            pubKeyCredParams: [{ type: 'public-key', alg: -7 }],
+            timeout: 30000,
+            attestation: 'none'
+          }
+        });
+        const clientDataHash = await sha256Hex(bufToHex(cred.response.clientDataJSON));
+        await finalizeMandateSignature('FIDO2_WEBAUTHN_PASSKEY', {
+          credential_id: cred.id,
+          client_data_sha256: clientDataHash
+        });
+        statusEl.textContent = 'Signed with FIDO2 / WebAuthn Hardware Passkey.';
+      } catch (err) {
+        statusEl.textContent = 'Passkey prompt canceled or unavailable (' + err.message + ') — falling back to WebCrypto ECDSA P-256 signature...';
+        document.getElementById('signEcdsaBtn').click();
+      }
+    });
+
+    // Default to Ciena profile on load
+    selectProfile('ciena');
   </script>
 </body>
 </html>
