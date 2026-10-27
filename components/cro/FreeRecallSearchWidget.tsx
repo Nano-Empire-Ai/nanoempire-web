@@ -60,15 +60,17 @@ export function FreeRecallSearchWidget() {
     ]
   };
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!query.trim()) return;
+    const inputEl = e.currentTarget.querySelector('input') as HTMLInputElement | null;
+    const effectiveQuery = (query || inputEl?.value || '').trim();
+    if (!effectiveQuery) return;
 
     setLoading(true);
     setHasSearched(true);
 
     setTimeout(() => {
-      const q = query.toLowerCase();
+      const q = effectiveQuery.toLowerCase();
       let matched: any[] = [];
       for (const [key, list] of Object.entries(sampleRecalls)) {
         if (q.includes(key) || key.includes(q)) {
@@ -80,7 +82,7 @@ export function FreeRecallSearchWidget() {
       if (matched.length === 0) {
         matched = [
           {
-            brand: query.trim(),
+            brand: effectiveQuery,
             product: `${query.trim()} Consumer Catalog Item`,
             hazard: "Active regulatory recall flag detected in cross-border index (CPSC/FDA/Health Canada).",
             date: "2024-02-14",
