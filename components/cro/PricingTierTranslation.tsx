@@ -31,13 +31,13 @@ export function PricingTierTranslation() {
             <div className="text-xs font-mono text-[#00B5E2] mt-1">or $0.10 USDC / match call via x402 on Base</div>
 
             <p className="text-sm text-[#8C92A4] mt-4 font-sans leading-relaxed">
-              Instant self-serve inventory screening against 56,271 CPSC, FDA, and Health Canada recall records with signed PDF/CSV attestation.
+              Instant self-serve inventory screening against 46,642 CPSC, FDA, and Health Canada recall records with signed PDF/CSV attestation.
             </p>
 
             <div className="mt-6 space-y-3 font-sans text-sm text-[#F4F1EA]">
               <div className="flex items-start gap-2.5">
                 <Check size={16} className="text-[#00B5E2] shrink-0 mt-0.5" />
-                <span>Full catalog scan vs. 56,271 safety records</span>
+                <span>Full catalog scan vs. 46,642 safety records</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <Check size={16} className="text-[#00B5E2] shrink-0 mt-0.5" />
@@ -153,7 +153,7 @@ export function PricingTierTranslation() {
               </div>
               <div className="flex items-start gap-2.5">
                 <Check size={16} className="text-[#FF7B00] shrink-0 mt-0.5" />
-                <span>48-hour turnaround SLA</span>
+                <span>48-hour turnaround target</span>
               </div>
             </div>
           </div>

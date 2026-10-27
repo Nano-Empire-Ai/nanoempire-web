@@ -107,7 +107,7 @@ export function FreeRecallSearchWidget() {
             Screen Your Catalog for Active Recalls
           </h2>
           <p className="text-sm sm:text-base text-[#8C92A4] font-sans max-w-2xl mx-auto">
-            Test our cross-border index of 56,271 verified US & Canadian government recalls (CPSC, FDA, Health Canada, Transport Canada).
+            Test our cross-border index of 46,642 verified US & Canadian government recalls (CPSC, FDA, Health Canada, Transport Canada).
           </p>
         </div>
 
@@ -142,7 +142,7 @@ export function FreeRecallSearchWidget() {
                   {results.length} Hazard Match{results.length > 1 ? "es" : ""} Detected in Government Feed
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-[#8C92A4]">Database: 56,271 US/CA Recalls</span>
+              <span className="text-[11px] font-mono text-[#8C92A4]">Database: 46,642 US/CA Recalls</span>
             </div>
 
             <div className="space-y-3">

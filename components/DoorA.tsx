@@ -15,7 +15,7 @@ export default function DoorA() {
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 text-left">
               <h3 className="text-lg font-semibold text-white mb-2">RecallGuard Feed</h3>
-              <p className="text-slate-400 mb-4">$0.05/call — 56,271 US recalls (CPSC + FDA)</p>
+              <p className="text-slate-400 mb-4">$0.05/call — 46,642 US recalls (CPSC + FDA)</p>
               <code className="text-xs text-slate-300 bg-slate-800 p-2 rounded block mb-4">
 GET /api/v1/feed?limit=50
               </code>

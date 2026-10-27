@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
       {
         id: 'recallguard-match',
         name: 'RecallGuard Match API',
-        description: 'Machine-native recall screening across 56,271 US & Canadian records.',
+        description: 'Machine-native recall screening across 46,642 US & Canadian records.',
         price: '0.10 USDC',
         method: 'POST',
         endpoint: 'https://recallguard-api.vercel.app/api/v1/match',

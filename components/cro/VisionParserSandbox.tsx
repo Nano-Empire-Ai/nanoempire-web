@@ -251,7 +251,7 @@ export function VisionParserSandbox() {
 
             <div className="bg-[#07090D] p-3 rounded-lg border border-[#8C92A4]/15 font-mono text-xs space-y-1.5 text-[#8C92A4]">
               <div className="flex justify-between">
-                <span>State Hash:</span>
+                <span>State Hash (Simulated Preset):</span>
                 <span className="text-white truncate max-w-[240px]">{simulatedHash}</span>
               </div>
               <div className="flex justify-between">

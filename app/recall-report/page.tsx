@@ -138,10 +138,10 @@ export default function RecallReportPage() {
             North American Safety Registry (CPSC & FDA)
           </div>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Check your inventory against <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">56,271 recalls</span>.
+            Check your inventory against <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">46,642 recalls</span>.
           </h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-            Upload your inventory CSV. We instantly cross-reference UPCs, brands, and product titles against 56,271 verified official US (CPSC, FDA) safety enforcement notices.
+            Upload your inventory CSV. We instantly cross-reference UPCs, brands, and product titles against 46,642 verified official US (CPSC, FDA) safety enforcement notices.
           </p>
         </div>
 
@@ -187,7 +187,7 @@ export default function RecallReportPage() {
               className="w-full mt-6 bg-white text-black hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-lg py-4 rounded-xl flex items-center justify-center gap-2 transition-colors"
             >
               {isScanning ? (
-                <><Loader2 className="w-5 h-5 animate-spin" /> Scanning 56,271 records...</>
+                <><Loader2 className="w-5 h-5 animate-spin" /> Scanning 46,642 records...</>
               ) : (
                 <>Run Compliance Scan <ChevronRight className="w-5 h-5" /></>
               )}

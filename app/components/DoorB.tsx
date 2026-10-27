@@ -17,7 +17,7 @@ export default function DoorB() {
               <h3 className="text-lg font-semibold text-white mb-2">Compliance Report</h3>
               <p className="text-slate-400 mb-4">$30 USD — One-Time Inventory Audit</p>
               <ul className="text-sm text-slate-400 space-y-1 mb-4">
-                <li>• 56,271 CPSC & FDA recall records</li>
+                <li>• 46,642 CPSC & FDA recall records</li>
                 <li>• Automated UPC / SKU cross-reference</li>
                 <li>• Signed PDF & CSV compliance audit</li>
               </ul>

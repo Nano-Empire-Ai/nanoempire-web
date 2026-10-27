@@ -106,7 +106,7 @@ export function DogfoodReceiptsWidget() {
             </a>
             <div className="p-3 bg-[#07090D] border border-[#8C92A4]/20 rounded-lg">
               <div className="text-[10px] text-[#8C92A4] uppercase">Safety Corpus</div>
-              <div className="text-lg font-bold text-[#A3FF00] mt-0.5">56,271</div>
+              <div className="text-lg font-bold text-[#A3FF00] mt-0.5">46,642</div>
               <div className="text-[10px] text-[#8C92A4]">CPSC · FDA · Health Canada</div>
             </div>
             <div className="p-3 bg-[#07090D] border border-[#8C92A4]/20 rounded-lg col-span-2 sm:col-span-1">

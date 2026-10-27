@@ -168,7 +168,7 @@ export default function AutomotiveSampleReport() {
         {/* Honesty Caveat & Footer */}
         <footer className="mt-8 pt-8 border-t border-neutral-200 text-neutral-500 text-sm leading-relaxed">
           <p className="mb-4">
-            <strong>How this report was made:</strong> your VIN was decoded to its make/model/year and checked against every NHTSA campaign for that vehicle — 21,812 recall records in the current database. A match means your vehicle is in a recalled group ("potentially affected"); the dealer confirms whether your specific VIN is included. This report is informational, not legal advice.
+            <strong>How this report was made:</strong> your VIN was decoded to its make/model/year and checked against every NHTSA campaign for that vehicle — 34,212 recall records in the current database. A match means your vehicle is in a recalled group ("potentially affected"); the dealer confirms whether your specific VIN is included. This report is informational, not legal advice.
           </p>
           <div className="bg-neutral-100 p-3 rounded font-mono text-xs text-center">
             SAMPLE REPORT — generated from a test VIN pattern to demonstrate format. Not a real vehicle assessment.

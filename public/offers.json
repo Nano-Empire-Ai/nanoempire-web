@@ -24,7 +24,7 @@
     {
       "id": "recallradar-report",
       "name": "RecallRadar Compliance Report",
-      "description": "One-time scan of inventory against 56,271 US & Canadian product safety recalls (CPSC, FDA, Health Canada, Transport Canada). Signed PDF report.",
+      "description": "One-time scan of inventory against 46,642 US & Canadian product safety recalls (CPSC, FDA, Health Canada, Transport Canada). Signed PDF report.",
       "price_usd": 30,
       "currency": "USD",
       "rail": "stripe",
@@ -110,7 +110,7 @@
     {
       "id": "recallradar-match",
       "name": "RecallRadar Match API",
-      "description": "Machine-native recall screening across 56,271 records. x402 on Base.",
+      "description": "Machine-native recall screening across 46,642 records. x402 on Base.",
       "price_usd": 0.1,
       "currency": "USDC",
       "rail": "x402",
@@ -130,7 +130,7 @@
     {
       "id": "sovereign-data-license",
       "name": "Sovereign Enterprise Data License",
-      "description": "Full 56,271-record recall corpus export, daily delta sync API, and commercial catalog indemnity license.",
+      "description": "Full 46,642-record recall corpus export, daily delta sync API, and commercial catalog indemnity license.",
       "price_usd": 2400,
       "currency": "USD",
       "interval": "annual",
