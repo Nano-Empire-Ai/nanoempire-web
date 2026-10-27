@@ -231,7 +231,100 @@
       font-size: 0.76rem;
       color: #E2E8F0;
     }
-  </style>
+  
+    /* Phase 1 Video & Demo Walkthrough */
+    .demo-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 900px) {
+      .demo-showcase-grid {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+    .demo-viewport {
+      border: 2px solid var(--cyan);
+      border-radius: 12px;
+      background: #020610;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .viewport-lens-header {
+      background: rgba(0, 229, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+      padding: 0.6rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+    .lens-hud-frame {
+      position: relative;
+      min-height: 260px;
+      padding: 1.5rem;
+      background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.05) 0%, rgba(0,0,0,0.95) 75%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .lens-crosshair {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 140px;
+      height: 100px;
+      transform: translate(-50%, -50%);
+      border: 1px dashed rgba(61, 220, 151, 0.6);
+      border-radius: 8px;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lens-crosshair::after {
+      content: "ALIGN BARCODE / SKU";
+      font-size: 0.65rem;
+      color: rgba(61, 220, 151, 0.8);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .reticle-corner {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-color: var(--emerald);
+    }
+    .pipeline-step-item {
+      padding: 0.75rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--cyan);
+      color: #000;
+      font-weight: 900;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      shrink: 0;
+    }
+
+</style>
 </head>
 <body>
   <header class="hud-header">
@@ -358,7 +451,102 @@
         </a>
       </div>
     </article>
-  </main>
+  
+  <!-- Phase 1: 60-Second POV Demo Walkthrough & Interactive Lens Simulator -->
+  <section class="hud-card" id="demo-showcase" style="border-color: var(--cyan); background: rgba(0, 229, 255, 0.03);">
+    <div class="hud-screen-header" style="border-bottom-color: rgba(0, 229, 255, 0.3);">
+      <div>
+        <div class="card-kicker" style="color: var(--cyan);">PHASE 1 · 60-SECOND HANDS-FREE RECALL SCREENING PROOF</div>
+        <h2 class="card-title" style="font-size: 1.25rem;">Meta Ray-Ban Lens Simulator &amp; Field Pilot Protocol</h2>
+      </div>
+      <div class="badge-row">
+        <span class="badge" style="border-color: var(--cyan); color: var(--cyan);">Nov 2 Hardware Delivery Ready</span>
+        <span class="badge emerald">46,642 Live Enforcement Index</span>
+      </div>
+    </div>
+
+    <div class="demo-showcase-grid">
+      <!-- Simulated Glasses Waveguide Lens Frame -->
+      <div class="demo-viewport">
+        <div class="viewport-lens-header">
+          <span>● RAY-BAN OPTICAL WAVEGUIDE (640x480 ADDITIVE)</span>
+          <span id="simulatorFpsText">30 FPS · LOW LATENCY</span>
+        </div>
+        <div class="lens-hud-frame">
+          <div class="lens-crosshair" id="lensCrosshair"></div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #8C92A4;">
+            <span>MODE: SKU SCAN</span>
+            <span id="simSkuTarget">TARGET: UNPAIRED</span>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.85); border-left: 3px solid var(--emerald); padding: 0.75rem; border-radius: 4px; margin-top: 3.5rem;">
+            <div id="simAlertTitle" style="color: var(--emerald); font-weight: 800; font-size: 0.88rem;">WAITING FOR SCAN...</div>
+            <div id="simAlertBody" style="color: #E2E8F0; font-size: 0.76rem; margin-top: 0.25rem;">Point glasses at pallet barcode or trigger 60s voice screening.</div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: var(--text-secondary); margin-top: 2rem;">
+            <span>TEMPLE AUDIO: READY</span>
+            <span style="color: var(--emerald); font-weight: 700;">PILOT: MERCHANT SHIELD ($99/mo)</span>
+          </div>
+        </div>
+        <div style="padding: 0.75rem 1rem; background: #070D18; border-top: 1px solid rgba(0,229,255,0.2); display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.74rem; color: #8C92A4;">Test SKU Triggers:</span>
+          <div class="btn-row">
+            <button type="button" class="primary focusable" onclick="runSimulatedScan('fisher')" style="font-size: 0.72rem; padding: 0.35rem 0.65rem;">Trigger: Fisher-Price</button>
+            <button type="button" class="focusable" onclick="runSimulatedScan('peloton')" style="font-size: 0.72rem; padding: 0.35rem 0.65rem;">Trigger: Peloton</button>
+            <button type="button" class="focusable emerald" onclick="runSimulatedScan('clean')" style="font-size: 0.72rem; padding: 0.35rem 0.65rem;">Trigger: Clean SKU</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 60-Second POV Script & Pilot Pitch Brief -->
+      <div>
+        <h3 style="font-size: 0.95rem; font-weight: 800; color: #FFF; margin-bottom: 0.75rem; text-transform: uppercase;">
+          The 60-Second Video Script (Recording Nov 2)
+        </h3>
+        
+        <div class="pipeline-step-item">
+          <div class="step-num">1</div>
+          <div>
+            <strong style="color: #FFF;">0:00 - 0:15 · The Hazard Hook</strong>
+            <p style="margin: 0.2rem 0 0 0; color: #8C92A4; font-size: 0.74rem;">
+              "Warehouse staff shelve thousands of SKUs a day. Recalled items look identical to safe inventory. If it ships, you face civil penalties and liability."
+            </p>
+          </div>
+        </div>
+
+        <div class="pipeline-step-item">
+          <div class="step-num">2</div>
+          <div>
+            <strong style="color: var(--cyan);">0:15 - 0:40 · Hands-Free Glasses Triage</strong>
+            <p style="margin: 0.2rem 0 0 0; color: #8C92A4; font-size: 0.74rem;">
+              Glasses look at pallet barcode. Instant red waveguide flag + temple audio: <em>'Hazard Match: Fisher-Price Sleeper. Remedy: Immediate Quarantine.'</em> Zero phone-typing needed.
+            </p>
+          </div>
+        </div>
+
+        <div class="pipeline-step-item">
+          <div class="step-num">3</div>
+          <div>
+            <strong style="color: var(--emerald);">0:40 - 1:00 · The Commercial Offer</strong>
+            <p style="margin: 0.2rem 0 0 0; color: #8C92A4; font-size: 0.74rem;">
+              "Merchant Shield gives receiving teams real-time glasses protection for $99/mo, backed by 46,642 verified federal records. Two pilot slots open this month."
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(61, 220, 151, 0.3); background: rgba(61, 220, 151, 0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+          <div>
+            <div style="font-weight: 800; font-size: 0.8rem; color: #FFF;">2 Paid Pilots Target (November)</div>
+            <div style="font-size: 0.72rem; color: #8C92A4;">Warehouse Compliance ($99/mo) · Field Triage ($299)</div>
+          </div>
+          <a href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" class="hud-btn emerald focusable" style="font-size: 0.75rem;">Lock Pilot ($99/mo) →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
 
   <!-- Direct Glasses Launch Instructions & Kotlin DAT 1.0.1 Snippet -->
   <section class="hud-card">
@@ -446,7 +634,40 @@ Wearables.createSession(selector).fold(
         });
       });
 
-      // Temple Speaker TTS (Meta Ray-Ban Display Web Speech subset)
+      
+  // Interactive Lens Simulator for Phase 1 Demo
+  window.runSimulatedScan = function(type) {
+    const titleEl = document.getElementById('simAlertTitle');
+    const bodyEl = document.getElementById('simAlertBody');
+    const targetEl = document.getElementById('simSkuTarget');
+    const crosshair = document.getElementById('lensCrosshair');
+
+    if (type === 'fisher') {
+      targetEl.textContent = 'UPC: 027084-754634';
+      crosshair.style.borderColor = '#FF3B30';
+      titleEl.style.color = '#FF3B30';
+      titleEl.textContent = 'HAZARD MATCH · STOP SALE';
+      bodyEl.textContent = 'Fisher-Price Rock 'n Play Sleeper (CPSC). Quarantine unit immediately. Full refund mandated.';
+      updateHud('scan-fisher');
+    } else if (type === 'peloton') {
+      targetEl.textContent = 'UPC: 085001-209841';
+      crosshair.style.borderColor = '#FF9100';
+      titleEl.style.color = '#FF9100';
+      titleEl.textContent = 'HAZARD MATCH · REPAIR REQ';
+      bodyEl.textContent = 'Peloton Tread+ Rear Roller Entrapment. Do not distribute without approved guard kit.';
+      updateHud('scan-peloton');
+    } else {
+      targetEl.textContent = 'UPC: 049000-042566';
+      crosshair.style.borderColor = '#3DDC97';
+      titleEl.style.color = '#3DDC97';
+      titleEl.textContent = 'SKU VERIFIED CLEAN (46,642 RECORDS)';
+      bodyEl.textContent = 'No matching open recall or federal safety action across CPSC, FDA, or Health Canada.';
+      primaryEl.textContent = 'SKU CLEAN: Verified safe against 46,642 federal records.';
+      secondaryEl.textContent = 'Receiving scan passed. Cleared for warehouse shelving.';
+    }
+  };
+
+// Temple Speaker TTS (Meta Ray-Ban Display Web Speech subset)
       function speakCurrentHud() {
         if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
           speechStatusEl.textContent = 'Temple Speaker: Web Speech synthesis unavailable in this browser.';
