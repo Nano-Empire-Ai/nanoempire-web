@@ -193,6 +193,10 @@ export default function Home() {
 
             <a href="/openapi.json" className="text-[#00B5E2] hover:underline">openapi.json</a>
 
+            <span className="text-[#8C92A4]/40">·</span>
+
+            <a href="/.well-known/meta-wearables-manifest.json" className="text-[#00E5FF] hover:underline">meta-wearables-manifest.json</a>
+
           </div>
 
         </div>
@@ -232,6 +236,7 @@ export default function Home() {
             <div className="hidden xl:flex items-center gap-5 text-[#8C92A4] text-xs font-mono">
 
               <a href="/bidshield/capsule" className="text-[#a78bfa] hover:underline flex items-center gap-1 font-bold border border-[#a78bfa]/30 bg-[#a78bfa]/10 px-2 py-0.5 rounded"><Shield size={13} /> BNOA Capsule</a>
+              <a href="/wearables/" className="text-[#00E5FF] hover:underline flex items-center gap-1 font-bold border border-[#00E5FF]/30 bg-[#00E5FF]/10 px-2 py-0.5 rounded"><Activity size={13} /> Ray-Ban HUD</a>
               <a href="/bidshield/triage/" className="text-[#3ddc97] hover:underline flex items-center gap-1 font-bold"><Shield size={13} /> BidShield Triage</a>
 
               <a href="/ingest/" className="text-[#00B5E2] hover:underline flex items-center gap-1 font-bold"><Database size={13} /> Trap Atlas</a>
@@ -826,6 +831,32 @@ export default function Home() {
               </div>
 
               <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#A3FF00] font-semibold">Run MCP Audit →</div>
+
+            </a>
+
+            <a href="/wearables/" className="p-5 rounded-xl border border-[#00E5FF]/40 bg-[#0f1423] hover:border-[#00E5FF] transition-all group flex flex-col justify-between">
+
+              <div>
+
+                <div className="flex items-center justify-between mb-3">
+
+                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-[#00E5FF] bg-[#00E5FF]/10 px-2 py-0.5 rounded border border-[#00E5FF]/30">META RAY-BAN DISPLAY · DAT v1.0.1</span>
+
+                  <ArrowUpRight size={16} className="text-[#00E5FF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+
+                </div>
+
+                <h3 className="text-lg font-bold text-white mb-2">RecallGuard &amp; BNOA Glasses HUD</h3>
+
+                <p className="text-xs text-[#8C92A4] font-sans leading-relaxed">
+
+                  Additive-light waveguide HUD for Meta Ray-Ban Display &amp; Neural Band. Live warehouse recall triage, temple speaker TTS, and SkillProof #08 verification.
+
+                </p>
+
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#00E5FF] font-semibold">Launch Glasses HUD →</div>
 
             </a>
 

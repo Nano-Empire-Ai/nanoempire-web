@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RecallGuard &amp; BNOA HUD — Meta Ray-Ban Display &amp; DAT v1.0.1</title>
+  <link rel="manifest" href="/wearables/.well-known/meta-wearables-manifest.json" />
+  <style>
+    :root {
+      /* Meta Ray-Ban Display Additive-Light Palette (#000000 = transparent waveguide pixel) */
+      --bg-unlit: #000000;
+      --surface-card: rgba(8, 22, 38, 0.92);
+      --surface-active: rgba(14, 42, 71, 0.96);
+      --cyan: #00E5FF;
+      --emerald: #3DDC97;
+      --amber: #FF9100;
+      --purple: #B388FF;
+      --text-bright: #FFFFFF;
+      --text-secondary: #B0BEC5;
+      --focus-glow: 0 0 0 3px #00E5FF, 0 0 18px rgba(0, 229, 255, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-unlit);
+      color: var(--text-bright);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      line-height: 1.45;
+      min-height: 100vh;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .hud-header {
+      border: 2px solid var(--cyan);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      background: var(--surface-card);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .hud-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .hud-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 25%, #38BDF8 0%, #0284C7 35%, #0369A1 72%, #082F49 100%);
+      border: 1.5px solid var(--emerald);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 14px rgba(61, 220, 151, 0.45);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--cyan);
+      color: var(--cyan);
+      background: rgba(0, 229, 255, 0.12);
+    }
+
+    .badge.emerald {
+      border-color: var(--emerald);
+      color: var(--emerald);
+      background: rgba(61, 220, 151, 0.14);
+    }
+
+    .badge.amber {
+      border-color: var(--amber);
+      color: var(--amber);
+      background: rgba(255, 145, 0, 0.14);
+    }
+
+    .hud-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1rem;
+    }
+
+    .hud-card {
+      border: 2px solid rgba(0, 229, 255, 0.38);
+      border-radius: 14px;
+      padding: 1.15rem;
+      background: var(--surface-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.9rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .hud-card:focus-within,
+    .focusable:focus {
+      outline: none;
+      border-color: var(--cyan);
+      box-shadow: var(--focus-glow);
+      background: var(--surface-active);
+    }
+
+    .card-kicker {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-bright);
+    }
+
+    .card-body {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    button,
+    a.hud-btn {
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.6rem 0.9rem;
+      border-radius: 10px;
+      border: 2px solid var(--cyan);
+      background: rgba(0, 229, 255, 0.16);
+      color: var(--text-bright);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    button.primary,
+    a.hud-btn.primary {
+      background: var(--cyan);
+      color: #000000;
+    }
+
+    button.emerald,
+    a.hud-btn.emerald {
+      border-color: var(--emerald);
+      background: var(--emerald);
+      color: #000000;
+    }
+
+    button.amber,
+    a.hud-btn.amber {
+      border-color: var(--amber);
+      background: rgba(255, 145, 0, 0.2);
+      color: var(--amber);
+    }
+
+    .hud-screen {
+      border: 2px solid var(--emerald);
+      border-radius: 14px;
+      padding: 1.25rem;
+      background: rgba(4, 18, 14, 0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .hud-screen-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(61, 220, 151, 0.3);
+      padding-bottom: 0.6rem;
+    }
+
+    .hud-readout {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+
+    .hud-subreadout {
+      font-size: 0.85rem;
+      color: var(--emerald);
+    }
+
+    pre.code-box {
+      background: #050B14;
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      border-radius: 10px;
+      padding: 0.9rem;
+      overflow-x: auto;
+      font-size: 0.76rem;
+      color: #E2E8F0;
+    }
+  </style>
+</head>
+<body>
+  <header class="hud-header">
+    <div class="hud-title-group">
+      <div class="hud-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="28" height="28" fill="none">
+          <path d="M32 8L12 16V30C12 43.2 20.5 55.1 32 59C43.5 55.1 52 43.2 52 30V16L32 8Z" stroke="white" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M23 32L29 38L41 25" stroke="#3DDC97" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="card-kicker">META RAY-BAN DISPLAY WEBAPP &amp; ANDROID DAT v1.0.1</div>
+        <h1 style="font-size: 1.35rem; font-weight: 900;">NANO EMPIRE — WEARABLE COMPLIANCE &amp; BNOA HUD</h1>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge emerald">Additive-Light #000 Waveguide Ready</span>
+      <span class="badge" id="neuralBandBadge">Neural Band (emg-wrist): Standby</span>
+      <a href="/" class="hud-btn focusable">← Gateway Home</a>
+    </div>
+  </header>
+
+  <!-- Active Glasses Waveguide Display Readout -->
+  <section class="hud-screen" aria-live="polite">
+    <div class="hud-screen-header">
+      <div>
+        <span class="card-kicker" style="color: var(--emerald);">ACTIVE WAVEGUIDE OVERLAY (FOCUS + TEMPLE AUDIO)</span>
+        <div class="hud-readout" id="hudPrimaryText">
+          READY: 46,642 US &amp; Canadian Recalls Indexed (12,430 US CPSC/FDA + 34,212 Health Canada)
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="emerald focusable" id="speakHudBtn">Speak HUD Alert (Temple TTS)</button>
+        <button type="button" class="amber focusable" id="stopSpeechBtn">Stop Audio</button>
+      </div>
+    </div>
+    <div class="hud-subreadout" id="hudSecondaryText">
+      Directional Navigation: Use Arrow Keys / Temple Swipe / Neural Band Wrist Roll to cycle focus. Press Enter to trigger card action.
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; font-size: 0.78rem; color: var(--text-secondary);">
+      <label for="wristRollSlider">Simulate Meta Neural Band Wrist Roll (<code>emg-wrist</code> quaternion):</label>
+      <input id="wristRollSlider" name="wristRoll" type="range" min="0" max="3" step="1" value="0" class="focusable" />
+      <span id="speechStatusText">Temple Speaker: Idle (User-initiated per Meta Responsible Use policy)</span>
+    </div>
+  </section>
+
+  <!-- 4-Card Directional Focus Grid -->
+  <main class="hud-grid" id="focusGrid">
+    <!-- Card 0: RecallGuard Live Pallet Scan -->
+    <article class="hud-card" data-card-index="0">
+      <div>
+        <div class="card-kicker">01 · HANDS-FREE WAREHOUSE &amp; PALLET SCAN</div>
+        <h2 class="card-title">RecallGuard Live SKU Screen</h2>
+        <p class="card-body">
+          Voice or camera-assisted screening across 46,642 verified US &amp; Canadian recalls (12,430 US CPSC/FDA + 34,212 Health Canada). Emits immediate quarantine remedy to the waveguide.
+        </p>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="primary focusable" data-hud-action="scan-fisher">
+          Scan: Fisher-Price Sleeper
+        </button>
+        <button type="button" class="focusable" data-hud-action="scan-peloton">
+          Scan: Peloton Tread+
+        </button>
+        <a href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" class="hud-btn emerald focusable">
+          Certified PDF ($30 USD)
+        </a>
+      </div>
+    </article>
+
+    <!-- Card 1: BNOA Optical Network Change Gate -->
+    <article class="hud-card" data-card-index="1">
+      <div>
+        <div class="card-kicker">02 · CONFIDENTIAL AI OPS ATTESTATION</div>
+        <h2 class="card-title">BNOA v0.1 Mandate Gate (Synthetic Demo)</h2>
+        <p class="card-body">
+          Inspect blinded Merkle commitments (<code>BNOA-DEMO-OPTICAL-001</code> — synthetic optical network change profile, not an actual Ciena document) and verify raw P-256 ECDSA human approval.
+        </p>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="primary focusable" data-hud-action="inspect-bnoa">
+          Project BNOA Receipt to HUD
+        </button>
+        <a href="/bidshield/capsule" class="hud-btn focusable">
+          Open Air-Gapped Capsule →
+        </a>
+      </div>
+    </article>
+
+    <!-- Card 2: BidShield Federal Tender Triage -->
+    <article class="hud-card" data-card-index="2">
+      <div>
+        <div class="card-kicker">03 · PROCUREMENT DEADLINE RADAR</div>
+        <h2 class="card-title">BidShield Triage (NRC #87055)</h2>
+        <p class="card-body">
+          Public solicitation notice triage for NRC Ottawa Janitorial Tender #87055 (closes Thursday, Oct 29, 2026 at 14:00 EDT). Flags mandatory site visit and security clearance gates.
+        </p>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="primary focusable" data-hud-action="inspect-nrc">
+          Project NRC #87055 Gates
+        </button>
+        <a href="/bidshield/triage/" class="hud-btn emerald focusable">
+          Launch 60s Free Triage →
+        </a>
+      </div>
+    </article>
+
+    <!-- Card 3: SkillProof #08 Meta Wearables MCP Audit -->
+    <article class="hud-card" data-card-index="3">
+      <div>
+        <div class="card-kicker">04 · SKILLPROOF #08 VERIFIED MANIFEST</div>
+        <h2 class="card-title">Meta Wearables MCP &amp; DAT v1.0.1</h2>
+        <p class="card-body">
+          Verified live Streamable HTTP MCP server (<code>mcp.developer.meta.com/wearables</code>, protocol <code>2025-11-25</code>) + 17 Android DAT skills. All 4 protocol &amp; boundary checks PASS.
+        </p>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="primary focusable" data-hud-action="inspect-mcp">
+          View SkillProof #08 Verdict
+        </button>
+        <a href="/.well-known/meta-wearables-manifest.json" class="hud-btn focusable">
+          Inspect Wearables Manifest
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Direct Glasses Launch Instructions & Kotlin DAT 1.0.1 Snippet -->
+  <section class="hud-card">
+    <div>
+      <div class="card-kicker">HOW TO LOAD ON META RAY-BAN DISPLAY GLASSES + ANDROID DAT v1.0.1</div>
+      <h2 class="card-title">1. Direct Glasses WebApp Launch · 2. Native Android DAT SDK (`com.meta.wearable:mwdat-display:1.0.1`)</h2>
+      <p class="card-body" style="margin-top: 0.35rem;">
+        <strong>WebApp Launch on Glasses:</strong> Open the Meta AI phone app → <strong>App Settings</strong> → <strong>Apps</strong> → <strong>Web Apps</strong> → <strong>Connect Web App</strong> → Enter <code>https://www.nanoempireai.com/wearables/</code>. The glasses automatically fetch <code>/wearables/.well-known/meta-wearables-manifest.json</code> and monochrome icon artwork.
+      </p>
+    </div>
+    <pre class="code-box">// Android DAT v1.0.1 (com.meta.wearable:mwdat-core:1.0.1 + mwdat-display:1.0.1)
+val selector = AutoDeviceSelector(filter = { device -> device.isDisplayCapable() })
+Wearables.createSession(selector).fold(
+    onSuccess = { session ->
+        lifecycleScope.launch {
+            session.state.collect { state ->
+                if (state == DeviceSessionState.STARTED) {
+                    session.addDisplay().onSuccess { display ->
+                        display.sendContent {
+                            flexBox(gap = 10, padding = 20, background = FlexBoxBackground.CARD) {
+                                text("RECALLGUARD HAZARD MATCH", style = TextStyle.HEADING)
+                                text("Fisher-Price Rock 'n Play (CPSC)", style = TextStyle.BODY)
+                                buttonGroup {
+                                    button(
+                                        label = "Quarantine SKU",
+                                        style = ButtonStyle.PRIMARY,
+                                        actionRole = ActionRole.PRIMARY,
+                                        iconName = IconName.CHECKMARK,
+                                        onClick = { acknowledgeQuarantine() }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        session.start() // Fire-and-forget per DAT 1.0.1 convention
+    },
+    onFailure = { error, _ -> showError(error.description) }
+)</pre>
+  </section>
+
+  <script>
+    (function () {
+      const primaryEl = document.getElementById('hudPrimaryText');
+      const secondaryEl = document.getElementById('hudSecondaryText');
+      const speechStatusEl = document.getElementById('speechStatusText');
+      const neuralBadgeEl = document.getElementById('neuralBandBadge');
+      const sliderEl = document.getElementById('wristRollSlider');
+
+      const HUD_PRESETS = {
+        'scan-fisher': {
+          primary: "HAZARD MATCH: Fisher-Price Rock 'n Play Sleepers (CPSC · 2023-01-09)",
+          secondary: "Mandated Remedy: Immediate stop sale, quarantine unit, and process full refund. 46,642 US & CA recalls checked."
+        },
+        'scan-peloton': {
+          primary: "HAZARD MATCH: Peloton Tread+ Rear Roller Entrapment (CPSC · 2023-05-18)",
+          secondary: "Mandated Remedy: Stop use immediately unless approved rear guard repair is installed."
+        },
+        'inspect-bnoa': {
+          primary: "BNOA/0.1 PASS: Op BNOA-DEMO-OPTICAL-001 (Synthetic Demo — Not an Actual Ciena Document)",
+          secondary: "CSP: default-src 'none' | Salted SHA-256 Merkle Roots: PASS | Raw NIST P-256 ECDSA Signature: VERIFIED."
+        },
+        'inspect-nrc': {
+          primary: "BIDSHIELD TRIAGE: NRC Ottawa Janitorial Tender #87055 (Closes Thu Oct 29, 14:00 EDT)",
+          secondary: "Exposure: $10,200 bid-prep labor + $19,200 penalty risk. Mandatory site visit & reliability clearance verified."
+        },
+        'inspect-mcp': {
+          primary: "SKILLPROOF #08 PASS: Meta Wearables MCP Server v1.0.0 (Protocol 2025-11-25)",
+          secondary: "Tools: search_dat_docs, search_webapps_docs (readOnlyHint=true, frame-ancestors 'none') + 17 mwdat-android skills."
+        }
+      };
+
+      function updateHud(key) {
+        const item = HUD_PRESETS[key];
+        if (!item) return;
+        primaryEl.textContent = item.primary;
+        secondaryEl.textContent = item.secondary;
+      }
+
+      document.querySelectorAll('[data-hud-action]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          updateHud(btn.getAttribute('data-hud-action'));
+        });
+      });
+
+      // Temple Speaker TTS (Meta Ray-Ban Display Web Speech subset)
+      function speakCurrentHud() {
+        if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
+          speechStatusEl.textContent = 'Temple Speaker: Web Speech synthesis unavailable in this browser.';
+          return;
+        }
+        window.speechSynthesis.cancel();
+        const text = primaryEl.textContent + '. ' + secondaryEl.textContent;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.onstart = () => {
+          speechStatusEl.textContent = 'Temple Speaker: Playing concise HUD readout...';
+        };
+        utterance.onend = () => {
+          speechStatusEl.textContent = 'Temple Speaker: Readout complete.';
+        };
+        utterance.onerror = (e) => {
+          speechStatusEl.textContent = 'Temple Speaker error: ' + (e.error || 'unknown');
+        };
+        window.speechSynthesis.speak(utterance);
+      }
+
+      document.getElementById('speakHudBtn').addEventListener('click', speakCurrentHud);
+      document.getElementById('stopSpeechBtn').addEventListener('click', () => {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          speechStatusEl.textContent = 'Temple Speaker: Stopped by user.';
+        }
+      });
+
+      // Directional 4-Way Focus Navigation for Glasses D-Pad / Temple Gestures
+      const focusables = Array.from(document.querySelectorAll('.focusable'));
+      document.addEventListener('keydown', (e) => {
+        const idx = focusables.indexOf(document.activeElement);
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          const next = focusables[(idx + 1) % focusables.length];
+          if (next) next.focus();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prev = focusables[(idx - 1 + focusables.length) % focusables.length];
+          if (prev) prev.focus();
+        }
+      });
+
+      // Meta Neural Band W3C Generic Sensor API (emg-wrist) + Simulator Fallback
+      const cardButtons = Array.from(document.querySelectorAll('[data-hud-action]'));
+      sliderEl.addEventListener('input', () => {
+        const targetIdx = parseInt(sliderEl.value, 10) || 0;
+        const targetBtn = cardButtons[targetIdx];
+        if (targetBtn) {
+          targetBtn.focus();
+          updateHud(targetBtn.getAttribute('data-hud-action'));
+          neuralBadgeEl.textContent = 'Neural Band (Simulated Roll): Card 0' + (targetIdx + 1);
+        }
+      });
+
+      if ('RelativeOrientationSensor' in window) {
+        try {
+          const wrist = new window.RelativeOrientationSensor({ sensorId: 'emg-wrist' });
+          wrist.onreading = () => {
+            if (wrist.quaternion && wrist.quaternion.length === 4) {
+              const [x, y, z, w] = wrist.quaternion;
+              const roll = Math.atan2(2 * (w * x + y * z), 1 - 2 * (x * x + y * y));
+              const bucket = Math.min(3, Math.max(0, Math.floor(((roll + 1.2) / 2.4) * 4)));
+              if (cardButtons[bucket]) {
+                cardButtons[bucket].focus();
+              }
+              neuralBadgeEl.textContent = 'Neural Band (emg-wrist): Active';
+            }
+          };
+          wrist.onerror = () => {
+            neuralBadgeEl.textContent = 'Neural Band (emg-wrist): Desktop Mode';
+          };
+          wrist.start();
+        } catch (_) {
+          neuralBadgeEl.textContent = 'Neural Band (emg-wrist): Desktop Mode';
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Nano Empire HUD",
+  "description": "Hands-free RecallGuard safety scanner and BNOA confidential ops attestation HUD for Meta Ray-Ban Display glasses.",
+  "appearance": {
+    "theme_color": "#00B5E2",
+    "icon": {
+      "src": "https://www.nanoempireai.com/icons/wearables-monochrome.svg",
+      "type": "monochrome"
+    },
+    "icon_background": {
+      "colors": ["#38BDF8", "#0284C7", "#0369A1", "#082F49"],
+      "stops": [0.0, 0.35, 0.72, 1.0],
+      "inner_glow_color": "#3DDC97"
+    }
+  }
+}
