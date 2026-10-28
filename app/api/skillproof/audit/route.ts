@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { generateKeyPairSync, sign } from 'crypto';
+import { signAttestation } from '@/lib/attestation';
 
 // Canonical JSON serializer for Ed25519 signature determinism
 function canonicalize(v: any): string {
@@ -165,15 +165,13 @@ export async function POST(req: Request) {
     // ─────────────────────────────────────────────────────────────────────────
     // 3. Cryptographic Ed25519 Trust Manifest Generation
     // ─────────────────────────────────────────────────────────────────────────
-    const { publicKey, privateKey } = generateKeyPairSync('ed25519');
-    const pubHex = publicKey.export({ type: 'spki', format: 'der' }).subarray(-32).toString('hex');
     const now = new Date();
     const expires = new Date(now.getTime() + 90 * 24 * 60 * 60 * 1000);
 
     const payloadToSign = {
       manifest_version: '1.0',
       authority: 'SkillProof Autonomous Certification Authority',
-      issuer: 'Nano Empire AI Inc.',
+      issuer: 'Nano Empire AI',
       server_id: serverId,
       version: version,
       scanned_at: now.toISOString(),
@@ -186,16 +184,17 @@ export async function POST(req: Request) {
     };
 
     const canonicalBytes = Buffer.from(canonicalize(payloadToSign), 'utf8');
-    const sig = sign(null, canonicalBytes, privateKey).toString('hex');
+    const att = signAttestation(canonicalBytes);
 
     const trustManifest = {
       ...payloadToSign,
       findings: findings,
       cryptographic_proof: {
         algorithm: 'Ed25519',
-        public_key: pubHex,
-        signature: sig,
-        verification_method: 'https://www.nanoempireai.com/skillproof'
+        public_key: att.public_key_hex,
+        signature: att.signature_hex,
+        key_binding: att.key_binding,
+        verification_method: att.verification_key_url ?? 'ephemeral key: proves integrity only, not issuer identity'
       },
       commercial_rails: {
         compliance_report_30: 'https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k',

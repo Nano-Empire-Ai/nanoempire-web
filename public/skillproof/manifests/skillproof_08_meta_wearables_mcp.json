@@ -1,0 +1,73 @@
+{
+  "manifest_id": "manifest_08_meta_wearables_dat",
+  "target": {
+    "name": "Meta Wearables MCP Server & DAT Android Plugin",
+    "version": "1.0.1",
+    "mcp_endpoint": "https://mcp.developer.meta.com/wearables",
+    "repository": "https://github.com/facebook/meta-wearables-dat-android",
+    "maven_group": "com.meta.wearable"
+  },
+  "evaluated_at_utc": "2026-10-28T14:41:27Z",
+  "verdict": "PASS",
+  "checks": [
+    {
+      "id": "MCP-01",
+      "category": "Transport & Headers",
+      "check": "Streamable HTTP initialize + CSP/HSTS/XFO/nosniff hardening",
+      "status": "PASS",
+      "latency_ms": 348.45,
+      "evidence": {
+        "protocolVersion": "2025-11-25",
+        "serverName": "Meta Wearables MCP Server",
+        "serverVersion": "1.0.0",
+        "csp": "frame-ancestors 'none'",
+        "x_frame_options": "DENY",
+        "x_content_type_options": "nosniff",
+        "hsts": "max-age=31536000; preload; includeSubDomains"
+      }
+    },
+    {
+      "id": "MCP-02",
+      "category": "Tool Surface & Annotations",
+      "check": "All exposed tools declare readOnlyHint=true, destructiveHint=false, and strict outputSchema",
+      "status": "PASS",
+      "latency_ms": 302.35,
+      "evidence": {
+        "tools": [
+          "search_dat_docs",
+          "search_webapps_docs"
+        ],
+        "readOnlyHint_all": true,
+        "destructiveHint_all_false": true
+      }
+    },
+    {
+      "id": "MCP-03",
+      "category": "Adversarial Boundary & Injection Resistance",
+      "check": "Prompt-injection query confined strictly to semantic documentation retrieval with max_results respected",
+      "status": "PASS",
+      "latency_ms": 854.38,
+      "evidence": {
+        "returned_count": 2,
+        "no_env_leak": true
+      }
+    },
+    {
+      "id": "MCP-04",
+      "category": "Plugin & Privacy Telemetry Controls",
+      "check": "17 SKILL.md modules verified + explicit ANALYTICS_OPT_OUT & CRASH_REPORTING_OPT_OUT manifest controls documented",
+      "status": "PASS",
+      "evidence": {
+        "skill_count": 17,
+        "skills_merkle_sha256": "b0b6ff0081fed8ee13db59ae6a7437039e310e0f1ca8a15587b2d323544ac10a",
+        "analytics_opt_out_documented": true
+      }
+    }
+  ],
+  "signature": {
+    "algorithm": "Ed25519",
+    "public_key_hex": "69b8d23e35b02a04aa370924c8493781527179c9078bf85f77362b2fc1da3f82",
+    "payload_sha256": "386e2f6b9cfd12cf2a41f3940c55d94d799680eca76eaab5165ea59eba057c54",
+    "signature_hex": "e599d02d864cc59b6039cb7afe89eabdf154a1e4824f084d8f9e9baae039dd8ae69c77c889519838cffa80fb0e9fdb8b8df9283246838a3de20b23e70edffa02"
+  }
+}

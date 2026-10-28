@@ -1740,7 +1740,7 @@ curl -si https://recallguard-api.vercel.app/api/v1/feed?limit=1
 
         </div>
 
-        <p>NANO EMPIRE AI INC. © 2026. THE MACHINE ECONOMY RUNS ON PROTOCOL.</p>
+        <p>NANO EMPIRE AI © 2026. THE MACHINE ECONOMY RUNS ON PROTOCOL.</p>
 
       </footer>
 

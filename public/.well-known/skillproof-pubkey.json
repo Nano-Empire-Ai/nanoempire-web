@@ -1,0 +1,24 @@
+{
+  "issuer": "Nano Empire AI (sole proprietorship, Robert Lambert)",
+  "purpose": "Verifies Ed25519 signatures on SkillProof Trust Manifests",
+  "keys": [
+    {
+      "kid": "skillproof-2026-10",
+      "algorithm": "Ed25519",
+      "public_key_hex": "69b8d23e35b02a04aa370924c8493781527179c9078bf85f77362b2fc1da3f82",
+      "valid_from": "2026-10-28",
+      "status": "active"
+    }
+  ],
+  "revoked": [
+    {
+      "public_key_hex": "c2e72e5b7b05b66838fb911eef0e247be5b64c1d56ef18918f2784ec814f52ca",
+      "reason": "Derived from a non-secret seed; any manifest signed with it must be treated as unverified.",
+      "revoked_at": "2026-10-28"
+    }
+  ],
+  "verifier": "https://www.nanoempireai.com/skillproof/verify_skillproof.py",
+  "manifests": [
+    "https://www.nanoempireai.com/skillproof/manifests/skillproof_08_meta_wearables_mcp.json"
+  ]
+}

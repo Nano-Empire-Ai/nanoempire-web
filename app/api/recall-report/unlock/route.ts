@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { createDecipheriv, createHash, generateKeyPairSync, sign } from 'crypto';
+import { createDecipheriv, createHash } from 'crypto';
 import { getScanBySession, initDb } from '@/lib/db';
+import { signAttestation } from '@/lib/attestation';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_mock', {
   apiVersion: '2023-10-16',
@@ -72,9 +73,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // 4. Generate Ed25519 Certificate of Compliance Seal
-    const { publicKey, privateKey } = generateKeyPairSync('ed25519');
-    const pubHex = publicKey.export({ type: 'spki', format: 'der' }).subarray(-32).toString('hex');
+    // 4. Generate Ed25519 Certificate of Compliance Seal (pinned key if configured)
     const certId = `RR-${createHash('sha256').update(JSON.stringify(reportData) + verifiedEmail).digest('hex').slice(0, 12).toUpperCase()}`;
     const issuedAt = new Date().toISOString();
 
@@ -88,7 +87,7 @@ export async function POST(req: Request) {
       clearedItems: reportData.clearedItems || 0,
       statute: '15 U.S.C. § 2068',
     });
-    const signature = sign(null, Buffer.from(attestationPayload, 'utf8'), privateKey).toString('hex');
+    const att = signAttestation(Buffer.from(attestationPayload, 'utf8'));
 
     return NextResponse.json({
       certId,
@@ -96,9 +95,11 @@ export async function POST(req: Request) {
       email: verifiedEmail,
       reportData,
       attestation: {
-        algorithm: 'Ed25519',
-        publicKey: pubHex,
-        signature,
+        algorithm: att.algorithm,
+        publicKey: att.public_key_hex,
+        signature: att.signature_hex,
+        keyBinding: att.key_binding,
+        verificationKeyUrl: att.verification_key_url,
         statute: '15 U.S.C. § 2068 (Consumer Product Safety Act)',
       },
     });

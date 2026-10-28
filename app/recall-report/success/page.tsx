@@ -142,7 +142,7 @@ function SuccessReportView() {
               RecallRadar Certificate of Compliance & Manifest Audit
             </h1>
             <p className="text-sm text-slate-600 mt-1">
-              Issued by Nano Empire AI Inc. • Federal CPSC & FDA Enforcement Registry Cross-Reference
+              Issued by Nano Empire AI • Federal CPSC & FDA Enforcement Registry Cross-Reference
             </p>
           </div>
           <div className="text-left md:text-right font-mono text-xs bg-slate-50 p-4 rounded-lg border border-slate-200 shrink-0">

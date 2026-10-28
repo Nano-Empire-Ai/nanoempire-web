@@ -13,7 +13,7 @@ export async function GET() {
     }
 
     return NextResponse.json({
-      entity: "Nano Empire AI Inc.",
+      entity: "Nano Empire AI",
       agent: "Hermes Vanguard",
       status: "ACTIVE",
       total_verified_cycles: 3,
