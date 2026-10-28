@@ -900,7 +900,7 @@ export default function Home() {
 
           <div className="text-xs text-[#8C92A4] font-mono border border-white/10 px-3 py-1.5 rounded bg-white/5">
 
-            Updated: 2026-10-26 · Next Corpus Refresh: 2026-10-27
+            Updated: 2026-10-28 · Next Corpus Refresh: 2026-10-29
 
           </div>
 
@@ -1722,7 +1722,7 @@ curl -si https://recallguard-api.vercel.app/api/v1/feed?limit=1
 
           <a href="/llms.txt" className="hover:text-white">llms.txt</a>
 
-          <a href="/m2m-state.md" className="hover:text-white">M2M State (Oct 26)</a>
+          <a href="/m2m-state.md" className="hover:text-white">M2M State (Oct 28)</a>
 
           <a href="/.well-known/agent-card.json" className="hover:text-white">agent-card.json</a>
           <a href="/.well-known/poppy.json" className="hover:text-white">poppy.json</a>
