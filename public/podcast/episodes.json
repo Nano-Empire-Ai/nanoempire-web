@@ -1,5 +1,41 @@
 [
   {
+    "id": "8c07a81d-b046-46af-9e1e-aa8d3d09d1a4",
+    "title": "EP361: Designed, Not Discovered: The First AI Drug to Reach Phase 3",
+    "pubDate": "Sun, 01 Nov 2026 10:21:01 GMT",
+    "description": "In this episode, Maya and Dev explore generative-AI drug design and how it impacts whether a fatal lung disease — and aging itself — can be treated at the molecular drawing board. Insilico Medicine's rentosertib, the first generative-AI-designed drug to reach Phase 3 trials, i...",
+    "audioUrl": "https://anchor.fm/s/118458940/podcast/play/128551703/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-10-1%2F83908d99-2cb9-1da9-9105-eaaef49421fe.mp3",
+    "duration": "00:15:06",
+    "episode": ""
+  },
+  {
+    "id": "4ba87d96-a8aa-4136-a5c3-0934da82aa81",
+    "title": "EP351: The Model That Learned to Play — and What It Plays Next",
+    "pubDate": "Thu, 29 Oct 2026 12:28:28 GMT",
+    "description": "In this episode, Maya and Dev explore real-time game-playing AI and how it impacts who gets to build, train, and work in the worlds of the future. OpenAI's GPT-6 Astra finished Valve's Portal on its own, won at Pokemon, and cracked Factorio — and the September Moon Shots rumor...",
+    "audioUrl": "https://anchor.fm/s/118458940/podcast/play/128350887/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-9-29%2F7ffe5aa1-9082-609b-05a3-e44d42d9b0f5.mp3",
+    "duration": "00:14:23",
+    "episode": "351"
+  },
+  {
+    "id": "d469abbe-6f7c-4f75-8c2b-9a97578eac34",
+    "title": "EP348: The Chip Company That Became the Bank: NVIDIA's $99 Billion AI Bet",
+    "pubDate": "Wed, 28 Oct 2026 22:42:22 GMT",
+    "description": "In this episode, Maya and Dev explore NVIDIA's ninety-nine-billion-dollar AI investment stack and the flywheel economics of financing the whole AI ecosystem, and how it impacts what intelligence costs for small builders, classrooms, and frontline workers. From a Moon Shots cli...",
+    "audioUrl": "https://anchor.fm/s/118458940/podcast/play/128312554/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-9-28%2Ff93d795e-1e38-2ba4-58ff-75f9b2c9e1ec.mp3",
+    "duration": "00:15:14",
+    "episode": "348"
+  },
+  {
+    "id": "adeaeb92-6ac8-4997-8e99-5d81d2132a10",
+    "title": "EP349: The Million-Job Surprise: AI Is Creating More Work Than It Destroys",
+    "pubDate": "Wed, 28 Oct 2026 21:54:57 GMT",
+    "description": "In this episode, Maya and Dev explore the AI job-creation paradox and the shift from AI co-pilot to workflow orchestrator, and how it impacts whether ordinary workers end up with more work, better work, or no work at all. From a Moon Shots clip with Salim Ismail and Dave Blund...",
+    "audioUrl": "https://anchor.fm/s/118458940/podcast/play/128309448/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-9-28%2F28311d37-6744-47c9-5c79-b7284bdba572.mp3",
+    "duration": "00:15:06",
+    "episode": "349"
+  },
+  {
     "id": "55c6f586-cfe4-46a5-9318-7e63b326e33d",
     "title": "Proof of Humanity: Why Being Human Became an Economic Category",
     "pubDate": "Sun, 25 Oct 2026 13:56:43 GMT",
