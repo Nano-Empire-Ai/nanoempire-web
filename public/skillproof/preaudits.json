@@ -1,0 +1,145 @@
+{
+  "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
+  "total_repos_audited": 5,
+  "certification_endpoint": "https://www.nanoempireai.com/skillproof",
+  "audits": [
+    {
+      "repo": "pipeshub-ai/pipeshub-ai",
+      "stars": 3901,
+      "branch": "main",
+      "tree_sha": "52f1c8e97ba6",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 9951,
+      "sampled_source_files": [
+        "frontend/types/index.ts",
+        "frontend/electron/main.ts",
+        "frontend/lib/api/index.ts",
+        "frontend/lib/i18n/index.ts"
+      ],
+      "skillproof_score": 98,
+      "governance_gaps": [],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-3AF3A459D86DDBF5"
+    },
+    {
+      "repo": "jgravelle/jcodemunch-mcp",
+      "stars": 2831,
+      "branch": "main",
+      "tree_sha": "12fa0c801ddf",
+      "license": "NOASSERTION",
+      "total_files_in_repo": 1805,
+      "sampled_source_files": [
+        "cli/cli.py",
+        "mcpb/build.py",
+        "harness/__main__.py",
+        "mcpb/server/main.py"
+      ],
+      "skillproof_score": 84,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "harness/__main__.py",
+          "line": 139,
+          "snippet": "return subprocess.check_output("
+        },
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "harness/__main__.py",
+          "line": 199,
+          "snippet": "e = dict(os.environ)"
+        },
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "harness/__main__.py",
+          "line": 1066,
+          "snippet": "shutil.rmtree(store, ignore_errors=True)"
+        }
+      ],
+      "preaudit_id": "SP-C4075C9E229688A9"
+    },
+    {
+      "repo": "ZeroDayEvil/ai-security-tool",
+      "stars": 1301,
+      "branch": "main",
+      "tree_sha": "8a918419145a",
+      "license": "MIT",
+      "total_files_in_repo": 40,
+      "sampled_source_files": [
+        "main.js",
+        "app.js",
+        "preload.js",
+        "storage.js"
+      ],
+      "skillproof_score": 79,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy",
+        "No automated test suite detected in tree"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "main.js",
+          "line": 253,
+          "snippet": "const child = spawn(executablePath, args, {"
+        }
+      ],
+      "preaudit_id": "SP-D14FD6B7157649BF"
+    },
+    {
+      "repo": "redis/mcp-redis",
+      "stars": 641,
+      "branch": "main",
+      "tree_sha": "3ffd548f0ab9",
+      "license": "MIT",
+      "total_files_in_repo": 60,
+      "sampled_source_files": [
+        "src/main.py",
+        "src/tools/set.py",
+        "src/tools/hash.py",
+        "src/tools/json.py"
+      ],
+      "skillproof_score": 92,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-4DEDC0893FE9062D"
+    },
+    {
+      "repo": "oktopeak/clio-mcp",
+      "stars": 27,
+      "branch": "main",
+      "tree_sha": "753da45677d0",
+      "license": "MIT",
+      "total_files_in_repo": 137,
+      "sampled_source_files": [
+        "src/index.ts",
+        "src/cli/args.ts",
+        "src/cli/auth.ts",
+        "src/cli/index.ts"
+      ],
+      "skillproof_score": 92,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "src/cli/args.ts",
+          "line": 46,
+          "snippet": "const dateOnly = DATE_ONLY.exec(input);"
+        }
+      ],
+      "preaudit_id": "SP-8480987FB4B91DE0"
+    }
+  ]
+}

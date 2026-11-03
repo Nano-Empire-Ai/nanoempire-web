@@ -2,7 +2,7 @@
 
 > Machine-payable US product-recall data (RecallRadar, paid per call in USDC on Base via x402) and offline-verifiable SkillProof Trust Manifests.
 
-Updated: 2026-10-26
+Updated: 2026-11-03
 
 Contact: rob@nanoempireai.com
 
@@ -54,7 +54,8 @@ Contact: rob@nanoempireai.com
 - OpenAPI: https://nanoempireai.com/openapi.json
 - Offers: https://nanoempireai.com/offers.json
 - Trust manifests: https://nanoempireai.com/manifests.html
-- M2M State Briefing: https://nanoempireai.com/m2m-state.md
+- SkillProof Pre-Audit Registry (JSON): https://nanoempireai.com/skillproof/preaudits.json
+- M2M State Briefing (Nov 3, 2026): https://nanoempireai.com/m2m-state.md
 
 ## MCP Servers (x402 monetized via SecureFastMCP)
 
