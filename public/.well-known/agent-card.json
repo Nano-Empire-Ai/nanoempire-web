@@ -123,8 +123,8 @@
     },
     {
       "id": "skillproof-sprint",
-      "name": "SkillProof Sprint (human checkout)",
-      "description": "48-hour adversarial battery against one skill or MCP server, returning a signed Ed25519 trust manifest. Paid by Stripe, $299 USD. Not machine-payable.",
+      "name": "SkillProof Sprint (parked pending scope ruling)",
+      "description": "48-hour adversarial battery against one skill or MCP server, returning a signed Ed25519 trust manifest. Audit checkout is currently parked pending pricing ruling; public pre-audit index is live at /skillproof.",
       "tags": [
         "verification",
         "mcp",
@@ -132,7 +132,7 @@
         "trust-manifest"
       ],
       "examples": [
-        "Checkout: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"
+        "https://nanoempireai.com/skillproof"
       ],
       "inputModes": [
         "application/json"

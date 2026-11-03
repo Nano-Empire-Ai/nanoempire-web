@@ -52,15 +52,13 @@
     {
       "id": "skillproof-sprint",
       "name": "SkillProof Adversarial Verification Sprint",
-      "description": "48-hour 180-vector adversarial battery against an MCP server or agent skill. Emits an offline-verifiable Ed25519 Trust Manifest pinned to code SHA-256.",
-      "price_usd": 299,
-      "currency": "USD",
-      "rail": "stripe",
-      "payment_link": "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c",
-      "method": "STRIPE_CHECKOUT",
+      "description": "48-hour 180-vector adversarial battery against an MCP server or agent skill. Emits an offline-verifiable Ed25519 Trust Manifest pinned to code SHA-256. Parked pending pricing ruling.",
+      "rail": "inquiry",
+      "contact": "mailto:rob@nanoempireai.com",
+      "method": "MANUAL_SCOPE",
       "capability": "mcp-verification",
       "manifest": "#01",
-      "status": "live"
+      "status": "parked"
     },
     {
       "id": "recallradar-kids-dataset",

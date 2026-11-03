@@ -173,12 +173,10 @@ export default function RepoScanner() {
                 </span>
               </div>
               <Link
-                href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"
-                target="_blank"
-                rel="noopener"
+                href={`mailto:rob@nanoempireai.com?subject=${encodeURIComponent(`SkillProof Trust Manifest Inquiry: ${result.repo}`)}`}
                 className="text-xs font-mono font-bold bg-[#A3FF00] text-black px-4 py-2.5 rounded hover:bg-[#A3FF00]/90 transition-colors"
               >
-                Certify {result.repo} (Ed25519 Manifest) →
+                Request Ed25519 Manifest for {result.repo} →
               </Link>
             </div>
           </div>

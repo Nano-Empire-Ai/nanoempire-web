@@ -14,27 +14,11 @@ export const metadata = {
 
 const TIERS = [
   {
-    name: 'SkillProof Adversarial Verification Sprint',
-    price: '$299 USD',
-    timing: '48-Hour Turnaround',
-    status: 'LIVE',
-    popular: true,
-    stripeUrl: 'https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c',
-    description: 'Full 180-vector adversarial battery against an MCP server or agent skill. Emits an offline-verifiable Ed25519 Trust Manifest pinned to your commit SHA-256.',
-    features: [
-      '180-vector prompt injection & tool poisoning battery',
-      'Subprocess, shell execution & filesystem boundary audit',
-      'Environment credential & secret exfiltration testing',
-      'Pinned Ed25519 cryptographic Trust Manifest (/.well-known/skillproof-pubkey.json)',
-      'Public Verified Badge & removal of unverified governance warnings',
-    ],
-  },
-  {
     name: 'RecallRadar Single Compliance Audit',
     price: '$30 USD',
     timing: 'Instant Delivery',
     status: 'LIVE',
-    popular: false,
+    popular: true,
     stripeUrl: 'https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k',
     description: 'Instant inventory cross-reference against 46,642 US & Canadian (12,430 CPSC/FDA + 34,212 Health Canada) safety enforcement actions with signed compliance report.',
     features: [
@@ -59,6 +43,22 @@ const TIERS = [
       'Continuous catalog and repository compliance protection',
       'Priority email alerts on high-severity findings',
       'Monthly consolidated Ed25519 compliance attestation',
+    ],
+  },
+  {
+    name: 'SkillProof Adversarial Verification Sprint',
+    price: 'Scope on Request',
+    timing: '48-Hour Turnaround · Parked Pending Ruling',
+    status: 'PARKED',
+    popular: false,
+    stripeUrl: '',
+    description: 'Full 180-vector adversarial battery against an MCP server or agent skill. Emits an offline-verifiable Ed25519 Trust Manifest pinned to your commit SHA-256.',
+    features: [
+      '180-vector prompt injection & tool poisoning battery',
+      'Subprocess, shell execution & filesystem boundary audit',
+      'Environment credential & secret exfiltration testing',
+      'Pinned Ed25519 cryptographic Trust Manifest (/.well-known/skillproof-pubkey.json)',
+      'Public Verified Badge & removal of unverified governance warnings',
     ],
   },
   {
@@ -199,12 +199,10 @@ export default function SkillProofPage() {
                     </span>
                   </div>
                   <Link
-                    href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"
-                    target="_blank"
-                    rel="noopener"
+                    href={`mailto:rob@nanoempireai.com?subject=${encodeURIComponent(`SkillProof Trust Manifest Inquiry: ${item.repo}`)}`}
                     className="text-xs font-mono font-bold bg-[#00B5E2] text-black px-3.5 py-2 rounded hover:bg-[#00B5E2]/90 transition-colors"
                   >
-                    Order Signed Attestation →
+                    Request Signed Manifest →
                   </Link>
                 </div>
               </div>

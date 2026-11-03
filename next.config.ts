@@ -67,7 +67,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/certify.html",
+        destination: "/skillproof",
+        permanent: true,
+      },
+      {
         source: "/proof",
+        destination: "/#dogfood-signals",
+        permanent: true,
+      },
+      {
+        source: "/proof.html",
         destination: "/#dogfood-signals",
         permanent: true,
       },
@@ -77,12 +87,27 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/first-dollar.html",
+        destination: "/#dogfood-signals",
+        permanent: true,
+      },
+      {
         source: "/pledge",
         destination: "/mtp.html",
         permanent: true,
       },
       {
+        source: "/pledge.html",
+        destination: "/mtp.html",
+        permanent: true,
+      },
+      {
         source: "/audit-trail",
+        destination: "/manifests.html",
+        permanent: true,
+      },
+      {
+        source: "/audit-trail.html",
         destination: "/manifests.html",
         permanent: true,
       },
