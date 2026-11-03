@@ -1,8 +1,188 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
-  "total_repos_audited": 5,
+  "total_repos_audited": 14,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "audits": [
+    {
+      "repo": "pydantic/pydantic-ai",
+      "stars": 21014,
+      "branch": "main",
+      "tree_sha": "5616c21994d4",
+      "license": "MIT",
+      "total_files_in_repo": 5727,
+      "sampled_source_files": [
+        "clai/clai/__main__.py",
+        "pydantic_ai_slim/pydantic_ai/mcp.py",
+        ".github/set_docs_main_preview_url.py",
+        "pydantic_ai_slim/pydantic_ai/_mcp.py"
+      ],
+      "skillproof_score": 86,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": ".github/set_docs_main_preview_url.py",
+          "line": 9,
+          "snippet": "GITHUB_TOKEN = os.environ['GITHUB_TOKEN']"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": ".github/set_docs_main_preview_url.py",
+          "line": 44,
+          "snippet": "r = httpx.post(deployment_url, headers=gh_headers, json=deployment_data)"
+        }
+      ],
+      "preaudit_id": "SP-2CFCA711F2847151"
+    },
+    {
+      "repo": "modelcontextprotocol/inspector",
+      "stars": 11220,
+      "branch": "main",
+      "tree_sha": "e3217388c859",
+      "license": "NOASSERTION",
+      "total_files_in_repo": 1709,
+      "sampled_source_files": [
+        "core/mcp/apps.ts",
+        "core/cli/style.ts",
+        "core/mcp/index.ts",
+        "core/mcp/types.ts"
+      ],
+      "skillproof_score": 98,
+      "governance_gaps": [],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-F0B754A4F044E235"
+    },
+    {
+      "repo": "lastmile-ai/mcp-agent",
+      "stars": 8575,
+      "branch": "main",
+      "tree_sha": "f62d84935081",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 1176,
+      "sampled_source_files": [
+        "src/mcp_agent/app.py",
+        "src/mcp_agent/config.py",
+        "src/mcp_agent/console.py",
+        "src/mcp_agent/__init__.py"
+      ],
+      "skillproof_score": 96,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "src/mcp_agent/app.py",
+          "line": 267,
+          "snippet": "os.environ[key] = str_value"
+        }
+      ],
+      "preaudit_id": "SP-C8EB853B9AE09F49"
+    },
+    {
+      "repo": "mendableai/firecrawl-mcp-server",
+      "stars": 7758,
+      "branch": "main",
+      "tree_sha": "6bd077c69a01",
+      "license": "MIT",
+      "total_files_in_repo": 121,
+      "sampled_source_files": [
+        "src/index.ts",
+        "src/server.ts",
+        "src/mcp/sse.ts",
+        "src/mcp/runtime.ts"
+      ],
+      "skillproof_score": 84,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "src/index.ts",
+          "line": 24,
+          "snippet": "FEEDBACK_DISABLED_VALUES.has((process.env[key] || '').trim().toLowerCase())"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "src/server.ts",
+          "line": 1505,
+          "snippet": "const response = await fetch(`${resolveApiBaseUrl()}${pathName}`, {"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "src/mcp/runtime.ts",
+          "line": 1103,
+          "snippet": "const response = await modern.fetch(request, {"
+        }
+      ],
+      "preaudit_id": "SP-18AB874730B9874D"
+    },
+    {
+      "repo": "makenotion/notion-mcp-server",
+      "stars": 4693,
+      "branch": "main",
+      "tree_sha": "cf16e5c20bfb",
+      "license": "MIT",
+      "total_files_in_repo": 53,
+      "sampled_source_files": [
+        "src/init-server.ts",
+        "scripts/build-cli.js",
+        "scripts/start-server.ts",
+        "scripts/server-options.ts"
+      ],
+      "skillproof_score": 78,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "scripts/start-server.ts",
+          "line": 49,
+          "snippet": "authToken = options.authToken || process.env.AUTH_TOKEN || randomBytes(32).toString('hex')"
+        },
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "scripts/start-server.ts",
+          "line": 53,
+          "snippet": "fs.writeFileSync(authTokenFilePath, authToken, { mode: 0o600 })"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "scripts/start-server.ts",
+          "line": 263,
+          "snippet": "const res = await fetch('https://api.notion.com/v1/users/me', {"
+        },
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "scripts/server-options.ts",
+          "line": 28,
+          "snippet": "let enableTokenPassthrough = process.env.ENABLE_TOKEN_PASSTHROUGH === 'true'"
+        }
+      ],
+      "preaudit_id": "SP-7A57636CB8BA8FBC"
+    },
     {
       "repo": "pipeshub-ai/pipeshub-ai",
       "stars": 3901,
@@ -20,6 +200,79 @@
       "governance_gaps": [],
       "code_surface_findings": [],
       "preaudit_id": "SP-3AF3A459D86DDBF5"
+    },
+    {
+      "repo": "browserbase/mcp-server-browserbase",
+      "stars": 3398,
+      "branch": "main",
+      "tree_sha": "3e6f53461949",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 53,
+      "sampled_source_files": [
+        "cli.js",
+        "index.js",
+        "index.d.ts",
+        "src/index.ts"
+      ],
+      "skillproof_score": 92,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-C0228B77D7BF1080"
+    },
+    {
+      "repo": "punkpeye/fastmcp",
+      "stars": 3283,
+      "branch": "main",
+      "tree_sha": "60ba7fd8d640",
+      "license": "MIT",
+      "total_files_in_repo": 174,
+      "sampled_source_files": [
+        "src/FastMCP.ts",
+        "src/auth/index.ts",
+        "src/edge/index.ts",
+        "src/bin/fastmcp.ts"
+      ],
+      "skillproof_score": 76,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "src/FastMCP.ts",
+          "line": 119,
+          "snippet": "let match = preamble.exec(text);"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "src/FastMCP.ts",
+          "line": 139,
+          "snippet": "const response = await fetch(input.url, {"
+        },
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "src/FastMCP.ts",
+          "line": 881,
+          "snippet": "*     clientSecret: process.env.GITHUB_CLIENT_SECRET!,"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "src/edge/index.ts",
+          "line": 188,
+          "snippet": "async fetch(request: Request): Promise<Response> {"
+        }
+      ],
+      "preaudit_id": "SP-153DE7CFFE92C09A"
     },
     {
       "repo": "jgravelle/jcodemunch-mcp",
@@ -63,6 +316,42 @@
         }
       ],
       "preaudit_id": "SP-C4075C9E229688A9"
+    },
+    {
+      "repo": "stripe/agent-toolkit",
+      "stars": 2033,
+      "branch": "main",
+      "tree_sha": "5091f72943e6",
+      "license": "MIT",
+      "total_files_in_repo": 1091,
+      "sampled_source_files": [
+        "llm/token-meter/index.ts",
+        "llm/ai-sdk/meter/index.ts",
+        "llm/ai-sdk/provider/index.ts",
+        "tools/typescript/jest.config.ts"
+      ],
+      "skillproof_score": 98,
+      "governance_gaps": [],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-963AFEA645B22A4D"
+    },
+    {
+      "repo": "coinbase/agentkit",
+      "stars": 1353,
+      "branch": "main",
+      "tree_sha": "f2f3e8c11a91",
+      "license": "NOASSERTION",
+      "total_files_in_repo": 1209,
+      "sampled_source_files": [
+        "typescript/agentkit/src/index.ts",
+        "typescript/agentkit/src/network/index.ts",
+        "typescript/agentkit/src/analytics/index.ts",
+        "typescript/agentkit/src/action-providers/index.ts"
+      ],
+      "skillproof_score": 98,
+      "governance_gaps": [],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-62314BAA9169F0F8"
     },
     {
       "repo": "ZeroDayEvil/ai-security-tool",
