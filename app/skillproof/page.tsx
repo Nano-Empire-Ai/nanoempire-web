@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft, Shield, Check, FileCode, ExternalLink, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import preauditsData from '@/public/skillproof/preaudits.json';
+import RepoScanner from './RepoScanner';
 
 export const metadata = {
   title: 'SkillProof Verification Catalog & Live MCP Pre-Audit Index — Nano Empire AI',
@@ -107,6 +108,9 @@ export default function SkillProofPage() {
             Every audit tests behavioral invariants and static execution sinks, producing an Ed25519-signed Trust Manifest pinned to your commit SHA-256.
           </p>
         </header>
+
+        {/* Interactive Self-Serve GitHub Repo Pre-Auditor */}
+        <RepoScanner />
 
         {/* Live Pre-Audit Scorecard Section */}
         <section className="mb-20">
