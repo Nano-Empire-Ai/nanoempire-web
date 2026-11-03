@@ -43,8 +43,8 @@ export default function LedgerFeed() {
           <span className="text-sm font-bold uppercase tracking-wider text-white">Live Cryptographic Settlement Feed</span>
         </div>
         <div className="text-xs text-gray-400 flex gap-4">
-          <span>Settled: <strong className="text-green-400">${meta.total_volume_usd.toFixed(2)}</strong></span>
-          <span>Active Nodes: <strong className="text-white">{meta.active_agents}</strong></span>
+          <span>Self-Test Settled: <strong className="text-green-400">${meta.total_volume_usd.toFixed(2)} USDC</strong></span>
+          <span>Outside Customers: <strong className="text-white">0</strong></span>
         </div>
       </div>
 

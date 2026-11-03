@@ -16,14 +16,16 @@ type Transaction = {
 
 export default function TransparentYieldLedger() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
-  const [kFactor, setKFactor] = useState<number>(0);
+  const [outsideCustomers, setOutsideCustomers] = useState<number>(0);
+  const [selfTests, setSelfTests] = useState<number>(1);
 
   useEffect(() => {
     async function fetchLedger() {
       const res = await fetch('/api/ledger');
       const data = await res.json();
-      setTransactions(data.recent_transactions);
-      setKFactor(data.k_factor);
+      setTransactions(data.recent_transactions || []);
+      setOutsideCustomers(data.outside_paying_customers ?? 0);
+      setSelfTests(data.settled_self_tests ?? 1);
     }
     
     fetchLedger();
@@ -36,18 +38,25 @@ export default function TransparentYieldLedger() {
       <div className="max-w-6xl mx-auto">
         <header className="mb-12 border-b border-green-800 pb-6">
           <h1 className="text-4xl font-bold mb-2 text-white">NanoEmpire Protocol</h1>
-          <h2 className="text-2xl text-green-500">Transparent Yield Ledger (Live)</h2>
-          <div className="flex gap-8 mt-6">
+          <h2 className="text-2xl text-green-500">Transparent Settlement Ledger (Zero Fabrication)</h2>
+          <p className="text-xs text-gray-400 mt-2">
+            Honest status: 1 operator self-test settled on Base (Block #51961194, Tx 0xf3919e8c...a6325999). Outside paying customers: 0.
+          </p>
+          <div className="flex flex-wrap gap-8 mt-6">
             <div className="bg-gray-900 p-4 rounded border border-gray-800">
               <div className="text-xs text-gray-500 uppercase tracking-widest">Network Status</div>
               <div className="text-xl text-green-400 flex items-center">
                 <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
-                Active
+                Active (Base Mainnet)
               </div>
             </div>
             <div className="bg-gray-900 p-4 rounded border border-gray-800">
-              <div className="text-xs text-gray-500 uppercase tracking-widest">Viral K-Factor</div>
-              <div className="text-xl text-white">{kFactor.toFixed(2)}</div>
+              <div className="text-xs text-gray-500 uppercase tracking-widest">Operator Self-Tests</div>
+              <div className="text-xl text-white">{selfTests} ($0.10 USDC)</div>
+            </div>
+            <div className="bg-gray-900 p-4 rounded border border-gray-800">
+              <div className="text-xs text-gray-500 uppercase tracking-widest">Outside Paying Customers</div>
+              <div className="text-xl text-white">{outsideCustomers}</div>
             </div>
             <div className="bg-gray-900 p-4 rounded border border-gray-800">
               <div className="text-xs text-gray-500 uppercase tracking-widest">Settlement Rails</div>

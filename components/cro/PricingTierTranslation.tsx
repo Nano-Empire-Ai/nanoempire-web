@@ -76,7 +76,7 @@ export function PricingTierTranslation() {
             <div className="text-xs font-mono text-[#00B5E2] uppercase tracking-wider mb-2 font-bold">Continuous Recall Monitoring</div>
             <div className="flex items-baseline gap-1 font-mono">
               <span className="text-4xl font-extrabold text-white">$99</span>
-              <span className="text-[#8C92A4] text-sm">USD / month</span>
+              <span className="text-[#8C92A4] text-sm">CAD / month</span>
             </div>
             <div className="text-xs font-mono text-emerald-400 mt-1">Zero-touch Stripe Checkout · Cancel anytime</div>
 
@@ -115,33 +115,33 @@ export function PricingTierTranslation() {
               rel="noopener noreferrer"
               className="w-full py-3.5 rounded-lg bg-[#00B5E2] hover:bg-[#009ac0] text-black font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#00B5E2]/20"
             >
-              <Zap size={15} /> Subscribe Instantly ($99/mo)
+              <Zap size={15} /> Subscribe Instantly ($99 CAD/mo)
             </a>
           </div>
         </div>
 
-        {/* Tier 3: Compliance Shield & SkillProof Flagship */}
+        {/* Tier 3: Sovereign Enterprise Data License */}
         <div className="bg-[#0f1423] border border-[#FF7B00]/40 rounded-2xl p-8 flex flex-col justify-between hover:border-[#FF7B00] transition-all">
           <div>
-            <div className="text-xs font-mono text-[#FF7B00] uppercase tracking-wider mb-2 font-bold">Flagship · SkillProof / Compliance Shield</div>
+            <div className="text-xs font-mono text-[#FF7B00] uppercase tracking-wider mb-2 font-bold">Enterprise · Sovereign Data &amp; CI/CD</div>
             <div className="flex items-baseline gap-1 font-mono">
-              <span className="text-4xl font-extrabold text-white">$500</span>
-              <span className="text-[#8C92A4] text-sm">CAD / sprint</span>
+              <span className="text-4xl font-extrabold text-white">$2,400</span>
+              <span className="text-[#8C92A4] text-sm">USD / year</span>
             </div>
-            <div className="text-xs font-mono text-[#FF7B00] mt-1">or $2,400/yr Sovereign Enterprise License</div>
+            <div className="text-xs font-mono text-[#FF7B00] mt-1">Full 46,642-record safety corpus + SkillProof Trust Manifests</div>
 
             <p className="text-sm text-[#8C92A4] mt-4 font-sans leading-relaxed">
-              48-hour adversarial verification battery for MCP servers, agent skills, or full-solicitation BidShield / ClaimShield compliance packs.
+              Complete normalized CPSC, FDA, and Health Canada recall corpus export, daily delta sync API, and offline-verifiable Ed25519 Trust Manifests.
             </p>
 
             <div className="mt-6 space-y-3 font-sans text-sm text-[#F4F1EA]">
               <div className="flex items-start gap-2.5">
                 <Check size={16} className="text-[#FF7B00] shrink-0 mt-0.5" />
-                <span>180-vector adversarial battery + Ed25519 Trust Manifest</span>
+                <span>Full 46,642-record US &amp; Canadian recall dataset export</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <Check size={16} className="text-[#FF7B00] shrink-0 mt-0.5" />
-                <span>BidShield RFP Mandatory Gate / ClaimShield ERISA Appeal</span>
+                <span>Daily programmatic delta sync &amp; webhook delivery</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <Check size={16} className="text-[#FF7B00] shrink-0 mt-0.5" />
@@ -153,27 +153,25 @@ export function PricingTierTranslation() {
               </div>
               <div className="flex items-start gap-2.5">
                 <Check size={16} className="text-[#FF7B00] shrink-0 mt-0.5" />
-                <span>48-hour turnaround target</span>
+                <span>Commercial catalog vetting &amp; redistribution license</span>
               </div>
             </div>
           </div>
 
           <div className="mt-8 pt-6 border-t border-[#8C92A4]/15 space-y-2">
             <a
-              href="https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"
+              href="https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3 rounded-lg bg-[#FF7B00] hover:bg-[#e06c00] text-black font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
             >
-              <Shield size={15} /> Order SkillProof Sprint ($500)
+              <Building2 size={15} /> Sovereign Enterprise License ($2,400/yr)
             </a>
             <a
-              href="https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/skillproof"
               className="w-full py-2.5 rounded-lg border border-[#8C92A4]/30 hover:bg-white/5 text-[#8C92A4] hover:text-white font-mono text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all"
             >
-              <Building2 size={13} /> Sovereign Enterprise License ($2,400/yr)
+              <Shield size={13} /> View SkillProof MCP Pre-Audit Index →
             </a>
           </div>
         </div>

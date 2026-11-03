@@ -124,14 +124,16 @@
     {
       "id": "skillproof-sprint",
       "name": "SkillProof Sprint (human checkout)",
-      "description": "48-hour adversarial battery against one skill or MCP server, returning a signed Ed25519 trust manifest. Paid by Stripe, 500 CAD. Not machine-payable.",
+      "description": "48-hour adversarial battery against one skill or MCP server, returning a signed Ed25519 trust manifest. Paid by Stripe, $299 USD. Not machine-payable.",
       "tags": [
         "verification",
         "mcp",
         "red-team",
         "trust-manifest"
       ],
-      "examples": [],
+      "examples": [
+        "Checkout: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"
+      ],
       "inputModes": [
         "application/json"
       ],
@@ -140,9 +142,9 @@
       ]
     },
     {
-      "id": "recallguard-pro",
-      "name": "RecallGuard Pro Compliance Report",
-      "description": "Human-checkout data service: CPSC/FDA/NHTSA recall compliance report for e-commerce catalogs. 24h delivery. $500 CAD via Stripe.",
+      "id": "recallradar-report",
+      "name": "RecallRadar Compliance Report",
+      "description": "Human-checkout data service: CPSC/FDA/Health Canada recall compliance report across 46,642 safety records for e-commerce catalogs. Instant signed PDF/CSV delivery. $30 USD via Stripe.",
       "tags": [
         "compliance",
         "recalls",
@@ -150,7 +152,7 @@
         "data-service"
       ],
       "examples": [
-        "Checkout: https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f"
+        "Checkout: https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k"
       ],
       "inputModes": [
         "application/json"
@@ -160,39 +162,17 @@
       ]
     },
     {
-      "id": "vin-intelligence",
-      "name": "VIN Intelligence Report",
-      "description": "Human-checkout data service: NHTSA campaign match for auto fleets & dealerships. 24h delivery. $500 CAD via Stripe.",
+      "id": "recallradar-monitoring",
+      "name": "RecallRadar Continuous Monitoring",
+      "description": "Continuous monthly recall re-scan and immediate expansion alerts across US and Canadian safety registries. $99 CAD/month via Stripe.",
       "tags": [
-        "vin",
-        "nhtsa",
-        "automotive",
-        "fleet",
+        "recalls",
+        "monitoring",
+        "compliance",
         "data-service"
       ],
       "examples": [
-        "Checkout: https://buy.stripe.com/cNicN6c6g6r521ZfEsfAc0f"
-      ],
-      "inputModes": [
-        "application/json"
-      ],
-      "outputModes": [
-        "application/json"
-      ]
-    },
-    {
-      "id": "mcp-security-audit",
-      "name": "MCP Security Audit",
-      "description": "Human-checkout data service: 180-vector adversarial battery + Trust Manifest for MCP servers. 48h delivery. $2,500 CAD via Stripe.",
-      "tags": [
-        "mcp",
-        "security",
-        "audit",
-        "trust-manifest",
-        "data-service"
-      ],
-      "examples": [
-        "Checkout: https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c"
+        "Checkout: https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e"
       ],
       "inputModes": [
         "application/json"

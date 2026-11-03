@@ -21,9 +21,9 @@ export default function DoorB() {
                 Explore Trust Manifests →
               </Button>
             </Link>
-            <Link href="/grok-mcp/" className="w-full sm:w-auto">
+            <Link href="/recall-report" className="w-full sm:w-auto">
               <Button variant="outline" className="border-slate-700 hover:bg-slate-800 text-[#A3FF00] w-full sm:w-auto">
-                Run Grok MCP Audit →
+                Launch RecallRadar Scanner ($30 USD) →
               </Button>
             </Link>
             <Link href="/case-studies" className="w-full sm:w-auto">

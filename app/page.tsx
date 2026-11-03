@@ -31,16 +31,15 @@ import { ArrowUpRight, Terminal, Zap, Activity, Server, Code2, Globe, Shield, Da
 const STRUCTURED_DATA_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Nano Empire AI — RecallGuard, SkillProof & BidShield",
+  name: "Nano Empire AI — RecallRadar, SkillProof & BidShield",
   applicationCategory: "SecurityApplication",
   operatingSystem: "Web, REST API, Base Mainnet (x402)",
   url: "https://www.nanoempireai.com",
   description:
-    "Cryptographic compliance and verification infrastructure: RecallGuard x402 API across 46,642 CPSC/FDA/Health Canada safety records, SkillProof Ed25519 Trust Manifests, and BidShield RFP compliance audits.",
+    "Cryptographic compliance and verification infrastructure: RecallRadar x402 API across 46,642 CPSC/FDA/Health Canada safety records, SkillProof Ed25519 Trust Manifests, and BidShield RFP compliance audits.",
   offers: [
     { "@type": "Offer", name: "RecallRadar Compliance Report", price: "30.00", priceCurrency: "USD", url: "https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" },
-    { "@type": "Offer", name: "RecallRadar Continuous Monitoring", price: "99.00", priceCurrency: "USD", url: "https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" },
-    { "@type": "Offer", name: "SkillProof Adversarial Sprint", price: "500.00", priceCurrency: "CAD", url: "https://buy.stripe.com/eVq00keeo5n1bCzgIwfAc0c" }
+    { "@type": "Offer", name: "RecallRadar Continuous Monitoring", price: "99.00", priceCurrency: "CAD", url: "https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" }
   ]
 };
 
@@ -83,14 +82,13 @@ const SKUS = [
 
   { id: "recallguard-report", price: "$30 USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "One-time scan of inventory against 46,642 US & Canadian recalls (12,430 US CPSC/FDA + 34,212 Health Canada). Signed PDF compliance report." },
 
-  { id: "recallguard-monitoring", price: "$99/mo USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "Monthly inventory re-scan + immediate recall expansion alerts." },
+  { id: "recallguard-monitoring", price: "$99 CAD/mo", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "Monthly inventory re-scan + immediate recall expansion alerts." },
 
   { id: "sovereign-license", price: "$2,400/yr USD", buyer: "enterprise", payment: "Invoice / Stripe", status: "live", category: "recallguard", desc: "Complete data license, daily API sync, and private deployment." },
 
   
 
   // SkillProof & BidShield (Human & Enterprise)
-  { id: "skillproof-sprint", price: "$500 CAD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Targeted adversarial verification battery for MCP servers and skills. Typical turnaround is 2–5 business days depending on scope. Deliverable includes a signed Ed25519 Trust Manifest and reproducible findings." },
   { id: "bidshield-triage", price: "$99 USD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Urgent <72h solicitation fatal flaw scan. Missing annexes checklist & bond penalty exposure review." },
   { id: "bidshield-pilot", price: "$299 USD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Full tender requirement matrix, 5-gate compliance cross-walk, and certified exception audit." },
 
@@ -229,20 +227,10 @@ export default function Home() {
 
             <div className="hidden xl:flex items-center gap-5 text-[#8C92A4] text-xs font-mono">
 
-              <a href="/bidshield/capsule" className="text-[#a78bfa] hover:underline flex items-center gap-1 font-bold border border-[#a78bfa]/30 bg-[#a78bfa]/10 px-2 py-0.5 rounded"><Shield size={13} /> BNOA Capsule</a>
-              <a href="/wearables/" className="text-[#00E5FF] hover:underline flex items-center gap-1 font-bold border border-[#00E5FF]/30 bg-[#00E5FF]/10 px-2 py-0.5 rounded"><Activity size={13} /> Ray-Ban HUD</a>
+              <a href="/recall-report" className="text-[#A3FF00] hover:underline flex items-center gap-1 font-bold border border-[#A3FF00]/30 bg-[#A3FF00]/10 px-2.5 py-1 rounded"><Shield size={13} /> RecallRadar ($30 Report)</a>
+              <a href="/skillproof" className="text-[#00B5E2] hover:underline flex items-center gap-1 font-bold"><Shield size={13} /> SkillProof Index</a>
               <a href="/bidshield/triage/" className="text-[#3ddc97] hover:underline flex items-center gap-1 font-bold"><Shield size={13} /> BidShield Triage</a>
-
-              <a href="/ingest/" className="text-[#00B5E2] hover:underline flex items-center gap-1 font-bold"><Database size={13} /> Trap Atlas</a>
-
-              <a href="/rfp/" className="text-[#FF7B00] hover:underline flex items-center gap-1 font-bold"><Terminal size={13} /> RFP Engine</a>
-
-              <a href="/tollbooth/" className="text-white hover:underline flex items-center gap-1 font-bold"><Zap size={13} /> Tollbooth</a>
-
-              <a href="/decision-bus/" className="hover:text-white transition-colors flex items-center gap-1"><Activity size={13} /> Decision Bus</a>
-
-              <a href="/grok-mcp/" className="text-[#A3FF00] hover:underline flex items-center gap-1"><Shield size={13} /> Grok MCP</a>
-
+              <a href="/m2m-state.md" className="hover:text-white transition-colors flex items-center gap-1"><BookOpen size={13} /> M2M Briefing</a>
               <a href="/podcast" className="text-[#00B5E2] hover:underline flex items-center gap-1 font-bold"><Headphones size={13} /> Podcast</a>
 
             </div>
@@ -277,13 +265,13 @@ export default function Home() {
 
                 <span className="flex h-2 w-2 relative">
 
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF7B00] opacity-75"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A3FF00] opacity-75"></span>
 
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF7B00]"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A3FF00]"></span>
 
                 </span>
 
-                BASE USDC FOR RECALLGUARD · STRIPE CHECKOUT FOR SPRINT
+                46,642 US &amp; CANADIAN SAFETY RECORDS · INSTANT $30 COMPLIANCE REPORT · BASE x402 API
 
               </div>
 
@@ -291,11 +279,11 @@ export default function Home() {
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter uppercase leading-[0.95] text-white">
 
-                The API Gateway Built For <br />
+                Instant Recall &amp; <br />
 
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00B5E2] via-[#F4F1EA] to-[#A3FF00]">
 
-                  Autonomous Swarms
+                  Compliance Proof
 
                 </span>
 
@@ -305,7 +293,7 @@ export default function Home() {
 
               <p className="text-[#8C92A4] text-lg sm:text-xl max-w-xl font-sans leading-relaxed border-l-2 border-[#00B5E2] pl-4">
 
-                The production gateway for autonomous agent swarms. Live x402 Base settlement for real-time recall verification and cryptographic Trust Manifests for MCP servers.
+                Screen your inventory CSV against 46,642 CPSC, FDA, and Health Canada recalls with an instant signed PDF compliance report ($30 USD), or query machine-to-machine via HTTP 402 on Base ($0.10 USDC).
 
               </p>
 
@@ -313,31 +301,14 @@ export default function Home() {
 
               <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
 
-                <a href="/bidshield/capsule" className="px-5 py-3 rounded bg-[#a78bfa] hover:bg-[#9061f9] text-black font-bold tracking-wider uppercase transition-all flex items-center gap-2 shadow-lg shadow-[#a78bfa]/20">
-                  <Shield size={15} /> Air-Gapped BNOA Capsule
+                <a href="/recall-report" className="px-6 py-3.5 rounded bg-[#A3FF00] hover:bg-[#8ee000] text-black font-bold tracking-wider uppercase transition-all flex items-center gap-2 shadow-lg shadow-[#A3FF00]/20">
+                  <Shield size={15} /> Scan Inventory ($30 Compliance Report)
                 </a>
-                <a href="/bidshield/triage/" className="px-5 py-3 rounded bg-[#3ddc97] hover:bg-[#34c787] text-black font-bold tracking-wider uppercase transition-all flex items-center gap-2 shadow-lg shadow-[#3ddc97]/20">
-
-                  <Shield size={15} /> Free BidShield Triage
-
+                <a href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" className="px-5 py-3.5 rounded bg-[#00B5E2] hover:bg-[#009ac0] text-black font-bold tracking-wider uppercase transition-all flex items-center gap-2">
+                  <CreditCard size={15} /> Direct Checkout ($30 USD)
                 </a>
-
-                <a href="/ingest/" className="px-5 py-3 rounded bg-[#00B5E2] hover:bg-[#009ac0] text-black font-bold tracking-wider uppercase transition-all flex items-center gap-2">
-
-                  <Database size={15} /> Public Trap Atlas
-
-                </a>
-
-                <a href="/tollbooth/" className="px-5 py-3 rounded border border-white/30 hover:bg-white/10 text-white tracking-wider uppercase transition-all flex items-center gap-2">
-
-                  <Zap size={15} /> Tollbooth SDK
-
-                </a>
-
-                <a href="/rfp/" className="px-5 py-3 rounded border border-[#FF7B00]/40 text-[#FF7B00] hover:bg-[#FF7B00]/10 tracking-wider uppercase transition-all flex items-center gap-2">
-
-                  <Terminal size={15} /> RFP Engine
-
+                <a href="/skillproof" className="px-5 py-3.5 rounded border border-white/30 hover:bg-white/10 text-white tracking-wider uppercase transition-all flex items-center gap-2">
+                  <Terminal size={15} /> SkillProof MCP Index
                 </a>
 
               </div>
@@ -802,29 +773,29 @@ export default function Home() {
 
 
 
-            <a href="/grok-mcp/" className="p-5 rounded-xl border border-[#A3FF00]/40 bg-[#0f1423] hover:border-[#A3FF00] transition-all group flex flex-col justify-between">
+            <a href="/skillproof" className="p-5 rounded-xl border border-[#A3FF00]/40 bg-[#0f1423] hover:border-[#A3FF00] transition-all group flex flex-col justify-between">
 
               <div>
 
                 <div className="flex items-center justify-between mb-3">
 
-                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-[#A3FF00] bg-[#A3FF00]/10 px-2 py-0.5 rounded border border-[#A3FF00]/30">SECURITY AUDITOR</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-[#A3FF00] bg-[#A3FF00]/10 px-2 py-0.5 rounded border border-[#A3FF00]/30">LIVE SCOREBOARD · 14 REPOS</span>
 
                   <ArrowUpRight size={16} className="text-[#A3FF00] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
 
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2">Grok MCP Readiness Audit</h3>
+                <h3 className="text-lg font-bold text-white mb-2">SkillProof MCP Pre-Audit Index</h3>
 
                 <p className="text-xs text-[#8C92A4] font-sans leading-relaxed">
 
-                  Comprehensive audit battery for MCP servers preparing for xAI Grok and autonomous agent consumption. Generates signed Trust Manifests.
+                  Public line-cited static pre-audit scorecards across flagship MCP servers and agent frameworks, plus Ed25519 Trust Manifests.
 
                 </p>
 
               </div>
 
-              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#A3FF00] font-semibold">Run MCP Audit →</div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#A3FF00] font-semibold">Explore Pre-Audit Index →</div>
 
             </a>
 
@@ -1234,13 +1205,13 @@ export default function Home() {
 
           <div className="tier">Recall Monitoring</div>
 
-          <div className="price">$99<small>/mo</small></div>
+          <div className="price">$99<small> CAD/mo</small></div>
 
           <div className="per">per merchant · continuous</div>
 
           <p>Monthly inventory re-scan, expansion alerts when recalls widen, and continuous compliance defense.</p>
 
-          <a className="btn small" href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" target="_blank">Subscribe ($99/mo)</a>
+          <a className="btn small" href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" target="_blank">Subscribe ($99 CAD/mo)</a>
 
         </div>
 

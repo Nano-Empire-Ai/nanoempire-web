@@ -47,7 +47,7 @@ const TIERS = [
   },
   {
     name: 'Continuous Radar & Manifest Monitoring',
-    price: '$99 USD / mo',
+    price: '$99 CAD / mo',
     timing: 'Daily Automation',
     status: 'LIVE',
     popular: false,

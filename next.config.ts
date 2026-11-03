@@ -59,6 +59,35 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/certify",
+        destination: "/skillproof",
+        permanent: true,
+      },
+      {
+        source: "/proof",
+        destination: "/#dogfood-signals",
+        permanent: true,
+      },
+      {
+        source: "/first-dollar",
+        destination: "/#dogfood-signals",
+        permanent: true,
+      },
+      {
+        source: "/pledge",
+        destination: "/mtp.html",
+        permanent: true,
+      },
+      {
+        source: "/audit-trail",
+        destination: "/manifests.html",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

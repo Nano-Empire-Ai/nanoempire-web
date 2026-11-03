@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
-import crypto from 'crypto';
 
 interface LedgerEvent {
   id: string;
   timestamp: string;
-  type: 'x402_SETTLEMENT' | 'VIN_DECODE' | 'MCP_AUDIT' | 'AGENT_SPAWN';
+  type: 'x402_SETTLEMENT' | 'MCP_AUDIT' | 'CORPUS_INDEX';
   tier: 'LIVE_B2B' | 'SYSTEM_UPTIME_PROOF';
   agent_id: string;
   payload: string;
@@ -14,52 +13,39 @@ interface LedgerEvent {
 }
 
 export async function GET() {
-  const now = Date.now();
-
   const events: LedgerEvent[] = [
     {
-      id: `evt_${crypto.randomBytes(3).toString('hex')}`,
-      timestamp: new Date(now - 14000).toISOString(),
+      id: 'tx_51961194_base',
+      timestamp: '2026-09-29T14:22:00.000Z',
       type: 'x402_SETTLEMENT',
-      tier: 'LIVE_B2B',
-      agent_id: 'aid_402_m2m_router',
-      payload: 'Autonomous A2A Sensorium Route',
-      amount_usd: 0.035,
-      signature: `base:0x${crypto.randomBytes(16).toString('hex')}`,
+      tier: 'SYSTEM_UPTIME_PROOF',
+      agent_id: 'operator_self_test',
+      payload: 'RecallRadar POST /api/v1/match (Base Block #51961194 — 0 outside customers)',
+      amount_usd: 0.10,
+      signature: '0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999',
       verified_onchain: true
     },
     {
-      id: `evt_${crypto.randomBytes(3).toString('hex')}`,
-      timestamp: new Date(now - 48000).toISOString(),
-      type: 'VIN_DECODE',
+      id: 'manifest_01_fs',
+      timestamp: '2026-10-05T12:00:00.000Z',
+      type: 'MCP_AUDIT',
       tier: 'SYSTEM_UPTIME_PROOF',
-      agent_id: 'cron_vin_sentinel',
-      payload: '1HGCR2F83HA000000 (vPIC NHTSA OK)',
-      amount_usd: 0.03,
-      signature: `sha256:${crypto.randomBytes(16).toString('hex')}`,
+      agent_id: 'skillproof_signer',
+      payload: 'SkillProof #01 (filesystem v0.6.3 — 228 ops PASS_WITH_NOTES)',
+      amount_usd: 0.00,
+      signature: 'ed25519:Zr5+My...PASS_WITH_NOTES',
       verified_onchain: false
     },
     {
-      id: `evt_${crypto.randomBytes(3).toString('hex')}`,
-      timestamp: new Date(now - 135000).toISOString(),
-      type: 'MCP_AUDIT',
-      tier: 'LIVE_B2B',
-      agent_id: 'oracle_manifest_signer',
-      payload: 'modelcontextprotocol/servers (Trust: 98)',
-      amount_usd: 500.00,
-      signature: `ed25519:${crypto.randomBytes(16).toString('hex')}`,
-      verified_onchain: true
-    },
-    {
-      id: `evt_${crypto.randomBytes(3).toString('hex')}`,
-      timestamp: new Date(now - 280000).toISOString(),
-      type: 'x402_SETTLEMENT',
+      id: 'preaudit_index_v3',
+      timestamp: '2026-11-03T12:00:00.000Z',
+      type: 'CORPUS_INDEX',
       tier: 'SYSTEM_UPTIME_PROOF',
-      agent_id: 'gate_sentinel_hourly',
-      payload: 'Hourly x402 Micropayment Heartbeat',
-      amount_usd: 0.01,
-      signature: `base:0x${crypto.randomBytes(16).toString('hex')}`,
-      verified_onchain: true
+      agent_id: 'exo_preaudit_v3',
+      payload: '46,642 CPSC/FDA/Health Canada Recalls + 14 MCP Pre-Audits Indexed',
+      amount_usd: 0.00,
+      signature: 'sha256:2026.11.03-v1',
+      verified_onchain: false
     }
   ];
 
@@ -67,10 +53,12 @@ export async function GET() {
     network: 'NanoEmpire Autonomous Mesh',
     events,
     meta: {
-      total_volume_usd: 500.075,
-      active_agents: 14,
-      settlement_rails: ['x402 (Base USDC)', 'Stripe Issuing (M2M)'],
-      transparency_policy: 'B2B transactions are cryptographic hash-verified; automated cron events are marked as SYSTEM_UPTIME_PROOF.'
+      total_volume_usd: 0.10,
+      outside_paying_customers: 0,
+      operator_self_tests: 1,
+      active_agents: 1,
+      settlement_rails: ['x402 (Base USDC)', 'Stripe Checkout'],
+      transparency_policy: 'Zero fabrication: 1 operator self-test settled on Base block 51961194 ($0.10 USDC). Outside paying customers: 0.'
     }
   }, {
     headers: {
