@@ -4,10 +4,10 @@
   "chain": "base",
   "payment_rail": "x402",
   "paper_mode": false,
-  "corpus_version": "2026.10.25-v1",
+  "corpus_version": "2026.11.03-v1",
   "records_indexed": 46642,
-  "updated": "2026-10-25T18:00:00Z",
-  "next_refresh": "2026-10-26T06:00:00Z",
+  "updated": "2026-11-03T12:00:00Z",
+  "next_refresh": "2026-11-04T08:00:00Z",
   "x402_defaults": {
     "network": "base",
     "chain_id": 8453,
