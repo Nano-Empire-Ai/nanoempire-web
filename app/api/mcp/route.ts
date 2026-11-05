@@ -72,6 +72,29 @@ const MCP_TOOLS = [
       properties: {},
     },
   },
+  {
+    name: 'skillproof_verify_repo',
+    description:
+      'Returns the cached 6-vector static security scorecard and governance hygiene evaluation for a public GitHub MCP or AI agent repository.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        repo: { type: 'string', description: 'GitHub full name in owner/repo format (e.g. pydantic/pydantic-ai)' },
+      },
+      required: ['repo'],
+    },
+  },
+  {
+    name: 'bidshield_triage_info',
+    description:
+      'Returns RFP pre-bid compliance triage and disqualifier audit capabilities for government solicitations (CanadaBuys, SAM.gov).',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        naics_code: { type: 'string', description: 'Optional 6-digit NAICS industry code (e.g. 238220 for HVAC)' },
+      },
+    },
+  },
 ];
 
 export async function GET() {
@@ -174,6 +197,101 @@ export async function POST(req: Request) {
                       signed_manifest_report_usd: 30.0,
                       enterprise_command_center_yearly_usd: 2400.0,
                     },
+                  },
+                  null,
+                  2
+                ),
+              },
+            ],
+          },
+        });
+      }
+
+      if (toolName === 'skillproof_verify_repo') {
+        const repoParam = String(args.repo || '').toLowerCase();
+        let preaudits = [];
+        try {
+          const preauditsJson = await import('@/public/skillproof/preaudits.json');
+          preaudits = (preauditsJson.default || preauditsJson).audits || [];
+        } catch {
+          // ignore import error
+        }
+        const audit = preaudits.find((a: any) => a.repo.toLowerCase() === repoParam);
+
+        if (audit) {
+          return NextResponse.json({
+            jsonrpc,
+            id,
+            result: {
+              content: [
+                {
+                  type: 'text',
+                  text: JSON.stringify(
+                    {
+                      repo: audit.repo,
+                      skillproof_score: audit.skillproof_score,
+                      preaudit_id: audit.preaudit_id,
+                      tree_sha: audit.tree_sha,
+                      stars: audit.stars,
+                      governance_gaps: audit.governance_gaps,
+                      surface_summary: audit.surface_summary,
+                      code_surface_findings: audit.code_surface_findings,
+                      verification_url: `https://www.nanoempireai.com/skillproof/repo/${audit.repo}`,
+                      order_signed_manifest_url: 'https://www.nanoempireai.com/skillproof',
+                    },
+                    null,
+                    2
+                  ),
+                },
+              ],
+            },
+          });
+        }
+
+        return NextResponse.json({
+          jsonrpc,
+          id,
+          result: {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(
+                  {
+                    repo: args.repo,
+                    status: 'NOT_YET_INDEXED',
+                    message: 'Repository not in current top pre-audit index. Run on-demand scan at https://www.nanoempireai.com/skillproof',
+                    scanner_url: 'https://www.nanoempireai.com/skillproof',
+                  },
+                  null,
+                  2
+                ),
+              },
+            ],
+          },
+        });
+      }
+
+      if (toolName === 'bidshield_triage_info') {
+        const naics = String(args.naics_code || '');
+        return NextResponse.json({
+          jsonrpc,
+          id,
+          result: {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(
+                  {
+                    engine: 'BidShield Deontic Compliance Kernel',
+                    jurisdictions: ['CanadaBuys', 'SAM.gov', 'Municipal & State Procurement'],
+                    pricing_tiers: {
+                      urgent_prebid_triage: '$99 USD (<72h turnaround, forms & disqualifiers)',
+                      full_compliance_matrix: '$249 USD (19-column Excel/CSV + risk audit)',
+                      multidoc_tender_suite: '$499 USD (full RFP package + addenda cross-audit)',
+                    },
+                    naics_requested: naics || 'all',
+                    naics_directory: naics ? `https://www.nanoempireai.com/bidshield/naics/${naics}` : 'https://www.nanoempireai.com/bidshield',
+                    service_portal: 'https://www.nanoempireai.com/bidshield',
                   },
                   null,
                   2
