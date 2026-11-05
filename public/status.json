@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.1.0",
+  "last_updated": "2026-11-05",
+  "system_status": "OPERATIONAL",
+  "loop_version": "ExO 3.2",
+  "current_state": {
+    "date": "2026-11-05",
+    "timestamp_utc": "2026-11-05T14:28:01.598778+00:00",
+    "total_recalls_live": 25,
+    "total_repos_audited_live": 23,
+    "unique_retailers_touched": 51,
+    "quarantined_records": 1,
+    "pipeline_duration_ms": 5583,
+    "quality_gate_passed": true
+  },
+  "rolling_30_day_summary": {
+    "active_monitored_days": 1,
+    "current_total_recalls": 25,
+    "current_total_repos_audited": 23,
+    "unique_retailers_monitored": 51,
+    "average_pipeline_sync_ms": 5583,
+    "gate_compliance_rate": "100%"
+  },
+  "endpoints": {
+    "preaudits_json": "https://www.nanoempireai.com/skillproof/preaudits.json",
+    "recalls_json": "https://www.nanoempireai.com/recalls/latest-cpsc.json",
+    "changelog_json": "https://www.nanoempireai.com/changelog.json",
+    "daily_delta_md": "https://www.nanoempireai.com/daily-delta.md"
+  }
+}

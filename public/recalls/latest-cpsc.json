@@ -1,8 +1,13 @@
 {
   "schema": "https://www.nanoempireai.com/recalls/latest-cpsc.v1.json",
+  "schema_version": "1.1.0",
+  "updated_at": "2026-11-05",
+  "quality_gate_policy": "Requires 2025-2026 recall_date AND (verified units_affected OR explicit retailer list); deduplicated by RecallID.",
   "total_recalls_in_feed": 25,
   "corpus_total_records": 46642,
   "scanner_url": "https://www.nanoempireai.com/recall-report",
+  "changelog_url": "https://www.nanoempireai.com/changelog.json",
+  "status_url": "https://www.nanoempireai.com/status.json",
   "recalls": [
     {
       "recall_id": 11041,
