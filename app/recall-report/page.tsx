@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from 'react';
-import { UploadCloud, AlertTriangle, CheckCircle, Lock, ShieldAlert, FileText, ChevronRight, Loader2 } from 'lucide-react';
+import { UploadCloud, AlertTriangle, CheckCircle, Lock, ShieldAlert, FileText, ChevronRight, Loader2, ExternalLink } from 'lucide-react';
 import Papa from 'papaparse';
 import Link from 'next/link';
+import latestCpscData from '@/public/recalls/latest-cpsc.json';
 
 type ScanResult = {
   totalScanned: number;
@@ -24,6 +25,7 @@ export default function RecallReportPage() {
   const [results, setResults] = useState<ScanResult | null>(null);
   const [email, setEmail] = useState('');
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const latestRecalls = (latestCpscData?.recalls || []).slice(0, 8);
 
   const handleCheckout = async () => {
     if (!email) {
@@ -284,7 +286,7 @@ export default function RecallReportPage() {
                     <ShieldAlert className="w-6 h-6 text-rose-400 mb-3" />
                     <h3 className="text-lg font-semibold mb-1 text-rose-100">Continuous Radar</h3>
                     <p className="text-neutral-400 text-xs mb-4">Daily automated sync across US & Canada safety registries. Instant alert webhooks on new bans.</p>
-                    <div className="text-2xl font-bold mb-4 text-white">$99 <span className="text-xs text-neutral-500 font-normal">USD /mo</span></div>
+                    <div className="text-2xl font-bold mb-4 text-white">$99 <span className="text-xs text-neutral-500 font-normal">CAD /mo</span></div>
                   </div>
                   <a 
                     href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e"
@@ -292,7 +294,7 @@ export default function RecallReportPage() {
                     rel="noopener noreferrer"
                     className="w-full bg-rose-500 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-rose-600 transition-colors flex items-center justify-center gap-2 text-center"
                   >
-                    Start Protection
+                    Start Protection ($99 CAD/mo)
                   </a>
                 </div>
 
@@ -324,6 +326,58 @@ export default function RecallReportPage() {
             </div>
           </div>
         )}
+
+        {/* Live 2026 Federal Recall Feed (Auto-Synced Daily) */}
+        <section className="mt-16 border-t border-neutral-800 pt-12">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-widest text-rose-400">
+                AUTONOMOUS CPSC FEED · UPDATED DAILY 07:30 ET
+              </span>
+              <h2 className="text-2xl font-bold text-white mt-1">
+                Recent High-Exposure Federal Recalls (2026)
+              </h2>
+            </div>
+            <Link
+              href="/recalls/latest-cpsc.json"
+              className="text-xs font-mono text-rose-300 hover:underline flex items-center gap-1.5 border border-rose-500/30 bg-rose-500/10 px-3 py-2 rounded"
+            >
+              Raw JSON Feed (latest-cpsc.json) <ExternalLink className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid gap-3">
+            {latestRecalls.map((rec) => (
+              <div
+                key={rec.recall_id}
+                className="rounded-xl border border-neutral-800 bg-neutral-900/70 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+              >
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-neutral-400">
+                    <span className="text-rose-400 font-bold">CPSC #{rec.recall_number}</span>
+                    <span>·</span>
+                    <span>{rec.recall_date}</span>
+                    <span>·</span>
+                    <span className="px-2 py-0.5 rounded bg-neutral-800 text-neutral-200">
+                      Units: {rec.units_affected}
+                    </span>
+                  </div>
+                  <a
+                    href={rec.cpsc_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold text-white hover:text-rose-300 transition-colors flex items-center gap-1.5"
+                  >
+                    {rec.title} <ExternalLink className="w-3.5 h-3.5 shrink-0 text-neutral-500" />
+                  </a>
+                  <p className="text-xs text-neutral-400 line-clamp-2">
+                    <strong className="text-neutral-300">Sold At:</strong> {rec.retailers}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
