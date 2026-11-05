@@ -1,0 +1,41 @@
+name: 'SkillProof CI/CD Security & Hygiene Gate'
+description: 'Deterministic 6-vector static security and governance gate for Model Context Protocol (MCP) servers and AI agent skills.'
+author: 'Nano Empire AI (+https://www.nanoempireai.com/skillproof)'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  min_score:
+    description: 'Minimum required SkillProof score (0-100) to pass the gate'
+    required: false
+    default: '80'
+  scan_path:
+    description: 'Directory path to scan for MCP tool definitions and execution sinks'
+    required: false
+    default: '.'
+  fail_on_critical:
+    description: 'Fail the build immediately if any CRITICAL severity sinks (e.g., dynamic eval) are detected'
+    required: false
+    default: 'true'
+
+outputs:
+  skillproof_score:
+    description: 'Calculated 0-100 repository hygiene score'
+  findings_count:
+    description: 'Total number of detected static execution sinks'
+  gate_status:
+    description: 'PASS or FAIL'
+  badge_markdown:
+    description: 'Markdown snippet for README verification badge'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run SkillProof Static Scanner
+      shell: bash
+      run: |
+        python3 ${{ github.action_path }}/scanner.py \
+          --scan-path "${{ inputs.scan_path }}" \
+          --min-score "${{ inputs.min_score }}" \
+          --fail-on-critical "${{ inputs.fail_on_critical }}"
