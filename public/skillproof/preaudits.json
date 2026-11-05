@@ -1,6 +1,6 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
-  "total_repos_audited": 14,
+  "total_repos_audited": 22,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "audits": [
     {
@@ -384,6 +384,51 @@
       "preaudit_id": "SP-D14FD6B7157649BF"
     },
     {
+      "repo": "alpacahq/alpaca-mcp-server",
+      "stars": 1057,
+      "branch": "main",
+      "tree_sha": "72b2493ceeb6",
+      "license": "MIT",
+      "total_files_in_repo": 49,
+      "sampled_source_files": [
+        "src/alpaca_mcp_server/cli.py",
+        "src/alpaca_mcp_server/server.py",
+        "src/alpaca_mcp_server/__init__.py",
+        "src/alpaca_mcp_server/security.py"
+      ],
+      "skillproof_score": 82,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "src/alpaca_mcp_server/cli.py",
+          "line": 54,
+          "snippet": "if not os.environ.get(\"ALPACA_API_KEY\") or not os.environ.get(\"ALPACA_SECRET_KEY\"):"
+        },
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "src/alpaca_mcp_server/server.py",
+          "line": 102,
+          "snippet": "key = os.environ.get(\"ALPACA_API_KEY\", \"\")"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "src/alpaca_mcp_server/server.py",
+          "line": 136,
+          "snippet": "client = httpx.AsyncClient(base_url=base_url, headers=headers, timeout=30.0)"
+        }
+      ],
+      "preaudit_id": "SP-23A66C4678BF0CAA"
+    },
+    {
       "repo": "redis/mcp-redis",
       "stars": 641,
       "branch": "main",
@@ -402,6 +447,230 @@
       ],
       "code_surface_findings": [],
       "preaudit_id": "SP-4DEDC0893FE9062D"
+    },
+    {
+      "repo": "lemma-work/lemma-platform",
+      "stars": 640,
+      "branch": "main",
+      "tree_sha": "a6fb17abffe9",
+      "license": "AGPL-3.0",
+      "total_files_in_repo": 9564,
+      "sampled_source_files": [
+        "lemma-cli/setup.py",
+        "lemma-cli/lemma_cli/app.py",
+        "lemma-cli/lemma_cli/cli.py",
+        "scripts/check_cli_wheel.py"
+      ],
+      "skillproof_score": 96,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "lemma-cli/setup.py",
+          "line": 56,
+          "snippet": "shutil.rmtree(_SKILLS_DEST)"
+        }
+      ],
+      "preaudit_id": "SP-39B061FA90033AA9"
+    },
+    {
+      "repo": "VoltAgent/official-mcp-servers",
+      "stars": 410,
+      "branch": "main",
+      "tree_sha": "0a9d116477ce",
+      "license": "MIT",
+      "total_files_in_repo": 4,
+      "sampled_source_files": [],
+      "skillproof_score": 80,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy",
+        "No deterministic dependency lockfile (`uv.lock` / `package-lock.json`)",
+        "No automated test suite detected in tree"
+      ],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-08E17B4EC1D5A12B"
+    },
+    {
+      "repo": "labsai/EDDI",
+      "stars": 389,
+      "branch": "main",
+      "tree_sha": "3c32fb84c5bd",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 5982,
+      "sampled_source_files": [
+        "docs-site/stubs/sharp/index.js",
+        "ui/manager/src/lib/api-client.ts",
+        "ui/manager/src/lib/tool-trace.ts",
+        "ui/manager/src/lib/query-client.ts"
+      ],
+      "skillproof_score": 98,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "ui/manager/src/lib/api-client.ts",
+          "line": 351,
+          "snippet": "return await fetch(url, {"
+        }
+      ],
+      "preaudit_id": "SP-8AC9FA47A3014C30"
+    },
+    {
+      "repo": "jdubois/boot-ui",
+      "stars": 329,
+      "branch": "main",
+      "tree_sha": "0f19526f1dbe",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 4872,
+      "sampled_source_files": [
+        "docs/.vuepress/client.js",
+        "bootui-ui/src/main/frontend/src/api.js",
+        "bootui-ui/src/main/frontend/src/main.js",
+        "bootui-ui/src/main/frontend/src/routes.js"
+      ],
+      "skillproof_score": 98,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "bootui-ui/src/main/frontend/src/api.js",
+          "line": 42,
+          "snippet": "await fetch(resolveBootUiApiUrl('api/overview'), {cache: 'no-store'})"
+        }
+      ],
+      "preaudit_id": "SP-E0C668FD7F1531C5"
+    },
+    {
+      "repo": "DitriXNew/EDT-MCP",
+      "stars": 326,
+      "branch": "master",
+      "tree_sha": "d2cf6c8b5ab1",
+      "license": "AGPL-3.0",
+      "total_files_in_repo": 2294,
+      "sampled_source_files": [
+        "docs/generate_tool_docs.py",
+        ".claude/skills/edt-mcp-autopilot/references/build.workflow.js",
+        ".claude/skills/edt-mcp-autopilot/references/discover.workflow.js",
+        "docs/validate_agent_skills.py"
+      ],
+      "skillproof_score": 79,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy",
+        "No deterministic dependency lockfile (`uv.lock` / `package-lock.json`)"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "docs/generate_tool_docs.py",
+          "line": 65,
+          "snippet": "with urllib.request.urlopen(req, timeout=30) as resp:"
+        },
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "docs/generate_tool_docs.py",
+          "line": 286,
+          "snippet": "with open(readme, \"w\", encoding=\"utf-8\", newline=\"\\n\") as destination:"
+        }
+      ],
+      "preaudit_id": "SP-3B5E000AC1580929"
+    },
+    {
+      "repo": "keboola/mcp-server",
+      "stars": 85,
+      "branch": "main",
+      "tree_sha": "0b6ce83cccea",
+      "license": "MIT",
+      "total_files_in_repo": 328,
+      "sampled_source_files": [
+        "src/keboola_mcp_server/cli.py",
+        "src/keboola_mcp_server/mcp.py",
+        "src/keboola_mcp_server/links.py",
+        "src/keboola_mcp_server/oauth.py"
+      ],
+      "skillproof_score": 86,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "src/keboola_mcp_server/oauth.py",
+          "line": 70,
+          "snippet": "_OAUTH_LOG_ALL = bool(os.getenv('KEBOOLA_MCP_SERVER_OAUTH_LOG_ALL'))"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "src/keboola_mcp_server/oauth.py",
+          "line": 319,
+          "snippet": "return httpx.AsyncClient(follow_redirects=follow_redirects, timeout=timeout or httpx.Timeout(30.0))"
+        }
+      ],
+      "preaudit_id": "SP-4B909041F0F7FAB4"
+    },
+    {
+      "repo": "CorpusIQ/corpusiq-docs",
+      "stars": 29,
+      "branch": "main",
+      "tree_sha": "bda1c76703e7",
+      "license": "NOASSERTION",
+      "total_files_in_repo": 3692,
+      "sampled_source_files": [
+        "docs/javascripts/webmcp.js",
+        "scripts/indexnow_submit.py",
+        "scripts/generate_catalog_indexes.py",
+        "scripts/validate_catalog_indexes.py"
+      ],
+      "skillproof_score": 84,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "docs/javascripts/webmcp.js",
+          "line": 25,
+          "snippet": "var res = await fetch(SEARCH_INDEX, { credentials: 'omit' });"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "scripts/indexnow_submit.py",
+          "line": 50,
+          "snippet": "with urllib.request.urlopen(req, timeout=45) as r:"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "scripts/indexnow_submit.py",
+          "line": 110,
+          "snippet": "out = subprocess.run(['git', 'diff', '--name-only', f'{last}..HEAD'],"
+        },
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "scripts/indexnow_submit.py",
+          "line": 143,
+          "snippet": "open(MARKER, 'w').write(head + '\\n')"
+        }
+      ],
+      "preaudit_id": "SP-1B3C0BBF8205A03C"
     },
     {
       "repo": "oktopeak/clio-mcp",
