@@ -123,12 +123,26 @@ export default function SkillProofPage() {
                 Live Public MCP &amp; Agent Pre-Audit Scorecards
               </h2>
             </div>
-            <Link
-              href="/skillproof/preaudits.json"
-              className="text-xs font-mono text-[#00B5E2] hover:underline flex items-center gap-1.5 border border-[#00B5E2]/30 bg-[#00B5E2]/10 px-3 py-2 rounded"
-            >
-              Raw Machine Registry (preaudits.json) <ExternalLink size={13} />
-            </Link>
+            <div className="flex flex-wrap items-center gap-2">
+              <Link
+                href="/status.json"
+                className="text-xs font-mono text-[#A3FF00] hover:underline flex items-center gap-1.5 border border-[#A3FF00]/30 bg-[#A3FF00]/10 px-3 py-2 rounded"
+              >
+                ● Status &amp; Telemetry <ExternalLink size={13} />
+              </Link>
+              <Link
+                href="/changelog.json"
+                className="text-xs font-mono text-[#8C92A4] hover:underline flex items-center gap-1.5 border border-[#8C92A4]/30 bg-black/40 px-3 py-2 rounded"
+              >
+                7-Day Changelog <ExternalLink size={13} />
+              </Link>
+              <Link
+                href="/skillproof/preaudits.json"
+                className="text-xs font-mono text-[#00B5E2] hover:underline flex items-center gap-1.5 border border-[#00B5E2]/30 bg-[#00B5E2]/10 px-3 py-2 rounded"
+              >
+                Raw Machine Registry (preaudits.json) <ExternalLink size={13} />
+              </Link>
+            </div>
           </div>
 
           <div className="grid gap-4">

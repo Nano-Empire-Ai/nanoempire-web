@@ -338,12 +338,26 @@ export default function RecallReportPage() {
                 Recent High-Exposure Federal Recalls (2026)
               </h2>
             </div>
-            <Link
-              href="/recalls/latest-cpsc.json"
-              className="text-xs font-mono text-rose-300 hover:underline flex items-center gap-1.5 border border-rose-500/30 bg-rose-500/10 px-3 py-2 rounded"
-            >
-              Raw JSON Feed (latest-cpsc.json) <ExternalLink className="w-3.5 h-3.5" />
-            </Link>
+            <div className="flex flex-wrap items-center gap-2">
+              <Link
+                href="/status.json"
+                className="text-xs font-mono text-emerald-400 hover:underline flex items-center gap-1.5 border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 rounded"
+              >
+                ● System Status (status.json) <ExternalLink className="w-3.5 h-3.5" />
+              </Link>
+              <Link
+                href="/changelog.json"
+                className="text-xs font-mono text-neutral-300 hover:underline flex items-center gap-1.5 border border-neutral-700 bg-neutral-900 px-3 py-2 rounded"
+              >
+                7-Day Delta (changelog.json) <ExternalLink className="w-3.5 h-3.5" />
+              </Link>
+              <Link
+                href="/recalls/latest-cpsc.json"
+                className="text-xs font-mono text-rose-300 hover:underline flex items-center gap-1.5 border border-rose-500/30 bg-rose-500/10 px-3 py-2 rounded"
+              >
+                Raw CPSC JSON <ExternalLink className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
 
           <div className="grid gap-3">
