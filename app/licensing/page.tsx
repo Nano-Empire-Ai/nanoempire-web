@@ -273,7 +273,7 @@ export default function LicensingPage() {
                 </div>
 
                 <Link
-                  href={`/api/checkout?price_id=${tier.stripePriceId}`}
+                  href={`/api/checkout?tier_id=${tier.id}`}
                   className={`w-full py-3.5 rounded-lg font-bold text-center transition-colors ${
                     tier.popular
                       ? 'bg-[#00B5E2] text-black hover:bg-[#00B5E2]/90'
@@ -311,7 +311,7 @@ export default function LicensingPage() {
                     ))}
                   </ul>
                   <Link
-                    href={`/api/checkout?price_id=${addon.id}`}
+                    href={`/api/checkout?tier_id=${addon.id}`}
                     className="mt-2 inline-flex items-center gap-1 text-xs font-mono text-[#00B5E2] hover:underline"
                   >
                     Add to License →
