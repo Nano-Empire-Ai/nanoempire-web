@@ -871,7 +871,7 @@ export default function Home() {
 
           <div className="text-xs text-[#8C92A4] font-mono border border-white/10 px-3 py-1.5 rounded bg-white/5">
 
-            Updated: 2026-11-03 · Next Corpus Refresh: 2026-11-04
+            Updated: 2026-11-06 · Full Briefing: <a href="/m2m-state.md" className="text-[#00B5E2] hover:underline">m2m-state.md</a>
 
           </div>
 
@@ -937,7 +937,7 @@ export default function Home() {
 
           <p>
 
-            The Linux Foundation x402 Foundation (~57 member orgs including Coinbase, Cloudflare, Stripe, Visa, Mastercard, AWS, Google, Shopify) tracks ~195M cumulative transactions and ~$42M gross volume (recent 30-day window ~75M txs / ~$24M), overwhelmingly sub-cent micropayments for inference, tools, and API calls. Forensics note commercial merchant volume is earlier: TRM Labs measures 0.6%–7.5% real-economy agent volume, and Mastercard / Visa are in early access machine pilots. Nano Empire maintains zero hype: outside settled customer count is currently 0 (one verified operator self-test on Base block 51961194).
+            The Linux Foundation x402 Foundation (operational July 14, 2026; Michael Hursta ED; 50+ members including Visa, Mastercard, Stripe, Adyen, Amex, AWS, Google, Cloudflare, Coinbase) tracks ~196M lifetime txs / &gt;$42M gross volume, though filtered organic utility is micropayment-scale (Allium Q3: ~68.3M agent payments / $3.7M, ~5¢ avg; Oct organic ~5.1M txs / $274k; TRM Labs screens 0.6%–7.5% plausible autonomous volume; median wallet funding-to-first-x402 payment down to 18 mins). Meanwhile, Visa’s Nov 5 Agentic Commerce Benchmark shows frontier models pass only ~57% of realistic shopping tasks, and ~2M+ ERC-8004 identities face bulk-minting and sybil rating caveats. Nano Empire fills the exact gap the rails do not cover: <strong>SkillProof Ed25519 Trust Manifests</strong> (<code>/api/skillproof/status</code>) and <strong>BidShield Pre-Action Compliance Gates</strong> (<code>/api/bidshield/gate</code>). Outside settled customer count remains 0 (1 operator self-test on Base block 51961194).
 
           </p>
 

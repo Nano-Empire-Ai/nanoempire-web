@@ -1,21 +1,21 @@
 # Nano Empire AI
 
-> Machine-payable US product-recall data (RecallRadar, paid per call in USDC on Base via x402) and offline-verifiable SkillProof Trust Manifests.
+> Machine-payable US & Canadian product-recall data (RecallGuard, paid per call in USDC on Base via x402), cryptographic SkillProof Trust Manifests & MCP pre-audit scorecards (complementing ERC-8004 / A2A identity), and BidShield pre-action compliance gates for federal solicitations and AP2 Human-Not-Present mandates.
 
-Updated: 2026-11-03
+Updated: 2026-11-06
 
 Contact: rob@nanoempireai.com
 
-## Architecture & Agent Operating Model (Anthropic Oct 2026 Guidance)
+## Architecture & Agent Operating Model (Nov 2026 Stack)
 
-- Single Main Agent Loop with progressive disclosure of skills and tools. Nano Empire exposes atomic tools via MCP and x402 endpoints rather than requiring multi-agent overhead for linear tasks.
-- Isolated adversarial DAGs are reserved for verification sandboxes (SkillProof Sprint test batteries).
-- Complete M2M briefing and protocol synthesis: https://nanoempireai.com/m2m-state.md
+- Single Main Agent Loop with progressive disclosure of skills and tools. Nano Empire exposes atomic tools via Streamable HTTP MCP (`/api/mcp`), JSON verification gates (`/api/skillproof/status`, `/api/bidshield/gate`), and `x402` endpoints rather than requiring multi-agent overhead for linear tasks.
+- Cryptographic Proof Layer (`SkillProof` + `BidShield`): While `ERC-8004` (~2M+ identities) and `A2A` v1.0 Agent Cards establish *who* an agent is, and `x402` v2 / `MPP` / `AP4M` handle settlement, Nano Empire verifies *behavioral execution boundaries* (Ed25519 Trust Manifests pinned to commit `tree_sha`) and *pre-action solicitation compliance* (quantified Decision Exposure / JEV).
+- Complete M2M briefing and protocol synthesis (Nov 6, 2026): https://www.nanoempireai.com/m2m-state.md
 
 ## Executive Contact
 
 - **Hana Lambert** — Executive Operations & Dispatch • Muse AI
-  - Link-in-Bio: https://nanoempireai.com/hana
+  - Link-in-Bio: https://www.nanoempireai.com/hana
   - Email: hana@nanoempireai.com
   - Phone: +1-343-501-5003 (SMS/Voice)
   - Social: @hana.nanoempire (Instagram & Threads)
@@ -23,39 +23,51 @@ Contact: rob@nanoempireai.com
 
 ## Honest status
 
-- One RecallRadar Match self-test has settled on Base (block 51961194, 2026-09-29, operator wallets).
+- One RecallGuard Match self-test has settled on Base (block 51961194, 2026-09-29, operator wallets).
 - Outside paying customers: 0.
 - Anything not listed under "Live" below is not available yet.
 
-## Live: machine endpoints (x402, Base, USDC)
+## Live: machine endpoints (x402, MCP, & Cryptographic Proof Gates)
 
-- Health (free): GET https://recallguard-api.vercel.app/api/v1/health
-- Feed, $0.05 per call: GET https://recallguard-api.vercel.app/api/v1/feed?limit=50
+- RecallGuard Health (free): GET https://recallguard-api.vercel.app/api/v1/health
+- RecallGuard Feed, $0.05 USDC per call (x402 on Base): GET https://recallguard-api.vercel.app/api/v1/feed?limit=50
   Returns normalized CPSC and FDA recall records. Unpaid calls return HTTP 402.
-- Match, $0.10 per call: POST https://recallguard-api.vercel.app/api/v1/match
+- RecallGuard Match, $0.10 USDC per call (x402 on Base): POST https://recallguard-api.vercel.app/api/v1/match
   Input: {"items":[{"name":"string","brand":"string","upc":"string"}]}
   Output: {"matches":[{"recall_id":"string","severity":"string","hazard":"string","remedy":"string"}]}
   Unpaid calls return HTTP 402.
+- Streamable HTTP MCP Server (5 live tools): POST https://www.nanoempireai.com/api/mcp
+  Tools: `recallradar_check_product`, `recallradar_audit_manifest_info`, `skillproof_verify_repo`, `bidshield_triage_info`, `bidshield_evaluate_solicitation_gate`
+- SkillProof Pre-Audit Status & Ed25519 Verification Gate (free JSON): GET https://www.nanoempireai.com/api/skillproof/status?repo=owner/repo
+  Returns `skillproof_score`, commit `tree_sha`, line-cited findings, `delegation_recommendation` (`ALLOW_BOUNDED` / `CONDITIONAL_SANDBOX_ONLY` / `HALT_HIGH_RISK`), and Ed25519 public key (`kid: skillproof-2026-10`).
+- SkillProof Live Repository Scanner: POST https://www.nanoempireai.com/api/skillproof/preaudit
+  Input: {"repo":"owner/repo"}
+- BidShield Pre-Action Compliance Gate (free preliminary JSON gate): POST https://www.nanoempireai.com/api/bidshield/gate
+  Input: {"solicitation_text":"string","naics_code":"238220","estimated_contract_value_usd":250000}
+  Output: `gate_decision` (`PASS_PRELIMINARY` / `CONDITIONAL_HUMAN_REVIEW` / `HALT_FATAL_DISQUALIFIER`), `ap2_mandate_recommendation`, `quantified_decision_exposure_jev_usd`, and triggered fatal clause traps.
 
-## Payment terms
+## Payment terms & Cryptographic Keys
 
-- Protocol: x402 (HTTP 402 challenge, pay, retry)
-- Network: base
+- Protocol: x402 v2 (HTTP 402 challenge, pay, retry; `PAYMENT-REQUIRED` / `PAYMENT-SIGNATURE` / `X-PAYMENT-RESPONSE`)
+- Network: base (EIP-155:8453)
 - Asset (Base USDC): 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
 - Pay to: 0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01
 - Facilitator: coinbase-x402-facilitator
-- Receipt headers: X-PAYMENT-RESPONSE, X-402-Receipt
+- SkillProof Ed25519 Public Key (`kid: skillproof-2026-10`): `69b8d23e35b02a04aa370924c8493781527179c9078bf85f77362b2fc1da3f82` (https://www.nanoempireai.com/.well-known/skillproof-pubkey.json)
 
 ## Discovery files
 
-- Poppy (Personal Agent Protocol): https://nanoempireai.com/.well-known/poppy.json
-- Agent card (A2A): https://nanoempireai.com/.well-known/agent-card.json
-- Machine Agents descriptor: https://nanoempireai.com/agents.json
-- OpenAPI: https://nanoempireai.com/openapi.json
-- Offers: https://nanoempireai.com/offers.json
-- Trust manifests: https://nanoempireai.com/manifests.html
-- SkillProof Pre-Audit Registry (JSON): https://nanoempireai.com/skillproof/preaudits.json
-- M2M State Briefing (Nov 3, 2026): https://nanoempireai.com/m2m-state.md
+- Poppy (Personal Agent Protocol): https://www.nanoempireai.com/.well-known/poppy.json
+- Agent card (A2A v1.0): https://www.nanoempireai.com/.well-known/agent-card.json
+- SkillProof Ed25519 Public Key: https://www.nanoempireai.com/.well-known/skillproof-pubkey.json
+- Machine Agents descriptor: https://www.nanoempireai.com/agents.json
+- OpenAPI: https://www.nanoempireai.com/openapi.json
+- Offers: https://www.nanoempireai.com/offers.json
+- Trust manifests: https://www.nanoempireai.com/manifests.html
+- SkillProof Pre-Audit Registry (23 Repos JSON): https://www.nanoempireai.com/skillproof/preaudits.json
+- M2M State Briefing (Nov 6, 2026): https://www.nanoempireai.com/m2m-state.md
+- Public Status Telemetry: https://www.nanoempireai.com/status.json
+- 7-Day Corpus Changelog: https://www.nanoempireai.com/changelog.json
 
 ## MCP Servers (x402 monetized via SecureFastMCP)
 
@@ -64,24 +76,14 @@ Contact: rob@nanoempireai.com
   x402 on Base, USDC settlement
   Repo: https://github.com/roblambert9/recallguard-mcp
 
-- postgres-mcp: npx postgres-mcp | npm: postgres-mcp | Smithery: rob-c8hu/postgres-mcp
-- redis-mcp: npx redis-mcp | npm: redis-mcp | Smithery: rob-c8hu/redis-mcp
-- elasticsearch-mcp: npx elasticsearch-mcp | npm: elasticsearch-mcp | Smithery: rob-c8hu/elasticsearch-mcp
-- github-mcp: npx github-mcp | npm: github-mcp | Smithery: rob-c8hu/github-mcp
-- filesystem-mcp: npx filesystem-mcp | npm: filesystem-mcp | Smithery: rob-c8hu/filesystem-mcp
-- browser-mcp: npx browser-mcp | npm: browser-mcp | Smithery: rob-c8hu/browser-mcp
-- sqlite-mcp: npx sqlite-mcp | npm: sqlite-mcp | Smithery: rob-c8hu/sqlite-mcp
-- slack-mcp: npx slack-mcp | npm: slack-mcp | Smithery: rob-c8hu/slack-mcp
-- stripe-mcp: npx stripe-mcp | npm: stripe-mcp | Smithery: rob-c8hu/stripe-mcp
-
 ## Not available yet (do not call)
 
-- Trial credits, SDK package, SkillProof via x402, incident-response advisories, VIN decode.
+- Trial credits, SkillProof Sprint via x402 (currently parked pending scope ruling), incident-response advisories, VIN decode.
 
-## Landing Pages
+## Landing Pages & Programmatic Hubs
 
-- Main: https://nanoempireai.com
-- BidShield Federal Triage: https://nanoempireai.com/bidshield/triage/
-- Data Services: https://data.nanoempireai.com
-- Serial Reader: https://read.nanoempireai.com
-- RecallRadar MCP: npx recallguard-mcp
+- Main: https://www.nanoempireai.com
+- RecallRadar Compliance Scanner ($30 USD Report): https://www.nanoempireai.com/recall-report
+- Federal Recalls Index (CPSC / Categories / Retailers): https://www.nanoempireai.com/recalls
+- BidShield Federal Triage & 8 NAICS Hubs ($99 / $249 / $499 USD): https://www.nanoempireai.com/bidshield
+- SkillProof MCP Pre-Audit Index (23 Repos): https://www.nanoempireai.com/skillproof

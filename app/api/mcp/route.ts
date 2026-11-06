@@ -95,6 +95,19 @@ const MCP_TOOLS = [
       },
     },
   },
+  {
+    name: 'bidshield_evaluate_solicitation_gate',
+    description:
+      'Pre-action deontic compliance gate for federal solicitations and B2B agent mandates (AP2 Human-Not-Present / AP4M). Evaluates solicitation text for fatal disqualifiers (mandatory site visits, clearances, bonding, liquidated damages) and returns PASS_PRELIMINARY, CONDITIONAL_HUMAN_REVIEW, or HALT_FATAL_DISQUALIFIER plus quantified Decision Exposure (JEV).',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        solicitation_text: { type: 'string', description: 'Solicitation clause text, RFP summary, or task description to evaluate' },
+        naics_code: { type: 'string', description: 'Optional 6-digit NAICS code (e.g. 238220)' },
+      },
+      required: ['solicitation_text'],
+    },
+  },
 ];
 
 export async function GET() {
@@ -285,13 +298,53 @@ export async function POST(req: Request) {
                     engine: 'BidShield Deontic Compliance Kernel',
                     jurisdictions: ['CanadaBuys', 'SAM.gov', 'Municipal & State Procurement'],
                     pricing_tiers: {
-                      urgent_prebid_triage: '$99 USD (<72h turnaround, forms & disqualifiers)',
-                      full_compliance_matrix: '$249 USD (19-column Excel/CSV + risk audit)',
-                      multidoc_tender_suite: '$499 USD (full RFP package + addenda cross-audit)',
+                      urgent_prebid_triage: '$99 USD (24h turnaround, forms & disqualifiers)',
+                      full_compliance_matrix: '$249 USD (48h turnaround, 19-column Excel/CSV + risk audit)',
+                      multidoc_tender_suite: '$499 USD (72h turnaround, full RFP package + addenda cross-audit)',
                     },
+                    machine_gate_endpoint: 'https://www.nanoempireai.com/api/bidshield/gate',
                     naics_requested: naics || 'all',
                     naics_directory: naics ? `https://www.nanoempireai.com/bidshield/naics/${naics}` : 'https://www.nanoempireai.com/bidshield',
                     service_portal: 'https://www.nanoempireai.com/bidshield',
+                  },
+                  null,
+                  2
+                ),
+              },
+            ],
+          },
+        });
+      }
+
+      if (toolName === 'bidshield_evaluate_solicitation_gate') {
+        const text = String(args.solicitation_text || '');
+        const naics = String(args.naics_code || '');
+        const fatalChecks = [
+          { id: 'TRAP-SITE-VISIT', severity: 'FATAL', pat: /\b(mandatory\s+(site\s+visit|walk[- ]?through|bidders?\s+conference)|attendance\s+is\s+mandatory)\b/i, exposure: 15000 },
+          { id: 'TRAP-SECURITY-CLEARANCE', severity: 'FATAL', pat: /\b(secret\s+clearance|top\s+secret|facility\s+security\s+clearance|fedramp\s+high|fisma)\b/i, exposure: 45000 },
+          { id: 'TRAP-BONDING-SURETY', severity: 'HIGH', pat: /\b(performance\s+bond|payment\s+bond|bid\s+bond|100%\s+bond)\b/i, exposure: 25000 },
+          { id: 'TRAP-LIQUIDATED-DAMAGES', severity: 'HIGH', pat: /\b(liquidated\s+damages|penalty\s+per\s+calendar\s+day)\b/i, exposure: 35000 },
+        ];
+        const hits = fatalChecks.filter((c) => c.pat.test(text));
+        const hasFatal = hits.some((h) => h.severity === 'FATAL');
+        const decision = hasFatal ? 'HALT_FATAL_DISQUALIFIER' : hits.length > 0 ? 'CONDITIONAL_HUMAN_REVIEW' : 'PASS_PRELIMINARY';
+        const jev = hits.reduce((s, h) => s + h.exposure, 0);
+        return NextResponse.json({
+          jsonrpc,
+          id,
+          result: {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(
+                  {
+                    gate_decision: decision,
+                    ap2_mandate_recommendation: decision === 'PASS_PRELIMINARY' ? 'ALLOW_AUTONOMOUS_PROCEED' : 'REQUIRE_HUMAN_PRESENT_MANDATE_SIGNATURE',
+                    quantified_decision_exposure_jev_usd: jev,
+                    naics_code: naics || null,
+                    traps_triggered: hits.map((h) => ({ id: h.id, severity: h.severity, estimated_jev_usd: h.exposure })),
+                    full_gate_endpoint: 'https://www.nanoempireai.com/api/bidshield/gate',
+                    human_triage_portal: 'https://www.nanoempireai.com/bidshield/triage',
                   },
                   null,
                   2
