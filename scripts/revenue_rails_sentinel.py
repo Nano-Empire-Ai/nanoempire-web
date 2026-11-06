@@ -59,7 +59,7 @@ CHECKS = [
         "url": f"{PRODUCTION_DOMAIN}/.well-known/agent.json",
         "method": "GET",
         "expected_status": 200,
-        "validate": lambda body: "NanoEmpire AI Autonomous Tollbooth" in body and "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01" in body
+        "validate": lambda body: "Nano Empire AI" in body and "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01" in body
     },
     {
         "name": "Cryptographic Proof Packs (/api/v1/proof-packs)",

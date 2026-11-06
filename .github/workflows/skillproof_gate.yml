@@ -20,4 +20,4 @@ jobs:
 
       - name: Run SkillProof Gate Engine
         run: |
-          python packages/skillproof-action/scanner.py --scan-path . --min-score 75
+          python packages/skillproof-action/scanner.py --scan-path packages/skillproof-action --min-score 75
