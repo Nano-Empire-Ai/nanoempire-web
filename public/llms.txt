@@ -86,5 +86,7 @@ Contact: rob@nanoempireai.com
 - RecallRadar Compliance Scanner ($30 USD Report): https://www.nanoempireai.com/recall-report
 - Federal Recalls Index (CPSC / Categories / Retailers): https://www.nanoempireai.com/recalls
 - BidShield Federal Triage & 8 NAICS Hubs ($99 / $249 / $499 USD): https://www.nanoempireai.com/bidshield
+- BidShield Active Tenders Intelligence Feed: https://www.nanoempireai.com/bidshield/tenders.json
+- BidShield Active Solicitation Triage (NRC Ottawa Campus Janitorial): https://www.nanoempireai.com/bidshield/tender/NRC-87055
 - BidShield Live Upwork Project Catalog (Escrow Protected): https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322
 - SkillProof MCP Pre-Audit Index (23 Repos): https://www.nanoempireai.com/skillproof

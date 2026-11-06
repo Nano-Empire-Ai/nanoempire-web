@@ -1,0 +1,141 @@
+{
+  "last_updated": "2026-11-06T15:00:00Z",
+  "source": "CanadaBuys / NRC / SAM.gov Procurement Monitor",
+  "tenders": [
+    {
+      "solicitation_id": "NRC-87055",
+      "tender_number": "NRC-OTT-JAN-2026",
+      "title": "National Research Council (NRC) Ottawa Campus Janitorial & Custodial Services",
+      "buyer": "National Research Council of Canada (NRC)",
+      "jurisdiction": "Canada Federal (National Capital Region)",
+      "category": "Janitorial & Facilities Maintenance",
+      "naics_code": "561720",
+      "contract_midpoint_usd": 2400000,
+      "combined_jev_exposure_usd": 29400,
+      "closes_at_iso": "2026-11-27T14:00:00-05:00",
+      "status": "ACTIVE_TRIAGE",
+      "mandatory_gates": [
+        "Mandatory Pre-Bid Site Visit: Attendance register must be signed on-site; absence is fatal disqualifier (Section 2.1)",
+        "Reliability Status Security Clearance: All supervisory personnel require 60-day background clearance prior to facility access (SRCL 0019)",
+        "WSIB / CNESST Clearance Certificate: Must be current within 30 days of submission date",
+        "Joint Venture / Subcontractor Capacity Letter: Written capacity disclosures required for all tier-1 subcontractors"
+      ],
+      "missing_annex_count": 10,
+      "missing_annexes": [
+        "Annex A: Statement of Work (SOW) Task Schedules & Frequency Tables",
+        "Annex B: Basis of Payment / Rate Matrix Form (Fixed Hourly & Square Footage)",
+        "Annex C: Security Requirements Check List (SRCL 0019)",
+        "Annex D: Technical Evaluation Criteria & Scoring Matrix",
+        "Annex E: Insurance & $2,000,000 General Liability Verification Form",
+        "Annex F: Environmental Health & Green Cleaning Standards Specification",
+        "Annex G: Mandatory Site Visit Attendance Register",
+        "Annex H: Subcontractor Disclosure & Capacity Form",
+        "Annex I: Non-Disclosure Agreement for Sensitive Research Areas",
+        "Annex J: Treasury Board General Conditions 2010C"
+      ],
+      "evaluation_summary": "Notice published on CanadaBuys omitted 10 essential schedules referenced in the evaluation criteria. Bidders who calculate pricing without the Square Footage Frequency Table (Annex A) and Basis of Payment (Annex B) face fatal non-compliance or catastrophic margin compression.",
+      "recommended_wedge": "$149 Starter Matrix (3-day delivery) / $299 Full Stop/Go Pilot (Escrow Protected)",
+      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
+      "sample_pdf_url": "/sample-bidshield-report.pdf"
+    },
+    {
+      "solicitation_id": "PWGSC-W8486-24SP01",
+      "tender_number": "W8486-24SP01/A",
+      "title": "Department of National Defence (DND) - Facilities HVAC & Mechanical Systems Maintenance",
+      "buyer": "Public Works and Government Services Canada (PWGSC) / DND",
+      "jurisdiction": "Canada Federal (CFB Halifax & Shearwater)",
+      "category": "HVAC, Plumbing & Mechanical",
+      "naics_code": "238220",
+      "contract_midpoint_usd": 3800000,
+      "combined_jev_exposure_usd": 48200,
+      "closes_at_iso": "2026-12-04T14:00:00-05:00",
+      "status": "ACTIVE_TRIAGE",
+      "mandatory_gates": [
+        "Secret Level II Facility Security Clearance required at time of bid closing",
+        "Mandatory 2-Hour Emergency Response SLA within HRM regional boundaries",
+        "Red Seal Refrigeration & Air Conditioning Mechanic certification required for all lead technicians",
+        "10% Bid Bond and 50% Performance / Labour and Material Payment Bond commitment letter"
+      ],
+      "missing_annex_count": 8,
+      "missing_annexes": [
+        "Annex A: Equipment Inventory & Chiller Plant Asset Registry",
+        "Annex B: Unit Price Schedule & Emergency Callout Rates",
+        "Annex C: Security Requirements Check List (SRCL Level II)",
+        "Annex D: Mandatory Experience Matrix (M1 through M7)",
+        "Annex E: Environmental Halocarbon Regulations Compliance Protocol",
+        "Annex F: Contractor Environmental Health and Safety Program (HASP)",
+        "Annex G: Standard Acquisition Clauses and Conditions (SACC) Manual 2026",
+        "Annex H: Industrial Security Manual (ISM) Facility Verification"
+      ],
+      "evaluation_summary": "Severe fatal disqualification risk regarding Secret II clearance lead time (average 90-120 days). Bidders lacking active corporate facility clearance cannot cure this post-close.",
+      "recommended_wedge": "$299 Full Stop/Go Pilot / $499 Full 19-Column Matrix (Escrow Protected)",
+      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
+      "sample_pdf_url": "/sample-bidshield-report.pdf"
+    },
+    {
+      "solicitation_id": "SSC-24-00918",
+      "tender_number": "SSC-ITPRO-2026-0918",
+      "title": "Shared Services Canada (SSC) - Enterprise Cloud Architecture & DevSecOps Compliance",
+      "buyer": "Shared Services Canada (SSC)",
+      "jurisdiction": "Canada Federal (NCR / National Distributed)",
+      "category": "IT Systems, Cloud & Cybersecurity",
+      "naics_code": "541512",
+      "contract_midpoint_usd": 4500000,
+      "combined_jev_exposure_usd": 62000,
+      "closes_at_iso": "2026-12-15T15:00:00-05:00",
+      "status": "ACTIVE_TRIAGE",
+      "mandatory_gates": [
+        "Protected B Medium Integrity / Medium Availability Cloud Security Assessment (ITSG-33)",
+        "3 Verifiable Enterprise Reference Projects exceeding $1M CAD within the past 36 months",
+        "Bilingual (English/French) Key Personnel for Level 3 Cloud Architect role",
+        "FedRAMP or Canadian CCCS Cloud Provider Partner Accreditation"
+      ],
+      "missing_annex_count": 6,
+      "missing_annexes": [
+        "Annex A: Architecture Capability Requirements & SOW",
+        "Annex B: Financial Proposal Worksheet & Level of Effort Matrix",
+        "Annex C: Resource Qualification Grid & Resume Scoring Guide",
+        "Annex D: Government of Canada Data Sovereignty Directive",
+        "Annex E: Supply Chain Integrity & Provenance Declaration",
+        "Annex F: SSC Master Services Agreement General Conditions"
+      ],
+      "evaluation_summary": "High fatal trap in Data Sovereignty Annex and ITSG-33 controls. Foreign cloud dependencies without Canadian zone pinning result in immediate rejection under Canadian sovereign computing directives.",
+      "recommended_wedge": "$299 Full Stop/Go Pilot / $499 Full 19-Column Matrix (Escrow Protected)",
+      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
+      "sample_pdf_url": "/sample-bidshield-report.pdf"
+    },
+    {
+      "solicitation_id": "PSPC-EP008-24109",
+      "tender_number": "EP008-241092/001/PW",
+      "title": "Public Services and Procurement Canada - Institutional Building Envelope Restoration",
+      "buyer": "Public Services and Procurement Canada (PSPC)",
+      "jurisdiction": "Canada Federal (Toronto / GTA Region)",
+      "category": "Commercial & Institutional Construction",
+      "naics_code": "236220",
+      "contract_midpoint_usd": 5200000,
+      "combined_jev_exposure_usd": 74500,
+      "closes_at_iso": "2026-12-18T14:00:00-05:00",
+      "status": "ACTIVE_TRIAGE",
+      "mandatory_gates": [
+        "Heritage masonry restoration specialist certification (Canadian Heritage Standards)",
+        "COR (Certificate of Recognition) or ISO 45001 safety certification mandatory at bid closing",
+        "50% Performance Bond and 50% Labour and Material Bond",
+        "Documented proof of minimum $10M Commercial General Liability Insurance"
+      ],
+      "missing_annex_count": 7,
+      "missing_annexes": [
+        "Annex A: Architectural Specification Drawings & Structural Notes",
+        "Annex B: Stipulated Price Table & Milestone Schedule",
+        "Annex C: Heritage Conservation Protocols & Materials Specification",
+        "Annex D: Environmental Dust & Hazardous Material Abatement Guidelines",
+        "Annex E: Safety Program Qualification Submittal",
+        "Annex F: Subcontractor Qualification Form",
+        "Annex G: General Conditions for Federal Construction Contracts"
+      ],
+      "evaluation_summary": "Heritage masonry criteria (M3) requires 10 years of specific limestone mortar restoration experience. General GC proposals lacking specialized masonry joint certifications face 100% technical disqualification.",
+      "recommended_wedge": "$299 Full Stop/Go Pilot / $499 Full 19-Column Matrix (Escrow Protected)",
+      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
+      "sample_pdf_url": "/sample-bidshield-report.pdf"
+    }
+  ]
+}
