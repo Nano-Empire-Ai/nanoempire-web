@@ -2,35 +2,26 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Nano Empire AI \u2014 Unified Machine-Native APIs",
-    "version": "1.0.0",
-    "description": "Unified API spec for all Nano Empire services: Orchestrator, Quote-Box, RecallGuard, Tollbooth. Trial onramp (50 credits, 24hr TTL) available on all paid endpoints via Bearer token.",
+    "version": "1.6.0",
+    "description": "Unified API spec for Nano Empire services: RecallGuard (x402 on Base), SkillProof Pre-Audit & Ed25519 Trust Manifest Status (/api/skillproof/status), BidShield Pre-Action Compliance Gate (/api/bidshield/gate), and Streamable HTTP MCP (/api/mcp). Honest status: 1 RecallGuard Match operator self-test settled on Base block 51961194 (2026-09-29); 0 outside paying customers. Legacy trial/orchestrator routes below are in paper_mode (not active).",
     "contact": {
       "name": "Nano Empire AI",
-      "url": "https://nanoempireai.com",
-      "email": "security@nanoempireai.com"
+      "url": "https://www.nanoempireai.com",
+      "email": "rob@nanoempireai.com"
     },
-    "x-paper-mode": false
+    "x-paper-mode": false,
+    "x-outside-paying-customers": 0,
+    "x-verified-self-tests": 1,
+    "x-m2m-state-briefing": "https://www.nanoempireai.com/m2m-state.md"
   },
   "servers": [
     {
-      "url": "https://api.nanoempireai.com",
-      "description": "Production (Vercel)"
-    },
-    {
-      "url": "http://147.5.105.20:8080",
-      "description": "Orchestrator (VPS)"
-    },
-    {
-      "url": "http://147.5.105.20:8405",
-      "description": "Quote-Box (VPS)"
-    },
-    {
-      "url": "http://147.5.105.20:8403",
-      "description": "Tollbooth (VPS)"
+      "url": "https://www.nanoempireai.com",
+      "description": "Primary Production Gateway (SkillProof, BidShield Gate, Streamable HTTP MCP)"
     },
     {
       "url": "https://recallguard-api.vercel.app",
-      "description": "RecallGuard Primary (Vercel)"
+      "description": "RecallGuard Primary x402 API (Vercel)"
     }
   ],
   "security": [
