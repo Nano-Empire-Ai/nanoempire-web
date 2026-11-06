@@ -139,9 +139,9 @@ export default function BidShieldIndexPage() {
           <h2 className="text-2xl font-bold text-white mb-8 text-center">Triage Tiers</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: 'Tier 1 — Urgent Triage', price: '$99 USD', timing: '< 72 Hours', features: ['Disqualifier clause scan', 'Pass/fail matrix', 'Risk heatmap', 'Go/No-Go recommendation'], cta: 'Start Urgent Triage', popular: false },
-              { name: 'Tier 2 — Full Compliance Matrix', price: '$249 USD', timing: '5 Business Days', features: ['All Tier 1 +', 'Clause-by-clause response guide', 'Past performance mapping', 'Cost realism analysis', 'Technical compliance checklist'], cta: 'Start Full Matrix', popular: true },
-              { name: 'Tier 3 — Multi-Doc Suite', price: '$499 USD', timing: '10 Business Days', features: ['All Tier 2 +', 'Addenda & amendment tracking', 'Subcontractor flow-down', 'Protest risk assessment', 'Debrief preparation kit'], cta: 'Start Multi-Doc', popular: false },
+              { name: 'Tier 1 — Urgent Triage', price: '$99 USD', timing: '24-Hour Turnaround', features: ['Disqualifier clause scan', 'Pass/fail matrix', 'Risk heatmap', 'Go/No-Go recommendation'], cta: 'Start Urgent Triage ($99)', popular: false },
+              { name: 'Tier 2 — Full Compliance Matrix', price: '$249 USD', timing: '48-Hour Turnaround', features: ['All Tier 1 +', 'Clause-by-clause response guide', 'Past performance mapping', 'Cost realism analysis', 'Technical compliance checklist'], cta: 'Start Full Matrix ($249)', popular: true },
+              { name: 'Tier 3 — Multi-Doc Suite', price: '$499 USD', timing: '72-Hour Turnaround', features: ['All Tier 2 +', 'Addenda & amendment tracking', 'Subcontractor flow-down', 'Protest risk assessment', 'Debrief preparation kit'], cta: 'Start Multi-Doc ($499)', popular: false },
             ].map((tier, idx) => (
               <div key={idx} className={`rounded-2xl p-6 border flex flex-col justify-between transition-all ${tier.popular ? 'border-[#00B5E2] bg-[#0f1423] shadow-2xl shadow-[#00B5E2]/10 relative' : 'border-[#8C92A4]/20 bg-[#07090D]'}`}>
                 {tier.popular && (

@@ -22,6 +22,38 @@ export function loadRecalls(): RecallRecord[] {
   const csvPath = path.join(process.cwd(), 'distribution_products', 'official_recalls_cross_border_46k.csv');
   
   if (!fs.existsSync(csvPath)) {
+    const jsonPath = path.join(process.cwd(), 'public', 'recalls', 'latest-cpsc.json');
+    if (fs.existsSync(jsonPath)) {
+      try {
+        const jsonData = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+        const records: RecallRecord[] = (jsonData.recalls || []).map((r: any) => {
+          const hazardText = (r.hazard_summary || r.title || '').toLowerCase();
+          let hazardCat = 'general-safety';
+          if (hazardText.includes('fire') || hazardText.includes('burn') || hazardText.includes('overheat') || hazardText.includes('ignition')) hazardCat = 'fire-burn';
+          else if (hazardText.includes('chok') || hazardText.includes('entrap') || hazardText.includes('strangul') || hazardText.includes('suffocat')) hazardCat = 'choking-entrapment';
+          else if (hazardText.includes('fall') || hazardText.includes('tip-over') || hazardText.includes('crash')) hazardCat = 'fall-tipover';
+          else if (hazardText.includes('poison') || hazardText.includes('lead') || hazardText.includes('chemical')) hazardCat = 'poison-chemical';
+          else if (hazardText.includes('laceration') || hazardText.includes('impact') || hazardText.includes('crush')) hazardCat = 'laceration-impact';
+
+          const brandGuess = (r.title || '').split(' Recalls ')[0]?.trim() || 'CPSC Verified';
+          return {
+            RecallID: String(r.recall_id || r.recall_number),
+            Source: 'US-CPSC',
+            Title: r.title || r.product_name || 'Recalled Consumer Product',
+            Brand: brandGuess,
+            Firm: brandGuess,
+            Severity: (r.injuries_reported && !r.injuries_reported.toLowerCase().includes('no injuries')) ? 'High' : 'Elevated',
+            RecallDate: r.recall_date || jsonData.updated_at || '2026-11-05',
+            Hazard: hazardCat,
+            URL: r.cpsc_url || 'https://www.cpsc.gov/Recalls',
+          };
+        });
+        recallsCache = records;
+        return records;
+      } catch (e) {
+        console.warn('Fallback JSON parse failed:', e);
+      }
+    }
     console.warn('Recall CSV not found at', csvPath);
     return [];
   }

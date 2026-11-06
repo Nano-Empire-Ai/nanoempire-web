@@ -573,23 +573,23 @@ export default function Home() {
 
             <div className="pt-3 border-t border-white/10">
 
-              <div className="text-[11px] uppercase tracking-wider text-[#8C92A4] font-mono mb-2">Verified Baseline Proof (Radical Transparency):</div>
+              <div className="text-[11px] uppercase tracking-wider text-[#8C92A4] font-mono mb-2">Verified Corpus &amp; Baseline Ledger (0 Outside Paying Customers · 1 Self-Test Settled):</div>
 
               <div className="grid grid-cols-3 gap-3 text-center">
 
                 <div className="p-2.5 rounded bg-black/40 border border-white/5">
 
-                  <div className="text-xl font-bold font-mono text-white">0</div>
+                  <div className="text-xl font-bold font-mono text-[#A3FF00]">23</div>
 
-                  <div className="text-[10px] text-[#8C92A4]">Outside Paying Customers</div>
+                  <div className="text-[10px] text-[#8C92A4]">MCP Repos Pre-Audited (23)</div>
 
                 </div>
 
                 <div className="p-2.5 rounded bg-black/40 border border-white/5">
 
-                  <div className="text-xl font-bold font-mono text-white">0</div>
+                  <div className="text-xl font-bold font-mono text-[#A3FF00]">23</div>
 
-                  <div className="text-[10px] text-[#8C92A4]">Verified Hours Returned</div>
+                  <div className="text-[10px] text-[#8C92A4]">Federal NAICS Hubs (8)</div>
 
                 </div>
 
@@ -661,7 +661,7 @@ export default function Home() {
 
 
 
-            <a href="/ingest/" className="p-5 rounded-xl border border-[#00B5E2]/40 bg-[#0f1423] hover:border-[#00B5E2] transition-all group flex flex-col justify-between">
+            <a href="/bidshield" className="p-5 rounded-xl border border-[#00B5E2]/40 bg-[#0f1423] hover:border-[#00B5E2] transition-all group flex flex-col justify-between">
 
               <div>
 
@@ -683,7 +683,7 @@ export default function Home() {
 
               </div>
 
-              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#00B5E2] font-semibold">Explore Trap Atlas →</div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#00B5E2] font-semibold">Explore 8 NAICS Compliance Hubs →</div>
 
             </a>
 
@@ -717,7 +717,7 @@ export default function Home() {
 
 
 
-            <a href="/rfp/" className="p-5 rounded-xl border border-[#FF7B00]/40 bg-[#0f1423] hover:border-[#FF7B00] transition-all group flex flex-col justify-between">
+            <a href="/recalls" className="p-5 rounded-xl border border-[#FF7B00]/40 bg-[#0f1423] hover:border-[#FF7B00] transition-all group flex flex-col justify-between">
 
               <div>
 
@@ -729,7 +729,7 @@ export default function Home() {
 
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2">RFP Teardown Engine</h3>
+                <h3 className="text-lg font-bold text-white mb-2">RecallRadar Federal Index</h3>
 
                 <p className="text-xs text-[#8C92A4] font-sans leading-relaxed">
 
@@ -739,7 +739,7 @@ export default function Home() {
 
               </div>
 
-              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#FF7B00] font-semibold">Test RFP Teardown →</div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-[#FF7B00] font-semibold">Explore 46k Recall Index →</div>
 
             </a>
 
@@ -779,7 +779,7 @@ export default function Home() {
 
                 <div className="flex items-center justify-between mb-3">
 
-                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-[#A3FF00] bg-[#A3FF00]/10 px-2 py-0.5 rounded border border-[#A3FF00]/30">LIVE SCOREBOARD · 14 REPOS</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-[#A3FF00] bg-[#A3FF00]/10 px-2 py-0.5 rounded border border-[#A3FF00]/30">LIVE SCOREBOARD · 23 REPOS</span>
 
                   <ArrowUpRight size={16} className="text-[#A3FF00] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
 
