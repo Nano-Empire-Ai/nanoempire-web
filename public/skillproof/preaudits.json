@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-05",
+  "updated_at": "2026-11-06",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 23,
+  "total_repos_audited": 25,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -361,6 +361,28 @@
       "surface_summary": "Scanned 4 entrypoints (llm/token-meter/index.ts, llm/ai-sdk/meter/index.ts); 0 static execution sinks and full governance hygiene verified."
     },
     {
+      "repo": "ridafkih/keeper.sh",
+      "stars": 1443,
+      "branch": "main",
+      "tree_sha": "7eadbfb4e48f",
+      "license": "AGPL-3.0",
+      "total_files_in_repo": 2092,
+      "sampled_source_files": [
+        "services/mcp/src/env.ts",
+        "services/api/src/index.ts",
+        "services/mcp/src/index.ts",
+        "packages/auth/src/index.ts"
+      ],
+      "skillproof_score": 93,
+      "governance_gaps": [
+        "No deterministic dependency lockfile (`uv.lock` / `package-lock.json`)"
+      ],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-463F853C19ED1504",
+      "audited_at": "2026-11-06",
+      "surface_summary": "Scanned 4 entrypoints (services/mcp/src/env.ts, services/api/src/index.ts); 0 static shell/eval sinks; 1 governance gaps flagged."
+    },
+    {
       "repo": "coinbase/agentkit",
       "stars": 1353,
       "branch": "main",
@@ -509,6 +531,35 @@
       "preaudit_id": "SP-39B061FA90033AA9",
       "audited_at": "2026-11-05",
       "surface_summary": "Scanned 4 entrypoints (lemma-cli/setup.py, lemma-cli/lemma_cli/app.py); 1 line-cited sinks incl. UNBOUNDED_FS_WRITE at lemma-cli/setup.py:L56."
+    },
+    {
+      "repo": "openaccountants/openaccountants",
+      "stars": 478,
+      "branch": "main",
+      "tree_sha": "1fb7c0190e97",
+      "license": "AGPL-3.0",
+      "total_files_in_repo": 24337,
+      "sampled_source_files": [
+        "mcp/hatch_build.py",
+        "scripts/build-index.py",
+        "scripts/build-country-index.py",
+        "mcp/openaccountants_mcp/server.py"
+      ],
+      "skillproof_score": 96,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "scripts/build-index.py",
+          "line": 210,
+          "snippet": "with open(path, \"w\", encoding=\"utf-8\", newline=\"\") as fh:"
+        }
+      ],
+      "preaudit_id": "SP-7AB31EE30AA298E7",
+      "audited_at": "2026-11-06",
+      "surface_summary": "Scanned 4 entrypoints (mcp/hatch_build.py, scripts/build-index.py); 1 line-cited sinks incl. UNBOUNDED_FS_WRITE at scripts/build-index.py:L210."
     },
     {
       "repo": "andrea-magni/MARS",

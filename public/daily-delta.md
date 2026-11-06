@@ -1,6 +1,6 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-05
+# 📡 Overnight Market & Safety Delta — 2026-11-06
 
-> **Autonomous Sync:** Generated at `14:28:01 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
+> **Autonomous Sync:** Generated at `12:30:20 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
 ## 1. High-Exposure Consumer Recalls (CPSC 2026)
 
@@ -8,23 +8,22 @@
 - **New / Updated in Last 7 Days:** `12`
 
 ### High-Unit Exposure Alerts (>=50,000 Units)
-- **CPSC #27054 · DREO Recalls DR-HSH015 Space Heaters Due to Fire and Burn Hazards**
-  - *Units:* `About 338,800 (In addition, about 36,300 were sold in Canada)` | *Sold At:* `Costco stores nationwide and online at Dreo.com, BestBuy.com, Kohls.com, Lowes.com, QVC.com, HomeDepot.com, B2BRenew.com and Costco.com from September 2025 through October 2026 for between $70 and $110.`
-  - *Official Notice:* [https://cpsc.gov/Recalls/2027/DREO-Recalls-DR-HSH015-Space-Heaters-Due-to-Fire-and-Burn-Hazards](https://cpsc.gov/Recalls/2027/DREO-Recalls-DR-HSH015-Space-Heaters-Due-to-Fire-and-Burn-Hazards)
-- **CPSC #27060 · Harkla Recalls Children’s Sensory Swings Due to Risk of Serious Injury from Fall Hazard**
-  - *Units:* `About 25,541 (In addition, about 5,534 were sold in Canada)` | *Sold At:* `Sensory Tool House, Hammer & Jacks, Loaded Sensory and Renew (Faire), and online at Amazon.com and Harkla.co from March 2020 through December 2025 for between $100 and $130.`
-  - *Official Notice:* [https://cpsc.gov/Recalls/2027/Harkla-Recalls-Childrens-Sensory-Swings-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard](https://cpsc.gov/Recalls/2027/Harkla-Recalls-Childrens-Sensory-Swings-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard)
-- **CPSC #27051 · NTI and HTP Brand Gas Boilers Recalled Due to Risk of Serious Injury or Death from Fire, Carbon Monoxide (CO) Poisoning and Impact Hazards; Manufactured by Ariston, formerly NTI Boilers**
-  - *Units:* `4,726 (In addition, 2,261 were sold in Canada)` | *Sold At:* `Independent heating and plumbing contractors and wholesale distributors nationwide from May 2021 through July 2026 for between $3,200 and $7,700.`
-  - *Official Notice:* [https://cpsc.gov/Recalls/2027/NTI-and-HTP-Brand-Gas-Boilers-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-Carbon-Monoxide-CO-Poisoning-and-Impact-Hazards-Manufactured-by-Ariston-formerly-NTI-Boilers](https://cpsc.gov/Recalls/2027/NTI-and-HTP-Brand-Gas-Boilers-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-Carbon-Monoxide-CO-Poisoning-and-Impact-Hazards-Manufactured-by-Ariston-formerly-NTI-Boilers)
-- **CPSC #27024 · 3M Company Recalls Scotch™ Thermal Laminators Due to Risk of Serious Injury or Death from Fire Hazard**
-  - *Units:* `About 53,634` | *Sold At:* `Sold Online At:
-Amazon.com from June 2024 through September 2026 for between $44 and $56.`
-  - *Official Notice:* [https://cpsc.gov/Recalls/2027/3M-Company-Recalls-ScotchTM-Thermal-Laminators-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-Hazard](https://cpsc.gov/Recalls/2027/3M-Company-Recalls-ScotchTM-Thermal-Laminators-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-Hazard)
+- **CPSC #27072 · Baby Brezza Enterprises Recalls SuperFast Sterilizer Dryers Due to Overheating and Burn Hazards**
+  - *Units:* `About 29,000 (In addition, about 4,500 were sold in Canada)` | *Sold At:* `TJ Maxx and Marshall’s storesnationwide and online at babybrezza.com, target.com and babylist.com from January 2024 through October 2026 for between $160 and $180.`
+  - *Official Notice:* [https://www.cpsc.gov/Recalls/2027/Baby-Brezza-Enterprises-Recalls-SuperFast-Sterilizer-Dryers-Due-to-Overheating-and-Burn-Hazards](https://www.cpsc.gov/Recalls/2027/Baby-Brezza-Enterprises-Recalls-SuperFast-Sterilizer-Dryers-Due-to-Overheating-and-Burn-Hazards)
+- **CPSC #27065 · Bose Recalls Lithium-Ion Battery Packs for S1 Pro and S1 Pro+ Bluetooth Speaker Systems Due to Risk of Injury from Fire and Overheating Hazards**
+  - *Units:* `About 634,759 (In addition, about 35,400 were sold in Canada)` | *Sold At:* `Bose, Best Buy and other retail stores and distributors nationwide and online at Amazon.com, Bose.com, BestBuy.com, Walmart.com and other websites from December 2017 through July 2026 for between $100 and $160 for the individual battery packs. The speaker systems were sold with the battery packs for $700.`
+  - *Official Notice:* [https://www.cpsc.gov/Recalls/2027/Bose-Recalls-Lithium-Ion-Battery-Packs-for-S1-Pro-and-S1-Pro-Bluetooth-Speaker-Systems-Due-to-Risk-of-Injury-from-Fire-and-Overheating-Hazards-0](https://www.cpsc.gov/Recalls/2027/Bose-Recalls-Lithium-Ion-Battery-Packs-for-S1-Pro-and-S1-Pro-Bluetooth-Speaker-Systems-Due-to-Risk-of-Injury-from-Fire-and-Overheating-Hazards-0)
+- **CPSC #27069 · Gourmia Recalls 9-Slice Digital Air Fryer Ovens Due to Burn Hazard**
+  - *Units:* `About 175,951` | *Sold At:* `Target stores nationwide and online at Target.com from October 2021 through June 2026 for about $150.`
+  - *Official Notice:* [https://www.cpsc.gov/Recalls/2027/Gourmia-Recalls-9-Slice-Digital-Air-Fryer-Ovens-Due-to-Burn-Hazard](https://www.cpsc.gov/Recalls/2027/Gourmia-Recalls-9-Slice-Digital-Air-Fryer-Ovens-Due-to-Burn-Hazard)
+- **CPSC #27067 · Little Giant Recalls Ladders with Rapid Locks Due to Risk of Serious Injury from Fall Hazard**
+  - *Units:* `About 3,662,000` | *Sold At:* `Lowe’s, Costco and other stores nationwide and online at Lowes.com, Amazon.com, Costco.com, LittleGiantLadders.com and other websites from December 2015 through October 2026 for about $100 to $1,000.`
+  - *Official Notice:* [https://www.cpsc.gov/Recalls/2027/Little-Giant-Recalls-Ladders-with-Rapid-Locks-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard](https://www.cpsc.gov/Recalls/2027/Little-Giant-Recalls-Ladders-with-Rapid-Locks-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard)
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `23`
+- **Total Validated MCP Repositories in Public Index:** `25`
 - **Quality Gate Filtered/Quarantined:** `1` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |
