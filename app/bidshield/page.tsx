@@ -4,6 +4,7 @@ import { ArrowLeft, Building, FileText, Shield, AlertTriangle, DollarSign, Calen
 import { NAICS_DATA } from '@/lib/recall-data';
 import tendersData from '@/public/bidshield/tenders.json';
 import ClauseScanner from './ClauseScanner';
+import TenderFeed from './TenderFeed';
 
 export const metadata: Metadata = {
   title: 'BidShield — Federal Compliance Triage by NAICS Code',
@@ -91,63 +92,7 @@ export default function BidShieldIndexPage() {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {(tendersData?.tenders || []).map((t: any) => (
-              <Link
-                key={t.solicitation_id}
-                href={`/bidshield/tender/${t.solicitation_id}`}
-                className="group p-6 bg-[#0f1423] border border-slate-800 rounded-2xl hover:border-amber-500/40 hover:bg-slate-900/60 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-xs font-mono mb-3">
-                    <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-bold">
-                      {t.solicitation_id}
-                    </span>
-                    <span className="text-amber-400 flex items-center gap-1 font-semibold">
-                      <Clock size={12} /> {t.category}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">
-                    {t.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-400 mb-4 font-mono line-clamp-2">
-                    {t.buyer} — {t.jurisdiction}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-3 mb-4 p-3 bg-black/40 rounded-xl border border-white/5 text-xs font-mono">
-                    <div>
-                      <span className="text-slate-500 block text-[10px]">CONTRACT MIDPOINT</span>
-                      <span className="text-white font-bold">${(t.contract_midpoint_usd / 1000000).toFixed(1)}M USD</span>
-                    </div>
-                    <div>
-                      <span className="text-rose-400 block text-[10px]">JEV EXPOSURE RISK</span>
-                      <span className="text-rose-400 font-bold">${t.combined_jev_exposure_usd.toLocaleString()}</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5 mb-4">
-                    <div className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
-                      <AlertOctagon size={12} className="text-rose-400" />
-                      <span>{t.mandatory_gates.length} fatal pre-bid disqualifiers identified</span>
-                    </div>
-                    <div className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
-                      <FileText size={12} className="text-cyan-400" />
-                      <span>{t.missing_annex_count} missing referenced schedules</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="border-t border-slate-800 pt-4 flex items-center justify-between text-xs font-mono">
-                  <span className="text-emerald-400 font-semibold">19-Column Matrix Available</span>
-                  <span className="text-slate-300 group-hover:text-amber-300 group-hover:translate-x-1 transition-all flex items-center gap-1">
-                    Inspect Triage <ChevronRight size={14} />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <TenderFeed initialTenders={tendersData?.tenders || []} premierCount={16} />
         </section>
 
         {/* NAICS Directory */}
