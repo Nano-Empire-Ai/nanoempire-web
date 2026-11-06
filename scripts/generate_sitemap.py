@@ -14,6 +14,9 @@ naics_codes = ["238220", "561720", "236220", "541330", "561210", "238210", "5621
 
 base_urls = [
     "https://www.nanoempireai.com/",
+    "https://www.nanoempireai.com/licensing",
+    "https://www.nanoempireai.com/licensing/dashboard",
+    "https://www.nanoempireai.com/licensing/docs",
     "https://www.nanoempireai.com/bidshield",
     "https://www.nanoempireai.com/bidshield/triage",
     "https://www.nanoempireai.com/skillproof",
