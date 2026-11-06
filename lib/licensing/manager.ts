@@ -3,7 +3,7 @@
  * Handles provisioning, validation, revocation, and tier enforcement
  */
 
-import { createHash, randomBytes } from 'crypto';
+import { createHash, randomBytes, createHmac } from 'crypto';
 
 export interface LicenseTier {
   id: string;
@@ -128,7 +128,23 @@ class LicenseManager {
     // TODO: Implement persistent storage saving
   }
 
-  generateApiKey(): string {
+  private getHmacSecret(): string {
+    return process.env.STRIPE_WEBHOOK_SECRET || process.env.STRIPE_SECRET_KEY || 'nano_signing_secret_2026';
+  }
+
+  generateApiKey(tierId?: string, email?: string, expiresAt?: Date, licenseId?: string): string {
+    if (tierId && email && expiresAt) {
+      const payload = {
+        id: licenseId || `lic_${randomBytes(8).toString('base64url')}`,
+        t: tierId,
+        e: email,
+        exp: Math.floor(expiresAt.getTime() / 1000),
+        iat: Math.floor(Date.now() / 1000),
+      };
+      const payloadB64 = Buffer.from(JSON.stringify(payload)).toString('base64url');
+      const sig = createHmac('sha256', this.getHmacSecret()).update(payloadB64).digest('base64url');
+      return `sk_live_${payloadB64}.${sig}`;
+    }
     const prefix = 'sk_live_';
     const entropy = randomBytes(24).toString('base64url');
     return `${prefix}${entropy}`;
@@ -149,8 +165,6 @@ class LicenseManager {
       throw new Error(`Invalid tier: ${tierId}`);
     }
 
-    const apiKey = this.generateApiKey();
-    const apiKeyHash = this.hashApiKey(apiKey);
     const now = new Date();
     const expiresAt = new Date(now);
     
@@ -160,8 +174,12 @@ class LicenseManager {
       expiresAt.setMonth(expiresAt.getMonth() + 1);
     }
 
+    const licenseId = `lic_${randomBytes(12).toString('base64url')}`;
+    const apiKey = this.generateApiKey(tierId, customerEmail, expiresAt, licenseId);
+    const apiKeyHash = this.hashApiKey(apiKey);
+
     const license: License = {
-      id: `lic_${randomBytes(12).toString('base64url')}`,
+      id: licenseId,
       apiKey,
       apiKeyHash,
       tierId,
@@ -189,6 +207,58 @@ class LicenseManager {
   }
 
   async validateApiKey(apiKey: string): Promise<LicenseValidationResult> {
+    // 1. Verify stateless cryptographically signed API token (survives cold starts and serverless boundaries)
+    if (apiKey.startsWith('sk_live_') && apiKey.includes('.')) {
+      try {
+        const raw = apiKey.replace('sk_live_', '');
+        const [payloadB64, sig] = raw.split('.');
+        const expectedSig = createHmac('sha256', this.getHmacSecret()).update(payloadB64).digest('base64url');
+        if (sig === expectedSig) {
+          const payload = JSON.parse(Buffer.from(payloadB64, 'base64url').toString('utf-8'));
+          const nowSeconds = Math.floor(Date.now() / 1000);
+          if (payload.exp && payload.exp < nowSeconds) {
+            return { valid: false, error: 'License expired' };
+          }
+          const tier = LICENSE_TIERS[payload.t];
+          if (!tier) {
+            return { valid: false, error: 'Invalid tier configuration' };
+          }
+          const license: License = {
+            id: payload.id || `lic_${payloadB64.substring(0, 10)}`,
+            apiKey,
+            apiKeyHash: this.hashApiKey(apiKey),
+            tierId: payload.t,
+            customerEmail: payload.e || '',
+            stripeCustomerId: '',
+            stripeSubscriptionId: '',
+            status: 'active',
+            createdAt: new Date((payload.iat || nowSeconds) * 1000).toISOString(),
+            expiresAt: new Date(payload.exp * 1000).toISOString(),
+            lastUsedAt: new Date().toISOString(),
+            usage: {
+              requestsToday: 1,
+              requestsThisHour: 1,
+              lastRequestAt: new Date().toISOString(),
+              totalRequests: 1,
+              endpoints: {},
+            },
+          };
+          return {
+            valid: true,
+            license,
+            tier,
+            rateLimitInfo: {
+              limit: tier.rateLimit.requests,
+              remaining: tier.rateLimit.requests - 1,
+              resetAt: new Date(Date.now() + 3600000).toISOString(),
+            },
+          };
+        }
+      } catch {
+        // Fall back to in-memory index
+      }
+    }
+
     const hash = this.hashApiKey(apiKey);
     const licenseId = this.apiKeyIndex.get(hash);
     
