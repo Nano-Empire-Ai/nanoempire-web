@@ -25,6 +25,7 @@ base_urls = [
     "https://www.nanoempireai.com/status.json",
     "https://www.nanoempireai.com/changelog.json",
     "https://www.nanoempireai.com/daily-delta.md",
+    "https://www.nanoempireai.com/benchmarks/mcp-security",
 ]
 
 today = dt.date.today().isoformat()
