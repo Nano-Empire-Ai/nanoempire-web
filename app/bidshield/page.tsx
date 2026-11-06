@@ -20,9 +20,19 @@ export default function BidShieldIndexPage() {
           <Link href="/" className="flex items-center gap-2 text-[#8C92A4] hover:text-white transition-colors text-sm font-mono">
             <ArrowLeft size={16} /> Nano Empire AI
           </Link>
-          <Link href="/bidshield/triage" className="text-xs font-mono font-bold bg-[#00B5E2] text-black px-3 py-1.5 rounded hover:bg-[#00B5E2]/90">
-            Run Triage ($99)
-          </Link>
+          <div className="flex items-center gap-3">
+            <a 
+              href="https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-xs font-mono text-[#3ddc97] hover:underline hidden sm:inline-flex items-center gap-1"
+            >
+              Upwork Catalog (Live) ↗
+            </a>
+            <Link href="/bidshield/triage" className="text-xs font-mono font-bold bg-[#00B5E2] text-black px-3 py-1.5 rounded hover:bg-[#00B5E2]/90">
+              Run Triage ($99)
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -41,12 +51,22 @@ export default function BidShieldIndexPage() {
           </p>
           
           {/* Primary CTA */}
-          <Link 
-            href="/bidshield/triage"
-            className="inline-flex items-center gap-3 bg-[#00B5E2] text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-[#00B5E2]/90 transition-colors"
-          >
-            <Shield size={24} /> Run Pre-Bid Triage — $99 USD
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link 
+              href="/bidshield/triage"
+              className="inline-flex items-center gap-3 bg-[#00B5E2] text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-[#00B5E2]/90 transition-colors shadow-lg shadow-[#00B5E2]/20"
+            >
+              <Shield size={24} /> Run Pre-Bid Triage — $99 USD
+            </Link>
+            <a 
+              href="https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-[#3ddc97]/40 bg-[#3ddc97]/10 text-[#3ddc97] font-bold px-6 py-4 rounded-lg text-base hover:bg-[#3ddc97]/20 transition-colors"
+            >
+              <Star size={20} className="text-[#3ddc97]" /> Order via Upwork Project Catalog (Escrow Protected) →
+            </a>
+          </div>
         </header>
 
         {/* NAICS Directory */}
