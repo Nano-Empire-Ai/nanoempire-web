@@ -253,6 +253,46 @@ export default function McpSecurityBenchmarkPage() {
           </div>
         </section>
 
+        {/* Head-to-Head Category Showdowns */}
+        <section className="mb-16">
+          <div className="mb-6">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-400">
+              COMPARATIVE SECURITY INTELLIGENCE
+            </span>
+            <h2 className="text-2xl font-bold font-mono text-white mt-1">
+              Head-to-Head MCP Security Showdowns
+            </h2>
+            <p className="text-xs text-slate-400 font-mono mt-1">
+              Side-by-side 6-vector security and governance comparisons across leading MCP categories:
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-mono">
+            {[
+              { slug: 'firecrawl-mcp-vs-browserbase-mcp', cat: 'Web Scraping & Browser MCPs', title: 'Firecrawl MCP vs Browserbase MCP', scores: '84 vs 92' },
+              { slug: 'stripe-agent-toolkit-vs-coinbase-agentkit', cat: 'Fintech & Agent Payments', title: 'Stripe Toolkit vs Coinbase AgentKit', scores: '98 vs 98' },
+              { slug: 'pydantic-ai-vs-mcp-agent', cat: 'Agent Orchestration Frameworks', title: 'Pydantic-AI vs LastMile mcp-agent', scores: '86 vs 96' },
+              { slug: 'mcp-inspector-vs-fastmcp', cat: 'Core MCP Developer Tooling', title: 'MCP Inspector vs FastMCP', scores: '98 vs 76' },
+              { slug: 'notion-mcp-vs-pipeshub-ai', cat: 'Enterprise Workspace Connectors', title: 'Notion MCP vs PipesHub AI', scores: '78 vs 98' },
+              { slug: 'mcp-redis-vs-keboola-mcp', cat: 'Database & Data Pipeline MCPs', title: 'Redis MCP vs Keboola MCP', scores: '92 vs 86' },
+            ].map((c) => (
+              <Link
+                key={c.slug}
+                href={`/benchmarks/compare/${c.slug}`}
+                className="group p-5 rounded-xl border border-white/10 bg-[#0f1423] hover:border-cyan-500/40 transition flex flex-col justify-between gap-3"
+              >
+                <div>
+                  <span className="text-[10px] text-cyan-400 block mb-1">{c.cat}</span>
+                  <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition">{c.title}</h3>
+                </div>
+                <div className="flex items-center justify-between pt-3 border-t border-white/5 text-[11px]">
+                  <span className="text-emerald-400 font-bold">Score: {c.scores}</span>
+                  <span className="text-slate-400 group-hover:text-white">Compare →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Benchmark Call-to-Action */}
         <section className="rounded-2xl border border-cyan-500/30 bg-gradient-to-r from-[#0c1322] to-[#07090D] p-8 md:p-12 text-center max-w-4xl mx-auto shadow-2xl">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 mb-3">

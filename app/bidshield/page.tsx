@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Building, FileText, Shield, AlertTriangle, DollarSign, Calendar, ChevronRight, Search, Star, Clock, AlertOctagon } from 'lucide-react';
 import { NAICS_DATA } from '@/lib/recall-data';
 import tendersData from '@/public/bidshield/tenders.json';
+import ClauseScanner from './ClauseScanner';
 
 export const metadata: Metadata = {
   title: 'BidShield — Federal Compliance Triage by NAICS Code',
@@ -69,6 +70,11 @@ export default function BidShieldIndexPage() {
             </a>
           </div>
         </header>
+
+        {/* Instant Interactive Pre-Bid Disqualifier Scanner */}
+        <section className="mb-16">
+          <ClauseScanner />
+        </section>
 
         {/* Active Tenders Feed */}
         <section className="mb-16">

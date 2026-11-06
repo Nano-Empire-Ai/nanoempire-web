@@ -182,7 +182,7 @@ export default async function RepoAuditDetailPage({ params }: Props) {
                 Add this dynamic SVG badge to your GitHub README. It updates automatically when new audits pass.
               </p>
               <div className="bg-black/60 p-3 rounded border border-white/10 text-[11px] font-mono text-[#00B5E2] break-all select-all">
-                {`[![SkillProof Score](https://img.shields.io/badge/SkillProof-${audit.skillproof_score}%2F100-${audit.skillproof_score >= 85 ? 'brightgreen' : 'orange'})](https://www.nanoempireai.com/skillproof/repo/${owner}/${repo})`}
+                {`[![MSHB-2026 Benchmark](https://www.nanoempireai.com/api/badge/${owner}/${repo}.svg?style=benchmark)](https://www.nanoempireai.com/skillproof/repo/${owner}/${repo})`}
               </div>
             </div>
 

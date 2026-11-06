@@ -8,10 +8,13 @@ interface TenderPageProps {
   params: Promise<{ solicitationId: string }>;
 }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-  const tenders = tendersData?.tenders || [];
-  return tenders.map((t: any) => ({
-    solicitationId: t.solicitation_id,
+  const tenders = (tendersData?.tenders || []).filter((t: any) => Boolean(t.solicitation_id || t.slug));
+  // Pre-render premier featured and top closing tenders statically (first 50)
+  return tenders.slice(0, 50).map((t: any) => ({
+    solicitationId: String(t.solicitation_id || t.slug),
   }));
 }
 
@@ -19,7 +22,7 @@ export async function generateMetadata({ params }: TenderPageProps): Promise<Met
   const { solicitationId } = await params;
   const tenders = tendersData?.tenders || [];
   const tender = tenders.find(
-    (t: any) => t.solicitation_id.toLowerCase() === solicitationId.toLowerCase()
+    (t: any) => String(t.solicitation_id || t.slug || '').toLowerCase() === solicitationId.toLowerCase()
   );
 
   if (!tender) {
@@ -47,7 +50,7 @@ export default async function TenderDetailPage({ params }: TenderPageProps) {
   const { solicitationId } = await params;
   const tenders = tendersData?.tenders || [];
   const tender = tenders.find(
-    (t: any) => t.solicitation_id.toLowerCase() === solicitationId.toLowerCase()
+    (t: any) => String(t.solicitation_id || t.slug || '').toLowerCase() === solicitationId.toLowerCase()
   );
 
   if (!tender) {

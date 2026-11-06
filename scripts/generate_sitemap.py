@@ -25,7 +25,17 @@ base_urls = [
     "https://www.nanoempireai.com/status.json",
     "https://www.nanoempireai.com/changelog.json",
     "https://www.nanoempireai.com/daily-delta.md",
+    "https://www.nanoempireai.com/benchmarks",
     "https://www.nanoempireai.com/benchmarks/mcp-security",
+]
+
+compare_slugs = [
+    "firecrawl-mcp-vs-browserbase-mcp",
+    "stripe-agent-toolkit-vs-coinbase-agentkit",
+    "pydantic-ai-vs-mcp-agent",
+    "mcp-inspector-vs-fastmcp",
+    "notion-mcp-vs-pipeshub-ai",
+    "mcp-redis-vs-keboola-mcp",
 ]
 
 today = dt.date.today().isoformat()
@@ -65,6 +75,16 @@ for ret in retailers:
         "  </url>",
     ])
 
+for slug in compare_slugs:
+    xml_lines.extend([
+        "  <url>",
+        f"    <loc>https://www.nanoempireai.com/benchmarks/compare/{slug}</loc>",
+        f"    <lastmod>{today}</lastmod>",
+        "    <changefreq>daily</changefreq>",
+        "    <priority>0.9</priority>",
+        "  </url>",
+    ])
+
 for a in audits:
     repo = a.get("repo")
     xml_lines.extend([
@@ -86,8 +106,11 @@ for n in naics_codes:
         "  </url>",
     ])
 
-for t in tenders:
-    sid = t.get("solicitation_id")
+indexed_tenders = tenders[:100]
+for t in indexed_tenders:
+    sid = t.get("solicitation_id") or t.get("slug")
+    if not sid:
+        continue
     xml_lines.extend([
         "  <url>",
         f"    <loc>https://www.nanoempireai.com/bidshield/tender/{sid}</loc>",
@@ -99,5 +122,5 @@ for t in tenders:
 
 xml_lines.append("</urlset>")
 sm_path.write_text("\n".join(xml_lines), encoding="utf-8")
-total_count = len(base_urls) + len(cpsc) + len(retailers) + len(audits) + len(naics_codes) + len(tenders)
+total_count = len(base_urls) + len(compare_slugs) + len(cpsc) + len(retailers) + len(audits) + len(naics_codes) + len(indexed_tenders)
 print(f"Successfully generated sitemap with {total_count} URLs.")
