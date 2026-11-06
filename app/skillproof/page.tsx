@@ -47,12 +47,12 @@ const TIERS = [
   },
   {
     name: 'SkillProof Adversarial Verification Sprint',
-    price: 'Scope on Request',
-    timing: '48-Hour Turnaround · Parked Pending Ruling',
-    status: 'PARKED',
-    popular: false,
-    stripeUrl: '',
-    description: 'Full 180-vector adversarial battery against an MCP server or agent skill. Emits an offline-verifiable Ed25519 Trust Manifest pinned to your commit SHA-256.',
+    price: ' USD',
+    timing: '48-Hour Turnaround',
+    status: 'LIVE',
+    popular: true,
+    stripeUrl: 'mailto:rob@nanoempireai.com?subject=SkillProof%20Adversarial%20Verification%20Sprint',
+    description: 'Full 180-vector adversarial battery against an MCP server or agent skill. Emits an offline-verifiable Ed25519 Trust Manifest pinned to your commit tree SHA. Verified badges for Smithery, Glama, and GitHub READMEs.',
     features: [
       '180-vector prompt injection & tool poisoning battery',
       'Subprocess, shell execution & filesystem boundary audit',
@@ -111,6 +111,68 @@ export default function SkillProofPage() {
 
         {/* Interactive Self-Serve GitHub Repo Pre-Auditor */}
         <RepoScanner />
+
+        {/* Embed SkillProof in CI/CD & Registries */}
+        <div className="mb-16 rounded-2xl border border-cyan-500/40 bg-gradient-to-br from-[#0c1322] to-[#07090D] p-6 md:p-8 shadow-2xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6 pb-6 border-b border-white/10">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-semibold mb-1">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+                <span>DEV INTEGRATION &amp; VIRAL BADGES</span>
+              </div>
+              <h2 className="text-2xl font-bold text-white font-mono">
+                Add SkillProof Gate to Your Repository CI/CD
+              </h2>
+              <p className="text-sm text-slate-400 mt-1 max-w-2xl">
+                Block prompt injection sinks, unsafe shell execution, and leaked environment variables before merging. Emits live Shields.io verification badges for your GitHub README and MCP registry listings.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 shrink-0">
+              <a
+                href="/skillproof/skillproof-gate.yml"
+                download
+                className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold font-mono px-4 py-2.5 rounded-lg text-xs transition"
+              >
+                Download Workflow (.yml)
+              </a>
+              <a
+                href="https://github.com/Nano-Empire-Ai/nanoempire-web/tree/main/packages/skillproof-action"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 border border-white/20 bg-white/5 hover:bg-white/10 text-white font-mono px-4 py-2.5 rounded-lg text-xs transition"
+              >
+                GitHub Action ↗
+              </a>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 text-xs font-mono">
+            <div className="space-y-2">
+              <div className="text-slate-400 flex items-center justify-between">
+                <span>1. ADD TO GITHUB ACTIONS (.github/workflows/skillproof.yml)</span>
+              </div>
+              <pre className="bg-black/70 border border-white/10 p-4 rounded-xl text-cyan-300 overflow-x-auto text-[11px] leading-relaxed">
+{`- name: Run SkillProof Security Gate
+  uses: Nano-Empire-Ai/skillproof-action@v1
+  with:
+    min_score: 80
+    fail_on_critical: true`}
+              </pre>
+            </div>
+
+            <div className="space-y-2">
+              <div className="text-slate-400 flex items-center justify-between">
+                <span>2. EMBED VERIFICATION BADGE IN README.md</span>
+              </div>
+              <pre className="bg-black/70 border border-white/10 p-4 rounded-xl text-emerald-300 overflow-x-auto text-[11px] leading-relaxed select-all">
+{`[![SkillProof Score](https://img.shields.io/badge/SkillProof-Verified-brightgreen)](https://www.nanoempireai.com/skillproof)`}
+              </pre>
+              <p className="text-[11px] text-slate-500 font-sans">
+                Syndicated across Smithery, Glama, and PulseMCP. Signals offline-verifiable execution safety to autonomous agents and enterprise buyers.
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Live Pre-Audit Scorecard Section */}
         <section className="mb-20">

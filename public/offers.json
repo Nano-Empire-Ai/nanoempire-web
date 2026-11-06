@@ -52,13 +52,21 @@
     {
       "id": "skillproof-sprint",
       "name": "SkillProof Adversarial Verification Sprint",
-      "description": "48-hour 180-vector adversarial battery against an MCP server or agent skill. Emits an offline-verifiable Ed25519 Trust Manifest pinned to code SHA-256. Parked pending pricing ruling.",
+      "description": "48-hour 180-vector adversarial battery against an MCP server or agent skill. Emits an offline-verifiable Ed25519 Trust Manifest pinned to code tree SHA. Verified badges for Smithery, Glama, and GitHub READMEs.",
       "rail": "inquiry",
-      "contact": "mailto:rob@nanoempireai.com",
-      "method": "MANUAL_SCOPE",
+      "contact": "mailto:rob@nanoempireai.com?subject=SkillProof%20Verification%20Sprint",
+      "method": "INQUIRY_AND_ESCROW",
       "capability": "mcp-verification",
       "manifest": "#01",
-      "status": "parked"
+      "status": "live",
+      "price_usd": 299,
+      "currency": "USD",
+      "distribution_syndication": {
+        "smithery": "https://smithery.ai",
+        "glama": "https://glama.ai/mcp",
+        "pulsemcp": "https://pulsemcp.com",
+        "github_action": "Nano-Empire-Ai/skillproof-action@v1"
+      }
     },
     {
       "id": "recallradar-kids-dataset",

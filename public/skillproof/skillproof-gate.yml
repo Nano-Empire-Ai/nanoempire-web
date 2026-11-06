@@ -1,0 +1,23 @@
+# SkillProof Continuous Security & Hygiene Gate
+# Hosted & Verified by Nano Empire AI (https://www.nanoempireai.com/skillproof)
+name: SkillProof Gate
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  skillproof-gate:
+    name: Verify Code Surface & Hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run SkillProof Static Scanner
+        uses: Nano-Empire-Ai/skillproof-action@v1
+        with:
+          min_score: 80
+          fail_on_critical: true
