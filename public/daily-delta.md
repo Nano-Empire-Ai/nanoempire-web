@@ -1,6 +1,6 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-06
+# 📡 Overnight Market & Safety Delta — 2026-11-07
 
-> **Autonomous Sync:** Generated at `12:30:20 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
+> **Autonomous Sync:** Generated at `12:30:08 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
 ## 1. High-Exposure Consumer Recalls (CPSC 2026)
 
@@ -23,7 +23,7 @@
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `25`
+- **Total Validated MCP Repositories in Public Index:** `27`
 - **Quality Gate Filtered/Quarantined:** `1` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |

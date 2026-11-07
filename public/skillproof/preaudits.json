@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-06",
+  "updated_at": "2026-11-07",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 25,
+  "total_repos_audited": 27,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -482,6 +482,28 @@
       "surface_summary": "Scanned 4 entrypoints (src/alpaca_mcp_server/cli.py, src/alpaca_mcp_server/server.py); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/alpaca_mcp_server/cli.py:L54."
     },
     {
+      "repo": "vostride/agent-qa",
+      "stars": 856,
+      "branch": "main",
+      "tree_sha": "d443e7202242",
+      "license": "NOASSERTION",
+      "total_files_in_repo": 3673,
+      "sampled_source_files": [
+        "packages/cli/src/cli.ts",
+        "packages/mcp/src/http.ts",
+        "packages/cli/src/index.ts",
+        "packages/ids/src/index.ts"
+      ],
+      "skillproof_score": 92,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-2919103EF9AAC16F",
+      "audited_at": "2026-11-07",
+      "surface_summary": "Scanned 4 entrypoints (packages/cli/src/cli.ts, packages/mcp/src/http.ts); 0 static shell/eval sinks; 1 governance gaps flagged."
+    },
+    {
       "repo": "redis/mcp-redis",
       "stars": 641,
       "branch": "main",
@@ -828,6 +850,28 @@
       "preaudit_id": "SP-8480987FB4B91DE0",
       "audited_at": "2026-11-03",
       "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/cli/args.ts); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at src/cli/args.ts:L46."
+    },
+    {
+      "repo": "blackwell-systems/mcp-assert",
+      "stars": 26,
+      "branch": "main",
+      "tree_sha": "6a11e4f29b94",
+      "license": "MIT",
+      "total_files_in_repo": 834,
+      "sampled_source_files": [
+        "cmd/mcp-assert/main.go",
+        "go-plugin/mcpassert.go",
+        "bun-plugin/src/index.ts",
+        "jest-plugin/src/index.ts"
+      ],
+      "skillproof_score": 92,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-08EAA4D5C834BCB1",
+      "audited_at": "2026-11-07",
+      "surface_summary": "Scanned 4 entrypoints (cmd/mcp-assert/main.go, go-plugin/mcpassert.go); 0 static shell/eval sinks; 1 governance gaps flagged."
     }
   ]
 }
