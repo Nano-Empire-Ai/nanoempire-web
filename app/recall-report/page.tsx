@@ -140,10 +140,10 @@ export default function RecallReportPage() {
             North American Safety Registry (CPSC & FDA)
           </div>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Check your inventory against <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">46,642 recalls</span>.
+            Check your inventory against <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-400">21,812 recalls</span>.
           </h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-            Upload your inventory CSV. We instantly cross-reference UPCs, brands, and product titles against 46,642 verified official US (CPSC, FDA) safety enforcement notices.
+            Upload your inventory CSV. We instantly cross-reference UPCs, brands, and product titles against 21,812 normalized US (CPSC & FDA) safety recall records (46,642 total North American US/CA records).
           </p>
         </div>
 
@@ -189,7 +189,7 @@ export default function RecallReportPage() {
               className="w-full mt-6 bg-white text-black hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-lg py-4 rounded-xl flex items-center justify-center gap-2 transition-colors"
             >
               {isScanning ? (
-                <><Loader2 className="w-5 h-5 animate-spin" /> Scanning 46,642 records...</>
+                <><Loader2 className="w-5 h-5 animate-spin" /> Scanning 21,812 records...</>
               ) : (
                 <>Run Compliance Scan <ChevronRight className="w-5 h-5" /></>
               )}
@@ -220,7 +220,7 @@ export default function RecallReportPage() {
                     <div className="mb-8 text-left bg-neutral-950/80 border border-neutral-800 rounded-xl p-4 max-h-64 overflow-y-auto">
                       <div className="text-xs uppercase tracking-wider text-neutral-400 font-semibold mb-3 flex items-center justify-between">
                         <span>Sample Flagged Violations ({results.matchCount} Total Detected)</span>
-                        <span className="text-rose-400 text-[11px] font-mono">15 U.S.C. § 2068 NOTICE</span>
+                        <span className="text-rose-400 text-[11px] font-mono">RECALL MATCH SCHEDULE</span>
                       </div>
                       <div className="space-y-2">
                         {results.teaserItems.map((item, idx: number) => (
@@ -258,7 +258,7 @@ export default function RecallReportPage() {
                 <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-5 flex flex-col justify-between">
                   <div>
                     <FileText className="w-6 h-6 text-neutral-400 mb-3" />
-                    <h3 className="text-lg font-semibold mb-1">Pallet Taint Report</h3>
+                    <h3 className="text-lg font-semibold mb-1">Signed Recall Match Report</h3>
                     <p className="text-neutral-400 text-xs mb-4">Complete PDF + CSV export of all matches, official recall IDs, and manufacturer remedy links.</p>
                     <div className="text-2xl font-bold mb-4">$30 <span className="text-xs text-neutral-500 font-normal">USD</span></div>
                     <input 
@@ -284,9 +284,9 @@ export default function RecallReportPage() {
                   <div className="absolute top-0 right-0 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl-lg">POPULAR</div>
                   <div>
                     <ShieldAlert className="w-6 h-6 text-rose-400 mb-3" />
-                    <h3 className="text-lg font-semibold mb-1 text-rose-100">Continuous Radar</h3>
+                    <h3 className="text-lg font-semibold mb-1 text-rose-100">RecallGuard Shield</h3>
                     <p className="text-neutral-400 text-xs mb-4">Daily automated sync across US & Canada safety registries. Instant alert webhooks on new bans.</p>
-                    <div className="text-2xl font-bold mb-4 text-white">$99 <span className="text-xs text-neutral-500 font-normal">CAD /mo</span></div>
+                    <div className="text-2xl font-bold mb-4 text-white">$99 <span className="text-xs text-neutral-500 font-normal">USD /mo</span></div>
                   </div>
                   <a 
                     href="https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e"

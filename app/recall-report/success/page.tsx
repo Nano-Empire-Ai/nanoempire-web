@@ -80,8 +80,8 @@ function SuccessReportView() {
       <main className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-8">
         <div className="text-center">
           <Loader2 className="w-10 h-10 animate-spin text-rose-500 mx-auto mb-4" />
-          <h1 className="text-xl font-bold">Decrypting & Signing Compliance Certificate...</h1>
-          <p className="text-sm text-slate-400 mt-1">Generating Ed25519 cryptographic attestation under 15 U.S.C. § 2068</p>
+          <h1 className="text-xl font-bold">Decrypting & Signing Recall Match Report...</h1>
+          <p className="text-sm text-slate-400 mt-1">Generating Ed25519 cryptographic attestation</p>
         </div>
       </main>
     );
@@ -132,17 +132,17 @@ function SuccessReportView() {
           </div>
         </div>
 
-        {/* Certificate Header */}
+        {/* Report Header */}
         <header className="flex flex-col md:flex-row md:items-start justify-between gap-6 border-b-2 border-slate-900 pb-6 mb-8">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-rose-700 bg-rose-50 border border-rose-200 px-2.5 py-1 rounded mb-3">
-              <ShieldCheck className="w-4 h-4" /> 15 U.S.C. § 2068 Statutory Screening Record
+              <ShieldCheck className="w-4 h-4" /> Ed25519 Signed Recall Match Report
             </div>
             <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
-              RecallRadar Certificate of Compliance & Manifest Audit
+              RecallRadar Signed Recall Match Report & Manifest Audit
             </h1>
             <p className="text-sm text-slate-600 mt-1">
-              Issued by Nano Empire AI • Federal CPSC & FDA Enforcement Registry Cross-Reference
+              Issued by Nano Empire AI • 21,812 Normalized US CPSC & FDA Recall Records Cross-Reference
             </p>
           </div>
           <div className="text-left md:text-right font-mono text-xs bg-slate-50 p-4 rounded-lg border border-slate-200 shrink-0">
@@ -268,7 +268,7 @@ function SuccessReportView() {
             <div>Signature: {attestation?.signature}</div>
           </div>
           <p className="text-[11px] text-slate-500 leading-relaxed">
-            <strong>Statutory Notice (15 U.S.C. § 2068):</strong> Under the Consumer Product Safety Act, it is unlawful to sell, offer for sale, manufacture for sale, distribute in commerce, or import into the United States any consumer product that is subject to a voluntary corrective action or mandatory recall notice. Retain this signed audit certificate for marketplace compliance, supplier chargeback claims, and commercial liability documentation.
+            <strong>Informational Screening Notice:</strong> This Signed Recall Match Report cross-references submitted manifest rows against 21,812 normalized US CPSC and FDA safety recall records. It is an automated informational matching report and does not constitute a statutory Certificate of Compliance or legal warranty. Always verify specific lot numbers, dates of manufacture, and serial ranges against the linked official agency recall notice.
           </p>
         </footer>
       </div>

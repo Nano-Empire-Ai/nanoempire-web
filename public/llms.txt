@@ -31,7 +31,7 @@ Contact: rob@nanoempireai.com
 
 - RecallGuard Health (free): GET https://recallguard-api.vercel.app/api/v1/health
 - RecallGuard Feed, $0.05 USDC per call (x402 on Base): GET https://recallguard-api.vercel.app/api/v1/feed?limit=50
-  Returns normalized CPSC and FDA recall records. Unpaid calls return HTTP 402.
+  Returns 21,812 normalized US CPSC and FDA recall records (46,642 North American total). Unpaid calls return HTTP 402.
 - RecallGuard Match, $0.10 USDC per call (x402 on Base): POST https://recallguard-api.vercel.app/api/v1/match
   Input: {"items":[{"name":"string","brand":"string","upc":"string"}]}
   Output: {"matches":[{"recall_id":"string","severity":"string","hazard":"string","remedy":"string"}]}
@@ -83,10 +83,10 @@ Contact: rob@nanoempireai.com
 ## Landing Pages & Programmatic Hubs
 
 - Main: https://www.nanoempireai.com
-- RecallRadar Compliance Scanner ($30 USD Report): https://www.nanoempireai.com/recall-report
+- RecallRadar Signed Recall Match Report ($30 USD): https://www.nanoempireai.com/recall-report
 - Federal Recalls Index (CPSC / Categories / Retailers): https://www.nanoempireai.com/recalls
-- BidShield Federal Triage & 8 NAICS Hubs ($99 / $249 / $499 USD): https://www.nanoempireai.com/bidshield
-- BidShield Active Tenders Intelligence Feed (16 Solicitations): https://www.nanoempireai.com/bidshield/tenders.json
+- BidShield Federal Triage & 8 NAICS Hubs ($149 / $299 / $499 USD): https://www.nanoempireai.com/bidshield
+- BidShield Active Tenders Intelligence Feed (882+ Open Solicitations): https://www.nanoempireai.com/bidshield/tenders.json
 - BidShield Ticking-Clock Triage (DND CFB Borden Heating Upgrade): https://www.nanoempireai.com/bidshield/tender/DND-W8484-245102
 - BidShield Ticking-Clock Triage (CBSA Primary Inspection DevSecOps): https://www.nanoempireai.com/bidshield/tender/CBSA-1000389104
 - BidShield Ticking-Clock Triage (SSC Multi-Cloud Mesh Engineering): https://www.nanoempireai.com/bidshield/tender/SSC-24-010482

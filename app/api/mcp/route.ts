@@ -66,7 +66,7 @@ const MCP_TOOLS = [
   {
     name: 'recallradar_audit_manifest_info',
     description:
-      'Returns pricing and endpoint details for full wholesale/liquidation manifest audits (15 U.S.C. § 2068 supplier refund certificates).',
+      'Returns pricing and endpoint details for full wholesale/liquidation manifest audits (Signed Recall Match Reports).',
     inputSchema: {
       type: 'object',
       properties: {},
@@ -203,7 +203,7 @@ export async function POST(req: Request) {
                 text: JSON.stringify(
                   {
                     portal: 'https://www.nanoempireai.com/recall-report',
-                    statute: '15 U.S.C. § 2068 (Prohibition on sale of recalled or unilaterally flagged consumer products)',
+                    statute: 'Informational Screening vs. 21,812 Normalized US CPSC & FDA Recall Records',
                     pricing: {
                       x402_feed_usd: 0.05,
                       x402_match_usd: 0.10,

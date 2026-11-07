@@ -7,6 +7,8 @@ const stripe = stripeSecret ? new Stripe(stripeSecret, { apiVersion: '2023-10-16
 
 // Map possible price string aliases to canonical tier IDs
 const ALIAS_TO_TIER: Record<string, string> = {
+  'price_recallguard_shield': 'recallguard-shield',
+  'recallguard-shield': 'recallguard-shield',
   'price_recallradar_core': 'recallradar-core',
   'recallradar-core': 'recallradar-core',
   'price_skillproof_index': 'skillproof-index',

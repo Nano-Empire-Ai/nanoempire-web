@@ -73,7 +73,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // 4. Generate Ed25519 Certificate of Compliance Seal (pinned key if configured)
+    // 4. Generate Ed25519 Signed Recall Match Report Attestation (pinned key if configured)
     const certId = `RR-${createHash('sha256').update(JSON.stringify(reportData) + verifiedEmail).digest('hex').slice(0, 12).toUpperCase()}`;
     const issuedAt = new Date().toISOString();
 
@@ -85,7 +85,7 @@ export async function POST(req: Request) {
       matchCount: reportData.matchCount || 0,
       highSeverity: reportData.highSeverity || 0,
       clearedItems: reportData.clearedItems || 0,
-      statute: '15 U.S.C. § 2068',
+      corpus: '21,812 normalized US CPSC & FDA recall records',
     });
     const att = signAttestation(Buffer.from(attestationPayload, 'utf8'));
 
@@ -100,7 +100,7 @@ export async function POST(req: Request) {
         signature: att.signature_hex,
         keyBinding: att.key_binding,
         verificationKeyUrl: att.verification_key_url,
-        statute: '15 U.S.C. § 2068 (Consumer Product Safety Act)',
+        reportType: 'Signed Recall Match Report (Informational Screening)',
       },
     });
   } catch (error: any) {

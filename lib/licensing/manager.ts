@@ -18,12 +18,23 @@ export interface LicenseTier {
 }
 
 export const LICENSE_TIERS: Record<string, LicenseTier> = {
+  'recallguard-shield': {
+    id: 'recallguard-shield',
+    name: 'RecallGuard Shield (Continuous Monitoring)',
+    priceUsd: 99,
+    interval: 'month',
+    products: ['recallradar-core', 'recallradar-delta'],
+    rateLimit: { requests: 2500, window: 'day' },
+    formats: ['json', 'csv'],
+    support: 'email',
+    sla: 'Daily automated sync & instant alert webhooks',
+  },
   'recallradar-core': {
     id: 'recallradar-core',
-    name: 'RecallRadar Core License',
+    name: 'Enterprise Data License (RecallRadar Corpus)',
     priceUsd: 2400,
     interval: 'year',
-    products: ['recallradar-core'],
+    products: ['recallradar-core', 'recallradar-delta', 'skillproof-index', 'bidshield-tenders'],
     rateLimit: { requests: 10000, window: 'day' },
     formats: ['json', 'csv'],
     support: 'email',
