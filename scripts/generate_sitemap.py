@@ -2,7 +2,10 @@ import json
 import pathlib
 import datetime as dt
 
-pub = pathlib.Path(r"C:\Users\robla\empire\nanoempire-web\public")
+script_dir = pathlib.Path(__file__).resolve().parent
+pub = script_dir.parent / "public"
+if not pub.exists():
+    pub = pathlib.Path(r"C:\Users\robla\empire\nanoempire-web\public")
 sm_path = pub / "sitemap.xml"
 cpsc = json.loads((pub / "recalls" / "latest-cpsc.json").read_text(encoding="utf-8")).get("recalls", [])
 audits = json.loads((pub / "skillproof" / "preaudits.json").read_text(encoding="utf-8")).get("audits", [])

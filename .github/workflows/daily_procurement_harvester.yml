@@ -1,0 +1,48 @@
+name: Daily Procurement Harvester & Sitemap Refresh
+
+on:
+  schedule:
+    # 06:00 ET is 11:00 UTC (10:00 UTC in EDT)
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  harvest-and-publish:
+    name: Harvest CanadaBuys & Refresh Sitemap
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run CanadaBuys Procurement Harvester
+        run: |
+          python scripts/canadabuys_harvester.py
+
+      - name: Generate Updated XML Sitemap
+        run: |
+          python scripts/generate_sitemap.py
+
+      - name: Commit and Push Updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/bidshield/tenders.json public/bidshield/urgent.json public/sitemap.xml
+          if git diff --staged --quiet; then
+            echo "No procurement updates or closing clock changes detected today."
+          else
+            git commit -m "chore(bidshield): daily automated procurement harvest & sitemap refresh [skip ci]"
+            git push origin main
+            git push origin main:master --force
+          fi
