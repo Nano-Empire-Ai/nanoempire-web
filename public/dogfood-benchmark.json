@@ -1,0 +1,78 @@
+{
+  "benchmark_id": "NE-DOGFOOD-E2E-2026.11.08",
+  "timestamp": "2026-11-08T14:47:14.640024+00:00",
+  "hardware": "Alienware Aurora R13 (i9-12900F, 32GB DDR5, 8GB RTX 3070 Ti)",
+  "local_model_pinned": "quinn-engine:latest (5.2GB Q4_K_M, think=False) + nomic-embed-text (274MB)",
+  "honest_ledger_status": {
+    "outside_paying_customers": 0,
+    "operator_x402_self_tests_settled": 1,
+    "paper_mode": false
+  },
+  "personal_record_summary": {
+    "pillars_passed": "5/5",
+    "composite_pass_rate_pct": 100.0,
+    "total_e2e_wall_time_ms": 5825.6,
+    "bidshield_kernel_p50_ms": 0.665,
+    "quinn_gpu_json_latency_ms": 1796.0,
+    "nomic_embed_latency_ms": 30.0,
+    "recallradar_50sku_e2e_ms": 996.8
+  },
+  "pillars": [
+    {
+      "pillar": "1_bidshield_e2e",
+      "passed": true,
+      "latency_ms": 577.6,
+      "kernel_micro_p50_ms": 0.665,
+      "live_gate_http_status": 200,
+      "live_gate_decision": "HALT_FATAL_DISQUALIFIER",
+      "triggered_gates_count": 0,
+      "jev_verified_usd": 29400.0,
+      "rea_commitment_sha256": "149882417bdda15de20d0f0a6a5d385155632ca3e30d68936a202db303d93b4d"
+    },
+    {
+      "pillar": "2_recallradar_e2e",
+      "passed": true,
+      "latency_ms": 996.8,
+      "skus_scanned": 50,
+      "recalls_detected": 9,
+      "high_severity_detected": 2,
+      "aes256_gcm_token_bytes": 11438,
+      "stripe_checkout_provisioned": true,
+      "unpaid_unlock_blocked_http_402": true
+    },
+    {
+      "pillar": "3_skillproof_e2e",
+      "passed": true,
+      "latency_ms": 466.5,
+      "local_ast_self_audit_passed": true,
+      "live_status_http": 200,
+      "indexed_repo_score": 86,
+      "ed25519_kid": "skillproof-2026-10",
+      "ed25519_pubkey_prefix": "69b8d23e35b02a04"
+    },
+    {
+      "pillar": "4_quinn_8gb_gpu_e2e",
+      "passed": true,
+      "quinn_structured_json_latency_ms": 1796.0,
+      "nomic_embed_pair_latency_ms": 30.0,
+      "embedding_dimensions": 768,
+      "semantic_cosine_similarity": 0.6559,
+      "calibrated_opportunity_score": 0.8314,
+      "verdict_sample": {
+        "gate_decision": "AMENDMENT 002 supersedes Section 3.1: Bidders must hold SECRET Facility Security Clearance (FSC) and attend the mandatory site visit at NRC Building M-55.",
+        "active_security_clearance": "SECRET",
+        "site_visit_mandatory": true,
+        "amendment_override_detected": true,
+        "cited_section": "3.1"
+      }
+    },
+    {
+      "pillar": "5_production_rails_e2e",
+      "passed": true,
+      "latency_ms": 1958.5,
+      "sentinel_8_of_8_passed": true,
+      "live_urgent_feed_http": 200,
+      "live_urgent_tenders_count": 155
+    }
+  ]
+}
