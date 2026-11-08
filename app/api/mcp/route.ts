@@ -108,6 +108,27 @@ const MCP_TOOLS = [
       required: ['solicitation_text'],
     },
   },
+  {
+    name: 'astryx_compose_proof_ui',
+    description:
+      'Returns an Astryx Proof-Native Machine-Economy React 19 component fragment and trust-adaptive theme specification (sovereign / sandbox / quarantine) for TrustManifestCard, SettlementReceipt, ComplianceMatrix, or RecallDeltaTable.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        component: {
+          type: 'string',
+          enum: ['TrustManifestCard', 'SettlementReceipt', 'ComplianceMatrix', 'RecallDeltaTable'],
+          description: 'Which Proof-Native Machine-Economy component to compose',
+        },
+        trust_state: {
+          type: 'string',
+          enum: ['sovereign', 'sandbox', 'quarantine'],
+          description: 'Optional trust-adaptive theme state override',
+        },
+      },
+      required: ['component'],
+    },
+  },
 ];
 
 export async function GET() {
@@ -298,9 +319,9 @@ export async function POST(req: Request) {
                     engine: 'BidShield Deontic Compliance Kernel',
                     jurisdictions: ['CanadaBuys', 'SAM.gov', 'Municipal & State Procurement'],
                     pricing_tiers: {
-                      urgent_prebid_triage: '$99 USD (24h turnaround, forms & disqualifiers)',
-                      full_compliance_matrix: '$249 USD (48h turnaround, 19-column Excel/CSV + risk audit)',
-                      multidoc_tender_suite: '$499 USD (72h turnaround, full RFP package + addenda cross-audit)',
+                      pilot_stop_go_audit: '$299 USD (Pilot: 5-gate fatal disqualifier scan & missing annexes checklist)',
+                      standard_compliance_matrix: '$499 USD (Standard: 19-column RFP requirement matrix & cross-addenda audit)',
+                      full_proposal_suite: '$999 USD (Full: multi-volume decomposition & capture readiness review)',
                     },
                     machine_gate_endpoint: 'https://www.nanoempireai.com/api/bidshield/gate',
                     naics_requested: naics || 'all',
@@ -345,6 +366,39 @@ export async function POST(req: Request) {
                     traps_triggered: hits.map((h) => ({ id: h.id, severity: h.severity, estimated_jev_usd: h.exposure })),
                     full_gate_endpoint: 'https://www.nanoempireai.com/api/bidshield/gate',
                     human_triage_portal: 'https://www.nanoempireai.com/bidshield/triage',
+                  },
+                  null,
+                  2
+                ),
+              },
+            ],
+          },
+        });
+      }
+
+      if (toolName === 'astryx_compose_proof_ui') {
+        const component = String(args.component || 'TrustManifestCard');
+        const trustState = String(args.trust_state || 'sovereign');
+        const templates: Record<string, string> = {
+          TrustManifestCard: `<TrustManifestCard manifestId="SP-84936F02F289AA43" repo="Nano-Empire-Ai/nanoempire-web" commitTreeSha="84936f02f2897af6927264a04e49125fcc9a698e" skillproofScore={86} delegationPolicy="ALLOW_BOUNDED" canonicalization="RFC-8785-JCS" payloadSha256="20ebdf1d8c5ee4a6e214ab1659090227ed158daee7a0b1f4df6510935d773e6b" />`,
+          SettlementReceipt: `<SettlementReceipt protocol="x402-v2" network="base (eip155:8453)" amount="0.10" asset="USDC" txOrSessionId="0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999" blockNumber={51961194} ledgerMode="operator_self_test" endpoint="POST /api/v1/match" />`,
+          ComplianceMatrix: `<ComplianceMatrix solicitationId="cb-647-29656224" title="Îles de la Madeleine Airport O&M" buyer="Department of Transport (TC)" gateDecision="HALT_FATAL_DISQUALIFIER" ap2MandateRecommendation="REQUIRE_HUMAN_PRESENT_MANDATE_SIGNATURE" jevExposureUsd={72000} findings={[{ id: "SITE_VISIT", severity: "FATAL", clauseType: "Mandatory site visit", evidence: "Mandatory site visit held Oct 15, 2026 @ 10:00 AT" }]} />`,
+          RecallDeltaTable: `<RecallDeltaTable corpusSize={46642} matches={[{ recallId: "CPSC-UNILATERAL-TRISTAR-393K", agency: "CPSC_UNILATERAL", severity: "critical", productTitle: "Tristar Power Quick Pot Electric Pressure Cookers", hazard: "Lid can open prematurely while pressurized", remedy: "Immediate quarantine & stop-sale" }]} />`,
+        };
+        return NextResponse.json({
+          jsonrpc,
+          id,
+          result: {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(
+                  {
+                    manifest_url: 'https://www.nanoempireai.com/.well-known/astryx-manifest.json',
+                    import_statement: `import { ${component} } from '@/components/astryx/ProofNativePack';`,
+                    component,
+                    trust_theme_mode: trustState,
+                    jsx_fragment: templates[component] || templates.TrustManifestCard,
                   },
                   null,
                   2

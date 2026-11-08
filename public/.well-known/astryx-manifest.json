@@ -1,0 +1,92 @@
+{
+  "$schema": "https://www.nanoempireai.com/schemas/astryx-machine-economy-pack-v1.json",
+  "name": "@nanoempire/astryx-proof-native-pack",
+  "version": "1.0.0",
+  "updated_at": "2026-11-08",
+  "framework": "React 19 + Next.js App Router",
+  "mcp_endpoint": "https://www.nanoempireai.com/api/mcp",
+  "mcp_tool": "astryx_compose_proof_ui",
+  "purpose": "Agent-discoverable, constraint-governed UI component pack for the Deterministic Verification Layer (SkillProof + BidShield + RecallRadar + x402 Settlement). Prevents coding agents from inventing unverified raw-div compliance UIs.",
+  "deterministic_stack_position": {
+    "layer_1_identity": "ERC-8004 / A2A Agent Card (/.well-known/agent-card.json) — proves WHO is calling",
+    "layer_2_deterministic_verification": "SkillProof (/api/skillproof/status) + BidShield (/api/bidshield/gate) — proves MAY THEY PROCEED with reproducible, non-LLM rule & AST outputs",
+    "layer_3_settlement": "x402 v2 / AP4M / AP2 / Stripe — moves money under verified bounds"
+  },
+  "trust_adaptive_themes": {
+    "sovereign": {
+      "trigger": "skillproofScore >= 75 && delegationPolicy == 'ALLOW_BOUNDED' || gateDecision == 'PASS_PRELIMINARY'",
+      "tokens": {
+        "border": "#3ddc97",
+        "accent": "#00B5E2",
+        "surface": "#07090D"
+      }
+    },
+    "sandbox": {
+      "trigger": "skillproofScore 60..74 || delegationPolicy == 'CONDITIONAL_SANDBOX_ONLY' || gateDecision == 'CONDITIONAL_HUMAN_REVIEW'",
+      "tokens": {
+        "border": "#FF7B00",
+        "accent": "#FF7B00",
+        "surface": "#0b0d13"
+      }
+    },
+    "quarantine": {
+      "trigger": "skillproofScore < 60 || delegationPolicy == 'HALT_HIGH_RISK' || gateDecision == 'HALT_FATAL_DISQUALIFIER'",
+      "tokens": {
+        "border": "#f43f5e",
+        "accent": "#fb7185",
+        "surface": "#12080c"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "TrustManifestCard",
+      "import_path": "@/components/astryx/ProofNativePack",
+      "description": "Displays an offline-verifiable SkillProof Ed25519 Trust Manifest pinned to a Git commit_tree_sha and canonicalized via RFC 8785 (JCS).",
+      "required_props": [
+        "manifestId",
+        "repo",
+        "commitTreeSha",
+        "skillproofScore",
+        "delegationPolicy",
+        "payloadSha256"
+      ]
+    },
+    {
+      "name": "SettlementReceipt",
+      "import_path": "@/components/astryx/ProofNativePack",
+      "description": "Displays a verifiable x402 Base USDC, AP4M voucher, or Stripe settlement receipt with strict ledger honesty (operator_self_test vs production_settled).",
+      "required_props": [
+        "protocol",
+        "network",
+        "amount",
+        "asset",
+        "txOrSessionId",
+        "ledgerMode",
+        "endpoint"
+      ]
+    },
+    {
+      "name": "ComplianceMatrix",
+      "import_path": "@/components/astryx/ProofNativePack",
+      "description": "Displays a deterministic BidShield solicitation gate decision, AP2 Human-Not-Present mandate recommendation, quantified Decision Exposure (JEV), and triggered deontic clauses.",
+      "required_props": [
+        "solicitationId",
+        "title",
+        "buyer",
+        "gateDecision",
+        "ap2MandateRecommendation",
+        "jevExposureUsd",
+        "findings"
+      ]
+    },
+    {
+      "name": "RecallDeltaTable",
+      "import_path": "@/components/astryx/ProofNativePack",
+      "description": "Displays a normalized RecallRadar match schedule across 46,642 CPSC, FDA, and Health Canada safety enforcement records.",
+      "required_props": [
+        "matches"
+      ]
+    }
+  ]
+}
