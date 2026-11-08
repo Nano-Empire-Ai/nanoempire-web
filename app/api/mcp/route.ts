@@ -203,7 +203,7 @@ export async function POST(req: Request) {
                 text: JSON.stringify(
                   {
                     portal: 'https://www.nanoempireai.com/recall-report',
-                    statute: 'Informational Screening vs. 21,812 Normalized US CPSC & FDA Recall Records',
+                    statute: 'Informational Screening vs. 46,642 Normalized US & Canadian (CPSC, FDA & Health Canada) Recall Records',
                     pricing: {
                       x402_feed_usd: 0.05,
                       x402_match_usd: 0.10,

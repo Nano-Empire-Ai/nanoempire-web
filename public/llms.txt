@@ -2,7 +2,7 @@
 
 > Machine-payable US & Canadian product-recall data (RecallGuard, paid per call in USDC on Base via x402), cryptographic SkillProof Trust Manifests & MCP pre-audit scorecards (complementing ERC-8004 / A2A identity), and BidShield pre-action compliance gates for federal solicitations and AP2 Human-Not-Present mandates.
 
-Updated: 2026-11-06
+Updated: 2026-11-08
 
 Contact: rob@nanoempireai.com
 
@@ -31,7 +31,7 @@ Contact: rob@nanoempireai.com
 
 - RecallGuard Health (free): GET https://recallguard-api.vercel.app/api/v1/health
 - RecallGuard Feed, $0.05 USDC per call (x402 on Base): GET https://recallguard-api.vercel.app/api/v1/feed?limit=50
-  Returns 21,812 normalized US CPSC and FDA recall records (46,642 North American total). Unpaid calls return HTTP 402.
+  Returns 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records. Unpaid calls return HTTP 402.
 - RecallGuard Match, $0.10 USDC per call (x402 on Base): POST https://recallguard-api.vercel.app/api/v1/match
   Input: {"items":[{"name":"string","brand":"string","upc":"string"}]}
   Output: {"matches":[{"recall_id":"string","severity":"string","hazard":"string","remedy":"string"}]}
@@ -64,7 +64,7 @@ Contact: rob@nanoempireai.com
 - OpenAPI: https://www.nanoempireai.com/openapi.json
 - Offers: https://www.nanoempireai.com/offers.json
 - Trust manifests: https://www.nanoempireai.com/manifests.html
-- SkillProof Pre-Audit Registry (23 Repos JSON): https://www.nanoempireai.com/skillproof/preaudits.json
+- SkillProof Pre-Audit Registry (28 Repos JSON): https://www.nanoempireai.com/skillproof/preaudits.json
 - M2M State Briefing (Nov 6, 2026): https://www.nanoempireai.com/m2m-state.md
 - Public Status Telemetry: https://www.nanoempireai.com/status.json
 - 7-Day Corpus Changelog: https://www.nanoempireai.com/changelog.json
@@ -85,12 +85,12 @@ Contact: rob@nanoempireai.com
 - Main: https://www.nanoempireai.com
 - RecallRadar Signed Recall Match Report ($30 USD): https://www.nanoempireai.com/recall-report
 - Federal Recalls Index (CPSC / Categories / Retailers): https://www.nanoempireai.com/recalls
-- BidShield Federal Triage & 8 NAICS Hubs ($149 / $299 / $499 USD): https://www.nanoempireai.com/bidshield
+- BidShield Federal Triage & 8 NAICS Hubs ($299 / $499 / $999 USD): https://www.nanoempireai.com/bidshield
 - BidShield Active Tenders Intelligence Feed (882+ Open Solicitations): https://www.nanoempireai.com/bidshield/tenders.json
 - BidShield Ticking-Clock Triage (DND CFB Borden Heating Upgrade): https://www.nanoempireai.com/bidshield/tender/DND-W8484-245102
 - BidShield Ticking-Clock Triage (CBSA Primary Inspection DevSecOps): https://www.nanoempireai.com/bidshield/tender/CBSA-1000389104
 - BidShield Ticking-Clock Triage (SSC Multi-Cloud Mesh Engineering): https://www.nanoempireai.com/bidshield/tender/SSC-24-010482
 - BidShield Active Solicitation Triage (NRC Ottawa Campus Janitorial): https://www.nanoempireai.com/bidshield/tender/NRC-87055
 - BidShield Live Upwork Project Catalog (Escrow Protected): https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322
-- SkillProof MCP Pre-Audit Index (23 Repos): https://www.nanoempireai.com/skillproof
+- SkillProof MCP Pre-Audit Index (28 Repos): https://www.nanoempireai.com/skillproof
 - 2026 State of MCP Security Benchmark (MSHB-2026 Leaderboard): https://www.nanoempireai.com/benchmarks/mcp-security

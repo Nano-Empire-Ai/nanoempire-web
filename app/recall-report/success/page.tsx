@@ -142,7 +142,7 @@ function SuccessReportView() {
               RecallRadar Signed Recall Match Report & Manifest Audit
             </h1>
             <p className="text-sm text-slate-600 mt-1">
-              Issued by Nano Empire AI • 21,812 Normalized US CPSC & FDA Recall Records Cross-Reference
+              Issued by Nano Empire AI • 46,642 Normalized US & Canadian (CPSC, FDA & Health Canada) Recall Records Cross-Reference
             </p>
           </div>
           <div className="text-left md:text-right font-mono text-xs bg-slate-50 p-4 rounded-lg border border-slate-200 shrink-0">
@@ -268,7 +268,7 @@ function SuccessReportView() {
             <div>Signature: {attestation?.signature}</div>
           </div>
           <p className="text-[11px] text-slate-500 leading-relaxed">
-            <strong>Informational Screening Notice:</strong> This Signed Recall Match Report cross-references submitted manifest rows against 21,812 normalized US CPSC and FDA safety recall records. It is an automated informational matching report and does not constitute a statutory Certificate of Compliance or legal warranty. Always verify specific lot numbers, dates of manufacture, and serial ranges against the linked official agency recall notice.
+            <strong>Informational Screening Notice:</strong> This Signed Recall Match Report cross-references submitted manifest rows against 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) safety recall records. It is an automated informational matching report and does not constitute a statutory Certificate of Compliance or legal warranty. Always verify specific lot numbers, dates of manufacture, and serial ranges against the linked official agency recall notice.
           </p>
         </footer>
       </div>

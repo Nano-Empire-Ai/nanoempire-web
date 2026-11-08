@@ -8,7 +8,7 @@ import TenderFeed from './TenderFeed';
 
 export const metadata: Metadata = {
   title: 'BidShield — Federal Compliance Triage by NAICS Code',
-  description: 'Pre-bid risk audits for federal contractors. $99/$249/$499 tiers. Identify disqualifying clauses before you bid on CanadaBuys, SAM.gov, and Merx tenders.',
+  description: 'Pre-bid risk audits for federal contractors. $299 / $499 / $999 tiers. Identify disqualifying clauses before you bid on CanadaBuys, SAM.gov, and Merx tenders.',
   alternates: { canonical: '/bidshield' },
 };
 
@@ -33,7 +33,7 @@ export default function BidShieldIndexPage() {
               Upwork Catalog (Live) ↗
             </a>
             <Link href="/bidshield/triage" className="text-xs font-mono font-bold bg-[#00B5E2] text-black px-3 py-1.5 rounded hover:bg-[#00B5E2]/90">
-              Run Triage ($99)
+              Run Pilot ($299)
             </Link>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function BidShieldIndexPage() {
               href="/bidshield/triage"
               className="inline-flex items-center gap-3 bg-[#00B5E2] text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-[#00B5E2]/90 transition-colors shadow-lg shadow-[#00B5E2]/20"
             >
-              <Shield size={24} /> Run Pre-Bid Triage — $99 USD
+              <Shield size={24} /> Run Pre-Bid Pilot — $299 USD
             </Link>
             <a 
               href="https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322"

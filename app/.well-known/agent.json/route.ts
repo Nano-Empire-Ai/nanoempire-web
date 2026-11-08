@@ -63,7 +63,7 @@ export async function GET(req: NextRequest) {
       {
         id: 'recallguard-match',
         name: 'RecallGuard Match API',
-        description: 'Machine-native recall screening across 21,812 normalized US CPSC & FDA records (46,642 North American total) (x402 on Base).',
+        description: 'Machine-native recall screening across 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records (x402 on Base).',
         price: '0.10 USDC',
         method: 'POST',
         endpoint: 'https://recallguard-api.vercel.app/api/v1/match',
@@ -114,7 +114,7 @@ export async function GET(req: NextRequest) {
       {
         id: 'recallradar-report',
         name: 'RecallRadar Signed Compliance Report',
-        description: 'Comprehensive, cryptographically signed inventory compliance audit (21,812 normalized US CPSC & FDA records (46,642 North American total)).',
+        description: 'Comprehensive, cryptographically signed inventory compliance audit (46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records).',
         price: '$30.00 USD',
         checkout_url: 'https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k',
         status: 'live',
@@ -122,7 +122,7 @@ export async function GET(req: NextRequest) {
       {
         id: 'sovereign-license',
         name: 'Sovereign Enterprise Data License',
-        description: 'Full annual enterprise license for 21,812-record normalized US CPSC/FDA recall corpus (46,642 North American total), daily delta sync, and compliance engine.',
+        description: 'Full annual enterprise license for 46,642-record normalized US & Canadian (CPSC, FDA & Health Canada) recall corpus, daily delta sync, and compliance engine.',
         price: '$2,400.00 USD / year',
         checkout_url: 'https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o',
         status: 'live',

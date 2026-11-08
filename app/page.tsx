@@ -36,7 +36,7 @@ const STRUCTURED_DATA_JSON_LD = {
   operatingSystem: "Web, REST API, Base Mainnet (x402)",
   url: "https://www.nanoempireai.com",
   description:
-    "Cryptographic compliance and verification infrastructure: RecallRadar x402 API across 21,812 normalized US CPSC & FDA recall records (46,642 North American total), SkillProof Ed25519 Trust Manifests, and BidShield RFP compliance audits.",
+    "Cryptographic compliance and verification infrastructure: RecallRadar x402 API across 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records, SkillProof Ed25519 Trust Manifests, and BidShield RFP compliance audits.",
   offers: [
     { "@type": "Offer", name: "Signed Recall Match Report", price: "30.00", priceCurrency: "USD", url: "https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" },
     { "@type": "Offer", name: "RecallRadar Continuous Monitoring", price: "99.00", priceCurrency: "USD", url: "https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e" }
@@ -54,7 +54,7 @@ const VERIFICATION_MENU_HTML = `<section id="verification-menu" style="max-width
   <div style="display: grid; gap: 1rem; margin: 2rem 0;">
     <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1.25rem;">
       <h3 style="margin-top: 0;">RecallRadar Match API — $0.10 / call</h3>
-      <p>Machine-to-machine x402 screening across 21,812 normalized US CPSC & FDA recall records. Settle via Base USDC.</p>
+      <p>Machine-to-machine x402 screening across 46,642 normalized CPSC, FDA & Health Canada recall records. Settle via Base USDC.</p>
     </div>
     <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1.25rem;">
       <h3 style="margin-top: 0;">Signed Recall Match Report — $30 USD</h3>
@@ -80,7 +80,7 @@ const SKUS = [
 
   // RecallGuard (Human & Merchant)
 
-  { id: "recallguard-report", price: "$30 USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "One-time scan of inventory against 46,642 US & Canadian recalls (21,812 normalized US CPSC/FDA; 46,642 North American total). Signed Recall Match Report (PDF + CSV)." },
+  { id: "recallguard-report", price: "$30 USD", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "One-time scan of inventory against 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records. Signed Recall Match Report (PDF + CSV)." },
 
   { id: "recallguard-monitoring", price: "$99 USD/mo", buyer: "human", payment: "Stripe", status: "live", category: "recallguard", desc: "Monthly inventory re-scan + immediate recall expansion alerts." },
 
@@ -88,9 +88,10 @@ const SKUS = [
 
   
 
-  // SkillProof & BidShield (Human & Enterprise)
-  { id: "bidshield-starter", price: "$149 USD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Urgent <72h solicitation fatal flaw scan. Missing annexes checklist & bond penalty exposure review." },
-  { id: "bidshield-pilot", price: "$299 USD", buyer: "human", payment: "Stripe", status: "live", category: "skillproof", desc: "Full tender requirement matrix, 5-gate compliance cross-walk, and certified exception audit." },
+  // BidShield (Human & Enterprise — Locked $299 / $499 / $999 Ladder)
+  { id: "bidshield-pilot", price: "$299 USD", buyer: "human", payment: "Upwork / Stripe", status: "live", category: "skillproof", desc: "Pre-bid compliance pilot: 5-gate fatal disqualifier scan, missing annexes checklist, and Stop/Go recommendation." },
+  { id: "bidshield-standard", price: "$499 USD", buyer: "human", payment: "Upwork / Stripe", status: "live", category: "skillproof", desc: "Full 19-column RFP requirement matrix, cross-addenda override check, and line-cited exception audit." },
+  { id: "bidshield-full", price: "$999 USD", buyer: "enterprise", payment: "Upwork / Invoice", status: "live", category: "skillproof", desc: "Multi-volume solicitation decomposition, subcontractor flow-down matrix, and executive capture readiness review." },
 
   // Machine SKUs (x402 on Base)
 
@@ -106,7 +107,7 @@ const SKUS = [
 
 const ENDPOINTS = [
 
-  { method: "GET", path: "/api/v1/health", auth: "None", price: "Free", desc: "21,812 normalized US CPSC/FDA records. Host: recallguard-api.vercel.app" },
+  { method: "GET", path: "/api/v1/health", auth: "None", price: "Free", desc: "46,642 normalized CPSC, FDA & Health Canada recall records. Host: recallguard-api.vercel.app" },
 
   { method: "GET", path: "/openapi.json", auth: "None", price: "Free", desc: "Spec on recallguard-api.vercel.app. Docs: recallguard-docs.vercel.app" },
 
@@ -271,7 +272,7 @@ export default function Home() {
 
                 </span>
 
-                21,812 NORMALIZED US CPSC &amp; FDA RECALL RECORDS · INSTANT $30 COMPLIANCE REPORT · BASE x402 API
+                46,642 NORMALIZED CPSC, FDA &amp; HEALTH CANADA RECALL RECORDS · INSTANT $30 COMPLIANCE REPORT · BASE x402 API
 
               </div>
 
@@ -293,7 +294,7 @@ export default function Home() {
 
               <p className="text-[#8C92A4] text-lg sm:text-xl max-w-xl font-sans leading-relaxed border-l-2 border-[#00B5E2] pl-4">
 
-                Screen your inventory CSV against 21,812 normalized US CPSC & FDA recall records with an instant Signed Recall Match Report (PDF + CSV) ($30 USD), or query machine-to-machine via HTTP 402 on Base ($0.10 USDC).
+                Screen your inventory CSV against 46,642 normalized CPSC, FDA & Health Canada recall records with an instant Signed Recall Match Report (PDF + CSV) ($30 USD), or query machine-to-machine via HTTP 402 on Base ($0.10 USDC).
 
               </p>
 
@@ -403,7 +404,7 @@ export default function Home() {
 
                     <div className="text-white font-medium">Read health</div>
 
-                    <div className="text-[#8C92A4] text-xs">GET https://recallguard-api.vercel.app/api/v1/health is free. 21,812 normalized US CPSC/FDA records.</div>
+                    <div className="text-[#8C92A4] text-xs">GET https://recallguard-api.vercel.app/api/v1/health is free. 46,642 normalized CPSC, FDA & Health Canada recall records.</div>
 
                   </div>
 
@@ -579,17 +580,17 @@ export default function Home() {
 
                 <div className="p-2.5 rounded bg-black/40 border border-white/5">
 
-                  <div className="text-xl font-bold font-mono text-[#A3FF00]">23</div>
+                  <div className="text-xl font-bold font-mono text-[#A3FF00]">28</div>
 
-                  <div className="text-[10px] text-[#8C92A4]">MCP Repos Pre-Audited (23)</div>
+                  <div className="text-[10px] text-[#8C92A4]">MCP Repos Pre-Audited (28)</div>
 
                 </div>
 
                 <div className="p-2.5 rounded bg-black/40 border border-white/5">
 
-                  <div className="text-xl font-bold font-mono text-[#A3FF00]">23</div>
+                  <div className="text-xl font-bold font-mono text-[#A3FF00]">882+</div>
 
-                  <div className="text-[10px] text-[#8C92A4]">Federal NAICS Hubs (8)</div>
+                  <div className="text-[10px] text-[#8C92A4]">Live Tenders · 8 NAICS Hubs</div>
 
                 </div>
 
@@ -779,7 +780,7 @@ export default function Home() {
 
                 <div className="flex items-center justify-between mb-3">
 
-                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-[#A3FF00] bg-[#A3FF00]/10 px-2 py-0.5 rounded border border-[#A3FF00]/30">LIVE SCOREBOARD · 23 REPOS</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider font-mono text-[#A3FF00] bg-[#A3FF00]/10 px-2 py-0.5 rounded border border-[#A3FF00]/30">LIVE SCOREBOARD · 28 REPOS</span>
 
                   <ArrowUpRight size={16} className="text-[#A3FF00] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
 
@@ -871,7 +872,7 @@ export default function Home() {
 
           <div className="text-xs text-[#8C92A4] font-mono border border-white/10 px-3 py-1.5 rounded bg-white/5">
 
-            Updated: 2026-11-06 · Full Briefing: <a href="/m2m-state.md" className="text-[#00B5E2] hover:underline">m2m-state.md</a>
+            Updated: 2026-11-08 · Full Briefing: <a href="/m2m-state.md" className="text-[#00B5E2] hover:underline">m2m-state.md</a>
 
           </div>
 
@@ -953,6 +954,45 @@ export default function Home() {
 
           </div>
 
+        </div>
+
+        {/* Three Foundational Lenses: Why the Protocol Stack Matters for Ordinary Operators */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+          <div className="p-5 rounded-lg border border-[#3ddc97]/30 bg-[#07090D] space-y-2.5">
+            <div className="text-[10px] uppercase tracking-widest font-mono text-[#3ddc97] font-bold">
+              Lens I · Abundance &amp; Swarm Ownership
+            </div>
+            <div className="text-base font-bold text-white">
+              Turning 1,000 Agents from Risk into Usable Abundance
+            </div>
+            <p className="text-xs text-[#8C92A4] font-sans leading-relaxed">
+              As society shifts from labor-scarce to compute- and trust-scarce, <code className="text-[#F4F1EA]">x402</code> and <code className="text-[#F4F1EA]">AP4M</code> let ordinary people&apos;s agents purchase compliance data (<code className="text-[#F4F1EA]">RecallRadar</code>) without corporate accounts or invoices — while <code className="text-[#F4F1EA]">SkillProof</code> and <code className="text-[#F4F1EA]">BidShield</code> enforce the pre-action boundaries that keep agent swarms safe.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-lg border border-[#00B5E2]/30 bg-[#07090D] space-y-2.5">
+            <div className="text-[10px] uppercase tracking-widest font-mono text-[#00B5E2] font-bold">
+              Lens II · Causal Entropy &amp; Future Freedom
+            </div>
+            <div className="text-base font-bold text-white">
+              Expanding Accessible Futures in the Innermost Loop
+            </div>
+            <p className="text-xs text-[#8C92A4] font-sans leading-relaxed">
+              Intelligence maximizes future freedom of action. An agent that can discover peers via <code className="text-[#F4F1EA]">A2A</code>, invoke tools over <code className="text-[#F4F1EA]">MCP</code>, settle per-request via <code className="text-[#F4F1EA]">x402</code>, and verify an <code className="text-[#F4F1EA]">RFC 8785 JCS + Ed25519</code> Trust Manifest retains far more degrees of freedom than one trapped behind human payment walls.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-lg border border-[#FF7B00]/30 bg-[#07090D] space-y-2.5">
+            <div className="text-[10px] uppercase tracking-widest font-mono text-[#FF7B00] font-bold">
+              Lens III · Organizational Singularity (ExO 3.0)
+            </div>
+            <div className="text-base font-bold text-white">
+              Collapsing Coasean Coordination Costs at the Edge
+            </div>
+            <p className="text-xs text-[#8C92A4] font-sans leading-relaxed">
+              When machine-readable protocols collapse transaction costs, solo operators and small teams match institutional scale. <code className="text-[#F4F1EA]">SkillProof</code> and <code className="text-[#F4F1EA]">BidShield</code> serve as the Governance &amp; Sentinel layer of the Intelligence Stack — keeping humans &quot;above the loop&quot; with auditable mandates.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -1195,7 +1235,7 @@ export default function Home() {
 
           <div className="per">one-time scan · instant PDF</div>
 
-          <p>Scan your inventory against 46,642 US & Canadian recalls (21,812 normalized US CPSC/FDA; 46,642 North American total). Official signed compliance report with remedy protocols.</p>
+          <p>Scan your inventory against 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records. Official signed compliance report with remedy protocols.</p>
 
           <a className="btn small solid" href="https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k" target="_blank">Order Report ($30)</a>
 
@@ -1293,7 +1333,7 @@ export default function Home() {
 
       <div className="sec-head rv"><span className="sec-num">05</span><h2 className="sec-title">Run a compliance scan.</h2></div>
 
-      <p className="sec-sub rv">Signed Recall Match Report is <a href="/recall-report">$30 USD on Stripe</a>. Scan your inventory CSV directly against 46,642 US & Canadian safety records (21,812 normalized US CPSC/FDA; 46,642 North American total) with instant signed report generation. For enterprise feeds or private deployment, contact <a href="mailto:licensing@nanoempireai.com">licensing@nanoempireai.com</a> ($2,400/yr).</p>
+      <p className="sec-sub rv">Signed Recall Match Report is <a href="/recall-report">$30 USD on Stripe</a>. Scan your inventory CSV directly against 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) safety records with instant signed report generation. For enterprise feeds or private deployment, contact <a href="mailto:licensing@nanoempireai.com">licensing@nanoempireai.com</a> ($2,400/yr).</p>
 
 
 
@@ -1337,7 +1377,7 @@ export default function Home() {
 
             <div className="text-[#8C92A4] text-xs tracking-widest mb-1 uppercase">Recall records</div>
 
-            <strong className="text-3xl font-bold text-white">46,642</strong><div className="text-[11px] text-[#8C92A4] mt-1 font-mono">21,812 Normalized US (CPSC/FDA) • 46,642 North American Total</div>
+            <strong className="text-3xl font-bold text-white">46,642</strong><div className="text-[11px] text-[#8C92A4] mt-1 font-mono">46,642 Normalized CPSC, FDA & Health Canada Recall Records</div>
 
           </div>
 

@@ -76,28 +76,28 @@ export default async function TenderDetailPage({ params }: TenderPageProps) {
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
-      lowPrice: '149',
-      highPrice: '499',
+      lowPrice: '299',
+      highPrice: '999',
       offerCount: '3',
       offers: [
         {
           '@type': 'Offer',
-          name: 'Starter Compliance Matrix',
-          price: '149',
-          priceCurrency: 'USD',
-          url: tender.upwork_catalog_url,
-        },
-        {
-          '@type': 'Offer',
-          name: 'Standard Stop/Go Compliance Pilot',
+          name: 'BidShield Compliance Pilot',
           price: '299',
           priceCurrency: 'USD',
           url: tender.upwork_catalog_url,
         },
         {
           '@type': 'Offer',
-          name: 'Advanced 19-Column Full Disqualification Matrix',
+          name: 'Standard 19-Column Compliance Matrix',
           price: '499',
+          priceCurrency: 'USD',
+          url: tender.upwork_catalog_url,
+        },
+        {
+          '@type': 'Offer',
+          name: 'Enterprise Multi-Amendment & Full Proposal Audit',
+          price: '999',
           priceCurrency: 'USD',
           url: tender.upwork_catalog_url,
         },
@@ -308,7 +308,7 @@ export default async function TenderDetailPage({ params }: TenderPageProps) {
               <div className="mb-4">
                 <div className="text-[11px] font-mono text-slate-400 mb-1">CATALOG TIERS</div>
                 <div className="text-lg font-mono font-extrabold text-white">
-                  $149 <span className="text-xs font-normal text-slate-400">Starter</span> · $299 <span className="text-xs font-normal text-slate-400">Standard</span> · $499 <span className="text-xs font-normal text-slate-400">Full</span>
+                  $299 <span className="text-xs font-normal text-slate-400">Pilot</span> · $499 <span className="text-xs font-normal text-slate-400">Standard</span> · $999 <span className="text-xs font-normal text-slate-400">Full</span>
                 </div>
               </div>
 

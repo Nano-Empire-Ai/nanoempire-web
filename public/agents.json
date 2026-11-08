@@ -100,7 +100,7 @@
     {
       "id": "recallguard-feed",
       "name": "RecallGuard feed",
-      "description": "Normalized US & Canadian recall records (46,642 total: 21,812 US CPSC/FDA; 46,642 North American total). GET https://recallguard-api.vercel.app/api/v1/feed returns HTTP 402. Price 0.05 USDC. Network string base. No settled receipt.",
+      "description": "Normalized US & Canadian recall records (46,642 normalized CPSC, FDA & Health Canada recall records). GET https://recallguard-api.vercel.app/api/v1/feed returns HTTP 402. Price 0.05 USDC. Network string base. No settled receipt.",
       "tags": [
         "recalls",
         "cpsc",

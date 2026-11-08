@@ -60,7 +60,7 @@ export async function POST(req: Request) {
               unit_amount: 3000,
               product_data: {
                 name: 'RecallRadar Signed Recall Match Report',
-                description: 'Full unredacted recall match schedule (CSV + Ed25519 signed PDF report) across 21,812 normalized US (CPSC & FDA) safety recall records.',
+                description: 'Full unredacted recall match schedule (CSV + Ed25519 signed PDF report) across 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) safety recall records.',
               },
             },
             quantity: 1,

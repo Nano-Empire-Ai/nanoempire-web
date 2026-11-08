@@ -121,7 +121,7 @@
     {
       "id": "recallguard-feed",
       "name": "RecallGuard feed",
-      "description": "Normalized US & Canadian recall records (21,812 normalized US CPSC & FDA records; 46,642 North American total). GET returns HTTP 402 until paid. 0.05 USDC per call on Base.",
+      "description": "Normalized US & Canadian recall records (46,642 normalized CPSC, FDA & Health Canada recall records). GET returns HTTP 402 until paid. 0.05 USDC per call on Base.",
       "tags": [
         "recalls",
         "cpsc",
@@ -142,7 +142,7 @@
     {
       "id": "recallguard-match",
       "name": "RecallGuard match",
-      "description": "Match inventory items against 21,812 normalized US CPSC & FDA recall records (46,642 North American total). POST returns HTTP 402 until paid. 0.10 USDC per call on Base. (1 operator self-test settled on Base block 51961194; 0 outside paying customers).",
+      "description": "Match inventory items against 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records. POST returns HTTP 402 until paid. 0.10 USDC per call on Base. (1 operator self-test settled on Base block 51961194; 0 outside paying customers).",
       "tags": [
         "recalls",
         "inventory",
@@ -231,7 +231,7 @@
     {
       "id": "recallradar-report",
       "name": "RecallRadar Compliance Report",
-      "description": "Human-checkout data service: CPSC/FDA/Health Canada recall compliance report across 21,812 normalized US CPSC & FDA recall records for e-commerce catalogs. Instant signed PDF/CSV delivery. $30 USD via Stripe.",
+      "description": "Human-checkout data service: CPSC/FDA/Health Canada recall compliance report across 46,642 normalized CPSC, FDA & Health Canada recall records for e-commerce catalogs. Instant signed PDF/CSV delivery. $30 USD via Stripe.",
       "tags": [
         "compliance",
         "recalls",

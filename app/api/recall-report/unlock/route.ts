@@ -85,7 +85,7 @@ export async function POST(req: Request) {
       matchCount: reportData.matchCount || 0,
       highSeverity: reportData.highSeverity || 0,
       clearedItems: reportData.clearedItems || 0,
-      corpus: '21,812 normalized US CPSC & FDA recall records',
+      corpus: '46,642 normalized CPSC, FDA & Health Canada recall records',
     });
     const att = signAttestation(Buffer.from(attestationPayload, 'utf8'));
 

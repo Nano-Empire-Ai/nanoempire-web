@@ -25,7 +25,7 @@ const TIERS = [
     interval: 'year',
     popular: false,
     features: [
-      '21,812 normalized US CPSC & FDA recall records (46,642 North American total)',
+      '46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records',
       'Daily automated sync at 08:00 ET',
       'JSON + CSV export formats',
       '10,000 requests/day rate limit',

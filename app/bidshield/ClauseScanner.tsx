@@ -200,7 +200,7 @@ export default function ClauseScanner() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold font-mono text-xs px-5 py-3 rounded-xl transition shrink-0 shadow-lg shadow-emerald-500/20"
             >
-              <span>Order Matrix on Upwork ($149–$499)</span>
+              <span>Order Matrix on Upwork ($299–$999)</span>
               <ExternalLink size={14} />
             </a>
           </div>
