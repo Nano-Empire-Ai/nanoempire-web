@@ -28,7 +28,17 @@ def main() -> int:
     with open(args.manifest, encoding="utf-8") as f:
         manifest = json.load(f)
     sig = manifest.pop("signature")
-    payload = json.dumps(manifest, sort_keys=True).encode("utf-8")
+
+    # Support both RFC 8785 (JCS: compact separators, UTF-8) and legacy python sort_keys=True
+    payload_jcs = json.dumps(manifest, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    payload_legacy = json.dumps(manifest, sort_keys=True).encode("utf-8")
+
+    if hashlib.sha256(payload_jcs).hexdigest() == sig.get("payload_sha256"):
+        payload = payload_jcs
+        canonicalization_mode = "RFC-8785-JCS"
+    else:
+        payload = payload_legacy
+        canonicalization_mode = "PYTHON-SORT-KEYS-V1"
 
     published = args.pubkey_hex
     if published is None:
@@ -47,6 +57,7 @@ def main() -> int:
     except (InvalidSignature, ValueError):
         checks["ed25519_signature_valid"] = False
 
+    print(f"INFO  canonicalization={canonicalization_mode}")
     for k, v in checks.items():
         print(f"{'PASS' if v else 'FAIL'}  {k}")
     ok = all(checks.values())

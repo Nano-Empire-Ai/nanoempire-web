@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-07",
+  "updated_at": "2026-11-08",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 27,
+  "total_repos_audited": 28,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -872,6 +872,51 @@
       "preaudit_id": "SP-08EAA4D5C834BCB1",
       "audited_at": "2026-11-07",
       "surface_summary": "Scanned 4 entrypoints (cmd/mcp-assert/main.go, go-plugin/mcpassert.go); 0 static shell/eval sinks; 1 governance gaps flagged."
+    },
+    {
+      "repo": "Nano-Empire-Ai/nanoempire-web",
+      "stars": 1,
+      "branch": "main",
+      "tree_sha": "6321859a9502",
+      "license": "MIT",
+      "total_files_in_repo": 240,
+      "sampled_source_files": [
+        "app/api/skillproof/status/route.ts",
+        "app/api/recall-report/unlock/route.ts",
+        "app/api/vin/decode/route.ts",
+        "lib/attestation.ts"
+      ],
+      "skillproof_score": 86,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "app/api/recall-report/unlock/route.ts",
+          "line": 7,
+          "snippet": "const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_mock', {"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "app/api/vin/decode/route.ts",
+          "line": 54,
+          "snippet": "const res = await fetch(`https://api.stripe.com/v1/payment_intents/${parsed.tx}`, {"
+        },
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "lib/attestation.ts",
+          "line": 21,
+          "snippet": "const pem = process.env.ATTESTATION_ED25519_PRIVATE_KEY_PEM?.replace(/\\\\n/g, '\\n');"
+        }
+      ],
+      "preaudit_id": "SP-6321859A9502AA43",
+      "audited_at": "2026-11-08",
+      "surface_summary": "Scanned 4 entrypoints (app/api/skillproof/status/route.ts, app/api/recall-report/unlock/route.ts, app/api/vin/decode/route.ts, lib/attestation.ts); 0 CRITICAL/HIGH execution sinks; full SECURITY.md, LICENSE, and lockfile governance verified."
     }
   ]
 }
