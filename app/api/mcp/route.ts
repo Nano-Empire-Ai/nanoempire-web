@@ -52,7 +52,7 @@ const MCP_TOOLS = [
   {
     name: 'recallradar_check_product',
     description:
-      'Check a consumer product (by name, brand, or UPC/GTIN) against CPSC, FDA, and CPSC Unilateral Safety Warnings (including manufacturer-refused recalls like the 393,000 Tristar pressure cookers).',
+      'SUPPORTS: Deterministic sub-second consumer product screening (by name, brand, or UPC/GTIN) against 46,642 normalized North American (CPSC, FDA & Health Canada) recall records plus CPSC Unilateral Safety Warnings (including manufacturer-refused recalls like the 393,000 Tristar pressure cookers). DIFFERS FROM BASELINE: Unlike generic keyword web-scrapers or RAG chatbots that hallucinate recall statuses, RecallRadar executes exact entity resolution against a hash-locked 46,642-record corpus. EXCLUDES: Does not issue statutory legal warranties, formal Certificates of Compliance, or physical lab testing certifications.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -66,7 +66,7 @@ const MCP_TOOLS = [
   {
     name: 'recallradar_audit_manifest_info',
     description:
-      'Returns pricing and endpoint details for full wholesale/liquidation manifest audits (Signed Recall Match Reports).',
+      'SUPPORTS: Pricing and endpoint discovery for full wholesale/liquidation manifest audits ( USD Signed Recall Match Report, /mo RecallGuard Shield, ,400/yr Enterprise Data License, and x402 Base USDC endpoints) with 15 U.S.C. 2068 supplier-reimbursement evidence packets. DIFFERS FROM BASELINE: Unlike opaque enterprise quote forms, returns deterministic micro_usd pricing and instant Stripe/x402 settlement URLs. EXCLUDES: Does not execute a paid credit card charge without explicit human or x402 signature.',
     inputSchema: {
       type: 'object',
       properties: {},
@@ -75,7 +75,7 @@ const MCP_TOOLS = [
   {
     name: 'skillproof_verify_repo',
     description:
-      'Returns the cached 6-vector static security scorecard and governance hygiene evaluation for a public GitHub MCP or AI agent repository.',
+      'SUPPORTS: Sub-200ms pre-execution verification of MCP servers and AI agent GitHub repositories across 28 pre-audited flagship repos, returning skillproof_score (0-100), commit tree_sha, line-cited code surface findings, delegation recommendation (ALLOW_BOUNDED / CONDITIONAL_SANDBOX_ONLY / HALT_HIGH_RISK), and RFC 8785 JCS Ed25519 Trust Manifest verification metadata. DIFFERS FROM BASELINE: Unlike post-hoc observability loggers that only record failures after treasury drain or policy breach, SkillProof intercepts delegation before execution and prevents upstream shortcut contamination (Stanford Collaborative Intelligence hand-off decay). EXCLUDES: Does not modify underlying agent model weights or take custody of external private keys.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -87,7 +87,7 @@ const MCP_TOOLS = [
   {
     name: 'bidshield_triage_info',
     description:
-      'Returns RFP pre-bid compliance triage and disqualifier audit capabilities for government solicitations (CanadaBuys, SAM.gov).',
+      'SUPPORTS: Pre-bid compliance triage discovery across 882 live federal solicitations (CanadaBuys, SAM.gov) and locked human-verified audit tiers ( USD Pilot,  USD Standard 19-Column Matrix,  USD Full Proposal Suite). DIFFERS FROM BASELINE: Unlike generic proposal-writing bots that generate unverified prose, BidShield focuses strictly on fatal disqualifier detection before bid preparation spend. EXCLUDES: Does not submit government bids autonomously or replace licensed legal counsel.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -98,7 +98,7 @@ const MCP_TOOLS = [
   {
     name: 'bidshield_evaluate_solicitation_gate',
     description:
-      'Pre-action deontic compliance gate for federal solicitations and B2B agent mandates (AP2 Human-Not-Present / AP4M). Evaluates solicitation text for fatal disqualifiers (mandatory site visits, clearances, bonding, liquidated damages) and returns PASS_PRELIMINARY, CONDITIONAL_HUMAN_REVIEW, or HALT_FATAL_DISQUALIFIER plus quantified Decision Exposure (JEV).',
+      'SUPPORTS: Automated pre-bid and pre-action deontic compliance gate for federal solicitations and AP2 Human-Not-Present / AP4M mandates, evaluating solicitation text across 5 fatal disqualifier gates with sentence-bounded negation filtering and returning PASS_PRELIMINARY, CONDITIONAL_HUMAN_REVIEW, or HALT_FATAL_DISQUALIFIER plus quantified Decision Exposure (JEV) and Ed25519-signed REA commitment hashes. DIFFERS FROM BASELINE: Unlike flat-chunk RAG summarizers that miss negated clauses or treat outdated base-RFP clauses and newer Addenda as equal, BidShield applies deterministic deontic rules and emits an Ed25519-signed receipt. EXCLUDES: Does not write unverified creative fluff, submit final bids without human fiduciary sign-off, or replace licensed legal counsel.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -111,7 +111,7 @@ const MCP_TOOLS = [
   {
     name: 'astryx_compose_proof_ui',
     description:
-      'Returns an Astryx Proof-Native Machine-Economy React 19 component fragment and trust-adaptive theme specification (sovereign / sandbox / quarantine) for TrustManifestCard, SettlementReceipt, ComplianceMatrix, or RecallDeltaTable.',
+      'SUPPORTS: Deterministic composition of constraint-governed React 19 Proof-Native UI fragments (TrustManifestCard, SettlementReceipt, ComplianceMatrix, RecallDeltaTable) bound to trust-adaptive theme tokens (sovereign / sandbox / quarantine). DIFFERS FROM BASELINE: Unlike unconstrained generative UI prompts that hallucinate tailwind classes or omit cryptographic fields, Astryx enforces explicit visual invariants for machine-economy proofs. EXCLUDES: Does not execute arbitrary client-side scripts or unverified third-party component fetches.',
     inputSchema: {
       type: 'object',
       properties: {

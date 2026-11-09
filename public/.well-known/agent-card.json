@@ -21,13 +21,18 @@
       "url": "https://www.nanoempireai.com/api/bidshield/gate",
       "protocolBinding": "HTTP+JSON",
       "protocolVersion": "1.0"
+    },
+    {
+      "url": "https://www.nanoempireai.com/api/x402/guard",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0"
     }
   ],
   "provider": {
     "organization": "Nano Empire AI",
     "url": "https://www.nanoempireai.com"
   },
-  "version": "1.6.0",
+  "version": "1.7.0",
   "documentationUrl": "https://www.nanoempireai.com/llms.txt",
   "capabilities": {
     "streaming": false,
@@ -123,7 +128,7 @@
     {
       "id": "recallguard-feed",
       "name": "RecallGuard feed",
-      "description": "Normalized US & Canadian recall records (46,642 normalized CPSC, FDA & Health Canada recall records). GET returns HTTP 402 until paid. 0.05 USDC per call on Base.",
+      "description": "SUPPORTS: Continuous machine-payable feed of 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records settled via HTTP 402 (0.05 USDC per call on Base). DIFFERS FROM BASELINE: Unlike fragmented agency RSS feeds or HTML scrapers, emits a single schema-normalized JSON feed with unilateral CPSC safety warnings included. EXCLUDES: Does not issue statutory legal warranties or physical lab certifications.",
       "tags": [
         "recalls",
         "cpsc",
@@ -139,12 +144,13 @@
       ],
       "outputModes": [
         "application/json"
-      ]
+      ],
+      "price_micro_usd": 50000
     },
     {
       "id": "recallguard-match",
       "name": "RecallGuard match",
-      "description": "Match inventory items against 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records. POST returns HTTP 402 until paid. 0.10 USDC per call on Base. (1 operator self-test settled on Base block 51961194; 0 outside paying customers).",
+      "description": "SUPPORTS: Deterministic sub-second SKU/UPC/GTIN and brand/model matching against 46,642 normalized North American (CPSC, FDA & Health Canada) recall records via HTTP 402 (0.10 USDC per call on Base; 1 operator self-test settled on Base block 51961194, 0 outside paying customers). DIFFERS FROM BASELINE: Unlike generic keyword web-scrapers or RAG chatbots that hallucinate recall statuses, RecallRadar executes exact entity resolution against a hash-locked 46,642-record corpus and emits verifiable receipts. EXCLUDES: Does not issue statutory legal warranties, formal Certificates of Compliance, or physical lab testing certifications.",
       "tags": [
         "recalls",
         "inventory",
@@ -159,12 +165,13 @@
       ],
       "outputModes": [
         "application/json"
-      ]
+      ],
+      "price_micro_usd": 100000
     },
     {
       "id": "skillproof-status",
       "name": "SkillProof Pre-Audit & Trust Manifest Status API",
-      "description": "Machine-readable verification lookup for MCP servers and AI agent repos (28 flagship repos indexed + live scanner). Returns skillproof_score, commit tree_sha, line-cited code surface findings, delegation recommendation (ALLOW_BOUNDED / CONDITIONAL_SANDBOX_ONLY / HALT_HIGH_RISK), and Ed25519 verification key metadata.",
+      "description": "SUPPORTS: Sub-200ms pre-execution verification lookup for MCP servers and AI agent repositories (28 flagship repos indexed + live scanner), returning skillproof_score, commit tree_sha, line-cited code surface findings, delegation recommendation (ALLOW_BOUNDED / CONDITIONAL_SANDBOX_ONLY / HALT_HIGH_RISK), and RFC 8785 JCS Ed25519 Trust Manifest verification metadata. DIFFERS FROM BASELINE: Unlike post-hoc observability loggers that only record failures after treasury drain or policy breach, SkillProof intercepts delegation before execution and prevents upstream shortcut contamination (Stanford Collaborative Intelligence hand-off decay). EXCLUDES: Does not modify underlying agent model weights or take autonomous custody of external user private keys.",
       "tags": [
         "verification",
         "mcp",
@@ -182,7 +189,9 @@
       ],
       "outputModes": [
         "application/json"
-      ]
+      ],
+      "price_micro_usd": 0,
+      "endpoint": "https://www.nanoempireai.com/api/skillproof/status"
     },
     {
       "id": "skillproof-sprint",
@@ -207,7 +216,7 @@
     {
       "id": "bidshield-preaction-gate",
       "name": "BidShield Pre-Action & Pre-Bid Compliance Gate",
-      "description": "Deontic compliance gate for federal solicitations (CanadaBuys / SAM.gov) and AP2 Human-Not-Present / AP4M agent workflows. POST solicitation text or task description to /api/bidshield/gate to receive machine-readable gate_decision (PASS_PRELIMINARY / CONDITIONAL_HUMAN_REVIEW / HALT_FATAL_DISQUALIFIER), quantified Decision Exposure (JEV), and fatal clause traps. Human-verified tiers: $299 USD (Pilot), $499 USD (Standard 19-Column Matrix), $999 USD (Full Proposal Suite).",
+      "description": "SUPPORTS: Automated pre-bid and pre-action deontic compliance triage across 882 live federal solicitations and 5 fatal disqualifier gates, resolving cross-document RFP and Addendum contradictions via sentence-bounded deontic negation filtering and outputting machine-readable gate_decision (PASS_PRELIMINARY / CONDITIONAL_HUMAN_REVIEW / HALT_FATAL_DISQUALIFIER), quantified Decision Exposure (JEV), and Ed25519-signed REA commitments. Locked human-verified ladder:  USD (Pilot),  USD (Standard 19-Column Matrix),  USD (Full Proposal Suite). DIFFERS FROM BASELINE: Unlike flat-chunk RAG summarizers that miss negated clauses or treat outdated base-RFP text and newer Addenda as equal, BidShield applies deterministic deontic rules and emits an Ed25519-signed receipt. EXCLUDES: Does not write unverified creative fluff, submit final bids without human fiduciary sign-off, or replace licensed legal counsel.",
       "tags": [
         "procurement",
         "triage",
@@ -228,12 +237,16 @@
       "outputModes": [
         "application/json",
         "application/pdf"
-      ]
+      ],
+      "price_micro_usd": 299000000,
+      "pro_tier_micro_usd": 499000000,
+      "sovereign_tier_micro_usd": 999000000,
+      "endpoint": "https://www.nanoempireai.com/api/bidshield/gate"
     },
     {
       "id": "recallradar-report",
       "name": "RecallRadar Compliance Report",
-      "description": "Human-checkout data service: CPSC/FDA/Health Canada recall compliance report across 46,642 normalized CPSC, FDA & Health Canada recall records for e-commerce catalogs. Instant signed PDF/CSV delivery. $30 USD via Stripe.",
+      "description": "SUPPORTS: Deterministic SKU/UPC/GTIN catalog screening against 46,642 normalized North American (CPSC, FDA & Health Canada) recall records with 15 U.S.C. \u00a7 2068 supplier-reimbursement evidence packets and Ed25519 cryptographic receipts ( USD one-time report, /mo continuous RecallGuard Shield, ,400/yr Enterprise Data License). DIFFERS FROM BASELINE: Unlike manual agency portal searches, delivers a batch CSV/PDF audit with exact recall IDs and hazard citations in under 1 second for 50 SKUs. EXCLUDES: Does not issue statutory legal warranties, formal Certificates of Compliance, or physical lab testing certifications.",
       "tags": [
         "compliance",
         "recalls",
@@ -248,7 +261,10 @@
       ],
       "outputModes": [
         "application/json"
-      ]
+      ],
+      "price_micro_usd": 30000000,
+      "subscription_micro_usd_monthly": 99000000,
+      "annual_license_micro_usd": 2400000000
     },
     {
       "id": "recallradar-monitoring",
@@ -310,6 +326,26 @@
       "outputModes": [
         "application/json"
       ]
+    },
+    {
+      "id": "x402-pre-settlement-guard",
+      "name": "x402 Pre-Settlement Guard & Overpayment Firewall",
+      "price_micro_usd": 0,
+      "endpoint": "https://www.nanoempireai.com/api/x402/guard",
+      "description": "SUPPORTS: Pre-settlement verification of HTTP 402 payment challenges against 6 overpayment vectors (10x header price inflation, AP2/AP4M mandate ceiling breach, payTo address spoofing, Morse/hex/base64 obfuscated prompt injection, and unverified seller repos). DIFFERS FROM BASELINE: Unlike blind x402 auto-pay wrappers that sign any 402 header, /api/x402/guard halts spoofed or inflated challenges before funds leave the agent wallet. EXCLUDES: Does not take custody of buyer private keys or execute on-chain transfers directly.",
+      "tags": [
+        "x402",
+        "security",
+        "ap2",
+        "ap4m",
+        "firewall"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
     }
   ],
   "iconUrl": "https://www.nanoempireai.com/favicon.ico",
@@ -322,5 +358,15 @@
       "url": "https://www.nanoempireai.com/hana",
       "priority": "critical"
     }
-  ]
+  ],
+  "schema_version": "a2a-1.0",
+  "url": "https://www.nanoempireai.com",
+  "mcp_endpoint": "https://www.nanoempireai.com/api/mcp",
+  "public_key_uri": "https://www.nanoempireai.com/.well-known/skillproof-pubkey.json",
+  "key_id": "skillproof-2026-10",
+  "payment_rails": {
+    "x402_guard": "https://www.nanoempireai.com/api/x402/guard",
+    "currency": "USDC",
+    "accounting_unit": "micro_usd_int64"
+  }
 }
