@@ -872,7 +872,7 @@ export default function Home() {
 
           <div className="text-xs text-[#8C92A4] font-mono border border-white/10 px-3 py-1.5 rounded bg-white/5">
 
-            Updated: 2026-11-08 · Full Briefing: <a href="/m2m-state.md" className="text-[#00B5E2] hover:underline">m2m-state.md</a>
+            Updated: 2026-11-09 · Full Briefing: <a href="/m2m-state.md" className="text-[#00B5E2] hover:underline">m2m-state.md</a>
 
           </div>
 
@@ -938,7 +938,7 @@ export default function Home() {
 
           <p>
 
-            The Linux Foundation x402 Foundation (operational July 14, 2026; Michael Hursta ED; 50+ members including Visa, Mastercard, Stripe, Adyen, Amex, AWS, Google, Cloudflare, Coinbase) tracks ~196M lifetime txs / &gt;$42M gross volume, though filtered organic utility is micropayment-scale (Allium Q3: ~68.3M agent payments / $3.7M, ~5¢ avg; Oct organic ~5.1M txs / $274k; TRM Labs screens 0.6%–7.5% plausible autonomous volume; median wallet funding-to-first-x402 payment down to 18 mins). Meanwhile, Visa’s Nov 5 Agentic Commerce Benchmark shows frontier models pass only ~57% of realistic shopping tasks, and ~2M+ ERC-8004 identities face bulk-minting and sybil rating caveats. Nano Empire fills the exact gap the rails do not cover: <strong>SkillProof Ed25519 Trust Manifests</strong> (<code>/api/skillproof/status</code>) and <strong>BidShield Pre-Action Compliance Gates</strong> (<code>/api/bidshield/gate</code>). Outside settled customer count remains 0 (1 operator self-test on Base block 51961194).
+            As of Nov 9, 2026, the Linux Foundation x402 Foundation (&gt;50–57 members including Visa, Mastercard, Stripe, Adyen, Amex, AWS, Google, Cloudflare, Circle, Shopify, Coinbase) tracks ~198.4M cumulative txs / ~$42.6M settled across 12 chains (~300k+ daily recent txs, ~$0.05 avg), while BeInCrypto’s 35-day Base+Solana sample (6.4M x402 payments = $119,947; 90.8% under 1¢) scores institutional automation readiness at just 12/100 vs. 60.7/100 for micropayments. Recent live security failures—including ~$281k drained via untrusted instruction encodings ($175k via public Morse-coded instructions) and SoFi research (Ishween Kaur, Oct 2026) disclosing 20 x402 attack categories (6 enabling 10× header overpayment)—prove that ~2.17M ERC-8004 identities and spend limits alone are insufficient. Nano Empire enforces the missing deterministic verification layer outside the model: <strong>SkillProof Ed25519 Trust Manifests</strong> (<code>/api/skillproof/status</code>), <strong>BidShield Deontic Gates</strong> (<code>/api/bidshield/gate</code>), and the <strong>x402 Anti-Overpayment Guard</strong> (<code>/api/x402/guard</code>). Outside settled customer count remains 0 (1 operator self-test on Base block 51961194).
 
           </p>
 

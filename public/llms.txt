@@ -2,15 +2,15 @@
 
 > Machine-payable US & Canadian product-recall data (RecallGuard, paid per call in USDC on Base via x402), cryptographic SkillProof Trust Manifests & MCP pre-audit scorecards (complementing ERC-8004 / A2A identity), and BidShield pre-action compliance gates for federal solicitations and AP2 Human-Not-Present mandates.
 
-Updated: 2026-11-08
+Updated: 2026-11-09
 
 Contact: rob@nanoempireai.com
 
 ## Architecture & Agent Operating Model (Nov 2026 Stack)
 
 - Single Main Agent Loop with progressive disclosure of skills and tools. Nano Empire exposes atomic tools via Streamable HTTP MCP (`/api/mcp`), JSON verification gates (`/api/skillproof/status`, `/api/bidshield/gate`), and `x402` endpoints rather than requiring multi-agent overhead for linear tasks.
-- Cryptographic Proof Layer (`SkillProof` + `BidShield`): While `ERC-8004` (~2M+ identities) and `A2A` v1.0 Agent Cards establish *who* an agent is, and `x402` v2 / `MPP` / `AP4M` handle settlement, Nano Empire verifies *behavioral execution boundaries* (Ed25519 Trust Manifests pinned to commit `tree_sha`) and *pre-action solicitation compliance* (quantified Decision Exposure / JEV).
-- Complete M2M briefing and protocol synthesis (Nov 6, 2026): https://www.nanoempireai.com/m2m-state.md
+- Cryptographic Proof Layer (`SkillProof` + `BidShield`): While `ERC-8004` (~2.17M identities across 24 chains) and `A2A` v1.0 Agent Cards establish *who* an agent is, and `x402` v2 / `MPP` / `AP4M` handle settlement, Nano Empire verifies *behavioral execution boundaries* (Ed25519 Trust Manifests pinned to commit `tree_sha`) and *pre-action solicitation compliance* (quantified Decision Exposure / JEV).
+- Complete M2M briefing and protocol synthesis (Nov 9, 2026): https://www.nanoempireai.com/m2m-state.md
 
 ## Executive Contact
 
@@ -45,6 +45,8 @@ Contact: rob@nanoempireai.com
 - BidShield Pre-Action Compliance Gate (free preliminary JSON gate): POST https://www.nanoempireai.com/api/bidshield/gate
   Input: {"solicitation_text":"string","naics_code":"238220","estimated_contract_value_usd":250000}
   Output: `gate_decision` (`PASS_PRELIMINARY` / `CONDITIONAL_HUMAN_REVIEW` / `HALT_FATAL_DISQUALIFIER`), `ap2_mandate_recommendation`, `quantified_decision_exposure_jev_usd`, and triggered fatal clause traps.
+- x402 Pre-Payment Anti-Overpayment & Instruction Guard (free JSON firewall): POST https://www.nanoempireai.com/api/x402/guard
+  Neutralizes SoFi-disclosed 402 header price inflation (10x overpayment), V12 unbounded SDK drain, and BeInCrypto obfuscated/Morse-coded instruction attacks before signing a PAYMENT-SIGNATURE.
 
 ## Payment terms & Cryptographic Keys
 
@@ -66,7 +68,7 @@ Contact: rob@nanoempireai.com
 - Offers: https://www.nanoempireai.com/offers.json
 - Trust manifests: https://www.nanoempireai.com/manifests.html
 - SkillProof Pre-Audit Registry (28 Repos JSON): https://www.nanoempireai.com/skillproof/preaudits.json
-- M2M State Briefing (Nov 6, 2026): https://www.nanoempireai.com/m2m-state.md
+- M2M State Briefing (Nov 9, 2026): https://www.nanoempireai.com/m2m-state.md
 - Public Status Telemetry: https://www.nanoempireai.com/status.json
 - 7-Day Corpus Changelog: https://www.nanoempireai.com/changelog.json
 

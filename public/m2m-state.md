@@ -1,50 +1,52 @@
-# The Machine Economy: State of the Stack (November 8, 2026)
+# The Machine Economy: State of the Stack (November 9, 2026)
 
-*The rails are real. The buyers and the autonomous volume are early. While the agent-payment stack is now institutionalized across composable identity, communication, and settlement layers, measured machine spend remains overwhelmingly sub-dollar to sub-cent micro-traffic ($0.05–$0.30 averages, with >87% between $0.01 and $0.10 for compute, APIs, and tools), and institutional resistance from banks and retailers underscores that **identity-to-trust translation (`KYA`), non-repudiable authorization, and pre-action compliance gates—not raw payment rails—are the binding constraints to scale.** Nano Empire sits in the tollbooth and cryptographic proof layer (`SkillProof` + `BidShield` + `RecallRadar`), not the hype layer.*
+*The rails are real. The buyers and the autonomous volume are early. While the agent-payment stack is now institutionalized across composable identity, communication, and settlement layers, measured machine spend remains overwhelmingly sub-dollar to sub-cent micro-traffic (~$0.05 average, with >87–90% under $0.10 and 90.8% under $0.01 in sampled Base+Solana cohorts), and institutional automation readiness scores just **12/100** vs. **60.7/100** for micropayments. Recent live security failures (~$281k drained via untrusted instruction encodings, and 20 disclosed `x402` attack categories enabling 10× overpayment) prove that **identity-to-trust translation (`KYA`), non-repudiable pre-payment verification (`SkillProof`), and deterministic compliance gates outside the LLM (`BidShield`)—not raw payment rails—are the binding constraints to scale.** Nano Empire sits in the deterministic verification and tollbooth layer, not the hype layer.*
 
 ---
 
-## 1. Operating Rule: The Composable Protocol Stack (Nov 6, 2026)
-No single standard governs autonomous commerce. Open governance has converged on communication (**A2A** horizontal + **MCP** vertical under the **Agentic AI Foundation / AAIF**, expanded to 10 projects and ~305 members at Oct 2026 AGNTCon) and internet-native settlement (**x402** under the Linux Foundation), while authorization, **KYA (Know Your Agent)** credentialing, and pre-action compliance remain fragmented across FIDO, card networks, and on-chain registries:
+## 1. Operating Rule: The Composable Protocol Stack (Nov 9, 2026)
+No single standard governs autonomous commerce. Open governance has converged on communication (**A2A** horizontal + **MCP** vertical under the **Agentic AI Foundation / AAIF**, expanded to 10 projects and ~305 members at Oct 2026 AGNTCon) and internet-native settlement (**x402** under the Linux Foundation), while authorization, **KYA (Know Your Agent)** credentialing, and pre-action compliance converge across card networks, FIDO, and on-chain registries:
 
-| Layer | Protocol(s) & Governance | Core Mechanism | Production Reality (As of Nov 6, 2026) |
+| Layer | Protocol(s) & Governance | Core Mechanism | Production Reality (As of Nov 9, 2026) |
 |:---|:---|:---|:---|
 | **1. Vertical Tools & Context** | **MCP** (Anthropic → **AAIF** / Linux Foundation) | Vertical agent-to-tool, resource, and prompt layer. | Co-hosted with A2A in AAIF (~305 members); tens of thousands of active servers deployed; primary attack surface for tool poisoning and shell/env sinks. |
 | **2. Horizontal Discovery & Delegation** | **A2A v1.0** (Google Apr 2025 → **AAIF** Growth Stage; **IBM ACP merged in**) | Signed Agent Cards (`/.well-known/agent-card.json`), multi-binding, multi-tenancy, cross-vendor task delegation. | v1.0 stable (Mar 2026); **150+ supporting orgs** across **AWS Bedrock AgentCore**, **Azure AI Foundry**, **Google ADK**, and **SAP** (inbound A2A GA Oct 2026). |
-| **3. Identity & KYA (Know Your Agent)** | **ERC-8004** (Base dominant, 20+ chains), **Visa TAP**, **Mastercard Agent Credentials** | ERC-721 registration files linking to A2A/MCP; RFC 9421 HTTP Message Signatures (`browse` vs. `pay`); unique agent tokens. | **~2M+ ERC-8004 identities** minted by early Nov 2026. **Critical caveat:** bulk minting, transferable tokens (ownership ≠ continuous control), and gamed ratings mean **registration ≠ behavioral trust**. |
-| **4. Authorization & Spend Controls** | **AP2 v0.2** (Google + Coinbase → **FIDO Alliance**), **Mastercard Verifiable Intent** | Cryptographically signed Checkout Mandates + linked Payment Mandates (SD-JWT / VCs); daily/per-merchant/whitelist spend caps. | AP2 v0.2 donated to FIDO (Apr 28, 2026) supporting **Human Present** and **Human Not Present** modes. Humans set budgets; agents cannot exceed them. |
-| **5. Merchant & Conversational Storefronts** | **ACP** (OpenAI + Stripe), **UCP** (Google + Shopify/Etsy), **firmly Ask Agent**, **Poppy / PAP** | Shared Payment Tokens, Stripe Link funded USDC balances under per-purchase limits, and merchant-side conversational storefronts. | **firmly** raised $15M and shipped *Ask Agent*; **Visa Agentic Commerce Benchmark (Nov 5, 2026)** shows leading models pass only **~57% of realistic shopping scenarios** (best 82%, worst 29%); only 23% of U.S. consumers trust AI with payments. |
-| **6. Settlement & Metering** | **x402 v2** (Linux Foundation x402 Foundation), **MPP** (Stripe + Tempo), **Mastercard AP4M** | HTTP 402 `PAYMENT-REQUIRED` / `PAYMENT-SIGNATURE` headers (x402 v2), streaming/metered sessions (MPP), and off-chain budget vouchers (AP4M). | **x402 Foundation** operational July 14, 2026 (**Michael Hursta** ED Oct 1, 2026; **~40–50+ premier/general members**). **AWS Bedrock AgentCore Payments** GA with Coinbase x402 infrastructure; **Coinbase for Agents** added equities + x402 flows. |
+| **3. Identity & KYA (Know Your Agent)** | **ERC-8004** (24 chains, Base dominant), **MAS BuildFin.ai / SAFR KYA** (Ant Int'l + Mastercard + Visa), **Visa TAP** (`RFC 9421`) | Three ERC-8004 registries (Identity ERC-721 + `agentURI`, Reputation, Validation via same-address `CREATE2`); cross-network operator traceability (`KYA`). | **~2.17M ERC-8004 identities** minted across 24 chains. Ant International + Mastercard + Visa launched KYA interoperability (Sep 9–10, 2026 via MAS Singapore BuildFin.ai / SAFR) for register-once operator traceability + shared security/behavioral certification. |
+| **4. Authorization & Spend Controls** | **AP2 v0.2** (Google + Coinbase → **FIDO Alliance**), **Mastercard Verifiable Intent** | Cryptographically signed Checkout Mandates + linked Payment Mandates (SD-JWT / VCs); daily/per-merchant/whitelist spend caps; `x402` extension. | AP2 v0.2 donated to FIDO (Apr 28, 2026) supporting **Human Present** and **Human Not Present** modes. Humans set budgets; deterministic gates enforce them outside the LLM. |
+| **5. Merchant & Conversational Storefronts** | **ACP** (OpenAI + Stripe), **UCP** (Google + Shopify/Walmart/Target), **Ant Agentic Mobile Protocol**, **Poppy / PAP** | Shared Payment Tokens (live in ChatGPT), Stripe Link funded USDC balances under per-purchase limits, and merchant-side conversational storefronts. | **Visa Intelligent Commerce** live with 30+ European issuers and ~50 AI partners (Agentic Directory, Agent Score, passkeys); **Visa Benchmark (Nov 5, 2026)** shows frontier models pass only **~57% of realistic shopping scenarios**. |
+| **6. Settlement & Metering** | **x402 v2** (Linux Foundation x402 Foundation), **Mastercard AP4M**, **MPP** (Stripe + Tempo) | HTTP 402 `PAYMENT-REQUIRED` / `PAYMENT-SIGNATURE` headers (x402 v2), signed budget vouchers (AP4M), and streaming/metered sessions (MPP). | **x402 Foundation** operational since Jul 14, 2026 (**>50–57 members** incl. Visa, Mastercard, Stripe, Adyen, Amex, AWS, Google, Cloudflare, Circle, Shopify, Solana/Stellar/Monad Foundations). Production TS/Python/Go SDKs + Stripe on-ramp to `PaymentIntents` (USDC on Base/Solana/Tempo). |
 
 ---
 
-## 2. Market Numbers & Empirical Activity (Signal vs. Noise — Nov 6, 2026)
+## 2. Market Numbers & Empirical Activity (Signal vs. Noise — Nov 9, 2026)
 
 ### Macro Forecasts vs. Current Run-Rates
-- **Forecasts (Not Current Run-Rates):** Industry consensus projections cite **~$15T in global B2B procurement intermediated by agents by 2028** (Gartner-style benchmarks), **$3–5T in consumer commerce by 2030** (McKinsey), and **120B annual transactions by 2031** (Juniper, up from ~620M in 2026). Broader stablecoin supply sits at **~$305B**.
-- **x402 Trajectory (Fireblocks / Chainalysis / Allium Forensics):**
-  - **Lifetime Total:** **~196M transactions / >$42M settled across 12 chains** (as of Nov 1, 2026), heavily concentrated on **Base**.
-  - **Speculation Peak vs. Post-Speculation Stabilization:** Late-2025 speculative mints (`PING` token, etc.) drove peaks of **50M+ txs/month**; volume hit a post-speculation trough in **Feb 2026 (~4.1M txs / $1.6M)** and stabilized in **Oct 2026 at ~5.1M txs / ~$274k organic utility**.
-  - **Sub-Cent / Micropayment Distribution:** **>87% of payments sit between $0.01 and $0.10** (Allium Q3 2026: **~68.3M agent-classified payments totaling $3.7M, ~5¢ average**—transaction counts roughly doubled in Q3 while total dollar value fell, confirming shift to high-frequency sub-cent API/inference metering). **TRM Labs** screening indicates only **0.6%–7.5%** of raw on-chain volume is plausibly autonomous AI-agent initiated after stripping self-payments and script loops.
-  - **18-Minute Ephemeral Wallets:** Median wallet age at first `x402` payment collapsed from **73 days (late 2025) to 18 minutes (Q3 2026)**—most new agent wallets fund and spend within an hour for task-specific execution.
+- **Forecasts (Not Current Run-Rates):** Industry consensus projections cite **~$15T in global B2B procurement intermediated by agents by 2028** (Gartner-style benchmarks), **$3–5T in consumer commerce by 2030** (McKinsey), and **120B annual transactions by 2031** (Juniper, up from ~620M in 2026). Current dollar volume remains negligible relative to these forecasts; ~92% of the $4.25B in reviewed funding has flowed into payment/cash-management rails rather than the missing verification and compliance layer.
+- **x402 Trajectory (`agenteconomy.to` / Fireblocks / BeInCrypto / Allium Forensics as of Nov 9, 2026):**
+  - **Lifetime Total:** **~198.4M cumulative on-chain transactions / ~$42.6M settled across 12 chains** (almost entirely USDC; Base and Solana lead).
+  - **Recent Run-Rate:** Latest full month (**Oct 2026**) recorded **~5.1M txs / ~$274k organic utility**; recent daily activity sits at **~300k+ txs/day** with an average payment of **~$0.05** (down sharply from late-2025 speculative peaks).
+  - **BeInCrypto *State of AI Agent Payments 2026* (35-Day Base + Solana Sample):** **6.4M `x402` payments totaled only $119,947**, with **90.8% under 1 cent** (`<$0.01`) and **>87–90% under $0.10** across broader samples (Allium Q3 2026: **68.3M agent-classified payments / ~$3.7M**). BeInCrypto scored **Institutional Automation Readiness at just `12/100`** vs. **Micropayments at `60.7/100`**.
+  - **Other Protocols & True Agentic Share:** Tempo `MPP` events sit in the low tens of thousands; Olas weekly activity in the low thousands; Virtuals `ACP` memos in the millions (mostly off-chain/job-based); true agentic share of sampled DeFi/Hyperliquid volume remains tiny (~0.55%).
+  - **18-Minute Ephemeral Wallets:** Median wallet-funding-to-first-`x402`-payment time collapsed from **73 days (late 2025) to 18 minutes (Q3 2026)**.
 
-### Enterprise & Institutional Signals (Late Oct – Early Nov 2026)
-- **Production B2B Pilots & Sign-Ups:**
-  - **Visa** cited **~50 AI partners live in production** on its earnings call (declaring agentic commerce "has arrived"), including **LianLian + Visa** agentic supplier ordering/payment and **BILL / Billtrust** invoice automation.
-  - **Mastercard** executed **HSBC agentic settlement** on Mastercard rails; **AP4M (Agent Pay for Machines)** opened **Early Access (~Oct 20, 2026)** on a request-only sandbox/API basis across 30+ partners (not yet general commercial availability).
-  - **Stripe** reported **agent-originated business sign-ups tripled**, launched **Stripe Link funded USDC balances** with per-purchase agent spend limits, and pairs **MPP + Tempo** with its **$7.5–8B OpenRouter acquisition**.
-  - **AWS Bedrock AgentCore Payments** reached **General Availability (GA)** powered by Coinbase `x402` infrastructure.
+### Enterprise & Institutional Signals (Oct – Nov 9, 2026)
+- **Mastercard Agent Pay for Machines (`AP4M`):** Launched Jun 10, 2026 (30+ partners incl. Coinbase, Stripe, Adyen, Cloudflare, Tempo); **Early Access opened Oct 20, 2026** (buyer/seller APIs, sandbox, toolkit; request-only, no public GA date yet). Builds on `x402` with signed vouchers inside business-set budgets and **Verifiable Intent** credentialing across cards and stablecoins.
+- **Visa Intelligent Commerce:** Live with **30+ European issuers and ~50 AI partners** (expected to double), combining **Trusted Agent Protocol** (with Cloudflare via IETF `RFC 9421` HTTP Message Signatures), Agentic Directory, Agent Score, B2B invoice pilots (**BILL / Billtrust**, **LianLian**), and `MPP`/`ACP`/`UCP` routing.
+- **x402 Merchant & Network Expansion:** Polygon and CoinGecko preparing USDC endpoint metering; inference and data merchants (Mira, Dataline, Atom domains, Altair/XRPL) live or testing alongside **AWS Bedrock AgentCore Payments** (GA).
 
 ---
 
-## 3. Identity, Authorization, Risk & Governance (Why Proof Layers Win)
+## 3. Forensic Security & Governance Failures (Why Deterministic Proof Layers Win)
 
-### Active Security & Institutional Friction
-1. **SoFi ~20 x402 Attack Surfaces Disclosed:** Security researchers at SoFi disclosed **~20 distinct attack surfaces in `x402` implementations**, several of which allow malicious or misconfigured endpoints to trigger **agent over-payment** or replay drains when pre-payment schema/manifest verification is absent.
-2. **Zero Native Chargebacks on Pure x402:** Because on-chain `x402` settlement is final, the industry is rapidly building indemnification wrappers: **Secure Technology Alliance + Merchant Advisory Group** joint fraud/liability standards, and **Chargebacks911 agent-specific chargeback insurance**.
-3. **Tier-1 Bank Perimeter Blocks & Regulatory Scrutiny:** **Canada’s Big Banks (RBC, TD, CIBC, BMO)** and **Bank of America** are actively restricting third-party personal agents (e.g., screen-scraping/session-hijacking agents) from direct retail account access, while the **CFTC** and banking regulators evaluate autonomous agent liability.
-4. **ERC-8004 Identity Proliferation vs. Behavioral Trust (`SkillProof`):** While **~2M+ `ERC-8004` agent identities** have been minted on Base and 20+ chains, registration does not prevent prompt injection, `process.env` exfiltration, or `x402` over-payment traps. **SkillProof Ed25519 Trust Manifests** (pinned to commit `tree_sha`, verified via `/.well-known/skillproof-pubkey.json` and `/api/skillproof/status`) provide the behavioral execution proof that identity registries lack.
-5. **Pre-Action Deontic Compliance Gates (`BidShield`):** Before an agent signs an `AP2` Human-Not-Present mandate, draws on a Mastercard `AP4M` voucher, or submits a federal tender on CanadaBuys/SAM.gov, **BidShield** (`/api/bidshield/gate`) enforces deterministic pass/fail disqualifier checks and quantifies **Decision Exposure (JEV)**.
+1. **~$281k Drained via Agent Instruction Failures (BeInCrypto Report):**
+   - Two documented incidents transferred **~$281k to attacker wallets** through agent instruction manipulation—**not** cryptographic signature breaks. In one case, **public Morse-coded instructions triggered a $175k transfer** (80% recovered).
+   - **Core Lesson:** Spending limits alone are insufficient. Systems must independently verify *whose instructions* an agent accepts and enforce deterministic compliance boundaries **outside the LLM** (`BidShield` `/api/bidshield/gate` and `/api/x402/guard`).
+2. **SoFi Research (Ishween Kaur, Oct 2026): 20 `x402` Attack Categories & 10× Overpayment:**
+   - Disclosed **20 distinct attack categories across `x402` implementations**, including **6 vectors that trigger direct agent overpayment**: `HTTP 402` header price inflation vs. directory listing (unguarded agents paid **10× listed prices**), prompt-injected extra charges, replay/duplicate settlement, and lookalike sellers.
+3. **V12 & Academic SDK Audits (Unbounded Drain & Facilitator Flaws):**
+   - Default SDK clients shipped with no spend limits (enabling full-balance wallet drains) alongside facilitator vulnerabilities (free shopping, asset theft, gas abuse) that required silent August patches.
+4. **KYA & Cryptographic Execution Proofs (`ERC-8004` + `SkillProof` + `RFC 9421`):**
+   - While **~2.17M `ERC-8004` identities** exist across 24 chains, on-chain registration proves identity, not safety. Convergence around **Ed25519 agent identity anchors**, signed action receipts, IETF `RFC 9421` HTTP Message Signatures, and **SkillProof RFC 8785 (JCS) + Ed25519 Trust Manifests** (`kid: skillproof-2026-10`) provides the non-repudiable pre-payment verification that stops unguarded SDK drains.
 
 ---
 
@@ -52,17 +54,17 @@ No single standard governs autonomous commerce. Open governance has converged on
 
 1. **Zero Hype & Strict Ledger Honesty (`paper_mode` & Self-Test Truth):**
    - Never claim "agents are already paying at scale."
-   - **RecallGuard (`https://recallguard-api.vercel.app`):** Live `x402` on Base (`$0.05` feed / `$0.10` match). **1 operator self-test settled on Base block `51961194` (2026-09-29, tx `0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999`); `0` outside paying customers.**
-   - **Legacy / Planned Endpoints (`openapi.json` & VPS port `8405`):** Marked `x-paper-mode: true` / `status: planned`. Do not advertise trial tokens, affiliate balances, or `x402` SkillProof sprints as live commercial rails.
+   - **RecallGuard (`https://recallguard-api.vercel.app`):** Live `x402` on Base (`$0.05` feed / `$0.10` match) across **`46,642` normalized CPSC, FDA & Health Canada recall records**. **1 operator self-test settled on Base block `51961194` (2026-09-29, tx `0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999`); `0` outside paying customers.**
+   - **BidShield Locked Price Ladder:** `$299` USD (Pilot) · `$499` USD (Standard 19-Column Compliance Matrix) · `$999` USD (Full Proposal Suite).
+   - **SkillProof Status:** Public 28-repo MCP pre-audit registry (`/skillproof`) and `/api/skillproof/status` are live and free; paid commercial audit sprint remains parked pending operator ruling.
 2. **Primary Machine-Readable Surfaces (All Live `HTTP 200 OK`):**
    - **A2A Agent Card (v1.6.0):** `https://www.nanoempireai.com/.well-known/agent-card.json`
-   - **Machine Agent Beacon:** `https://www.nanoempireai.com/.well-known/agent.json` & `https://www.nanoempireai.com/agents.json`
-   - **Streamable HTTP MCP Server (5 Tools):** `https://www.nanoempireai.com/api/mcp` (`/.well-known/mcp.json`)
+   - **Astryx Proof-Native UI Component Manifest:** `https://www.nanoempireai.com/.well-known/astryx-manifest.json`
+   - **Streamable HTTP MCP Server (6 Tools):** `https://www.nanoempireai.com/api/mcp` (`/.well-known/mcp.json`)
    - **SkillProof Ed25519 Pubkey & Status Gate:** `https://www.nanoempireai.com/.well-known/skillproof-pubkey.json` & `https://www.nanoempireai.com/api/skillproof/status?repo=owner/repo`
-   - **BidShield Pre-Action Compliance Gate:** `https://www.nanoempireai.com/api/bidshield/gate`
+   - **BidShield Pre-Action Compliance Gate (v2):** `https://www.nanoempireai.com/api/bidshield/gate`
+   - **x402 Pre-Payment Anti-Overpayment & Instruction Guard:** `https://www.nanoempireai.com/api/x402/guard`
    - **LLM & Offer Index:** `https://www.nanoempireai.com/llms.txt` & `https://www.nanoempireai.com/offers.json`
-3. **Continuous Monitoring Checklist for Autonomous Maintainers:**
-   - Re-verify `x402` Foundation membership/spec v2 headers, Mastercard `AP4M` GA transition (currently Early Access), `KYA` / `ERC-8004` validation registry deployments, and on-chain trackers (`agenteconomy.to`, Allium, Chainalysis, Fireblocks) before modifying any public claim.
 
 ---
 
@@ -75,8 +77,7 @@ We treat the composable agent-economy stack (`x402`, `A2A`, `AP2`, `MCP`, `MPP`,
    - Without pre-action compliance (`BidShield`) and behavioral execution proof (`SkillProof`), a 1,000-agent swarm compounds liability rather than abundance. Paired with accountless `x402` and multi-rail settlement (`AP4M`, stablecoins, card networks), ordinary operators can both consume and **own/monetize** machine-payable services without institutional gatekeepers.
 2. **Maximizing Future Freedom of Action / Causal Entropy (The Wissner-Gross Lens):**
    - Intelligence acts as a physical force that maximizes future freedom of action ($\nabla S_\tau$).
-   - In the innermost loop, an agent that can discover a specialist via `A2A`, invoke a tool via `MCP`, settle sub-cent to multi-dollar calls via `x402`, and verify an **RFC 8785 (JCS) + Ed25519 Trust Manifest** offline keeps vastly more future trajectories open than an agent blocked by human invoicing, opaque APIs, or untrusted counterparties.
+   - In the innermost loop, an agent that can discover a specialist via `A2A`, invoke a tool via `MCP`, verify an **RFC 8785 (JCS) + Ed25519 Trust Manifest** offline, and settle sub-cent to multi-dollar calls via `x402` keeps vastly more future trajectories open than an agent blocked by human invoicing, opaque APIs, or untrusted counterparties.
 3. **Organizational Singularity & ExO 3.0 Governance (The Ismail Lens):**
    - Ronald Coase explained that traditional firms exist only because internal coordination is cheaper than external market transactions. The `A2A` + `MCP` + `x402` + `AP2` stack collapses external coordination costs toward zero, enabling small teams and solo operators to operate at institutional scale.
    - In the ExO 3.0 Intelligence Stack, humans move **"above the loop"** (setting MTPs and `AP2` spend/intent mandates) while `SkillProof` and `BidShield` provide the deterministic **Governance & Sentinel layer** at the edge.
-
