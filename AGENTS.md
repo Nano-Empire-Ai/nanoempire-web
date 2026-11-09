@@ -12,6 +12,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## 1. The Deterministic Verification Layer (Architectural Invariant)
 
+> **Deterministic verification layer: SkillProof and BidShield return rule-based, reproducible outcomes—not probabilistic LLM judgments. Identity proves who; settlement moves money; SkillProof and BidShield prove whether the action is safe and compliant before spend or delegation occurs.**
+
 ```text
 Identity (ERC-8004 / A2A Agent Card)  →  WHO is calling
          ↓

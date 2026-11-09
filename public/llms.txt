@@ -36,8 +36,8 @@ Contact: rob@nanoempireai.com
   Input: {"items":[{"name":"string","brand":"string","upc":"string"}]}
   Output: {"matches":[{"recall_id":"string","severity":"string","hazard":"string","remedy":"string"}]}
   Unpaid calls return HTTP 402.
-- Streamable HTTP MCP Server (5 live tools): POST https://www.nanoempireai.com/api/mcp
-  Tools: `recallradar_check_product`, `recallradar_audit_manifest_info`, `skillproof_verify_repo`, `bidshield_triage_info`, `bidshield_evaluate_solicitation_gate`
+- Streamable HTTP MCP Server (6 live tools): POST https://www.nanoempireai.com/api/mcp
+  Tools: `recallradar_check_product`, `recallradar_audit_manifest_info`, `skillproof_verify_repo`, `bidshield_triage_info`, `bidshield_evaluate_solicitation_gate`, `astryx_compose_proof_ui`
 - SkillProof Pre-Audit Status & Ed25519 Verification Gate (free JSON): GET https://www.nanoempireai.com/api/skillproof/status?repo=owner/repo
   Returns `skillproof_score`, commit `tree_sha`, line-cited findings, `delegation_recommendation` (`ALLOW_BOUNDED` / `CONDITIONAL_SANDBOX_ONLY` / `HALT_HIGH_RISK`), and Ed25519 public key (`kid: skillproof-2026-10`).
 - SkillProof Live Repository Scanner: POST https://www.nanoempireai.com/api/skillproof/preaudit
@@ -60,6 +60,7 @@ Contact: rob@nanoempireai.com
 - Poppy (Personal Agent Protocol): https://www.nanoempireai.com/.well-known/poppy.json
 - Agent card (A2A v1.0): https://www.nanoempireai.com/.well-known/agent-card.json
 - SkillProof Ed25519 Public Key: https://www.nanoempireai.com/.well-known/skillproof-pubkey.json
+- Astryx Proof-Native UI Component Manifest: https://www.nanoempireai.com/.well-known/astryx-manifest.json
 - Machine Agents descriptor: https://www.nanoempireai.com/agents.json
 - OpenAPI: https://www.nanoempireai.com/openapi.json
 - Offers: https://www.nanoempireai.com/offers.json

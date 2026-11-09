@@ -8,9 +8,9 @@
   "mcp_tool": "astryx_compose_proof_ui",
   "purpose": "Agent-discoverable, constraint-governed UI component pack for the Deterministic Verification Layer (SkillProof + BidShield + RecallRadar + x402 Settlement). Prevents coding agents from inventing unverified raw-div compliance UIs.",
   "deterministic_stack_position": {
-    "layer_1_identity": "ERC-8004 / A2A Agent Card (/.well-known/agent-card.json) — proves WHO is calling",
-    "layer_2_deterministic_verification": "SkillProof (/api/skillproof/status) + BidShield (/api/bidshield/gate) — proves MAY THEY PROCEED with reproducible, non-LLM rule & AST outputs",
-    "layer_3_settlement": "x402 v2 / AP4M / AP2 / Stripe — moves money under verified bounds"
+    "layer_1_identity": "ERC-8004 / A2A Agent Card (/.well-known/agent-card.json) \u2014 proves WHO is calling",
+    "layer_2_deterministic_verification": "SkillProof (/api/skillproof/status) + BidShield (/api/bidshield/gate) \u2014 proves MAY THEY PROCEED with reproducible, non-LLM rule & AST outputs",
+    "layer_3_settlement": "x402 v2 / AP4M / AP2 / Stripe \u2014 moves money under verified bounds"
   },
   "trust_adaptive_themes": {
     "sovereign": {
@@ -88,5 +88,6 @@
         "matches"
       ]
     }
-  ]
+  ],
+  "deterministic_verification_definition": "Deterministic verification layer: SkillProof and BidShield return rule-based, reproducible outcomes\u2014not probabilistic LLM judgments. Identity proves who; settlement moves money; SkillProof and BidShield prove whether the action is safe and compliant before spend or delegation occurs."
 }

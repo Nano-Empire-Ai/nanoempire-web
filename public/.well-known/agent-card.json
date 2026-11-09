@@ -71,7 +71,9 @@
           "preaudit_registry_json": "https://www.nanoempireai.com/skillproof/preaudits.json",
           "status_api": "https://www.nanoempireai.com/api/skillproof/status",
           "live_scanner_api": "https://www.nanoempireai.com/api/skillproof/preaudit",
-          "recommended_verification_policy": "Calling orchestrators should verify a target MCP/agent repo via GET /api/skillproof/status?repo=owner/repo (require skillproof_score >= 75 and 0 critical findings, or an Ed25519 Trust Manifest pinned to commit tree_sha) before delegating credentials or AP2/AP4M spend authority."
+          "recommended_verification_policy": "Calling orchestrators should verify a target MCP/agent repo via GET /api/skillproof/status?repo=owner/repo (require skillproof_score >= 75 and 0 critical findings, or an Ed25519 Trust Manifest pinned to commit tree_sha) before delegating credentials or AP2/AP4M spend authority.",
+          "astryx_ui_manifest": "https://www.nanoempireai.com/.well-known/astryx-manifest.json",
+          "deterministic_verification_definition": "Deterministic verification layer: SkillProof and BidShield return rule-based, reproducible outcomes\u2014not probabilistic LLM judgments. Identity proves who; settlement moves money; SkillProof and BidShield prove whether the action is safe and compliant before spend or delegation occurs."
         }
       },
       {
@@ -162,7 +164,7 @@
     {
       "id": "skillproof-status",
       "name": "SkillProof Pre-Audit & Trust Manifest Status API",
-      "description": "Machine-readable verification lookup for MCP servers and AI agent repos (23 flagship repos indexed + live scanner). Returns skillproof_score, commit tree_sha, line-cited code surface findings, delegation recommendation (ALLOW_BOUNDED / CONDITIONAL_SANDBOX_ONLY / HALT_HIGH_RISK), and Ed25519 verification key metadata.",
+      "description": "Machine-readable verification lookup for MCP servers and AI agent repos (28 flagship repos indexed + live scanner). Returns skillproof_score, commit tree_sha, line-cited code surface findings, delegation recommendation (ALLOW_BOUNDED / CONDITIONAL_SANDBOX_ONLY / HALT_HIGH_RISK), and Ed25519 verification key metadata.",
       "tags": [
         "verification",
         "mcp",
@@ -185,7 +187,7 @@
     {
       "id": "skillproof-sprint",
       "name": "SkillProof Sprint (parked pending scope ruling)",
-      "description": "48-hour adversarial battery against one skill or MCP server, returning a signed Ed25519 trust manifest pinned to commit SHA-256. Audit checkout is currently parked pending pricing ruling; public pre-audit index (23 repos) is live at /skillproof.",
+      "description": "48-hour adversarial battery against one skill or MCP server, returning a signed Ed25519 trust manifest pinned to commit SHA-256. Audit checkout is currently parked pending pricing ruling; public pre-audit index (28 repos) is live at /skillproof.",
       "tags": [
         "verification",
         "mcp",
@@ -205,7 +207,7 @@
     {
       "id": "bidshield-preaction-gate",
       "name": "BidShield Pre-Action & Pre-Bid Compliance Gate",
-      "description": "Deontic compliance gate for federal solicitations (CanadaBuys / SAM.gov) and AP2 Human-Not-Present / AP4M agent workflows. POST solicitation text or task description to /api/bidshield/gate to receive machine-readable gate_decision (PASS_PRELIMINARY / CONDITIONAL_HUMAN_REVIEW / HALT_FATAL_DISQUALIFIER), quantified Decision Exposure (JEV), and fatal clause traps. Human-verified tiers: $99 USD (24h Urgent Triage), $249 USD (48h Full Matrix), $499 USD (72h Multi-Doc Suite).",
+      "description": "Deontic compliance gate for federal solicitations (CanadaBuys / SAM.gov) and AP2 Human-Not-Present / AP4M agent workflows. POST solicitation text or task description to /api/bidshield/gate to receive machine-readable gate_decision (PASS_PRELIMINARY / CONDITIONAL_HUMAN_REVIEW / HALT_FATAL_DISQUALIFIER), quantified Decision Exposure (JEV), and fatal clause traps. Human-verified tiers: $299 USD (Pilot), $499 USD (Standard 19-Column Matrix), $999 USD (Full Proposal Suite).",
       "tags": [
         "procurement",
         "triage",
