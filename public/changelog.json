@@ -1,12 +1,12 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-07",
+  "last_updated": "2026-11-09",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 12,
-    "total_mcp_repos_audited": 27,
-    "recent_audits_count": 27,
+    "total_mcp_repos_audited": 29,
+    "recent_audits_count": 29,
     "quarantined_records_count": 1
   },
   "recent_recalls": [
@@ -307,6 +307,16 @@
       "governance_gaps_count": 1
     },
     {
+      "repo": "vitali87/code-graph-rag",
+      "stars": 5348,
+      "score": 73,
+      "tree_sha": "24b29d7917a1",
+      "preaudit_id": "SP-E29B680A7324DB8D",
+      "surface_summary": "Scanned 4 entrypoints (main.py, evals/cli.py); 3 line-cited sinks incl. DYNAMIC_EVAL at evals/cli.py:L17.",
+      "findings_count": 3,
+      "governance_gaps_count": 0
+    },
+    {
       "repo": "makenotion/notion-mcp-server",
       "stars": 4693,
       "score": 78,
@@ -404,16 +414,6 @@
       "preaudit_id": "SP-23A66C4678BF0CAA",
       "surface_summary": "Scanned 4 entrypoints (src/alpaca_mcp_server/cli.py, src/alpaca_mcp_server/server.py); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/alpaca_mcp_server/cli.py:L54.",
       "findings_count": 3,
-      "governance_gaps_count": 1
-    },
-    {
-      "repo": "vostride/agent-qa",
-      "stars": 856,
-      "score": 92,
-      "tree_sha": "d443e7202242",
-      "preaudit_id": "SP-2919103EF9AAC16F",
-      "surface_summary": "Scanned 4 entrypoints (packages/cli/src/cli.ts, packages/mcp/src/http.ts); 0 static shell/eval sinks; 1 governance gaps flagged.",
-      "findings_count": 0,
       "governance_gaps_count": 1
     }
   ]

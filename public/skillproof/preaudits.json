@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-08",
+  "updated_at": "2026-11-09",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 28,
+  "total_repos_audited": 29,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -142,6 +142,51 @@
       "preaudit_id": "SP-18AB874730B9874D",
       "audited_at": "2026-11-03",
       "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/server.ts); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/index.ts:L24."
+    },
+    {
+      "repo": "vitali87/code-graph-rag",
+      "stars": 5348,
+      "branch": "main",
+      "tree_sha": "24b29d7917a1",
+      "license": "MIT",
+      "total_files_in_repo": 2453,
+      "sampled_source_files": [
+        "main.py",
+        "evals/cli.py",
+        "codebase_rag/cli.py",
+        "evals/first_tool.py"
+      ],
+      "skillproof_score": 73,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "DYNAMIC_EVAL",
+          "severity": "CRITICAL",
+          "title": "Dynamic Code Evaluation (eval / Function)",
+          "file": "evals/cli.py",
+          "line": 17,
+          "snippet": "_TITLE = \"cgr L1 structure eval (Python)\""
+        },
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "codebase_rag/cli.py",
+          "line": 3210,
+          "snippet": "with output.open(\"w\", encoding=cs.ENCODING_UTF8) as fh:"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "codebase_rag/cli.py",
+          "line": 3714,
+          "snippet": "subprocess.Popen(  # noqa: S603 - user-configured local editor command"
+        }
+      ],
+      "preaudit_id": "SP-E29B680A7324DB8D",
+      "audited_at": "2026-11-09",
+      "surface_summary": "Scanned 4 entrypoints (main.py, evals/cli.py); 3 line-cited sinks incl. DYNAMIC_EVAL at evals/cli.py:L17."
     },
     {
       "repo": "makenotion/notion-mcp-server",
@@ -874,49 +919,33 @@
       "surface_summary": "Scanned 4 entrypoints (cmd/mcp-assert/main.go, go-plugin/mcpassert.go); 0 static shell/eval sinks; 1 governance gaps flagged."
     },
     {
-      "repo": "Nano-Empire-Ai/nanoempire-web",
-      "stars": 1,
+      "repo": "fathomise/MailFathom",
+      "stars": 21,
       "branch": "main",
-      "tree_sha": "84936f02f289",
-      "license": "MIT",
-      "total_files_in_repo": 240,
+      "tree_sha": "4b5032d998b8",
+      "license": "AGPL-3.0",
+      "total_files_in_repo": 8225,
       "sampled_source_files": [
-        "app/api/skillproof/status/route.ts",
-        "app/api/recall-report/unlock/route.ts",
-        "app/api/vin/decode/route.ts",
-        "lib/attestation.ts"
+        "design/data/client-states.js",
+        "design/logic/client-states.js",
+        "docfx/template/public/main.js",
+        "frontend/src-tauri/src/main.rs"
       ],
-      "skillproof_score": 86,
+      "skillproof_score": 98,
       "governance_gaps": [],
       "code_surface_findings": [
-        {
-          "id": "ENV_SECRET_EXPOSURE",
-          "severity": "MEDIUM",
-          "title": "Sensitive Credential / Full-Env Access",
-          "file": "app/api/recall-report/unlock/route.ts",
-          "line": 7,
-          "snippet": "const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '[REDACTED]', {"
-        },
         {
           "id": "OUTBOUND_NETWORK_EGRESS",
           "severity": "LOW",
           "title": "External Network Egress Call",
-          "file": "app/api/vin/decode/route.ts",
-          "line": 54,
-          "snippet": "const res = await fetch(`https://api.stripe.com/v1/payment_intents/${parsed.tx}`, {"
-        },
-        {
-          "id": "ENV_SECRET_EXPOSURE",
-          "severity": "MEDIUM",
-          "title": "Sensitive Credential / Full-Env Access",
-          "file": "lib/attestation.ts",
-          "line": 21,
-          "snippet": "const pem = process.env.ATTESTATION_ED25519_PRIVATE_KEY_PEM?.replace(/\\\\n/g, '\\n');"
+          "file": "docfx/template/public/main.js",
+          "line": 91,
+          "snippet": "const response = await fetch(new URL(versionsFileName, layout.siteUrl))"
         }
       ],
-      "preaudit_id": "SP-84936F02F289AA43",
-      "audited_at": "2026-11-08",
-      "surface_summary": "Scanned 4 entrypoints (app/api/skillproof/status/route.ts, app/api/recall-report/unlock/route.ts, app/api/vin/decode/route.ts, lib/attestation.ts); 0 CRITICAL/HIGH execution sinks; full SECURITY.md, LICENSE, and lockfile governance verified."
+      "preaudit_id": "SP-0CEF74F9F140E34F",
+      "audited_at": "2026-11-09",
+      "surface_summary": "Scanned 4 entrypoints (design/data/client-states.js, design/logic/client-states.js); 1 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at docfx/template/public/main.js:L91."
     }
   ]
 }

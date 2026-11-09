@@ -1,4 +1,4 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-07
+# 📡 Overnight Market & Safety Delta — 2026-11-09
 
 > **Autonomous Sync:** Generated at `12:30:08 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
@@ -23,7 +23,7 @@
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `27`
+- **Total Validated MCP Repositories in Public Index:** `29`
 - **Quality Gate Filtered/Quarantined:** `1` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |
@@ -32,10 +32,10 @@
 | [`modelcontextprotocol/inspector`](https://github.com/modelcontextprotocol/inspector) | 11,220★ | **98/100** | Scanned 4 entrypoints (core/mcp/apps.ts, core/cli/style.ts); 0 static execution ... |
 | [`lastmile-ai/mcp-agent`](https://github.com/lastmile-ai/mcp-agent) | 8,575★ | **96/100** | Scanned 4 entrypoints (src/mcp_agent/app.py, src/mcp_agent/config.py); 1 line-ci... |
 | [`mendableai/firecrawl-mcp-server`](https://github.com/mendableai/firecrawl-mcp-server) | 7,758★ | **84/100** | Scanned 4 entrypoints (src/index.ts, src/server.ts); 3 line-cited sinks incl. EN... |
+| [`vitali87/code-graph-rag`](https://github.com/vitali87/code-graph-rag) | 5,348★ | **73/100** | Scanned 4 entrypoints (main.py, evals/cli.py); 3 line-cited sinks incl. DYNAMIC_... |
 | [`makenotion/notion-mcp-server`](https://github.com/makenotion/notion-mcp-server) | 4,693★ | **78/100** | Scanned 4 entrypoints (src/init-server.ts, scripts/build-cli.js); 4 line-cited s... |
 | [`pipeshub-ai/pipeshub-ai`](https://github.com/pipeshub-ai/pipeshub-ai) | 3,901★ | **98/100** | Scanned 4 entrypoints (frontend/types/index.ts, frontend/electron/main.ts); 0 st... |
 | [`browserbase/mcp-server-browserbase`](https://github.com/browserbase/mcp-server-browserbase) | 3,398★ | **92/100** | Scanned 4 entrypoints (cli.js, index.js); 0 static shell/eval sinks; 1 governanc... |
-| [`punkpeye/fastmcp`](https://github.com/punkpeye/fastmcp) | 3,283★ | **76/100** | Scanned 4 entrypoints (src/FastMCP.ts, src/auth/index.ts); 4 line-cited sinks in... |
 
 ---
 **Machine Feeds:** [Changelog JSON](https://www.nanoempireai.com/changelog.json) · [Status Telemetry](https://www.nanoempireai.com/status.json) · [Pre-Audits](https://www.nanoempireai.com/skillproof/preaudits.json) · [CPSC Recalls](https://www.nanoempireai.com/recalls/latest-cpsc.json)
