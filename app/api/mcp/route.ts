@@ -1,4 +1,6 @@
+import crypto from 'crypto';
 import { NextResponse } from 'next/server';
+import { signAttestation } from '@/lib/attestation';
 
 // @ts-ignore
 import { matchItem } from '../../../lib/recall-matcher/match.js';
@@ -20,6 +22,21 @@ const UNILATERAL_CPSC_WARNINGS = [
       'Lid can open prematurely while contents are pressurized, ejecting scalding hot food and liquid; 24 serious burn injuries reported. Manufacturer refused CPSC recall request.',
     url: 'https://www.cpsc.gov/Newsroom/News-Releases',
     keywords: ['tristar', 'power quick pot', 'pressure cooker', 'quick pot'],
+  },
+  {
+    name: 'jev_causal_entropy_router',
+    description:
+      'SUPPORTS: Jev-style decision routing + Wissner-Gross Causal Entropy (F = T grad S_tau) evaluation for coding and compliance agents. Classifies candidate steps into DETERMINISTIC_CODE_GATE, FAST_LOCAL_TIER_8B, or FRONTIER_REASONING_PLUS_FIDUCIARY_GATE while computing optionality_delta_bps (-10000..+10000), causal_entropy_score_bps (0..10000), and an Ed25519-signed REA commitment. DIFFERS FROM BASELINE: Unlike single-objective cost routers that blindly pick the cheapest model even on irreversible actions, CausalHarness jointly minimizes wasted compute and maximizes accessible future trajectories (penalizing premature irreversible side effects and rewarding resumable state). EXCLUDES: Does not execute irreversible external writes or spend above mandate ceilings without human fiduciary sign-off.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        action_summary: { type: 'string', description: 'Candidate agent step or tool call description' },
+        irreversible_side_effects: { type: 'boolean', description: 'True if the step mutates external state, sends outbound messages, or spends funds' },
+        unlocks_downstream_branches: { type: 'integer', description: 'Estimated number of downstream tool/information paths unlocked (0..10)' },
+        has_resumable_state_snapshot: { type: 'boolean', description: 'True if compact state passport (<500 tokens) is persisted before execution' },
+      },
+      required: ['action_summary'],
+    },
   },
 ];
 
@@ -399,6 +416,66 @@ export async function POST(req: Request) {
                     component,
                     trust_theme_mode: trustState,
                     jsx_fragment: templates[component] || templates.TrustManifestCard,
+                  },
+                  null,
+                  2
+                ),
+              },
+            ],
+          },
+        });
+      }
+
+      if (toolName === 'jev_causal_entropy_router') {
+        const summary = String(args.action_summary || '');
+        const irreversible =
+          Boolean(args.irreversible_side_effects) ||
+          /\b(send|pay|transfer|delete|deploy|submit|charge)\b/i.test(summary);
+        const branches = Math.max(0, Math.min(10, Number(args.unlocks_downstream_branches ?? 2)));
+        const resumable = args.has_resumable_state_snapshot !== false;
+        const isDeterministicCheck =
+          /\b(verify|status|check|hash|schema|gate|match|lint)\b/i.test(summary) && !irreversible;
+
+        const jevRoute = isDeterministicCheck
+          ? 'DETERMINISTIC_CODE_GATE'
+          : irreversible
+            ? 'FRONTIER_REASONING_PLUS_FIDUCIARY_GATE'
+            : 'FAST_LOCAL_TIER_8B';
+
+        const optionalityDeltaBps =
+          branches * 800 + (resumable ? 2000 : -2500) + (irreversible ? -4500 : 1500);
+        const clampedDeltaBps = Math.max(-10000, Math.min(10000, optionalityDeltaBps));
+        const causalEntropyScoreBps = Math.max(0, Math.min(10000, 5000 + Math.round(clampedDeltaBps / 2)));
+
+        const core = {
+          action_summary: summary,
+          causal_entropy_score_bps: causalEntropyScoreBps,
+          irreversible_side_effects: irreversible,
+          jev_model_route: jevRoute,
+          optionality_delta_bps: clampedDeltaBps,
+          resumable_state_preserved: resumable,
+          unlocks_downstream_branches: branches,
+        };
+        const jcsBytes = Buffer.from(JSON.stringify(core), 'utf8');
+        const reaSha256 = crypto.createHash('sha256').update(jcsBytes).digest('hex');
+        const attestation = signAttestation(jcsBytes);
+
+        return NextResponse.json({
+          jsonrpc,
+          id,
+          result: {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(
+                  {
+                    ...core,
+                    future_freedom_verdict:
+                      clampedDeltaBps >= 0
+                        ? 'EXPANDS_ACCESSIBLE_FUTURES'
+                        : 'CONTRACTS_OPTIONALITY_REQUIRE_GATE',
+                    rea_commitment_sha256: reaSha256,
+                    attestation,
                   },
                   null,
                   2

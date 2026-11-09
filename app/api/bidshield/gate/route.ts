@@ -173,12 +173,21 @@ export async function POST(req: NextRequest) {
 
     const totalJevExposure = triggeredTraps.reduce((acc, t) => acc + t.estimated_jev_exposure_usd, 0);
 
+    // Wissner-Gross Causal Entropy / Future Freedom Telemetry (F = T * grad S_tau)
+    const optionalityDeltaBps = Math.max(
+      -10000,
+      Math.min(10000, 4500 - fatalCount * 4500 - highCount * 2000)
+    );
+    const causalEntropyScoreBps = Math.max(0, Math.min(10000, 5000 + Math.round(optionalityDeltaBps / 2)));
+
     // Deterministic canonical commitment over full input + rule evaluation (reproducible across identical calls)
     const deterministicCore = {
+      causal_entropy_score_bps: causalEntropyScoreBps,
       contract_value_evaluated_usd: contractValue,
       fatal_and_high_traps_detected: triggeredTraps.map((t) => t.id),
       gate_decision: gateDecision,
       naics_code: naicsCode || null,
+      optionality_delta_bps: optionalityDeltaBps,
       quantified_decision_exposure_jev_usd: totalJevExposure,
       risk_score_0_100: riskScore,
       text_sha256: crypto.createHash('sha256').update(text, 'utf8').digest('hex'),
@@ -200,6 +209,18 @@ export async function POST(req: NextRequest) {
             : 'REQUIRE_HUMAN_PRESENT_MANDATE_SIGNATURE',
         risk_score_0_100: riskScore,
         quantified_decision_exposure_jev_usd: totalJevExposure,
+        causal_entropy_telemetry: {
+          optionality_delta_bps: optionalityDeltaBps,
+          causal_entropy_score_bps: causalEntropyScoreBps,
+          reversibility_class:
+            gateDecision === 'PASS_PRELIMINARY'
+              ? 'REVERSIBLE_PRE_BID_EXPLORATION'
+              : 'IRREVERSIBLE_DISQUALIFIER_OR_BOND_TRAP',
+          future_freedom_verdict:
+            optionalityDeltaBps >= 0
+              ? 'EXPANDS_ACCESSIBLE_FUTURES'
+              : 'CONTRACTS_OPTIONALITY_HALT_BEFORE_BID_PREP',
+        },
         contract_value_evaluated_usd: contractValue,
         naics_context: naicsProfile
           ? {

@@ -81,3 +81,27 @@ We treat the composable agent-economy stack (`x402`, `A2A`, `AP2`, `MCP`, `MPP`,
 3. **Organizational Singularity & ExO 3.0 Governance (The Ismail Lens):**
    - Ronald Coase explained that traditional firms exist only because internal coordination is cheaper than external market transactions. The `A2A` + `MCP` + `x402` + `AP2` stack collapses external coordination costs toward zero, enabling small teams and solo operators to operate at institutional scale.
    - In the ExO 3.0 Intelligence Stack, humans move **"above the loop"** (setting MTPs and `AP2` spend/intent mandates) while `SkillProof` and `BidShield` provide the deterministic **Governance & Sentinel layer** at the edge.
+
+---
+
+## 9. The Innermost Loop & `CausalHarness` (`jev_causal_entropy_router`)
+
+### 9.1 The Innermost Loop of Civilization (Wissner-Gross)
+$$\text{Compute} \longrightarrow \text{Models} \longrightarrow \text{Agents} \longrightarrow \text{Tools / Verified Data / Settlement} \longrightarrow \text{More Capable Agents} \longrightarrow \text{More Compute}$$
+
+- **18-Minute Funding-to-First-Payment Signal:** Median wallet funding-to-first-payment on `x402` dropped to **18 minutes** (Nov 2026), confirming that sub-cent micropayments are how cheap intelligence acquires the verified data, compliance, and compute it needs to compound.
+- **`CausalHarness` (`jev_causal_entropy_router` on `POST /api/mcp`):** Extends Diogo Almeida's Jev decision-routing harness (separating routine vs. hard steps with inspectable, resumable state) with Wissner-Gross Causal Entropic Force ($ec{F} = T 
+abla S_	au$). Every candidate step is scored for both **compute routing** (`DETERMINISTIC_CODE_GATE` vs. `FAST_LOCAL_TIER_8B` vs. `FRONTIER_REASONING_PLUS_FIDUCIARY_GATE`) and **optionality delta** (`optionality_delta_bps` in `[-10000, +10000]`, rewarding resumable state and downstream branch unlocking while penalizing premature irreversible commitments).
+
+### 9.2 Directional Compounding Horizon ($10	imes 	o 100,000	imes$)
+> **2026 Grounding & Honesty Latch:** Today Nano Empire AI is an early-stage deterministic verification and `x402` settlement layer (`46,642` normalized North American recall records, `882` federal tenders, `30` pre-audited MCP repos, `1` operator self-test settled on Base block `51961194`, `0` outside paying customers). The table below documents the directional compounding trajectory of these primitives—not claims of current revenue or scale.
+
+| Horizon | Architectural Role | Core Mechanism | Success Metric |
+|---|---|---|---|
+| **1x (Nov 2026 Live Baseline)** | Deterministic Verification & Tollbooth Layer | `RecallGuard` (`x402` on Base), `SkillProof` (`RFC 8785 JCS + Ed25519`), `BidShield` (`$299 / $499 / $999` deontic gate), `x402/guard`, and 7-tool `Skill++` MCP server | `0 -> 1` outside customer conversion; honest self-test ledger (`block 51961194`) |
+| **10x (Swarm OS)** | Operating System for 100–1,000 Agent Swarms | `CausalHarness` (`jev_causal_entropy_router`) jointly optimizes model routing (`~64%` cost / `~43%` latency cut) and `optionality_delta_bps` | Verified administrative hours returned + positive `optionality_delta_bps` per workflow |
+| **100x (Public Infrastructure)** | Ambient Swarm Ownership & Thermodynamic Proofs | `SkillProof` and `BidShield` act as continuous, portable thermodynamic measures of behavioral integrity and causal entropy contribution | Fraction of institutional coordination friction offloaded from individuals and small teams |
+| **1,000x (Selection Pressure)** | Coordination Cost Near Physical Minimum | Discovery (`A2A`), delegation (`MCP`), settlement (`x402`), and proof (`Ed25519`) operate like packet routing; restrictive low-optionality paths become economically expensive | Sustained expansion of accessible high-value future trajectories per operator |
+| **10,000x – 100,000x (Asymptotic Attractor)** | Convergent Property of Adaptive Intelligence | Joint minimization of wasted computation and maximization of accessible future freedom of action ($
+abla S_	au > 0$) becomes a background property of advanced systems | Agency bounded primarily by physics, energy, and genuine scientific novelty |
+

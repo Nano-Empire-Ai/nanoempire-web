@@ -856,6 +856,49 @@ curl -si https://recallguard-api.vercel.app/api/v1/feed?limit=1
 
 
 
+
+      {/* Jev CausalHarness & 10x -> 100,000x Compounding Horizon */}
+      <section className="py-16 px-6 border-t border-[#8C92A4]/20 bg-[#07090D]">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-[#3ddc97]/40 bg-[#3ddc97]/10 text-[#3ddc97] text-xs font-mono uppercase tracking-widest">
+            Innermost Loop · CausalHarness (jev_causal_entropy_router) · 10x → 100,000x Horizon
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+            From Jev Decision Routing to Thermodynamic Future-Freedom Maximization (F = T ∇S_τ)
+          </h2>
+          <p className="text-sm text-[#8C92A4] font-sans leading-relaxed max-w-4xl">
+            <strong>2026 Honesty Latch:</strong> Today Nano Empire AI is an early-stage deterministic verification and machine-settlement layer (46,642 normalized North American recall records, 882 federal tenders, 30 pre-audited MCP repositories, 1 operator self-test settled on Base block 51961194, 0 outside paying customers). Tool #7 on <code className="text-[#F4F1EA]">POST /api/mcp</code> (<code className="text-[#3ddc97]">jev_causal_entropy_router</code>) combines Jev-style routine-vs-hard model routing with Wissner-Gross Causal Entropy scoring (<code className="text-[#F4F1EA]">optionality_delta_bps</code>) and Ed25519 REA commitments.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 pt-2">
+            <div className="p-4 rounded-lg border border-[#8C92A4]/30 bg-[#0b101b] space-y-2">
+              <div className="text-xs font-mono text-[#3ddc97] font-bold">1x · 2026 Baseline</div>
+              <div className="text-sm font-bold text-white">Trust &amp; Tollbooth Layer</div>
+              <p className="text-xs text-[#8C92A4] font-sans">RecallGuard x402 ($0.05/$0.10), $30 Signed Report, BidShield ($299/$499/$999), SkillProof JCS Ed25519 manifests.</p>
+            </div>
+            <div className="p-4 rounded-lg border border-[#00B5E2]/30 bg-[#0b101b] space-y-2">
+              <div className="text-xs font-mono text-[#00B5E2] font-bold">10x · Swarm OS</div>
+              <div className="text-sm font-bold text-white">CausalHarness Kernel</div>
+              <p className="text-xs text-[#8C92A4] font-sans">Jev-style routing + optionality_delta_bps lets small teams govern 100–1,000 agents while preserving resumable state.</p>
+            </div>
+            <div className="p-4 rounded-lg border border-[#FF7B00]/30 bg-[#0b101b] space-y-2">
+              <div className="text-xs font-mono text-[#FF7B00] font-bold">100x · Public Good</div>
+              <div className="text-sm font-bold text-white">Ambient Swarm Agency</div>
+              <p className="text-xs text-[#8C92A4] font-sans">SkillProof &amp; BidShield act as portable thermodynamic proofs across open community-evolved policies.</p>
+            </div>
+            <div className="p-4 rounded-lg border border-[#A3FF00]/30 bg-[#0b101b] space-y-2">
+              <div className="text-xs font-mono text-[#A3FF00] font-bold">1,000x · Gradient</div>
+              <div className="text-sm font-bold text-white">Friction Minimum</div>
+              <p className="text-xs text-[#8C92A4] font-sans">Discovery, delegation, settlement, and proof operate like packet routing; restrictive paths are selected against.</p>
+            </div>
+            <div className="p-4 rounded-lg border border-purple-400/30 bg-[#0b101b] space-y-2">
+              <div className="text-xs font-mono text-purple-300 font-bold">10,000x–100,000x</div>
+              <div className="text-sm font-bold text-white">Thermodynamic Attractor</div>
+              <p className="text-xs text-[#8C92A4] font-sans">Primitives dissolve into the substrate; agency is bounded primarily by physics, energy, and genuine novelty.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
 
       <footer className="py-12 border-t border-[#8C92A4]/20 bg-[#07090D] text-[#8C92A4] text-xs text-center font-mono">

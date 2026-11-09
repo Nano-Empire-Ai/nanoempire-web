@@ -105,7 +105,7 @@ export async function GET(req: NextRequest) {
         id: 'skillproof-status',
         name: 'SkillProof Pre-Audit & Trust Manifest Status Gate',
         description:
-          'SUPPORTS: Sub-200ms lookup of deterministic code-surface findings, commit tree_sha, skillproof_score (28 flagship MCP repos indexed), and RFC 8785 JCS Ed25519 verification metadata before delegating tasks or spend.',
+          'SUPPORTS: Sub-200ms lookup of deterministic code-surface findings, commit tree_sha, skillproof_score (30 flagship MCP repos indexed), and RFC 8785 JCS Ed25519 verification metadata before delegating tasks or spend.',
         price: 'FREE (JSON)',
         price_micro_usd: 0,
         method: 'GET',
@@ -138,7 +138,7 @@ export async function GET(req: NextRequest) {
         id: 'mcp-streamable-http',
         name: 'Nano Empire Streamable HTTP MCP Server',
         description:
-          '6 live MCP tools with Skill++ differential metadata: recallradar_check_product, recallradar_audit_manifest_info, skillproof_verify_repo, bidshield_triage_info, bidshield_evaluate_solicitation_gate, astryx_compose_proof_ui.',
+          '7 live MCP tools with Skill++ differential metadata: recallradar_check_product, recallradar_audit_manifest_info, skillproof_verify_repo, bidshield_triage_info, bidshield_evaluate_solicitation_gate, astryx_compose_proof_ui, jev_causal_entropy_router.',
         price: 'FREE discovery & lookups',
         price_micro_usd: 0,
         method: 'POST',

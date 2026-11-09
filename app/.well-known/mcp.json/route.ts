@@ -6,7 +6,7 @@ export async function GET() {
     schemaVersion: '1.7.0',
     name: 'Nano Empire AI — RecallRadar, SkillProof, BidShield & Astryx MCP',
     description:
-      'Streamable HTTP MCP server exposing 6 deterministic Skill++ tools: (1) recallradar_check_product (46,642 normalized US/CA recalls + unilateral CPSC warnings), (2) recallradar_audit_manifest_info, (3) skillproof_verify_repo (28-repo MCP pre-audit index + RFC 8785 JCS Ed25519 trust verification), (4) bidshield_triage_info (882 federal tenders & 8 NAICS compliance hubs), (5) bidshield_evaluate_solicitation_gate (sentence-bounded deontic compliance gate for federal tenders & AP2 Human-Not-Present mandates), and (6) astryx_compose_proof_ui (constraint-governed React 19 Proof-Native UI composer).',
+      'Streamable HTTP MCP server exposing 7 deterministic Skill++ tools: (1) recallradar_check_product (46,642 normalized US/CA recalls + unilateral CPSC warnings), (2) recallradar_audit_manifest_info, (3) skillproof_verify_repo (30-repo MCP pre-audit index + RFC 8785 JCS Ed25519 trust verification), (4) bidshield_triage_info (882 federal tenders & 8 NAICS compliance hubs), (5) bidshield_evaluate_solicitation_gate (sentence-bounded deontic compliance gate for federal tenders & AP2 Human-Not-Present mandates), (6) astryx_compose_proof_ui (constraint-governed React 19 Proof-Native UI composer), and (7) jev_causal_entropy_router (CausalHarness Jev model router + Wissner-Gross optionality_delta_bps evaluator).',
     serverUrl: 'https://www.nanoempireai.com/api/mcp',
     transport: 'streamable-http',
     authentication: 'none',

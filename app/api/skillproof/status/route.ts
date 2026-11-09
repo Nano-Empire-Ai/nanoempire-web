@@ -86,6 +86,9 @@ export async function GET(req: NextRequest) {
     delegationRecommendation = 'CONDITIONAL_SANDBOX_ONLY';
   }
 
+  const optionalityDeltaBps = Math.max(-10000, Math.min(10000, (score - 70) * 200 - critCount * 4000 - highCount * 2000));
+  const causalEntropyScoreBps = Math.max(0, Math.min(10000, score * 100));
+
   return NextResponse.json(
     {
       schema: 'https://www.nanoempireai.com/schemas/skillproof-status-v1.json',
@@ -96,6 +99,16 @@ export async function GET(req: NextRequest) {
       branch: match.branch,
       skillproof_score: score,
       delegation_recommendation: delegationRecommendation,
+      causal_entropy_telemetry: {
+        optionality_delta_bps: optionalityDeltaBps,
+        causal_entropy_score_bps: causalEntropyScoreBps,
+        future_freedom_verdict:
+          delegationRecommendation === 'ALLOW_BOUNDED'
+            ? 'EXPANDS_SWARM_OPTIONALITY_BOUNDED'
+            : delegationRecommendation === 'CONDITIONAL_SANDBOX_ONLY'
+              ? 'RESTRICT_TO_EPHEMERAL_SANDBOX'
+              : 'CONTRACTS_OPTIONALITY_HALT_DELEGATION',
+      },
       surface_summary: match.surface_summary,
       governance_gaps: match.governance_gaps || [],
       code_surface_findings: match.code_surface_findings || [],
