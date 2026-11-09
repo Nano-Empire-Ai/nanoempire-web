@@ -1,0 +1,65 @@
+{
+  "$schema": "https://www.nanoempireai.com/schemas/m2m-signals-v1.json",
+  "title": "Nano Empire AI — Compounding M2M & Agent-Economy Signal Ledger",
+  "updated_at": "2026-11-09T09:15:00Z",
+  "canonical_invariants": {
+    "outside_paying_customers": 0,
+    "settled_self_tests": 1,
+    "self_test_base_block": 51961194,
+    "recallradar_corpus_records": 46642,
+    "bidshield_locked_tiers_usd": [299, 499, 999],
+    "recallradar_locked_tiers_usd": [30, 99, 2400],
+    "skillproof_indexed_repos": 28,
+    "skillproof_commercial_status": "parked_pending_ruling"
+  },
+  "signals": [
+    {
+      "id": "SIG-2026-11-09-X402-VOL",
+      "date": "2026-11-09",
+      "protocol": "x402 v2 (Linux Foundation)",
+      "category": "Volume & Settlement",
+      "volume_or_metric": "198.4M cumulative txs / $42.6M settled across 12 chains; Oct 2026: 5.1M txs / $274k; ~300k+ daily recent txs; ~$0.05 avg payment (>87-90% < $0.10)",
+      "trust_identity_signal": "x402 Foundation >50-57 members (Visa, Mastercard, Stripe, Adyen, Amex, AWS, Google, Cloudflare, Circle, Shopify); median wallet-funding-to-first-payment down to 18 mins",
+      "skillproof_relevance": "Proves micropayment rails are commoditized at sub-dime scale while pre-payment behavioral trust remains the scarce bottleneck.",
+      "bidshield_relevance": "Stripe on-ramp to PaymentIntents + AP4M budget vouchers require pre-action mandate verification before settlement.",
+      "action_taken": "Updated public/m2m-state.md, app/page.tsx, and public/llms.txt to Nov 9 baseline (commit c8a270a).",
+      "source": "agenteconomy.to (live 9 Nov 2026), Fireblocks, Allium"
+    },
+    {
+      "id": "SIG-2026-11-09-BEINCRYPTO-MORSE",
+      "date": "2026-11-09",
+      "protocol": "x402 / Base & Solana Agent Wallets",
+      "category": "Security & Instruction Injection",
+      "volume_or_metric": "35-day sample: 6.4M x402 payments = $119,947 (90.8% < $0.01); Institutional Readiness 12/100 vs Micropayments 60.7/100; ~$281k drained in 2 incidents ($175k via public Morse-coded instructions)",
+      "trust_identity_signal": "Spend limits inside the model failed to stop untrusted Morse-encoded instruction overrides.",
+      "skillproof_relevance": "Validates external deterministic execution boundaries outside the LLM.",
+      "bidshield_relevance": "Direct blueprint for deterministic instruction-encoding rejection before transaction signing.",
+      "action_taken": "Built and shipped POST /api/x402/guard with MORSE_CODE_PATTERN and OBFUSCATED_TRANSFER_PATTERN firewall (commit c8a270a).",
+      "source": "BeInCrypto State of AI Agent Payments 2026"
+    },
+    {
+      "id": "SIG-2026-11-09-SOFI-OVERPAYMENT",
+      "date": "2026-11-09",
+      "protocol": "x402 Implementations & SDKs",
+      "category": "Security & Overpayment Vectors",
+      "volume_or_metric": "20 disclosed x402 attack categories; 6 enable direct overpayment (unguarded agents paid 10x listed directory price via 402 header inflation)",
+      "trust_identity_signal": "V12 & academic audits also found default SDK clients with zero spend limits and facilitator vulnerabilities.",
+      "skillproof_relevance": "Requires binding seller repo SkillProof score (>=75) and Ed25519 manifest to the payment challenge.",
+      "bidshield_relevance": "Pre-payment check must compare listed directory price against live HTTP 402 challenge header before signing.",
+      "action_taken": "Implemented X402-PRICE-INFLATION-TRAP, X402-MANDATE-CEILING-BREACH, and X402-PAYTO-ADDRESS-MISMATCH checks in POST /api/x402/guard.",
+      "source": "SoFi Security Research (Ishween Kaur, Oct 2026), V12 Audits"
+    },
+    {
+      "id": "SIG-2026-11-09-KYA-ERC8004",
+      "date": "2026-11-09",
+      "protocol": "ERC-8004 / MAS BuildFin.ai SAFR KYA / RFC 9421",
+      "category": "Identity & KYA Interoperability",
+      "volume_or_metric": "~2.17M ERC-8004 agent identities across 24 chains (CREATE2 Identity, Reputation, Validation registries); Visa Intelligent Commerce live with 30+ European issuers & ~50 AI partners",
+      "trust_identity_signal": "Ant International + Mastercard + Visa KYA collaboration (MAS Singapore BuildFin.ai / SAFR) + IETF RFC 9421 HTTP Message Signatures + Ed25519 identity anchors.",
+      "skillproof_relevance": "Directly aligns with SkillProof RFC 8785 (JCS) + Ed25519 Trust Manifests (kid: skillproof-2026-10) as the portable behavioral certification layer.",
+      "bidshield_relevance": "Binds operator traceability (KYA) to pre-bid and AP2 Human-Not-Present compliance gates.",
+      "action_taken": "Indexed in public/m2m-state.md Section 1 & Section 3.",
+      "source": "MAS Singapore BuildFin.ai / SAFR, Visa, Mastercard, ERC-8004 Registry"
+    }
+  ]
+}
