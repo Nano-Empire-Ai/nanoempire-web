@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { NAICS_DATA } from '@/lib/recall-data';
+import { signAttestation } from '@/lib/attestation';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,7 +19,7 @@ const DISQUALIFIER_RULES: DisqualifierRule[] = [
     id: 'TRAP-SITE-VISIT',
     severity: 'FATAL',
     clause_type: 'Mandatory Site Visit / Bidders Conference',
-    pattern: /\b(mandatory\s+(site\s+visit|walk[- ]?through|bidders?\s+conference|pre[- ]?bid\s+meeting)|attendance\s+is\s+mandatory)\b/i,
+    pattern: /\b(mandatory\s+(site\s+visit|walk[- ]?through|bidders?\s+conference|pre[- ]?bid\s+meeting)|attendance\s+is\s+mandatory)\b/gi,
     exposure_usd: 15000,
     remediation: 'Verify signed attendance sheet receipt before allocating bid preparation labor; absence is an automatic administrative rejection.',
   },
@@ -26,7 +27,7 @@ const DISQUALIFIER_RULES: DisqualifierRule[] = [
     id: 'TRAP-SECURITY-CLEARANCE',
     severity: 'FATAL',
     clause_type: 'Facility / Personnel Security Clearance Gate',
-    pattern: /\b(secret\s+clearance|top\s+secret|facility\s+security\s+clearance|fsc|reliability\s+status|cismp|fedramp\s+high|fisma)\b/i,
+    pattern: /\b(secret\s+clearance|top\s+secret|facility\s+security\s+clearance|fsc|reliability\s+status|cismp|fedramp\s+high|fisma)\b/gi,
     exposure_usd: 45000,
     remediation: 'Confirm active clearance sponsorship at time of bid closing (not post-award) unless solicitation explicitly permits post-award sponsorship.',
   },
@@ -34,7 +35,7 @@ const DISQUALIFIER_RULES: DisqualifierRule[] = [
     id: 'TRAP-BONDING-SURETY',
     severity: 'HIGH',
     clause_type: 'Performance & Payment Bonding / Surety Mandate',
-    pattern: /\b(performance\s+bond|payment\s+bond|bid\s+bond|surety\s+company|letter\s+of\s+credit|100%\s+bond)\b/i,
+    pattern: /\b(performance\s+bond|payment\s+bond|bid\s+bond|surety\s+company|letter\s+of\s+credit|100%\s+bond)\b/gi,
     exposure_usd: 25000,
     remediation: 'Lock surety capacity and countersigned bid bond Annex prior to submission deadline.',
   },
@@ -42,7 +43,7 @@ const DISQUALIFIER_RULES: DisqualifierRule[] = [
     id: 'TRAP-LIQUIDATED-DAMAGES',
     severity: 'HIGH',
     clause_type: 'Uncapped or Daily Liquidated Damages',
-    pattern: /\b(liquidated\s+damages|penalty\s+per\s+calendar\s+day|delay\s+damages|consequential\s+damages)\b/i,
+    pattern: /\b(liquidated\s+damages|penalty\s+per\s+calendar\s+day|delay\s+damages|consequential\s+damages)\b/gi,
     exposure_usd: 35000,
     remediation: 'Model schedule buffer and cap exposure in pricing contingency; submit formal Q&A clarification if daily penalty exceeds margin.',
   },
@@ -50,7 +51,7 @@ const DISQUALIFIER_RULES: DisqualifierRule[] = [
     id: 'TRAP-DOMESTIC-SOURCING',
     severity: 'HIGH',
     clause_type: 'Buy American / Trade Agreement / Prevailing Wage',
-    pattern: /\b(buy\s+american|baa|taa\s+compliant|davis[- ]?bacon|prevailing\s+wage|certified\s+payroll|canadian\s+content\s+policy)\b/i,
+    pattern: /\b(buy\s+american|baa|taa\s+compliant|davis[- ]?bacon|prevailing\s+wage|certified\s+payroll|canadian\s+content\s+policy)\b/gi,
     exposure_usd: 20000,
     remediation: 'Audit OEM bill-of-materials origin and Davis-Bacon / prevailing wage labor rates before locking fixed-price schedule.',
   },
@@ -58,18 +59,42 @@ const DISQUALIFIER_RULES: DisqualifierRule[] = [
     id: 'TRAP-INSURANCE-INDEMNITY',
     severity: 'MEDIUM',
     clause_type: 'Professional Liability / Errors & Omissions / Cyber Indemnity',
-    pattern: /\b(errors\s+and\s+omissions|e&o|professional\s+liability|umbrella\s+liability|additional\s+insured|waiver\s+of\s+subrogation)\b/i,
+    pattern: /\b(errors\s+and\s+omissions|e&o|professional\s+liability|umbrella\s+liability|additional\s+insured|waiver\s+of\s+subrogation)\b/gi,
     exposure_usd: 10000,
     remediation: 'Confirm current Certificate of Insurance (COI) limits match solicitation minimums prior to signing.',
   },
 ];
 
+/**
+ * Bidirectional Deontic Negation Filter (+/- 220 chars inside the same clause/sentence).
+ * Prevents false-positive HALT gates on federal boilerplate disclaimers like:
+ *   "There is no security clearance requirement" or "A mandatory site visit is not required."
+ */
+const NEGATION_CUES = /\b(no\s+(?:security|mandatory|site\s+visit|bonding|bid\s+bond|performance\s+bond)|not\s+(?:required|applicable|mandatory)|is\s+optional|waived|none\s+required|without\s+a\s+mandatory|does\s+not\s+require)\b/i;
+
+function hasUnnegatedMatch(text: string, regex: RegExp): { matched: boolean; snippet: string | null } {
+  const clone = new RegExp(regex.source, regex.flags.includes('g') ? regex.flags : `${regex.flags}g`);
+  let m: RegExpExecArray | null;
+  while ((m = clone.exec(text)) !== null) {
+    const start = Math.max(0, m.index - 120);
+    const end = Math.min(text.length, m.index + m[0].length + 120);
+    const windowText = text.slice(start, end);
+    // Split on sentence boundaries so a negation in a prior sentence doesn't mask a real amendment override
+    const sentenceParts = windowText.split(/(?<=[.!?])\s+/);
+    const matchingSentence = sentenceParts.find((s) => new RegExp(regex.source, 'i').test(s)) || windowText;
+    if (!NEGATION_CUES.test(matchingSentence)) {
+      return { matched: true, snippet: matchingSentence.trim().slice(0, 180) };
+    }
+  }
+  return { matched: false, snippet: null };
+}
+
 export async function GET() {
   return NextResponse.json({
     schema: 'https://www.nanoempireai.com/schemas/bidshield-gate-v1.json',
-    name: 'BidShield Pre-Action Compliance Gate',
+    name: 'BidShield Pre-Action Compliance Gate (Deterministic Deontic Kernel v2)',
     purpose:
-      'Machine-readable pre-bid and pre-mandate compliance gate for AP2 Human-Not-Present workflows, Mastercard AP4M spend controls, and federal RFP triage (CanadaBuys / SAM.gov).',
+      'Machine-readable pre-bid and pre-mandate compliance gate for AP2 Human-Not-Present workflows, Mastercard AP4M spend controls, and federal RFP triage (CanadaBuys / SAM.gov). Features bidirectional deontic negation filtering and Ed25519 attestation.',
     usage: {
       method: 'POST',
       endpoint: 'https://www.nanoempireai.com/api/bidshield/gate',
@@ -81,9 +106,9 @@ export async function GET() {
     },
     supported_naics_hubs: Object.keys(NAICS_DATA),
     human_tiers: {
-      tier_1_urgent_triage: { price_usd: 99, turnaround: '24 Hours', url: 'https://www.nanoempireai.com/bidshield/triage' },
-      tier_2_full_matrix: { price_usd: 249, turnaround: '48 Hours', url: 'https://www.nanoempireai.com/bidshield' },
-      tier_3_multidoc_suite: { price_usd: 499, turnaround: '72 Hours', url: 'https://www.nanoempireai.com/bidshield' },
+      tier_1_pilot: { price_usd: 299, name: 'BidShield Compliance Pilot', turnaround: '24 Hours', url: 'https://www.nanoempireai.com/bidshield' },
+      tier_2_standard_matrix: { price_usd: 499, name: 'Standard 19-Column Compliance Matrix', turnaround: '48 Hours', url: 'https://www.nanoempireai.com/bidshield' },
+      tier_3_full_suite: { price_usd: 999, name: 'Full Multi-Volume Proposal & Addenda Audit', turnaround: '72 Hours', url: 'https://www.nanoempireai.com/bidshield' },
     },
   });
 }
@@ -108,13 +133,28 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const triggeredTraps = DISQUALIFIER_RULES.filter((rule) => rule.pattern.test(text)).map((r) => ({
-      id: r.id,
-      severity: r.severity,
-      clause_type: r.clause_type,
-      estimated_jev_exposure_usd: r.exposure_usd,
-      remediation: r.remediation,
-    }));
+    const triggeredTraps: Array<{
+      id: string;
+      severity: 'FATAL' | 'HIGH' | 'MEDIUM';
+      clause_type: string;
+      estimated_jev_exposure_usd: number;
+      evidence_snippet: string | null;
+      remediation: string;
+    }> = [];
+
+    for (const rule of DISQUALIFIER_RULES) {
+      const check = hasUnnegatedMatch(text, rule.pattern);
+      if (check.matched) {
+        triggeredTraps.push({
+          id: rule.id,
+          severity: rule.severity,
+          clause_type: rule.clause_type,
+          estimated_jev_exposure_usd: rule.exposure_usd,
+          evidence_snippet: check.snippet,
+          remediation: rule.remediation,
+        });
+      }
+    }
 
     const naicsProfile = naicsCode && NAICS_DATA[naicsCode] ? NAICS_DATA[naicsCode] : null;
     const fatalCount = triggeredTraps.filter((t) => t.severity === 'FATAL').length;
@@ -132,18 +172,27 @@ export async function POST(req: NextRequest) {
     }
 
     const totalJevExposure = triggeredTraps.reduce((acc, t) => acc + t.estimated_jev_exposure_usd, 0);
-    const gateHash = crypto
-      .createHash('sha256')
-      .update(`${naicsCode}:${text.slice(0, 500)}:${gateDecision}`)
-      .digest('hex')
-      .slice(0, 16)
-      .toUpperCase();
+
+    // Deterministic canonical commitment over full input + rule evaluation (reproducible across identical calls)
+    const deterministicCore = {
+      contract_value_evaluated_usd: contractValue,
+      fatal_and_high_traps_detected: triggeredTraps.map((t) => t.id),
+      gate_decision: gateDecision,
+      naics_code: naicsCode || null,
+      quantified_decision_exposure_jev_usd: totalJevExposure,
+      risk_score_0_100: riskScore,
+      text_sha256: crypto.createHash('sha256').update(text, 'utf8').digest('hex'),
+    };
+    const jcsBytes = Buffer.from(JSON.stringify(deterministicCore), 'utf8');
+    const reaCommitmentSha256 = crypto.createHash('sha256').update(jcsBytes).digest('hex');
+    const gateHash = reaCommitmentSha256.slice(0, 16).toUpperCase();
+    const attestation = signAttestation(jcsBytes);
 
     return NextResponse.json(
       {
         schema: 'https://www.nanoempireai.com/schemas/bidshield-gate-v1.json',
         gate_id: `BSG-${gateHash}`,
-        timestamp: new Date().toISOString(),
+        rea_commitment_sha256: reaCommitmentSha256,
         gate_decision: gateDecision,
         ap2_mandate_recommendation:
           gateDecision === 'PASS_PRELIMINARY'
@@ -161,16 +210,19 @@ export async function POST(req: NextRequest) {
             }
           : null,
         fatal_and_high_traps_detected: triggeredTraps,
+        attestation,
         next_actions: {
           free_interactive_triage: 'https://www.nanoempireai.com/bidshield/triage',
-          urgent_24h_human_verified_triage_usd_99: 'https://www.nanoempireai.com/bidshield',
-          full_48h_compliance_matrix_usd_249: 'https://www.nanoempireai.com/bidshield',
+          pilot_stop_go_audit_usd_299: 'https://www.nanoempireai.com/bidshield',
+          standard_19_col_matrix_usd_499: 'https://www.nanoempireai.com/bidshield',
+          full_proposal_suite_usd_999: 'https://www.nanoempireai.com/bidshield',
         },
       },
       {
         headers: {
           'X-BidShield-Gate-ID': `BSG-${gateHash}`,
           'X-BidShield-Decision': gateDecision,
+          'X-BidShield-REA-SHA256': reaCommitmentSha256,
         },
       }
     );
