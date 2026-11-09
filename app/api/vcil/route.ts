@@ -5,7 +5,7 @@ import latestCpscData from '@/public/recalls/latest-cpsc.json';
 import preauditsData from '@/public/skillproof/preaudits.json';
 import tendersData from '@/public/bidshield/tenders.json';
 // @ts-ignore
-import { matchItem } from '../../../../lib/recall-matcher/match.js';
+import { matchItem } from '../../../lib/recall-matcher/match.js';
 
 export const dynamic = 'force-dynamic';
 
