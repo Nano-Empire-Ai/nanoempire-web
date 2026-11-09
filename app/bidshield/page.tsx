@@ -92,7 +92,7 @@ export default function BidShieldIndexPage() {
             </span>
           </div>
 
-          <TenderFeed initialTenders={tendersData?.tenders || []} premierCount={16} />
+          <TenderFeed initialTenders={(tendersData?.tenders || []).slice(0, 32).map((x: any) => ({ solicitation_id: x.solicitation_id, title: x.title, buyer: x.buyer, jurisdiction: x.jurisdiction, category: x.category, naics_code: x.naics_code, contract_midpoint_usd: x.contract_midpoint_usd, combined_jev_exposure_usd: x.combined_jev_exposure_usd, closes_at_iso: x.closes_at_iso, status: x.status, mandatory_gates: x.mandatory_gates || [], missing_annex_count: x.missing_annex_count || 3, urgent_under_72h: x.urgent_under_72h, hours_remaining_at_harvest: x.hours_remaining_at_harvest }))} totalCount={(tendersData?.tenders || []).length} premierCount={16} />
         </section>
 
         {/* NAICS Directory */}

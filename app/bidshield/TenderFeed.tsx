@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import Link from 'next/link';
-import { Search, Clock, AlertOctagon, FileText, ChevronRight, Filter, ShieldAlert, Zap } from 'lucide-react';
+import { Search, Clock, AlertOctagon, FileText, ChevronRight, ShieldAlert, Zap } from 'lucide-react';
 
-interface Tender {
+export interface TenderSummary {
   solicitation_id: string;
   tender_number?: string;
   title: string;
@@ -23,24 +23,47 @@ interface Tender {
 }
 
 interface Props {
-  initialTenders: Tender[];
+  initialTenders: TenderSummary[];
+  totalCount?: number;
   premierCount?: number;
 }
 
-export default function TenderFeed({ initialTenders, premierCount = 16 }: Props) {
+export default function TenderFeed({ initialTenders, totalCount, premierCount = 16 }: Props) {
+  const [tenders, setTenders] = useState<TenderSummary[]>(initialTenders);
+  const [fullLoaded, setFullLoaded] = useState(false);
+  const [loadingFull, setLoadingFull] = useState(false);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<'all' | 'urgent' | 'fatal' | 'premier'>('all');
   const [visibleCount, setVisibleCount] = useState(16);
 
+  const ensureFullCorpus = useCallback(async () => {
+    if (fullLoaded || loadingFull) return;
+    setLoadingFull(true);
+    try {
+      const res = await fetch('/bidshield/tenders.json');
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data?.tenders)) {
+          setTenders(data.tenders);
+          setFullLoaded(true);
+        }
+      }
+    } catch {
+      // Keep initial SSR slice if network fails
+    } finally {
+      setLoadingFull(false);
+    }
+  }, [fullLoaded, loadingFull]);
+
   const filtered = useMemo(() => {
-    let list = initialTenders;
+    let list = tenders;
 
     if (filter === 'premier') {
       list = list.slice(0, premierCount);
     } else if (filter === 'urgent') {
       list = list.filter((t) => t.urgent_under_72h || (t.hours_remaining_at_harvest && t.hours_remaining_at_harvest <= 72));
     } else if (filter === 'fatal') {
-      list = list.filter((t) => t.status === 'HALT_REVIEW_FATAL_GATES' || t.mandatory_gates.length > 0);
+      list = list.filter((t) => t.status === 'HALT_REVIEW_FATAL_GATES' || (t.mandatory_gates && t.mandatory_gates.length > 0));
     }
 
     if (search.trim()) {
@@ -56,9 +79,10 @@ export default function TenderFeed({ initialTenders, premierCount = 16 }: Props)
     }
 
     return list;
-  }, [initialTenders, search, filter, premierCount]);
+  }, [tenders, search, filter, premierCount]);
 
   const displayed = filtered.slice(0, visibleCount);
+  const displayTotal = fullLoaded ? tenders.length : totalCount || tenders.length;
 
   return (
     <div>
@@ -69,11 +93,15 @@ export default function TenderFeed({ initialTenders, premierCount = 16 }: Props)
           <input
             type="text"
             value={search}
+            onFocus={() => {
+              void ensureFullCorpus();
+            }}
             onChange={(e) => {
+              void ensureFullCorpus();
               setSearch(e.target.value);
               setVisibleCount(16);
             }}
-            placeholder="Search by ID, keyword, buyer, or NAICS (e.g. NRC-87055, HVAC, 238220)..."
+            placeholder="Search 880+ tenders by ID, keyword, buyer, or NAICS (e.g. NRC-87055, HVAC)..."
             className="w-full pl-10 pr-4 py-2.5 bg-black/50 border border-slate-800 rounded-xl text-xs font-mono text-white placeholder-slate-500 focus:outline-none focus:border-amber-500/50"
           />
         </div>
@@ -91,10 +119,11 @@ export default function TenderFeed({ initialTenders, premierCount = 16 }: Props)
                 : 'bg-black/30 text-slate-400 border-slate-800 hover:text-white'
             }`}
           >
-            All Tenders ({initialTenders.length})
+            All Tenders ({displayTotal})
           </button>
           <button
             onClick={() => {
+              void ensureFullCorpus();
               setFilter('urgent');
               setVisibleCount(16);
             }}
@@ -109,6 +138,7 @@ export default function TenderFeed({ initialTenders, premierCount = 16 }: Props)
           </button>
           <button
             onClick={() => {
+              void ensureFullCorpus();
               setFilter('fatal');
               setVisibleCount(16);
             }}
@@ -140,7 +170,9 @@ export default function TenderFeed({ initialTenders, premierCount = 16 }: Props)
       {/* Grid of Solicitations */}
       {displayed.length === 0 ? (
         <div className="text-center py-12 border border-dashed border-slate-800 rounded-2xl p-8">
-          <p className="text-sm font-mono text-slate-400">No solicitations match your search filter.</p>
+          <p className="text-sm font-mono text-slate-400">
+            {loadingFull ? 'Loading full 882-tender corpus...' : 'No solicitations match your search filter.'}
+          </p>
           <button
             onClick={() => {
               setSearch('');
@@ -223,13 +255,18 @@ export default function TenderFeed({ initialTenders, premierCount = 16 }: Props)
       )}
 
       {/* Show More Pagination Button */}
-      {filtered.length > visibleCount && (
+      {(filtered.length > visibleCount || (!fullLoaded && displayTotal > visibleCount)) && (
         <div className="mt-8 text-center">
           <button
-            onClick={() => setVisibleCount((prev) => prev + 16)}
+            onClick={() => {
+              void ensureFullCorpus();
+              setVisibleCount((prev) => prev + 16);
+            }}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-xs font-mono text-slate-200 hover:text-white transition"
           >
-            Show Next 16 Solicitations ({filtered.length - visibleCount} remaining)
+            {loadingFull
+              ? 'Loading Full Corpus...'
+              : `Show Next 16 Solicitations (${Math.max(0, (filter === 'all' && !search ? displayTotal : filtered.length) - visibleCount)} remaining)`}
           </button>
         </div>
       )}
