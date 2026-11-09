@@ -946,6 +946,52 @@
       "preaudit_id": "SP-0CEF74F9F140E34F",
       "audited_at": "2026-11-09",
       "surface_summary": "Scanned 4 entrypoints (design/data/client-states.js, design/logic/client-states.js); 1 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at docfx/template/public/main.js:L91."
+    },
+    {
+      "repo": "Nano-Empire-Ai/nanoempire-web",
+      "stars": 1,
+      "branch": "main",
+      "tree_sha": "84936f02f289",
+      "license": "MIT",
+      "total_files_in_repo": 240,
+      "sampled_source_files": [
+        "app/api/skillproof/status/route.ts",
+        "app/api/recall-report/unlock/route.ts",
+        "app/api/vin/decode/route.ts",
+        "lib/attestation.ts"
+      ],
+      "skillproof_score": 86,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "app/api/recall-report/unlock/route.ts",
+          "line": 7,
+          "snippet": "const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '[REDACTED]', {"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "app/api/vin/decode/route.ts",
+          "line": 54,
+          "snippet": "const res = await fetch(`https://api.stripe.com/v1/payment_intents/${parsed.tx}`, {"
+        },
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "lib/attestation.ts",
+          "line": 21,
+          "snippet": "const pem = process.env.ATTESTATION_ED25519_PRIVATE_KEY_PEM?.replace(/\\\\n/g, '\\n');"
+        }
+      ],
+      "preaudit_id": "SP-84936F02F289AA43",
+      "audited_at": "2026-11-08",
+      "surface_summary": "Scanned 4 entrypoints (app/api/skillproof/status/route.ts, app/api/recall-report/unlock/route.ts, app/api/vin/decode/route.ts, lib/attestation.ts); 0 CRITICAL/HIGH execution sinks; full SECURITY.md, LICENSE, and lockfile governance verified."
     }
-  ]
+  ],
+  "total_repos": 30
 }
