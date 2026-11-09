@@ -543,6 +543,77 @@
           }
         }
       }
+    },
+    "/api/vcil": {
+      "get": {
+        "summary": "VCIL Compliance Graph Metadata & Live Delta Engine (?mode=delta)",
+        "operationId": "getVcilDeltaOrInfo",
+        "parameters": [
+          {
+            "name": "mode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "summary",
+                "delta"
+              ]
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "2026-09-01"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "VCIL metadata or signed CPSC/SkillProof/BidShield delta feed"
+          }
+        }
+      },
+      "post": {
+        "summary": "Execute Unified VCIL Compliance Graph Verification (Entity -> Obligation -> Risk -> Evidence)",
+        "operationId": "evaluateVcilComplianceGraph",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "entity_name": {
+                    "type": "string"
+                  },
+                  "product_query": {
+                    "type": "string"
+                  },
+                  "upc": {
+                    "type": "string"
+                  },
+                  "supplier_repo": {
+                    "type": "string"
+                  },
+                  "solicitation_text": {
+                    "type": "string"
+                  },
+                  "naics_code": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ed25519-signed VCIL Compliance Graph receipt"
+          }
+        }
+      }
     }
   },
   "components": {
