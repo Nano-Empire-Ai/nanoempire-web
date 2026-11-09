@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Nano Empire AI \u2014 Unified Machine-Native APIs",
-    "version": "1.6.0",
-    "description": "Unified API spec for Nano Empire services: RecallGuard (x402 on Base), SkillProof Pre-Audit & Ed25519 Trust Manifest Status (/api/skillproof/status), BidShield Pre-Action Compliance Gate (/api/bidshield/gate), and Streamable HTTP MCP (/api/mcp). Honest status: 1 RecallGuard Match operator self-test settled on Base block 51961194 (2026-09-29); 0 outside paying customers. Legacy trial/orchestrator routes below are in paper_mode (not active).",
+    "version": "1.7.0",
+    "description": "Unified OpenAPI 3.1.0 specification for Nano Empire AI deterministic verification and machine-settlement endpoints: Streamable HTTP MCP (/api/mcp), SkillProof 28-Repo Pre-Audit & RFC 8785 JCS Ed25519 Trust Manifest Status (/api/skillproof/status), BidShield Deontic Compliance Gate (/api/bidshield/gate), x402 Pre-Settlement Overpayment Guard (/api/x402/guard), and RecallGuard x402 on Base (/api/v1/health, /api/v1/feed, /api/v1/match). Honest ledger status: 1 RecallGuard Match operator self-test settled on Base block 51961194 (2026-09-29); 0 outside paying customers.",
     "contact": {
       "name": "Nano Empire AI",
       "url": "https://www.nanoempireai.com",
@@ -12,7 +12,9 @@
     "x-paper-mode": false,
     "x-outside-paying-customers": 0,
     "x-verified-self-tests": 1,
-    "x-m2m-state-briefing": "https://www.nanoempireai.com/m2m-state.md"
+    "x-m2m-state-briefing": "https://www.nanoempireai.com/m2m-state.md",
+    "x-workflow-plan": "https://www.nanoempireai.com/.well-known/workflow-plan.json",
+    "x-agent-card": "https://www.nanoempireai.com/.well-known/agent-card.json"
   },
   "servers": [
     {
@@ -34,6 +36,230 @@
     }
   ],
   "paths": {
+    "/api/mcp": {
+      "get": {
+        "summary": "MCP Server Metadata & 6 Skill++ Tool Definitions",
+        "operationId": "getMcpManifest",
+        "responses": {
+          "200": {
+            "description": "MCP server metadata and tool schemas"
+          }
+        }
+      },
+      "post": {
+        "summary": "Execute MCP JSON-RPC 2.0 (initialize, tools/list, tools/call)",
+        "operationId": "callMcpJsonRpc",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "jsonrpc",
+                  "method"
+                ],
+                "properties": {
+                  "jsonrpc": {
+                    "type": "string",
+                    "default": "2.0"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "default": 1
+                  },
+                  "method": {
+                    "type": "string",
+                    "enum": [
+                      "initialize",
+                      "tools/list",
+                      "tools/call"
+                    ]
+                  },
+                  "params": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON-RPC 2.0 result"
+          }
+        }
+      }
+    },
+    "/api/skillproof/status": {
+      "get": {
+        "summary": "SkillProof 28-Repo Pre-Audit & RFC 8785 JCS Ed25519 Trust Manifest Lookup",
+        "operationId": "getSkillproofStatus",
+        "parameters": [
+          {
+            "name": "repo",
+            "in": "query",
+            "required": false,
+            "description": "GitHub owner/repo (e.g. pydantic/pydantic-ai or Nano-Empire-Ai/nanoempire-web)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deterministic SkillProof score, tree_sha, line-cited findings, and delegation gate"
+          }
+        }
+      }
+    },
+    "/api/bidshield/gate": {
+      "get": {
+        "summary": "BidShield Deontic Compliance Gate Metadata & Pricing Ladder ( /  / )",
+        "operationId": "getBidshieldGateInfo",
+        "responses": {
+          "200": {
+            "description": "BidShield gate capabilities and locked pricing ladder"
+          }
+        }
+      },
+      "post": {
+        "summary": "Evaluate Solicitation or AP2 Mandate Across 5 Fatal Disqualifier Gates",
+        "operationId": "evaluateBidshieldGate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "solicitation_text"
+                ],
+                "properties": {
+                  "solicitation_text": {
+                    "type": "string"
+                  },
+                  "naics_code": {
+                    "type": "string"
+                  },
+                  "estimated_contract_value_usd": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PASS_PRELIMINARY / CONDITIONAL_HUMAN_REVIEW / HALT_FATAL_DISQUALIFIER + JEV + Ed25519 attestation"
+          }
+        }
+      }
+    },
+    "/api/x402/guard": {
+      "get": {
+        "summary": "x402 Pre-Settlement Guard Capabilities & 6 Overpayment Attack Vectors",
+        "operationId": "getX402GuardInfo",
+        "responses": {
+          "200": {
+            "description": "x402 guard specification"
+          }
+        }
+      },
+      "post": {
+        "summary": "Verify HTTP 402 Payment Challenge Before Signing Base/Solana Transfer",
+        "operationId": "evaluateX402Challenge",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "challenge"
+                ],
+                "properties": {
+                  "challenge": {
+                    "type": "object"
+                  },
+                  "mandate": {
+                    "type": "object"
+                  },
+                  "seller_repo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ALLOW_SETTLEMENT / CONDITIONAL_STEP_UP_AUTH / HALT_OVERPAYMENT_OR_SPOOF + Ed25519 signature"
+          }
+        }
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "summary": "RecallGuard Health & 46,642-Record Corpus Status (recallguard-api.vercel.app)",
+        "operationId": "getRecallguardHealth",
+        "responses": {
+          "200": {
+            "description": "Corpus count (46,642) and status"
+          }
+        }
+      }
+    },
+    "/api/v1/feed": {
+      "get": {
+        "summary": "RecallGuard Normalized North American Recall Feed (HTTP 402 \u00b7 0.05 USDC on Base)",
+        "operationId": "getRecallguardFeedV1",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Recall feed"
+          },
+          "402": {
+            "description": "x402 Payment Required (50,000 micro_usd)"
+          }
+        }
+      }
+    },
+    "/api/v1/match": {
+      "post": {
+        "summary": "RecallGuard Deterministic SKU/UPC/Brand Matcher (HTTP 402 \u00b7 0.10 USDC on Base)",
+        "operationId": "postRecallguardMatchV1",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "": "#/components/schemas/MatchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Matched recall records"
+          },
+          "402": {
+            "description": "x402 Payment Required (100,000 micro_usd)"
+          }
+        }
+      }
+    },
     "/orchestrator/v1/trial": {
       "get": {
         "summary": "Claim Trial (Orchestrator)",

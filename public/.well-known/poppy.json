@@ -1,11 +1,11 @@
 {
   "$schema": "https://personalagentprotocol.org/schemas/v1/poppy.json",
   "name": "Nano Empire AI",
-  "version": "0.1.0",
-  "description": "Autonomous verified data and verification endpoints. RecallGuard x402 on Base, SkillProof invariant manifests, and BidShield federal procurement triage.",
+  "version": "1.7.0",
+  "description": "Autonomous verified data and deterministic verification endpoints: RecallGuard x402 on Base (46,642 normalized North American recalls), SkillProof RFC 8785 JCS Ed25519 Trust Manifests (28 MCP repos indexed), BidShield federal procurement deontic gates ($299/$499/$999 USD), and x402 Pre-Settlement Guard.",
   "provider": {
     "organization": "Nano Empire AI",
-    "url": "https://nanoempireai.com"
+    "url": "https://www.nanoempireai.com"
   },
   "protocol": "PAP/1.0",
   "auth_modes": [
@@ -21,19 +21,28 @@
   "capabilities": [
     "recall_verification",
     "trust_manifests",
-    "bid_triage"
+    "bid_triage",
+    "x402_pre_settlement_guard",
+    "astryx_proof_ui"
   ],
-  "agent_card": "https://nanoempireai.com/.well-known/agent-card.json",
-  "x402_terms": "https://nanoempireai.com/offers.json",
-  "llms_manifest": "https://nanoempireai.com/llms.txt",
-  "briefing": "https://nanoempireai.com/m2m-state.md",
+  "agent_card": "https://www.nanoempireai.com/.well-known/agent-card.json",
+  "workflow_plan": "https://www.nanoempireai.com/.well-known/workflow-plan.json",
+  "astryx_manifest": "https://www.nanoempireai.com/.well-known/astryx-manifest.json",
+  "skillproof_pubkey": "https://www.nanoempireai.com/.well-known/skillproof-pubkey.json",
+  "x402_terms": "https://www.nanoempireai.com/offers.json",
+  "llms_manifest": "https://www.nanoempireai.com/llms.txt",
+  "briefing": "https://www.nanoempireai.com/m2m-state.md",
   "endpoints": {
+    "mcp": "https://www.nanoempireai.com/api/mcp",
+    "skillproof_status": "https://www.nanoempireai.com/api/skillproof/status",
+    "bidshield_gate": "https://www.nanoempireai.com/api/bidshield/gate",
+    "x402_guard": "https://www.nanoempireai.com/api/x402/guard",
     "health": "https://recallguard-api.vercel.app/api/v1/health",
     "feed": "https://recallguard-api.vercel.app/api/v1/feed",
     "match": "https://recallguard-api.vercel.app/api/v1/match"
   },
   "single_loop_skill_disclosure": true,
-  "updated_at": "2026-10-26",
+  "updated_at": "2026-11-09",
   "governance": {
     "accountable_supervisor": "Robert Lambert (rob@nanoempireai.com)",
     "operating_mode": "supervised",

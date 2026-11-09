@@ -1,0 +1,134 @@
+{
+  "schema_version": "argon-ztesp-1.0",
+  "updated_at": "2026-11-09T15:15:00Z",
+  "organization": "Nano Empire AI",
+  "url": "https://www.nanoempireai.com",
+  "manifesto_url": "https://www.nanoempireai.com/manifesto",
+  "business_plan": {
+    "massive_transformative_purpose": "Make Institutional Complexity Survivable For Ordinary People",
+    "canonical_layer_definition": "Deterministic verification layer: SkillProof and BidShield return rule-based, reproducible outcomes—not probabilistic LLM judgments. Identity proves who; settlement moves money; SkillProof and BidShield prove whether the action is safe and compliant before spend or delegation occurs.",
+    "accounting_law": {
+      "unit": "micro_usd_int64",
+      "conversion": "1000000 micro_usd = 1.00 USD",
+      "floating_point_allowed": false
+    },
+    "honest_ledger_status": {
+      "outside_paying_customers": 0,
+      "verified_operator_self_tests": 1,
+      "first_machine_tx": "0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999",
+      "settlement_block": 51961194,
+      "settlement_chain": "base",
+      "active_objective": "Target 2: Convert 0 -> 1 outside paying customer under the 1-Line Human Fiduciary Gate"
+    },
+    "forbidden_drift_invariants": [
+      "$149 BidShield price drift",
+      "$99 / $249 legacy BidShield ladder",
+      "21,812 stale September recall split (canonical live total is 46,642)",
+      "Certificate of Compliance statutory warranty claim",
+      "-8/-4/-2 unsourced SkillProof point deductions"
+    ],
+    "commercial_wedges": [
+      {
+        "wedge_id": "recall_radar",
+        "corpus_records": 46642,
+        "corpus_scope": "Normalized North American CPSC, FDA & Health Canada product safety recalls + unilateral CPSC warnings",
+        "benchmark_receipt": "996.8ms for 50-SKU batch screen",
+        "tiers": [
+          { "sku": "recallguard-feed", "price_micro_usd": 50000, "display_price": "$0.05 USDC", "rail": "x402_base", "endpoint": "https://recallguard-api.vercel.app/api/v1/feed", "status": "live" },
+          { "sku": "recallguard-match", "price_micro_usd": 100000, "display_price": "$0.10 USDC", "rail": "x402_base", "endpoint": "https://recallguard-api.vercel.app/api/v1/match", "status": "live" },
+          { "sku": "recallradar-report", "price_micro_usd": 30000000, "display_price": "$30.00 USD", "rail": "stripe", "checkout_url": "https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k", "status": "live" },
+          { "sku": "recallradar-monitoring", "price_micro_usd": 99000000, "display_price": "$99.00 USD/mo", "rail": "stripe", "checkout_url": "https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e", "status": "live" },
+          { "sku": "sovereign-data-license", "price_micro_usd": 2400000000, "display_price": "$2,400.00 USD/yr", "rail": "stripe", "checkout_url": "https://buy.stripe.com/9B6cN69Y86r59ur77WfAc0o", "status": "live" }
+        ]
+      },
+      {
+        "wedge_id": "bidshield",
+        "tenders_indexed": 882,
+        "fatal_disqualifier_gates": 5,
+        "engine": "Sentence-bounded bidirectional deontic negation gate + Poset addendum precedence + Ed25519 REA commitment",
+        "tiers": [
+          { "sku": "bidshield-gate-preliminary", "price_micro_usd": 0, "display_price": "FREE JSON Gate", "rail": "http_post", "endpoint": "https://www.nanoempireai.com/api/bidshield/gate", "status": "live" },
+          { "sku": "bidshield-pilot", "price_micro_usd": 299000000, "display_price": "$299.00 USD", "rail": "upwork_or_stripe", "endpoint": "https://www.nanoempireai.com/bidshield", "status": "live" },
+          { "sku": "bidshield-standard", "price_micro_usd": 499000000, "display_price": "$499.00 USD", "rail": "upwork_or_stripe", "endpoint": "https://www.nanoempireai.com/bidshield", "status": "live" },
+          { "sku": "bidshield-full", "price_micro_usd": 999000000, "display_price": "$999.00 USD", "rail": "upwork_or_invoice", "endpoint": "https://www.nanoempireai.com/bidshield", "status": "live" }
+        ]
+      },
+      {
+        "wedge_id": "skillproof_and_x402_guard",
+        "repos_indexed": 28,
+        "signing_standard": "RFC 8785 (JCS) + Ed25519 (kid: skillproof-2026-10)",
+        "public_key_hex": "69b8d23e35b02a04aa370924c8493781527179c9078bf85f77362b2fc1da3f82",
+        "tiers": [
+          { "sku": "skillproof-status", "price_micro_usd": 0, "display_price": "FREE JSON Lookup", "rail": "http_get", "endpoint": "https://www.nanoempireai.com/api/skillproof/status", "status": "live" },
+          { "sku": "x402-pre-settlement-guard", "price_micro_usd": 0, "display_price": "FREE JSON Guard", "rail": "http_post", "endpoint": "https://www.nanoempireai.com/api/x402/guard", "status": "live" },
+          { "sku": "skillproof-sprint", "price_micro_usd": null, "display_price": "Parked Pending Ruling", "rail": "parked", "endpoint": "https://www.nanoempireai.com/skillproof", "status": "parked_pending_ruling" }
+        ]
+      }
+    ]
+  },
+  "executable_workflow_dag": [
+    {
+      "stage": 1,
+      "id": "discovery_and_routing",
+      "name": "Skill++ Differential Discovery & Capability Routing",
+      "depends_on": [],
+      "remote_http_calls": [
+        { "method": "GET", "url": "https://www.nanoempireai.com/.well-known/agent-card.json" },
+        { "method": "GET", "url": "https://www.nanoempireai.com/openapi.json" },
+        { "method": "POST", "url": "https://www.nanoempireai.com/api/mcp", "body": { "jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {} } }
+      ]
+    },
+    {
+      "stage": 2,
+      "id": "pre_execution_deterministic_gates",
+      "name": "SkillProof Repo Trust + BidShield Deontic Gate + x402 Overpayment Firewall",
+      "depends_on": ["discovery_and_routing"],
+      "remote_http_calls": [
+        { "method": "GET", "url": "https://www.nanoempireai.com/api/skillproof/status?repo=Nano-Empire-Ai/nanoempire-web" },
+        { "method": "POST", "url": "https://www.nanoempireai.com/api/bidshield/gate", "body": { "solicitation_text": "Mandatory site visit required. 100% performance bond.", "naics_code": "238220" } },
+        { "method": "POST", "url": "https://www.nanoempireai.com/api/x402/guard", "body": { "challenge": { "scheme": "exact", "network": "base", "maxAmountRequired": "100000", "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01" }, "mandate": { "expected_amount_units": "100000", "max_single_tx_units": "1000000", "allowed_pay_to": ["0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01"] }, "seller_repo": "Nano-Empire-Ai/nanoempire-web" } }
+      ]
+    },
+    {
+      "stage": 3,
+      "id": "local_preflight_oracle_and_sentinel",
+      "name": "Argon Kernel + JevAct Pre-Flight Oracle + M2M Signal Sentinel",
+      "depends_on": ["pre_execution_deterministic_gates"],
+      "local_cli_commands": [
+        "python ops/argon/argon_substrate_kernel.py",
+        "python ops/loop/synthetic_buyer_council.py",
+        "python nanoempire-web/scripts/m2m_signal_sentinel.py"
+      ],
+      "pass_criteria": {
+        "violations_count": 0,
+        "min_council_score_bps": 9500,
+        "status": "STAGE_FOR_1_LINE_HUMAN_GATE"
+      }
+    },
+    {
+      "stage": 4,
+      "id": "human_fiduciary_gate",
+      "name": "1-Line Human Fiduciary Sign-Off Gate",
+      "depends_on": ["local_preflight_oracle_and_sentinel"],
+      "tla_invariant": "FiduciaryGateEnforced == (dispatchState = \"DISPATCHED\") => (fiduciaryApproved = TRUE)",
+      "autonomous_bypass_allowed": false,
+      "staged_artifacts": [
+        {
+          "draft_id": "Draft_3_RecallRadar_50_SKU_Screen",
+          "status": "STAGE_FOR_1_LINE_HUMAN_GATE",
+          "rea_commitment_sha256": "0b7e07165072383986e6cfb646e7567da29844b9d3f2dc30998847a1e2ae0351"
+        }
+      ]
+    },
+    {
+      "stage": 5,
+      "id": "atomic_settlement_and_spar_attribution",
+      "name": "Atomic Delivery-vs-Payment, Offline JCS/Ed25519 Verification & SPAR Causal Attribution",
+      "depends_on": ["human_fiduciary_gate"],
+      "local_cli_commands": [
+        "python ops/tools/verify_skillproof.py ops/proof/skillproof_jcs_manifest_nanoempire_web.json"
+      ],
+      "ledger_output": "ops/proof/jevact_spar_ledger.json"
+    }
+  ]
+}

@@ -97,3 +97,6 @@ Contact: rob@nanoempireai.com
 - BidShield Live Upwork Project Catalog (Escrow Protected): https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322
 - SkillProof MCP Pre-Audit Index (28 Repos): https://www.nanoempireai.com/skillproof
 - 2026 State of MCP Security Benchmark (MSHB-2026 Leaderboard): https://www.nanoempireai.com/benchmarks/mcp-security
+
+- Machine-Executable Business Plan & Workflow DAG: https://www.nanoempireai.com/.well-known/workflow-plan.json
+- System Manifesto & Economic Theory: https://www.nanoempireai.com/manifesto

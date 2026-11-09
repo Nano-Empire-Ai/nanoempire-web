@@ -1,6 +1,6 @@
 {
   "name": "Nano Empire AI",
-  "description": "SkillProof cryptographic verification (Ed25519 Trust Manifests + 28-repo MCP pre-audit index), BidShield pre-action compliance gates ($299/$499/$999 federal RFP triage + machine JSON gate), and RecallGuard metered recall data (x402 on Base). One RecallGuard Match self-test settled 2026-09-29 (Base block 51961194, operator wallets, 0 outside paying customers). Feed has no settled receipt.",
+  "description": "Machine-payable US & Canadian product-recall data (RecallGuard, x402 on Base), cryptographic SkillProof behavioral & static verification of agent skills/MCP servers (Ed25519 Trust Manifests complementing ERC-8004/A2A identity), and BidShield pre-action compliance gates for federal tenders and AP2 Human-Not-Present mandates.",
   "supportedInterfaces": [
     {
       "url": "https://recallguard-api.vercel.app/api/v1",
@@ -21,13 +21,18 @@
       "url": "https://www.nanoempireai.com/api/bidshield/gate",
       "protocolBinding": "HTTP+JSON",
       "protocolVersion": "1.0"
+    },
+    {
+      "url": "https://www.nanoempireai.com/api/x402/guard",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0"
     }
   ],
   "provider": {
     "organization": "Nano Empire AI",
     "url": "https://www.nanoempireai.com"
   },
-  "version": "1.6.0",
+  "version": "1.7.0",
   "documentationUrl": "https://www.nanoempireai.com/llms.txt",
   "capabilities": {
     "streaming": false,
@@ -36,13 +41,9 @@
     "extensions": [
       {
         "uri": "https://github.com/google-agentic-commerce/a2a-x402",
-        "description": "x402 v2 payment terms. One RecallGuard Match self-test settled on Base on 2026-09-29. Operator wallets only. Feed has no settled receipt.",
+        "description": "x402 v2 payment terms for RecallGuard feed ($0.05 USDC) and match ($0.10 USDC) on Base.",
         "required": false,
         "params": {
-          "paper_mode": false,
-          "settlement_scope": "recallguard-match self-test only",
-          "outside_customer": false,
-          "first_machine_tx": "0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999",
           "network": "base",
           "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "payTo": "0x90E23A7b6F6494A879d05DDC4278D0e55Dec1e01",
@@ -53,15 +54,18 @@
             "PAYMENT-REQUIRED",
             "PAYMENT-SIGNATURE"
           ],
+          "settlement_scope": "recallguard-match operator self-test only",
+          "outside_customer": false,
+          "first_machine_tx": "0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999",
           "offers": "https://www.nanoempireai.com/offers.json",
           "openapi": "https://www.nanoempireai.com/openapi.json",
-          "m2m_state_briefing": "https://www.nanoempireai.com/m2m-state.md",
-          "verified_on": "2026-11-06"
+          "limits": "https://www.nanoempireai.com/llms.txt",
+          "m2m_state_briefing": "https://www.nanoempireai.com/m2m-state.md"
         }
       },
       {
         "uri": "https://standards.nanoempireai.com/ext/skillproof-trust-manifest/v1",
-        "description": "Ed25519 behavioral & static code-surface verification complementing ERC-8004 on-chain identities and A2A Agent Cards.",
+        "description": "Cryptographic Ed25519 behavioral & static code-surface verification complementing ERC-8004 on-chain identities and A2A Agent Cards.",
         "required": false,
         "params": {
           "issuer": "Nano Empire AI (Robert Lambert)",
@@ -71,7 +75,8 @@
           "pubkey_well_known": "https://www.nanoempireai.com/.well-known/skillproof-pubkey.json",
           "preaudit_registry_json": "https://www.nanoempireai.com/skillproof/preaudits.json",
           "status_api": "https://www.nanoempireai.com/api/skillproof/status",
-          "recommended_verification_policy": "Check GET /api/skillproof/status?repo=owner/repo before delegating credentials or spend authority.",
+          "live_scanner_api": "https://www.nanoempireai.com/api/skillproof/preaudit",
+          "recommended_verification_policy": "Calling orchestrators should verify a target MCP/agent repo via GET /api/skillproof/status?repo=owner/repo (require skillproof_score >= 75 and 0 critical findings, or an Ed25519 Trust Manifest pinned to commit tree_sha) before delegating credentials or AP2/AP4M spend authority.",
           "astryx_ui_manifest": "https://www.nanoempireai.com/.well-known/astryx-manifest.json",
           "deterministic_verification_definition": "Deterministic verification layer: SkillProof and BidShield return rule-based, reproducible outcomes\u2014not probabilistic LLM judgments. Identity proves who; settlement moves money; SkillProof and BidShield prove whether the action is safe and compliant before spend or delegation occurs."
         }
@@ -89,6 +94,27 @@
           ],
           "single_loop_skill_disclosure": true
         }
+      },
+      {
+        "uri": "https://standards.nanoempireai.com/ext/agent-governance/v1",
+        "description": "Enterprise agent governance, AP2 Human-Not-Present spend bounds, accountable human supervisor, and deterministic kill criteria",
+        "required": false,
+        "params": {
+          "accountable_supervisor": "Robert Lambert (Principal Operator)",
+          "supervisor_contact": "rob@nanoempireai.com",
+          "agent_employee_id": "NE-FLEET-001",
+          "operating_status": "SUPERVISED_PRODUCTION",
+          "max_daily_budget_usdc": 10.0,
+          "single_tx_unattended_limit_usdc": 1.0,
+          "ap2_mandate_mode": "HUMAN_PRESENT_REQUIRED_ABOVE_1_USDC",
+          "network_isolation_policy": "AIR_GAPPED_LOCAL_EXTRACTION",
+          "kill_criteria": [
+            "Unverified outbound email dispatch attempt without human operator gate",
+            "Single transaction spend exceeding 1.00 USDC without signed AP2/FIDO2 mandate",
+            "Non-zero hallucinated citation rate in preliminary reports",
+            "Socket or DNS creation attempt during document defense parsing"
+          ]
+        }
       }
     ]
   },
@@ -102,67 +128,75 @@
     {
       "id": "recallguard-feed",
       "name": "RecallGuard feed",
-      "description": "Normalized US & Canadian recall records (46,642 normalized CPSC, FDA & Health Canada recall records). GET https://recallguard-api.vercel.app/api/v1/feed returns HTTP 402. Price 0.05 USDC. Network string base. No settled receipt.",
+      "description": "SUPPORTS: Continuous machine-payable feed of 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) recall records settled via HTTP 402 (0.05 USDC per call on Base). DIFFERS FROM BASELINE: Unlike fragmented agency RSS feeds or HTML scrapers, emits a single schema-normalized JSON feed with unilateral CPSC safety warnings included. EXCLUDES: Does not issue statutory legal warranties or physical lab certifications.",
       "tags": [
         "recalls",
         "cpsc",
         "fda",
-        "product-safety"
+        "product-safety",
+        "x402"
       ],
       "examples": [
-        "GET https://recallguard-api.vercel.app/api/v1/feed?source=cpsc&since=2026-09-01"
+        "GET https://recallguard-api.vercel.app/api/v1/feed?limit=50"
       ],
       "inputModes": [
         "application/json"
       ],
       "outputModes": [
         "application/json"
-      ]
+      ],
+      "price_micro_usd": 50000
     },
     {
       "id": "recallguard-match",
       "name": "RecallGuard match",
-      "description": "Match inventory items against the recall set. POST https://recallguard-api.vercel.app/api/v1/match with {\"items\":[{\"name\",\"brand\",\"upc\"}]} returns HTTP 402 until paid. Price 0.10 USDC. Network string base. One self-test settled 2026-09-29, Base block 51961194, tx 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999. Operator wallets, not an outside customer.",
+      "description": "SUPPORTS: Deterministic sub-second SKU/UPC/GTIN and brand/model matching against 46,642 normalized North American (CPSC, FDA & Health Canada) recall records via HTTP 402 (0.10 USDC per call on Base; 1 operator self-test settled on Base block 51961194, 0 outside paying customers). DIFFERS FROM BASELINE: Unlike generic keyword web-scrapers or RAG chatbots that hallucinate recall statuses, RecallRadar executes exact entity resolution against a hash-locked 46,642-record corpus and emits verifiable receipts. EXCLUDES: Does not issue statutory legal warranties, formal Certificates of Compliance, or physical lab testing certifications.",
       "tags": [
         "recalls",
         "inventory",
-        "matching"
+        "matching",
+        "x402"
       ],
       "examples": [
-        "POST https://recallguard-api.vercel.app/api/v1/match {\"items\":[{\"name\":\"stroller\",\"brand\":\"Graco\"}]}"
+        "POST https://recallguard-api.vercel.app/api/v1/match {\"items\":[{\"name\":\"stroller\",\"brand\":\"Graco\",\"upc\":\"\"}]}"
       ],
       "inputModes": [
         "application/json"
       ],
       "outputModes": [
         "application/json"
-      ]
+      ],
+      "price_micro_usd": 100000
     },
     {
       "id": "skillproof-status",
       "name": "SkillProof Pre-Audit & Trust Manifest Status API",
-      "description": "Machine-readable verification lookup for MCP servers and AI agent repositories (28 flagship repos indexed + live scanner). Complements ERC-8004 on-chain identities with deterministic code-surface findings, commit tree_sha pinning, and Ed25519 verification key metadata.",
+      "description": "SUPPORTS: Sub-200ms pre-execution verification lookup for MCP servers and AI agent repositories (28 flagship repos indexed + live scanner), returning skillproof_score, commit tree_sha, line-cited code surface findings, delegation recommendation (ALLOW_BOUNDED / CONDITIONAL_SANDBOX_ONLY / HALT_HIGH_RISK), and RFC 8785 JCS Ed25519 Trust Manifest verification metadata. DIFFERS FROM BASELINE: Unlike post-hoc observability loggers that only record failures after treasury drain or policy breach, SkillProof intercepts delegation before execution and prevents upstream shortcut contamination (Stanford Collaborative Intelligence hand-off decay). EXCLUDES: Does not modify underlying agent model weights or take autonomous custody of external user private keys.",
       "tags": [
         "verification",
         "mcp",
         "erc-8004",
         "trust-manifest",
-        "ed25519"
+        "ed25519",
+        "security"
       ],
       "examples": [
-        "GET https://www.nanoempireai.com/api/skillproof/status?repo=pydantic/pydantic-ai"
+        "GET https://www.nanoempireai.com/api/skillproof/status?repo=pydantic/pydantic-ai",
+        "POST https://www.nanoempireai.com/api/skillproof/preaudit {\"repo\":\"modelcontextprotocol/servers\"}"
       ],
       "inputModes": [
         "application/json"
       ],
       "outputModes": [
         "application/json"
-      ]
+      ],
+      "price_micro_usd": 0,
+      "endpoint": "https://www.nanoempireai.com/api/skillproof/status"
     },
     {
       "id": "skillproof-sprint",
       "name": "SkillProof Sprint (parked pending scope ruling)",
-      "description": "Adversarial test battery against a skill or MCP server, returning a signed Ed25519 trust manifest. Parked pending pricing ruling; public pre-audit index (28 repos) is live at /skillproof.",
+      "description": "48-hour adversarial battery against one skill or MCP server, returning a signed Ed25519 trust manifest pinned to commit SHA-256. Audit checkout is currently parked pending pricing ruling; public pre-audit index (28 repos) is live at /skillproof.",
       "tags": [
         "verification",
         "mcp",
@@ -180,19 +214,20 @@
       ]
     },
     {
-      "id": "bidshield-triage",
-      "name": "BidShield Pre-Action Compliance Gate & Federal Triage",
-      "description": "Pre-bid fatal-clause detection & Annex gap audit for federal Canadian / US tenders (CanadaBuys / SAM.gov) and AP2 Human-Not-Present agent workflows. Machine JSON gate at POST /api/bidshield/gate returns PASS_PRELIMINARY / CONDITIONAL_HUMAN_REVIEW / HALT_FATAL_DISQUALIFIER plus quantified Decision Exposure (JEV). Human-verified tiers: $299 USD (Pilot) / $499 USD (Standard 19-Column Matrix) / $999 USD (Full Proposal Suite).",
+      "id": "bidshield-preaction-gate",
+      "name": "BidShield Pre-Action & Pre-Bid Compliance Gate",
+      "description": "SUPPORTS: Automated pre-bid and pre-action deontic compliance triage across 882 live federal solicitations and 5 fatal disqualifier gates, resolving cross-document RFP and Addendum contradictions via sentence-bounded deontic negation filtering and outputting machine-readable gate_decision (PASS_PRELIMINARY / CONDITIONAL_HUMAN_REVIEW / HALT_FATAL_DISQUALIFIER), quantified Decision Exposure (JEV), and Ed25519-signed REA commitments. Locked human-verified ladder:  USD (Pilot),  USD (Standard 19-Column Matrix),  USD (Full Proposal Suite). DIFFERS FROM BASELINE: Unlike flat-chunk RAG summarizers that miss negated clauses or treat outdated base-RFP text and newer Addenda as equal, BidShield applies deterministic deontic rules and emits an Ed25519-signed receipt. EXCLUDES: Does not write unverified creative fluff, submit final bids without human fiduciary sign-off, or replace licensed legal counsel.",
       "tags": [
         "procurement",
         "triage",
         "compliance",
         "ap2",
-        "legal",
-        "rfp"
+        "policy-gate",
+        "rfp",
+        "naics"
       ],
       "examples": [
-        "POST https://www.nanoempireai.com/api/bidshield/gate {\"solicitation_text\":\"Mandatory site visit required.\",\"naics_code\":\"238220\"}",
+        "POST https://www.nanoempireai.com/api/bidshield/gate {\"solicitation_text\":\"Mandatory site visit required. 100% performance bond.\",\"naics_code\":\"238220\"}",
         "https://www.nanoempireai.com/bidshield"
       ],
       "inputModes": [
@@ -202,8 +237,137 @@
       "outputModes": [
         "application/json",
         "application/pdf"
+      ],
+      "price_micro_usd": 299000000,
+      "pro_tier_micro_usd": 499000000,
+      "sovereign_tier_micro_usd": 999000000,
+      "endpoint": "https://www.nanoempireai.com/api/bidshield/gate"
+    },
+    {
+      "id": "recallradar-report",
+      "name": "RecallRadar Compliance Report",
+      "description": "SUPPORTS: Deterministic SKU/UPC/GTIN catalog screening against 46,642 normalized North American (CPSC, FDA & Health Canada) recall records with 15 U.S.C. \u00a7 2068 supplier-reimbursement evidence packets and Ed25519 cryptographic receipts ( USD one-time report, /mo continuous RecallGuard Shield, ,400/yr Enterprise Data License). DIFFERS FROM BASELINE: Unlike manual agency portal searches, delivers a batch CSV/PDF audit with exact recall IDs and hazard citations in under 1 second for 50 SKUs. EXCLUDES: Does not issue statutory legal warranties, formal Certificates of Compliance, or physical lab testing certifications.",
+      "tags": [
+        "compliance",
+        "recalls",
+        "ecommerce",
+        "data-service"
+      ],
+      "examples": [
+        "Checkout: https://buy.stripe.com/6oU4gAfis2aP21Z8c0fAc0k"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ],
+      "price_micro_usd": 30000000,
+      "subscription_micro_usd_monthly": 99000000,
+      "annual_license_micro_usd": 2400000000
+    },
+    {
+      "id": "recallradar-monitoring",
+      "name": "RecallRadar Continuous Monitoring",
+      "description": "Continuous monthly recall re-scan and immediate expansion alerts across US and Canadian safety registries. $99 CAD/month via Stripe.",
+      "tags": [
+        "recalls",
+        "monitoring",
+        "compliance",
+        "data-service"
+      ],
+      "examples": [
+        "Checkout: https://buy.stripe.com/00w5kE2vGg1F3630JyfAc0e"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "kids-safety-dataset",
+      "name": "Kids & Nursery Safety Dataset",
+      "description": "Instant CSV/JSON download of verified historical nursery, infant sleep gear & toy hazards with full CPSC/Health Canada metadata. $49 USD via Stripe.",
+      "tags": [
+        "dataset",
+        "nursery",
+        "infant-safety",
+        "recalls",
+        "instant-download"
+      ],
+      "examples": [
+        "Checkout: https://buy.stripe.com/6oU14o6LW8zd5ebgIwfAc0p"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "agentic-prompts-pack",
+      "name": "Production Agentic Prompts Pack",
+      "description": "Battle-tested system instructions, anti-injection filters, and multi-agent DAG prompt templates. $19 USD via Stripe.",
+      "tags": [
+        "prompts",
+        "ai-agents",
+        "developer-tools",
+        "instant-download"
+      ],
+      "examples": [
+        "Checkout: https://buy.stripe.com/00w00k3zKeXB9ureAofAc0q"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "x402-pre-settlement-guard",
+      "name": "x402 Pre-Settlement Guard & Overpayment Firewall",
+      "price_micro_usd": 0,
+      "endpoint": "https://www.nanoempireai.com/api/x402/guard",
+      "description": "SUPPORTS: Pre-settlement verification of HTTP 402 payment challenges against 6 overpayment vectors (10x header price inflation, AP2/AP4M mandate ceiling breach, payTo address spoofing, Morse/hex/base64 obfuscated prompt injection, and unverified seller repos). DIFFERS FROM BASELINE: Unlike blind x402 auto-pay wrappers that sign any 402 header, /api/x402/guard halts spoofed or inflated challenges before funds leave the agent wallet. EXCLUDES: Does not take custody of buyer private keys or execute on-chain transfers directly.",
+      "tags": [
+        "x402",
+        "security",
+        "ap2",
+        "ap4m",
+        "firewall"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
       ]
     }
   ],
-  "iconUrl": "https://www.nanoempireai.com/favicon.ico"
+  "iconUrl": "https://www.nanoempireai.com/favicon.ico",
+  "contacts": [
+    {
+      "name": "Hana Lambert",
+      "role": "Executive Operations",
+      "email": "hana@nanoempireai.com",
+      "phone": "+1-343-501-5003",
+      "url": "https://www.nanoempireai.com/hana",
+      "priority": "critical"
+    }
+  ],
+  "schema_version": "a2a-1.0",
+  "url": "https://www.nanoempireai.com",
+  "mcp_endpoint": "https://www.nanoempireai.com/api/mcp",
+  "public_key_uri": "https://www.nanoempireai.com/.well-known/skillproof-pubkey.json",
+  "key_id": "skillproof-2026-10",
+  "payment_rails": {
+    "x402_guard": "https://www.nanoempireai.com/api/x402/guard",
+    "currency": "USDC",
+    "accounting_unit": "micro_usd_int64"
+  },
+  "workflow_plan_uri": "https://www.nanoempireai.com/.well-known/workflow-plan.json"
 }

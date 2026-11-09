@@ -368,5 +368,6 @@
     "x402_guard": "https://www.nanoempireai.com/api/x402/guard",
     "currency": "USDC",
     "accounting_unit": "micro_usd_int64"
-  }
+  },
+  "workflow_plan_uri": "https://www.nanoempireai.com/.well-known/workflow-plan.json"
 }

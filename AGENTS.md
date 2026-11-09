@@ -61,3 +61,6 @@ Coding agents MUST NOT invent raw-div compliance tables, fake cryptographic badg
    - **`$299` USD** (Pilot) · **`$499` USD** (Standard 19-Column Compliance Matrix) · **`$999` USD** (Full Multi-Volume Proposal Audit). Never quote `$149` or `$99/$249`.
 4. **SkillProof Status:** Pre-audit index (`28` repositories) and `/api/skillproof/status` are live and free for A2A/MCP verification; commercial paid audit tier remains parked pending operator ruling.
 5. **Ledger Honesty:** `0` outside paying customers; `1` operator self-test settled on Base block `51961194` (`tx: 0xf3919e8c55a4e7163cb10e88baa1d4b183d861ff379a54d0d001d932a6325999`).
+
+- **Machine-Executable Business Plan & 5-Stage Workflow DAG**: https://www.nanoempireai.com/.well-known/workflow-plan.json
+- **System Manifesto Surface**: https://www.nanoempireai.com/manifesto
