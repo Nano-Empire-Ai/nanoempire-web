@@ -1,4 +1,4 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-09
+# 📡 Overnight Market & Safety Delta — 2026-11-10
 
 > **Autonomous Sync:** Generated at `12:30:08 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
@@ -23,7 +23,7 @@
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `29`
+- **Total Validated MCP Repositories in Public Index:** `31`
 - **Quality Gate Filtered/Quarantined:** `1` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |

@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-09",
+  "updated_at": "2026-11-10",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 29,
+  "total_repos_audited": 31,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -342,11 +342,11 @@
     },
     {
       "repo": "jgravelle/jcodemunch-mcp",
-      "stars": 2831,
+      "stars": 2840,
       "branch": "main",
-      "tree_sha": "12fa0c801ddf",
+      "tree_sha": "937a2f10fe32",
       "license": "NOASSERTION",
-      "total_files_in_repo": 1805,
+      "total_files_in_repo": 1879,
       "sampled_source_files": [
         "cli/cli.py",
         "mcpb/build.py",
@@ -361,7 +361,7 @@
           "severity": "HIGH",
           "title": "Subprocess / Shell Execution Sink",
           "file": "harness/__main__.py",
-          "line": 139,
+          "line": 184,
           "snippet": "return subprocess.check_output("
         },
         {
@@ -369,7 +369,7 @@
           "severity": "MEDIUM",
           "title": "Sensitive Credential / Full-Env Access",
           "file": "harness/__main__.py",
-          "line": 199,
+          "line": 244,
           "snippet": "e = dict(os.environ)"
         },
         {
@@ -377,13 +377,13 @@
           "severity": "MEDIUM",
           "title": "Filesystem Mutation / Deletion Sink",
           "file": "harness/__main__.py",
-          "line": 1066,
+          "line": 1130,
           "snippet": "shutil.rmtree(store, ignore_errors=True)"
         }
       ],
-      "preaudit_id": "SP-C4075C9E229688A9",
-      "audited_at": "2026-11-02",
-      "surface_summary": "Scanned 4 entrypoints (cli/cli.py, mcpb/build.py); 3 line-cited sinks incl. SHELL_EXEC_SURFACE at harness/__main__.py:L139."
+      "preaudit_id": "SP-517AAFCC3B83132B",
+      "audited_at": "2026-11-10",
+      "surface_summary": "Scanned 4 entrypoints (cli/cli.py, mcpb/build.py); 3 line-cited sinks incl. SHELL_EXEC_SURFACE at harness/__main__.py:L184."
     },
     {
       "repo": "stripe/agent-toolkit",
@@ -478,6 +478,43 @@
       "preaudit_id": "SP-D14FD6B7157649BF",
       "audited_at": "2026-11-02",
       "surface_summary": "Scanned 4 entrypoints (main.js, app.js); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at main.js:L253."
+    },
+    {
+      "repo": "TencentCloudBase/CloudBase-AI-Toolkit",
+      "stars": 1163,
+      "branch": "main",
+      "tree_sha": "800823b67f75",
+      "license": "MIT",
+      "total_files_in_repo": 2729,
+      "sampled_source_files": [
+        "mcp/src/cli.ts",
+        "mcp/src/auth.ts",
+        "mcp/src/index.ts",
+        "mcp/src/types.ts"
+      ],
+      "skillproof_score": 92,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "mcp/src/cli.ts",
+          "line": 108,
+          "snippet": "process.env.CLOUDBASE_API_KEY = apiKey;"
+        },
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "mcp/src/auth.ts",
+          "line": 188,
+          "snippet": "return process.env.CLOUDBASE_API_KEY || process.env.CLOUDBASE_APIKEY || undefined;"
+        }
+      ],
+      "preaudit_id": "SP-DCC3795AAF4CDAF7",
+      "audited_at": "2026-11-10",
+      "surface_summary": "Scanned 4 entrypoints (mcp/src/cli.ts, mcp/src/auth.ts); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at mcp/src/cli.ts:L108."
     },
     {
       "repo": "alpacahq/alpaca-mcp-server",
@@ -992,6 +1029,5 @@
       "audited_at": "2026-11-08",
       "surface_summary": "Scanned 4 entrypoints (app/api/skillproof/status/route.ts, app/api/recall-report/unlock/route.ts, app/api/vin/decode/route.ts, lib/attestation.ts); 0 CRITICAL/HIGH execution sinks; full SECURITY.md, LICENSE, and lockfile governance verified."
     }
-  ],
-  "total_repos": 30
+  ]
 }

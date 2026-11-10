@@ -1,11 +1,11 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-09",
+  "last_updated": "2026-11-10",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 12,
-    "total_mcp_repos_audited": 29,
+    "total_mcp_repos_audited": 31,
     "recent_audits_count": 29,
     "quarantined_records_count": 1
   },
@@ -327,16 +327,6 @@
       "governance_gaps_count": 1
     },
     {
-      "repo": "pipeshub-ai/pipeshub-ai",
-      "stars": 3901,
-      "score": 98,
-      "tree_sha": "52f1c8e97ba6",
-      "preaudit_id": "SP-3AF3A459D86DDBF5",
-      "surface_summary": "Scanned 4 entrypoints (frontend/types/index.ts, frontend/electron/main.ts); 0 static execution sinks and full governance hygiene verified.",
-      "findings_count": 0,
-      "governance_gaps_count": 0
-    },
-    {
       "repo": "browserbase/mcp-server-browserbase",
       "stars": 3398,
       "score": 92,
@@ -358,11 +348,11 @@
     },
     {
       "repo": "jgravelle/jcodemunch-mcp",
-      "stars": 2831,
+      "stars": 2840,
       "score": 84,
-      "tree_sha": "12fa0c801ddf",
-      "preaudit_id": "SP-C4075C9E229688A9",
-      "surface_summary": "Scanned 4 entrypoints (cli/cli.py, mcpb/build.py); 3 line-cited sinks incl. SHELL_EXEC_SURFACE at harness/__main__.py:L139.",
+      "tree_sha": "937a2f10fe32",
+      "preaudit_id": "SP-517AAFCC3B83132B",
+      "surface_summary": "Scanned 4 entrypoints (cli/cli.py, mcpb/build.py); 3 line-cited sinks incl. SHELL_EXEC_SURFACE at harness/__main__.py:L184.",
       "findings_count": 3,
       "governance_gaps_count": 0
     },
@@ -397,14 +387,14 @@
       "governance_gaps_count": 0
     },
     {
-      "repo": "ZeroDayEvil/ai-security-tool",
-      "stars": 1301,
-      "score": 79,
-      "tree_sha": "8a918419145a",
-      "preaudit_id": "SP-D14FD6B7157649BF",
-      "surface_summary": "Scanned 4 entrypoints (main.js, app.js); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at main.js:L253.",
-      "findings_count": 1,
-      "governance_gaps_count": 2
+      "repo": "TencentCloudBase/CloudBase-AI-Toolkit",
+      "stars": 1163,
+      "score": 92,
+      "tree_sha": "800823b67f75",
+      "preaudit_id": "SP-DCC3795AAF4CDAF7",
+      "surface_summary": "Scanned 4 entrypoints (mcp/src/cli.ts, mcp/src/auth.ts); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at mcp/src/cli.ts:L108.",
+      "findings_count": 2,
+      "governance_gaps_count": 0
     },
     {
       "repo": "alpacahq/alpaca-mcp-server",
@@ -414,6 +404,16 @@
       "preaudit_id": "SP-23A66C4678BF0CAA",
       "surface_summary": "Scanned 4 entrypoints (src/alpaca_mcp_server/cli.py, src/alpaca_mcp_server/server.py); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/alpaca_mcp_server/cli.py:L54.",
       "findings_count": 3,
+      "governance_gaps_count": 1
+    },
+    {
+      "repo": "vostride/agent-qa",
+      "stars": 856,
+      "score": 92,
+      "tree_sha": "d443e7202242",
+      "preaudit_id": "SP-2919103EF9AAC16F",
+      "surface_summary": "Scanned 4 entrypoints (packages/cli/src/cli.ts, packages/mcp/src/http.ts); 0 static shell/eval sinks; 1 governance gaps flagged.",
+      "findings_count": 0,
       "governance_gaps_count": 1
     }
   ]
