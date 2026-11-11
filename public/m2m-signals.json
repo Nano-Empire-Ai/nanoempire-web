@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.nanoempireai.com/schemas/m2m-signals-v1.json",
   "title": "Nano Empire AI — Compounding M2M & Agent-Economy Signal Ledger",
-  "updated_at": "2026-11-09T09:15:00Z",
+  "updated_at": "2026-11-11T17:50:00Z",
   "canonical_invariants": {
     "outside_paying_customers": 0,
     "settled_self_tests": 1,
@@ -9,10 +9,34 @@
     "recallradar_corpus_records": 46642,
     "bidshield_locked_tiers_usd": [299, 499, 999],
     "recallradar_locked_tiers_usd": [30, 99, 2400],
-    "skillproof_indexed_repos": 28,
+    "skillproof_indexed_repos": 30,
     "skillproof_commercial_status": "parked_pending_ruling"
   },
   "signals": [
+    {
+      "id": "SIG-2026-11-11-STABLECOIN-VELOCITY",
+      "date": "2026-11-11",
+      "protocol": "x402 / Stablecoin Rails (Base & Solana)",
+      "category": "Macro Volume & Wallet Ephemerality",
+      "volume_or_metric": "Stablecoin payments +45% YoY to $482B (first 9 mos 2026, ~$305B supply); 2/3 of new x402 wallets spend within 1h (18m median); Allium Q3 2026 agent txs 68.3M (~$3.7M, ~5c avg)",
+      "trust_identity_signal": "Post-speculation baseline (4-6M tx/mo vs Nov 2025 52.6M tx / Dec 2025 54.2M tx PING minting peaks) shifts focus to production micropayment utility ($0.01-$0.10).",
+      "skillproof_relevance": "Ephemeral wallets (18m median age) have zero historical on-chain reputation, making off-chain/commit-pinned SkillProof Ed25519 behavioral manifests indispensable.",
+      "bidshield_relevance": "Low-friction ephemeral wallets executing delegated tasks require deterministic AP2/spend-limit enforcement outside the LLM.",
+      "action_taken": "Synthesized into Nov 11 public/m2m-state.md briefing and monitoring matrix.",
+      "source": "Fireblocks, Chainalysis, Allium, Stablecoin Insider (Nov 11, 2026)"
+    },
+    {
+      "id": "SIG-2026-11-11-HYBRID-RAILS-AAIF",
+      "date": "2026-11-11",
+      "protocol": "A2A v1.0 / AP2 v0.2 (FIDO) / Hybrid Card Rails",
+      "category": "Governance & Enterprise Rollout",
+      "volume_or_metric": "A2A >150 orgs incl. WeChat, Huawei HarmonyOS, Google ADK, AWS Bedrock AgentCore, Azure AI Foundry; AP2 v0.2 donated to FIDO Alliance; Mastercard AP4M Oct 2026 multi-merchant demos",
+      "trust_identity_signal": "Stripe Agentic Commerce Suite + Shared Payment Tokens + Coinbase for Agents + AWS Bedrock AgentCore Payments converging with bank A2A / XDC / OSL AgentPay.",
+      "skillproof_relevance": "Cross-rail execution requires portable Ed25519 behavioral certification across MCP tools and A2A endpoints.",
+      "bidshield_relevance": "Single-budget multi-merchant execution (AP4M demos) and B2B procurement projections (~$15T by 2028) rely on pre-action deontic triage and VCIL compliance graph edges.",
+      "action_taken": "Updated public/m2m-state.md, public/llms.txt, and Obsidian M2M Intelligence Briefing.",
+      "source": "Linux Foundation / AAIF, FIDO Alliance, Mastercard, Visa, Stripe (Nov 11, 2026)"
+    },
     {
       "id": "SIG-2026-11-09-X402-VOL",
       "date": "2026-11-09",
