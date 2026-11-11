@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-10",
+  "updated_at": "2026-11-11",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 31,
+  "total_repos_audited": 33,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -46,6 +46,95 @@
       "preaudit_id": "SP-2CFCA711F2847151",
       "audited_at": "2026-11-03",
       "surface_summary": "Scanned 4 entrypoints (clai/clai/__main__.py, pydantic_ai_slim/pydantic_ai/mcp.py); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at .github/set_docs_main_preview_url.py:L9."
+    },
+    {
+      "repo": "xerj-org/xerj",
+      "stars": 18825,
+      "branch": "main",
+      "tree_sha": "50e4ffded551",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 3697,
+      "sampled_source_files": [
+        "scripts/mcp-def-smoke.py",
+        "tools/cjk-judge/smoke.py",
+        "scripts/mcp/build_mcpb.py",
+        "tools/map-report/smoke.py"
+      ],
+      "skillproof_score": 60,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "scripts/mcp-def-smoke.py",
+          "line": 64,
+          "snippet": "return subprocess.run([binary, *args], input=stdin, text=True,"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "tools/cjk-judge/smoke.py",
+          "line": 51,
+          "snippet": "result = subprocess.run([str(x) for x in command], input=stdin, capture_output=True,"
+        },
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "tools/cjk-judge/smoke.py",
+          "line": 104,
+          "snippet": "with (root / f'{phase}.log').open('w') as log:"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "scripts/mcp/build_mcpb.py",
+          "line": 73,
+          "snippet": "subprocess.run("
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "tools/map-report/smoke.py",
+          "line": 54,
+          "snippet": "result = subprocess.run([str(x) for x in command], cwd=root, env=env,"
+        },
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "tools/map-report/smoke.py",
+          "line": 66,
+          "snippet": "with (root / 'node.log').open('w') as log:"
+        }
+      ],
+      "preaudit_id": "SP-D487B19FCF534A86",
+      "audited_at": "2026-11-11",
+      "surface_summary": "Scanned 4 entrypoints (scripts/mcp-def-smoke.py, tools/cjk-judge/smoke.py); 6 line-cited sinks incl. SHELL_EXEC_SURFACE at scripts/mcp-def-smoke.py:L64."
+    },
+    {
+      "repo": "apify/apify-mcp-server",
+      "stars": 15704,
+      "branch": "master",
+      "tree_sha": "017b00bda2d5",
+      "license": "MIT",
+      "total_files_in_repo": 464,
+      "sampled_source_files": [
+        "src/index.ts",
+        "src/mcp/const.ts",
+        "src/mcp/proxy.ts",
+        "src/mcp/utils.ts"
+      ],
+      "skillproof_score": 98,
+      "governance_gaps": [],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-9ED6FBEBEE566488",
+      "audited_at": "2026-11-11",
+      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/mcp/const.ts); 0 static execution sinks and full governance hygiene verified."
     },
     {
       "repo": "modelcontextprotocol/inspector",

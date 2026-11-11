@@ -1,12 +1,12 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-11",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 12,
-    "total_mcp_repos_audited": 31,
-    "recent_audits_count": 29,
+    "total_mcp_repos_audited": 33,
+    "recent_audits_count": 20,
     "quarantined_records_count": 1
   },
   "recent_recalls": [
@@ -267,44 +267,24 @@
   ],
   "recent_mcp_audits": [
     {
-      "repo": "pydantic/pydantic-ai",
-      "stars": 21014,
-      "score": 86,
-      "tree_sha": "5616c21994d4",
-      "preaudit_id": "SP-2CFCA711F2847151",
-      "surface_summary": "Scanned 4 entrypoints (clai/clai/__main__.py, pydantic_ai_slim/pydantic_ai/mcp.py); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at .github/set_docs_main_preview_url.py:L9.",
-      "findings_count": 2,
-      "governance_gaps_count": 1
+      "repo": "xerj-org/xerj",
+      "stars": 18825,
+      "score": 60,
+      "tree_sha": "50e4ffded551",
+      "preaudit_id": "SP-D487B19FCF534A86",
+      "surface_summary": "Scanned 4 entrypoints (scripts/mcp-def-smoke.py, tools/cjk-judge/smoke.py); 6 line-cited sinks incl. SHELL_EXEC_SURFACE at scripts/mcp-def-smoke.py:L64.",
+      "findings_count": 6,
+      "governance_gaps_count": 0
     },
     {
-      "repo": "modelcontextprotocol/inspector",
-      "stars": 11220,
+      "repo": "apify/apify-mcp-server",
+      "stars": 15704,
       "score": 98,
-      "tree_sha": "e3217388c859",
-      "preaudit_id": "SP-F0B754A4F044E235",
-      "surface_summary": "Scanned 4 entrypoints (core/mcp/apps.ts, core/cli/style.ts); 0 static execution sinks and full governance hygiene verified.",
+      "tree_sha": "017b00bda2d5",
+      "preaudit_id": "SP-9ED6FBEBEE566488",
+      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/mcp/const.ts); 0 static execution sinks and full governance hygiene verified.",
       "findings_count": 0,
       "governance_gaps_count": 0
-    },
-    {
-      "repo": "lastmile-ai/mcp-agent",
-      "stars": 8575,
-      "score": 96,
-      "tree_sha": "f62d84935081",
-      "preaudit_id": "SP-C8EB853B9AE09F49",
-      "surface_summary": "Scanned 4 entrypoints (src/mcp_agent/app.py, src/mcp_agent/config.py); 1 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/mcp_agent/app.py:L267.",
-      "findings_count": 1,
-      "governance_gaps_count": 0
-    },
-    {
-      "repo": "mendableai/firecrawl-mcp-server",
-      "stars": 7758,
-      "score": 84,
-      "tree_sha": "6bd077c69a01",
-      "preaudit_id": "SP-18AB874730B9874D",
-      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/server.ts); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/index.ts:L24.",
-      "findings_count": 3,
-      "governance_gaps_count": 1
     },
     {
       "repo": "vitali87/code-graph-rag",
@@ -317,36 +297,6 @@
       "governance_gaps_count": 0
     },
     {
-      "repo": "makenotion/notion-mcp-server",
-      "stars": 4693,
-      "score": 78,
-      "tree_sha": "cf16e5c20bfb",
-      "preaudit_id": "SP-7A57636CB8BA8FBC",
-      "surface_summary": "Scanned 4 entrypoints (src/init-server.ts, scripts/build-cli.js); 4 line-cited sinks incl. ENV_SECRET_EXPOSURE at scripts/start-server.ts:L49.",
-      "findings_count": 4,
-      "governance_gaps_count": 1
-    },
-    {
-      "repo": "browserbase/mcp-server-browserbase",
-      "stars": 3398,
-      "score": 92,
-      "tree_sha": "3e6f53461949",
-      "preaudit_id": "SP-C0228B77D7BF1080",
-      "surface_summary": "Scanned 4 entrypoints (cli.js, index.js); 0 static shell/eval sinks; 1 governance gaps flagged.",
-      "findings_count": 0,
-      "governance_gaps_count": 1
-    },
-    {
-      "repo": "punkpeye/fastmcp",
-      "stars": 3283,
-      "score": 76,
-      "tree_sha": "60ba7fd8d640",
-      "preaudit_id": "SP-153DE7CFFE92C09A",
-      "surface_summary": "Scanned 4 entrypoints (src/FastMCP.ts, src/auth/index.ts); 4 line-cited sinks incl. SHELL_EXEC_SURFACE at src/FastMCP.ts:L119.",
-      "findings_count": 4,
-      "governance_gaps_count": 1
-    },
-    {
       "repo": "jgravelle/jcodemunch-mcp",
       "stars": 2840,
       "score": 84,
@@ -354,16 +304,6 @@
       "preaudit_id": "SP-517AAFCC3B83132B",
       "surface_summary": "Scanned 4 entrypoints (cli/cli.py, mcpb/build.py); 3 line-cited sinks incl. SHELL_EXEC_SURFACE at harness/__main__.py:L184.",
       "findings_count": 3,
-      "governance_gaps_count": 0
-    },
-    {
-      "repo": "stripe/agent-toolkit",
-      "stars": 2033,
-      "score": 98,
-      "tree_sha": "5091f72943e6",
-      "preaudit_id": "SP-963AFEA645B22A4D",
-      "surface_summary": "Scanned 4 entrypoints (llm/token-meter/index.ts, llm/ai-sdk/meter/index.ts); 0 static execution sinks and full governance hygiene verified.",
-      "findings_count": 0,
       "governance_gaps_count": 0
     },
     {
@@ -375,16 +315,6 @@
       "surface_summary": "Scanned 4 entrypoints (services/mcp/src/env.ts, services/api/src/index.ts); 0 static shell/eval sinks; 1 governance gaps flagged.",
       "findings_count": 0,
       "governance_gaps_count": 1
-    },
-    {
-      "repo": "coinbase/agentkit",
-      "stars": 1353,
-      "score": 98,
-      "tree_sha": "f2f3e8c11a91",
-      "preaudit_id": "SP-62314BAA9169F0F8",
-      "surface_summary": "Scanned 4 entrypoints (typescript/agentkit/src/index.ts, typescript/agentkit/src/network/index.ts); 0 static execution sinks and full governance hygiene verified.",
-      "findings_count": 0,
-      "governance_gaps_count": 0
     },
     {
       "repo": "TencentCloudBase/CloudBase-AI-Toolkit",
@@ -415,6 +345,76 @@
       "surface_summary": "Scanned 4 entrypoints (packages/cli/src/cli.ts, packages/mcp/src/http.ts); 0 static shell/eval sinks; 1 governance gaps flagged.",
       "findings_count": 0,
       "governance_gaps_count": 1
+    },
+    {
+      "repo": "lemma-work/lemma-platform",
+      "stars": 640,
+      "score": 96,
+      "tree_sha": "a6fb17abffe9",
+      "preaudit_id": "SP-39B061FA90033AA9",
+      "surface_summary": "Scanned 4 entrypoints (lemma-cli/setup.py, lemma-cli/lemma_cli/app.py); 1 line-cited sinks incl. UNBOUNDED_FS_WRITE at lemma-cli/setup.py:L56.",
+      "findings_count": 1,
+      "governance_gaps_count": 0
+    },
+    {
+      "repo": "openaccountants/openaccountants",
+      "stars": 478,
+      "score": 96,
+      "tree_sha": "1fb7c0190e97",
+      "preaudit_id": "SP-7AB31EE30AA298E7",
+      "surface_summary": "Scanned 4 entrypoints (mcp/hatch_build.py, scripts/build-index.py); 1 line-cited sinks incl. UNBOUNDED_FS_WRITE at scripts/build-index.py:L210.",
+      "findings_count": 1,
+      "governance_gaps_count": 0
+    },
+    {
+      "repo": "andrea-magni/MARS",
+      "stars": 400,
+      "score": 92,
+      "tree_sha": "0627a9511242",
+      "preaudit_id": "SP-58B82B38054086BA",
+      "surface_summary": "Scanned 4 entrypoints (Demos/TailwindcssDemo/tools/tailwind.config.js, www/bootstrap/js/npm.js); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at www/admin/js/jquery.min.js:L4.",
+      "findings_count": 1,
+      "governance_gaps_count": 0
+    },
+    {
+      "repo": "labsai/EDDI",
+      "stars": 389,
+      "score": 98,
+      "tree_sha": "3c32fb84c5bd",
+      "preaudit_id": "SP-8AC9FA47A3014C30",
+      "surface_summary": "Scanned 4 entrypoints (docs-site/stubs/sharp/index.js, ui/manager/src/lib/api-client.ts); 1 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at ui/manager/src/lib/api-client.ts:L351.",
+      "findings_count": 1,
+      "governance_gaps_count": 0
+    },
+    {
+      "repo": "jdubois/boot-ui",
+      "stars": 329,
+      "score": 98,
+      "tree_sha": "0f19526f1dbe",
+      "preaudit_id": "SP-E0C668FD7F1531C5",
+      "surface_summary": "Scanned 4 entrypoints (docs/.vuepress/client.js, bootui-ui/src/main/frontend/src/api.js); 1 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at bootui-ui/src/main/frontend/src/api.js:L42.",
+      "findings_count": 1,
+      "governance_gaps_count": 0
+    },
+    {
+      "repo": "DitriXNew/EDT-MCP",
+      "stars": 326,
+      "score": 79,
+      "tree_sha": "d2cf6c8b5ab1",
+      "preaudit_id": "SP-3B5E000AC1580929",
+      "surface_summary": "Scanned 4 entrypoints (docs/generate_tool_docs.py, .claude/skills/edt-mcp-autopilot/references/build.workflow.js); 2 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at docs/generate_tool_docs.py:L65.",
+      "findings_count": 2,
+      "governance_gaps_count": 2
+    },
+    {
+      "repo": "bardesss/arr-mcp",
+      "stars": 100,
+      "score": 98,
+      "tree_sha": "57a8feb90589",
+      "preaudit_id": "SP-70FE4AB7B1CAC9A1",
+      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/api/index.ts); 0 static execution sinks and full governance hygiene verified.",
+      "findings_count": 0,
+      "governance_gaps_count": 0
     }
   ]
 }
