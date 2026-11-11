@@ -1,0 +1,37 @@
+{
+  "source_pdf": "/sample-bidshield-report.pdf",
+  "dpi": 300,
+  "page_count": 3,
+  "carousel_images": [
+    {
+      "page": 1,
+      "filename": "bidshield_report_page_01.png",
+      "width": 2550,
+      "height": 3300,
+      "alt_text": "BidShield 19-Column Compliance Matrix - Page 1",
+      "caption": "Page 1: 19-Column Compliance Matrix with fatal gate analysis"
+    },
+    {
+      "page": 2,
+      "filename": "bidshield_report_page_02.png",
+      "width": 2550,
+      "height": 3300,
+      "alt_text": "BidShield 19-Column Compliance Matrix - Page 2",
+      "caption": "Page 2: 19-Column Compliance Matrix with fatal gate analysis"
+    },
+    {
+      "page": 3,
+      "filename": "bidshield_report_page_03.png",
+      "width": 2550,
+      "height": 3300,
+      "alt_text": "BidShield 19-Column Compliance Matrix - Page 3",
+      "caption": "Page 3: 19-Column Compliance Matrix with fatal gate analysis"
+    }
+  ],
+  "primary_image": "bidshield_report_page_01.png",
+  "upwork_upload_notes": [
+    "Upload all pages in sequence to Upwork Project Catalog carousel",
+    "Set primary image as Page 1 (executive summary with fatal gate summary)",
+    "Verify free ClauseScanner link (/bidshield) is included in description"
+  ]
+}
