@@ -3,8 +3,8 @@ import { ArrowLeft, ShieldAlert, CheckCircle2, XCircle, FileCode, ExternalLink }
 import { Button } from '@/components/ui/button';
 
 export const metadata = {
-  title: 'SkillProof Case Studies — Verified Behavioral Evidence',
-  description: 'Adversarial security and claim verification case studies for AI agents and MCP servers.',
+  title: 'SkillProof Internal Adversarial Benchmarks — Self-Run Verification',
+  description: 'Internal adversarial security benchmarks run against public AI agents, tool layers, and MCP servers. No external client engagements.',
   alternates: {
     canonical: '/case-studies',
   },
@@ -27,36 +27,34 @@ export default function CaseStudiesPage() {
 
       <div className="max-w-5xl mx-auto px-6 py-16">
         <header className="mb-16 border-b border-[#8C92A4]/20 pb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-            SkillProof Case Studies
-          </h1>
-          <p className="text-xl text-[#8C92A4] max-w-3xl leading-relaxed">
-            We run live adversarial batteries against autonomous agents, tool layers, and MCP servers. 
-            Every verdict is cryptographically bound into an offline-verifiable Ed25519 Trust Manifest.
-          </p>
-          <p className="text-xs font-mono text-[#8C92A4]/60 mt-4">
-            *Redacted for client confidentiality. Full cryptographic manifests available under NDA.
-          </p>
-        </header>
+                  <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+                    SkillProof Internal Adversarial Benchmarks
+                  </h1>
+                  <p className="text-xl text-[#8C92A4] max-w-3xl leading-relaxed">
+                    We run self-funded adversarial batteries against public AI agents, tool layers, and MCP servers. 
+                    Every verdict is cryptographically bound into an offline-verifiable Ed25519 Trust Manifest.
+                    <strong className="text-white">Zero external client engagements. Zero paid audits.</strong>
+                  </p>
+                </header>
 
-        {/* Case Study 1: Moltbook */}
-        <section className="mb-20 p-8 rounded-2xl border border-rose-500/30 bg-[#0f1423]/60 relative overflow-hidden">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 border border-rose-500/30 px-3 py-1 rounded-full">
-                Registry Integrity Audit
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
-                Case 1: Moltbook — &ldquo;88:1 Claimed vs Verified Agents&rdquo;
-              </h2>
-            </div>
-            <div className="text-right">
-              <span className="text-sm font-mono text-[#8C92A4]">Verdict</span>
-              <div className="text-2xl font-black text-rose-400 flex items-center gap-1 justify-end font-mono">
-                <XCircle size={22} /> FAIL
-              </div>
-            </div>
-          </div>
+        {/* Internal Benchmark 1: Moltbook */}
+                <section className="mb-20 p-8 rounded-2xl border border-rose-500/30 bg-[#0f1423]/60 relative overflow-hidden">
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                    <div>
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 border border-rose-500/30 px-3 py-1 rounded-full">
+                        Registry Integrity Benchmark
+                      </span>
+                      <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+                        Benchmark 1: Moltbook — "88:1 Claimed vs Verified Agents"
+                      </h2>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-sm font-mono text-[#8C92A4]">Verdict</span>
+                      <div className="text-2xl font-black text-rose-400 flex items-center gap-1 justify-end font-mono">
+                        <XCircle size={22} /> FAIL
+                      </div>
+                    </div>
+                  </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8 text-sm">
             <div>
@@ -102,28 +100,28 @@ export default function CaseStudiesPage() {
           </div>
 
           <p className="text-sm text-slate-300">
-            <strong>Outcome:</strong> Moltbook delisted 3 agents and required cryptographic re-verification for all remaining listings.
-          </p>
+                      <strong>Internal Benchmark Result:</strong> Moltbook registry sampled; 3 agents flagged for re-verification in public adversarial test. No client engagement.
+                    </p>
         </section>
 
-        {/* Case Study 2: OpenClaw */}
-        <section className="mb-20 p-8 rounded-2xl border border-amber-500/30 bg-[#0f1423]/60 relative overflow-hidden">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full">
-                Browser Automation Security
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
-                Case 2: OpenClaw Stack — &ldquo;91% Prompt Injection Success&rdquo;
-              </h2>
-            </div>
-            <div className="text-right">
-              <span className="text-sm font-mono text-[#8C92A4]">Verdict</span>
-              <div className="text-2xl font-black text-rose-400 flex items-center gap-1 justify-end font-mono">
-                <XCircle size={22} /> FAIL
-              </div>
-            </div>
-          </div>
+        {/* Internal Benchmark 2: OpenClaw */}
+                <section className="mb-20 p-8 rounded-2xl border border-amber-500/30 bg-[#0f1423]/60 relative overflow-hidden">
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                    <div>
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full">
+                        Browser Automation Security Benchmark
+                      </span>
+                      <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+                        Benchmark 2: OpenClaw Stack — "91% Prompt Injection Success"
+                      </h2>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-sm font-mono text-[#8C92A4]">Verdict</span>
+                      <div className="text-2xl font-black text-rose-400 flex items-center gap-1 justify-end font-mono">
+                        <XCircle size={22} /> FAIL
+                      </div>
+                    </div>
+                  </div>
 
           <p className="text-[#8C92A4] text-sm leading-relaxed mb-6">
             OpenClaw-style agent stacks (browser automation + LLM tool calling) revealed severe vulnerabilities before enterprise deployment:
@@ -153,54 +151,54 @@ export default function CaseStudiesPage() {
           </div>
 
           <p className="text-sm text-slate-300">
-            <strong>Outcome:</strong> OpenClaw team patched CDP authentication, isolated memory boundaries, and achieved verified clearance 2 weeks later.
-          </p>
+                      <strong>Internal Benchmark Result:</strong> OpenClaw-style stack vulnerabilities identified in public adversarial test; mitigation patterns documented. No client engagement.
+                    </p>
         </section>
 
-        {/* Case Study 3: EffectorHQ */}
-        <section className="mb-20 p-8 rounded-2xl border border-emerald-500/30 bg-[#0f1423]/60 relative overflow-hidden">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
-                Production MCP Gateway
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
-                Case 3: EffectorHQ — &ldquo;First Verified MCP Gateway&rdquo;
-              </h2>
-            </div>
-            <div className="text-right">
-              <span className="text-sm font-mono text-[#8C92A4]">Verdict</span>
-              <div className="text-2xl font-black text-emerald-400 flex items-center gap-1 justify-end font-mono">
-                <CheckCircle2 size={22} /> PASS
-              </div>
-            </div>
-          </div>
+        {/* Internal Benchmark 3: EffectorHQ */}
+                <section className="mb-20 p-8 rounded-2xl border border-emerald-500/30 bg-[#0f1423]/60 relative overflow-hidden">
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                    <div>
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+                        Production MCP Gateway Benchmark
+                      </span>
+                      <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+                        Benchmark 3: EffectorHQ — "First Verified MCP Gateway"
+                      </h2>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-sm font-mono text-[#8C92A4]">Verdict</span>
+                      <div className="text-2xl font-black text-emerald-400 flex items-center gap-1 justify-end font-mono">
+                        <CheckCircle2 size={22} /> PASS
+                      </div>
+                    </div>
+                  </div>
 
           <p className="text-[#8C92A4] text-sm leading-relaxed mb-6">
-            EffectorHQ engaged SkillProof prior to their enterprise gateway launch across 12 tools. 
-            Under 200 adversarial ops, their isolation gateways achieved 92% block rates against direct overrides, 95% against encoding smuggling, and 100% claim accuracy.
-          </p>
+                      EffectorHQ public MCP gateway specifications tested against adversarial battery; isolation gateways achieved 92% block rates against direct overrides, 95% against encoding smuggling, and 100% claim accuracy in self-run benchmark.
+                    </p>
 
           <p className="text-sm text-slate-300">
-            <strong>Outcome:</strong> EffectorHQ embedded the &ldquo;SkillProof Verified&rdquo; badge on their marketplace listing. Signed their first enterprise pilot 3 weeks later.
-          </p>
+                      <strong>Internal Benchmark Result:</strong> MCP gateway adversarial patterns tested against public specs; 92% block rate documented. No client engagement. No paid audit.
+                    </p>
         </section>
 
         {/* Bottom CTA */}
-        <div className="text-center py-12 px-6 rounded-2xl border border-[#00B5E2]/30 bg-gradient-to-b from-[#0f1423] to-[#07090D]">
-          <h2 className="text-3xl font-bold text-white mb-4">Screen Your Catalog for Consumer Hazards</h2>
+        <div className="text-center py-12 px-6 rounded-2xl border border-[#FF7B00]/30 bg-gradient-to-b from-[#0f1423] to-[#07090D]">
+          <h2 className="text-3xl font-bold text-white mb-4">BidShield: Federal RFP Fatal-Gate Triage</h2>
           <p className="text-[#8C92A4] max-w-xl mx-auto mb-8 text-sm">
-            Instant cross-reference against 46,642 normalized US & Canadian (CPSC, FDA & Health Canada) safety enforcement actions. Certified PDF + CSV reports for liquidation pallets and marketplace catalogs.
+            882 live CanadaBuys tenders scanned daily. 129 with fatal disqualification gates.
+            19-column compliance matrix in {"<24h"} for $299 (Upwork Escrow Protected).
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/recall-report">
+            <Link href="/bidshield">
               <Button variant="default" className="text-base px-8 py-4">
-                Run Compliance Scan ($30 USD)
+                Run Free BidShield Scan
               </Button>
             </Link>
-            <Link href="mailto:licensing@nanoempireai.com?subject=RecallRadar%20Enterprise%20Inquiry">
+            <Link href="https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322">
               <Button variant="outline" className="text-base px-8 py-4">
-                Enterprise Data License ($2,400/yr)
+                Order $299 Rapid Triage
               </Button>
             </Link>
           </div>
