@@ -1,11 +1,11 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-11",
+  "last_updated": "2026-11-12",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 12,
-    "total_mcp_repos_audited": 33,
+    "total_mcp_repos_audited": 35,
     "recent_audits_count": 20,
     "quarantined_records_count": 1
   },
@@ -267,6 +267,16 @@
   ],
   "recent_mcp_audits": [
     {
+      "repo": "assafelovic/gpt-researcher",
+      "stars": 30644,
+      "score": 96,
+      "tree_sha": "ddd4db36208d",
+      "preaudit_id": "SP-0EF8D1E4986C3074",
+      "surface_summary": "Scanned 4 entrypoints (cli.py, main.py); 1 line-cited sinks incl. ENV_SECRET_EXPOSURE at deep_agents/main.py:L12.",
+      "findings_count": 1,
+      "governance_gaps_count": 0
+    },
+    {
       "repo": "xerj-org/xerj",
       "stars": 18825,
       "score": 60,
@@ -327,16 +337,6 @@
       "governance_gaps_count": 0
     },
     {
-      "repo": "alpacahq/alpaca-mcp-server",
-      "stars": 1057,
-      "score": 82,
-      "tree_sha": "72b2493ceeb6",
-      "preaudit_id": "SP-23A66C4678BF0CAA",
-      "surface_summary": "Scanned 4 entrypoints (src/alpaca_mcp_server/cli.py, src/alpaca_mcp_server/server.py); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/alpaca_mcp_server/cli.py:L54.",
-      "findings_count": 3,
-      "governance_gaps_count": 1
-    },
-    {
       "repo": "vostride/agent-qa",
       "stars": 856,
       "score": 92,
@@ -355,6 +355,16 @@
       "surface_summary": "Scanned 4 entrypoints (lemma-cli/setup.py, lemma-cli/lemma_cli/app.py); 1 line-cited sinks incl. UNBOUNDED_FS_WRITE at lemma-cli/setup.py:L56.",
       "findings_count": 1,
       "governance_gaps_count": 0
+    },
+    {
+      "repo": "SamurAIGPT/Seedance-2.5-API",
+      "stars": 510,
+      "score": 81,
+      "tree_sha": "8738e4f47ea9",
+      "preaudit_id": "SP-14C426CE9F2717E7",
+      "surface_summary": "Scanned 4 entrypoints (mcp_server.py, skills/seedance-v2/seedance_cli.py); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at seedance_api.py:L47.",
+      "findings_count": 2,
+      "governance_gaps_count": 2
     },
     {
       "repo": "openaccountants/openaccountants",
@@ -405,16 +415,6 @@
       "surface_summary": "Scanned 4 entrypoints (docs/generate_tool_docs.py, .claude/skills/edt-mcp-autopilot/references/build.workflow.js); 2 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at docs/generate_tool_docs.py:L65.",
       "findings_count": 2,
       "governance_gaps_count": 2
-    },
-    {
-      "repo": "bardesss/arr-mcp",
-      "stars": 100,
-      "score": 98,
-      "tree_sha": "57a8feb90589",
-      "preaudit_id": "SP-70FE4AB7B1CAC9A1",
-      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/api/index.ts); 0 static execution sinks and full governance hygiene verified.",
-      "findings_count": 0,
-      "governance_gaps_count": 0
     }
   ]
 }

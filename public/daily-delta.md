@@ -1,6 +1,6 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-11
+# 📡 Overnight Market & Safety Delta — 2026-11-12
 
-> **Autonomous Sync:** Generated at `12:30:08 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
+> **Autonomous Sync:** Generated at `12:30:07 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
 ## 1. High-Exposure Consumer Recalls (CPSC 2026)
 
@@ -23,11 +23,12 @@
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `33`
+- **Total Validated MCP Repositories in Public Index:** `35`
 - **Quality Gate Filtered/Quarantined:** `1` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |
 |:---|---:|:---:|:---|
+| [`assafelovic/gpt-researcher`](https://github.com/assafelovic/gpt-researcher) | 30,644★ | **96/100** | Scanned 4 entrypoints (cli.py, main.py); 1 line-cited sinks incl. ENV_SECRET_EXP... |
 | [`pydantic/pydantic-ai`](https://github.com/pydantic/pydantic-ai) | 21,014★ | **86/100** | Scanned 4 entrypoints (clai/clai/__main__.py, pydantic_ai_slim/pydantic_ai/mcp.p... |
 | [`xerj-org/xerj`](https://github.com/xerj-org/xerj) | 18,825★ | **60/100** | Scanned 4 entrypoints (scripts/mcp-def-smoke.py, tools/cjk-judge/smoke.py); 6 li... |
 | [`apify/apify-mcp-server`](https://github.com/apify/apify-mcp-server) | 15,704★ | **98/100** | Scanned 4 entrypoints (src/index.ts, src/mcp/const.ts); 0 static execution sinks... |
@@ -35,7 +36,6 @@
 | [`lastmile-ai/mcp-agent`](https://github.com/lastmile-ai/mcp-agent) | 8,575★ | **96/100** | Scanned 4 entrypoints (src/mcp_agent/app.py, src/mcp_agent/config.py); 1 line-ci... |
 | [`mendableai/firecrawl-mcp-server`](https://github.com/mendableai/firecrawl-mcp-server) | 7,758★ | **84/100** | Scanned 4 entrypoints (src/index.ts, src/server.ts); 3 line-cited sinks incl. EN... |
 | [`vitali87/code-graph-rag`](https://github.com/vitali87/code-graph-rag) | 5,348★ | **73/100** | Scanned 4 entrypoints (main.py, evals/cli.py); 3 line-cited sinks incl. DYNAMIC_... |
-| [`makenotion/notion-mcp-server`](https://github.com/makenotion/notion-mcp-server) | 4,693★ | **78/100** | Scanned 4 entrypoints (src/init-server.ts, scripts/build-cli.js); 4 line-cited s... |
 
 ---
 **Machine Feeds:** [Changelog JSON](https://www.nanoempireai.com/changelog.json) · [Status Telemetry](https://www.nanoempireai.com/status.json) · [Pre-Audits](https://www.nanoempireai.com/skillproof/preaudits.json) · [CPSC Recalls](https://www.nanoempireai.com/recalls/latest-cpsc.json)
