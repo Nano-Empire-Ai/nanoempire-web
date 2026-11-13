@@ -1,13 +1,16 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-12
+# 📡 Overnight Market & Safety Delta — 2026-11-13
 
-> **Autonomous Sync:** Generated at `12:30:07 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
+> **Autonomous Sync:** Generated at `12:30:18 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
 ## 1. High-Exposure Consumer Recalls (CPSC 2026)
 
 - **Total Active 2026 Recalls in Public Registry:** `25`
-- **New / Updated in Last 7 Days:** `12`
+- **New / Updated in Last 7 Days:** `7`
 
 ### High-Unit Exposure Alerts (>=50,000 Units)
+- **CPSC #27082 · Allstar Recalls Sharper Image Tabletop and Infinity Fire Pits Due to Risk of Serious Injury from Burn and Fire Hazards**
+  - *Units:* `About 265,000` | *Sold At:* `Ace Hardware, Burlington, Home Depot, Lowe’s, Kohl’s, Marshalls, Nordstrom, Rite Aid, Target, TJ Maxx, Walgreens, Walmart and other retailers nationwide, and online, including Amazon.com and Hsn.com from January 2023 through June 2026 for between $30 and $50.`
+  - *Official Notice:* [https://www.cpsc.gov/Recalls/2027/Allstar-Recalls-Sharper-Image-Tabletop-and-Infinity-Fire-Pits-Due-to-Risk-of-Serious-Injury-from-Burn-and-Fire-Hazards](https://www.cpsc.gov/Recalls/2027/Allstar-Recalls-Sharper-Image-Tabletop-and-Infinity-Fire-Pits-Due-to-Risk-of-Serious-Injury-from-Burn-and-Fire-Hazards)
 - **CPSC #27072 · Baby Brezza Enterprises Recalls SuperFast Sterilizer Dryers Due to Overheating and Burn Hazards**
   - *Units:* `About 29,000 (In addition, about 4,500 were sold in Canada)` | *Sold At:* `TJ Maxx and Marshall’s storesnationwide and online at babybrezza.com, target.com and babylist.com from January 2024 through October 2026 for between $160 and $180.`
   - *Official Notice:* [https://www.cpsc.gov/Recalls/2027/Baby-Brezza-Enterprises-Recalls-SuperFast-Sterilizer-Dryers-Due-to-Overheating-and-Burn-Hazards](https://www.cpsc.gov/Recalls/2027/Baby-Brezza-Enterprises-Recalls-SuperFast-Sterilizer-Dryers-Due-to-Overheating-and-Burn-Hazards)
@@ -17,13 +20,10 @@
 - **CPSC #27069 · Gourmia Recalls 9-Slice Digital Air Fryer Ovens Due to Burn Hazard**
   - *Units:* `About 175,951` | *Sold At:* `Target stores nationwide and online at Target.com from October 2021 through June 2026 for about $150.`
   - *Official Notice:* [https://www.cpsc.gov/Recalls/2027/Gourmia-Recalls-9-Slice-Digital-Air-Fryer-Ovens-Due-to-Burn-Hazard](https://www.cpsc.gov/Recalls/2027/Gourmia-Recalls-9-Slice-Digital-Air-Fryer-Ovens-Due-to-Burn-Hazard)
-- **CPSC #27067 · Little Giant Recalls Ladders with Rapid Locks Due to Risk of Serious Injury from Fall Hazard**
-  - *Units:* `About 3,662,000` | *Sold At:* `Lowe’s, Costco and other stores nationwide and online at Lowes.com, Amazon.com, Costco.com, LittleGiantLadders.com and other websites from December 2015 through October 2026 for about $100 to $1,000.`
-  - *Official Notice:* [https://www.cpsc.gov/Recalls/2027/Little-Giant-Recalls-Ladders-with-Rapid-Locks-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard](https://www.cpsc.gov/Recalls/2027/Little-Giant-Recalls-Ladders-with-Rapid-Locks-Due-to-Risk-of-Serious-Injury-from-Fall-Hazard)
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `35`
+- **Total Validated MCP Repositories in Public Index:** `37`
 - **Quality Gate Filtered/Quarantined:** `1` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |

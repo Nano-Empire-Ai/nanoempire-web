@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-13",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 35,
+  "total_repos_audited": 37,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -546,6 +546,43 @@
       "surface_summary": "Scanned 4 entrypoints (services/mcp/src/env.ts, services/api/src/index.ts); 0 static shell/eval sinks; 1 governance gaps flagged."
     },
     {
+      "repo": "LING71671/open-reverselab",
+      "stars": 1371,
+      "branch": "main",
+      "tree_sha": "641126463c14",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 994,
+      "sampled_source_files": [
+        "scripts/misc/ai_tool.py",
+        "desktop/src/core/index.ts",
+        "desktop/src/state/index.ts",
+        "desktop/src/views/index.ts"
+      ],
+      "skillproof_score": 88,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "scripts/misc/ai_tool.py",
+          "line": 194,
+          "snippet": "proc = subprocess.run("
+        },
+        {
+          "id": "UNBOUNDED_FS_WRITE",
+          "severity": "MEDIUM",
+          "title": "Filesystem Mutation / Deletion Sink",
+          "file": "scripts/misc/ai_tool.py",
+          "line": 229,
+          "snippet": "with findings.open(\"a\", encoding=\"utf-8\") as f:"
+        }
+      ],
+      "preaudit_id": "SP-AF59E177A40A00ED",
+      "audited_at": "2026-11-13",
+      "surface_summary": "Scanned 4 entrypoints (scripts/misc/ai_tool.py, desktop/src/core/index.ts); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at scripts/misc/ai_tool.py:L194."
+    },
+    {
       "repo": "coinbase/agentkit",
       "stars": 1353,
       "branch": "main",
@@ -949,6 +986,53 @@
       "preaudit_id": "SP-3B5E000AC1580929",
       "audited_at": "2026-11-05",
       "surface_summary": "Scanned 4 entrypoints (docs/generate_tool_docs.py, .claude/skills/edt-mcp-autopilot/references/build.workflow.js); 2 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at docs/generate_tool_docs.py:L65."
+    },
+    {
+      "repo": "duhu2000/dsh-mcp-connector",
+      "stars": 126,
+      "branch": "main",
+      "tree_sha": "66f6747cb6b0",
+      "license": "MIT",
+      "total_files_in_repo": 306,
+      "sampled_source_files": [
+        "lib/index.js",
+        "lib/tools.js",
+        "lib/client.js",
+        "lib/mcp-sse.js"
+      ],
+      "skillproof_score": 81,
+      "governance_gaps": [
+        "No deterministic dependency lockfile (`uv.lock` / `package-lock.json`)"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "lib/index.js",
+          "line": 2579,
+          "snippet": "const response = await fetch(url, { signal: AbortSignal.timeout(config.requestTimeoutMs) });"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "lib/client.js",
+          "line": 724,
+          "snippet": "const response = await window.fetch(\"/mcp-connector/api\", {"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "lib/mcp-sse.js",
+          "line": 24,
+          "snippet": "while ((ending = endings.exec(text))) {"
+        }
+      ],
+      "preaudit_id": "SP-F7048ADC10E81813",
+      "audited_at": "2026-11-13",
+      "surface_summary": "Scanned 4 entrypoints (lib/index.js, lib/tools.js); 3 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at lib/index.js:L2579."
     },
     {
       "repo": "bardesss/arr-mcp",
