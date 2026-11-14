@@ -1,4 +1,4 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-13
+# 📡 Overnight Market & Safety Delta — 2026-11-14
 
 > **Autonomous Sync:** Generated at `12:30:18 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
@@ -23,7 +23,7 @@
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `37`
+- **Total Validated MCP Repositories in Public Index:** `39`
 - **Quality Gate Filtered/Quarantined:** `1` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |
@@ -35,7 +35,7 @@
 | [`modelcontextprotocol/inspector`](https://github.com/modelcontextprotocol/inspector) | 11,220★ | **98/100** | Scanned 4 entrypoints (core/mcp/apps.ts, core/cli/style.ts); 0 static execution ... |
 | [`lastmile-ai/mcp-agent`](https://github.com/lastmile-ai/mcp-agent) | 8,575★ | **96/100** | Scanned 4 entrypoints (src/mcp_agent/app.py, src/mcp_agent/config.py); 1 line-ci... |
 | [`mendableai/firecrawl-mcp-server`](https://github.com/mendableai/firecrawl-mcp-server) | 7,758★ | **84/100** | Scanned 4 entrypoints (src/index.ts, src/server.ts); 3 line-cited sinks incl. EN... |
-| [`vitali87/code-graph-rag`](https://github.com/vitali87/code-graph-rag) | 5,348★ | **73/100** | Scanned 4 entrypoints (main.py, evals/cli.py); 3 line-cited sinks incl. DYNAMIC_... |
+| [`Marker-Inc-Korea/AutoRAG`](https://github.com/Marker-Inc-Korea/AutoRAG) | 5,736★ | **90/100** | Scanned 4 entrypoints (src/index.ts, src/mcp/http.ts); 2 line-cited sinks incl. ... |
 
 ---
 **Machine Feeds:** [Changelog JSON](https://www.nanoempireai.com/changelog.json) · [Status Telemetry](https://www.nanoempireai.com/status.json) · [Pre-Audits](https://www.nanoempireai.com/skillproof/preaudits.json) · [CPSC Recalls](https://www.nanoempireai.com/recalls/latest-cpsc.json)

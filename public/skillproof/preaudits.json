@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-13",
+  "updated_at": "2026-11-14",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 37,
+  "total_repos_audited": 39,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -260,6 +260,43 @@
       "preaudit_id": "SP-18AB874730B9874D",
       "audited_at": "2026-11-03",
       "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/server.ts); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/index.ts:L24."
+    },
+    {
+      "repo": "Marker-Inc-Korea/AutoRAG",
+      "stars": 5736,
+      "branch": "main",
+      "tree_sha": "37b2d5aff6a5",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 1728,
+      "sampled_source_files": [
+        "src/index.ts",
+        "src/mcp/http.ts",
+        "src/cli/index.ts",
+        "src/cli/setup.ts"
+      ],
+      "skillproof_score": 90,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "src/mcp/http.ts",
+          "line": 249,
+          "snippet": "const match = /^Bearer (\\S+)$/.exec(header);"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "src/mcp/http.ts",
+          "line": 550,
+          "snippet": "await writeResponse(nodeRes, await handler.fetch(request));"
+        }
+      ],
+      "preaudit_id": "SP-638007B7D30FB39B",
+      "audited_at": "2026-11-14",
+      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/mcp/http.ts); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at src/mcp/http.ts:L249."
     },
     {
       "repo": "vitali87/code-graph-rag",
@@ -1092,6 +1129,46 @@
       "preaudit_id": "SP-4B909041F0F7FAB4",
       "audited_at": "2026-11-05",
       "surface_summary": "Scanned 4 entrypoints (src/keboola_mcp_server/cli.py, src/keboola_mcp_server/mcp.py); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/keboola_mcp_server/oauth.py:L70."
+    },
+    {
+      "repo": "syiibfs-hash/cc-agent-brain",
+      "stars": 83,
+      "branch": "master",
+      "tree_sha": "16328a034c89",
+      "license": "MIT",
+      "total_files_in_repo": 64,
+      "sampled_source_files": [
+        "installer/mcp_config.py",
+        "installer/update.py",
+        "installer/install.py",
+        "installer/uninstall.py"
+      ],
+      "skillproof_score": 69,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy",
+        "No deterministic dependency lockfile (`uv.lock` / `package-lock.json`)"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "installer/update.py",
+          "line": 19,
+          "snippet": "return subprocess.call([sys.executable, str(installer), *sys.argv[1:]])"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "installer/install.py",
+          "line": 127,
+          "snippet": "result = subprocess.run("
+        }
+      ],
+      "preaudit_id": "SP-D08AA4C641DC7C22",
+      "audited_at": "2026-11-14",
+      "surface_summary": "Scanned 4 entrypoints (installer/mcp_config.py, installer/update.py); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at installer/update.py:L19."
     },
     {
       "repo": "CorpusIQ/corpusiq-docs",
