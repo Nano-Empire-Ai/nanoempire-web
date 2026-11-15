@@ -1,7 +1,7 @@
 {
   "schema": "nanoempire/bidshield-urgent/v1",
   "last_updated": "2026-11-07T14:28:22.438371+00:00",
-  "urgent_count": 155,
+  "urgent_count": 151,
   "tenders": [
     {
       "solicitation_id": "cb-466-63260269",
@@ -189,212 +189,6 @@
             "evidence": "…: Administration, Operations and Maintenance Services of the Îles-de-la-Madeleine Airport Comprehensive Land Claim Agreement (CLCAs): No Trade Agreements The procurement is subject to the provisions of the followin…"
           }
         ]
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035216-T",
-      "tender_number": "SSC-26-00035216:T",
-      "title": "ATEN Products, or equivalent, for the Department of National Defence.",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Automatic Data Processing Equipment, System Configuration",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-09T12:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "ATEN Products, or equivalent SSC ATEN Products, or equivalent, for the Department of National Defence.- Amendment 001",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035216-T",
-      "reference_number": "SSC-26-00035216:T",
-      "solicitation_number": "BPM026797/35216",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Ontario (except NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Automatic Data Processing Equipment, System Configuration",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)",
-        "Canada-Chile Free Trade Agreement (CCFTA)",
-        "Canada-Honduras Free Trade Agreement",
-        "Canada-Colombia Free Trade Agreement",
-        "Canada-Panama Free Trade Agreement",
-        "Canada-Korea Free Trade Agreement (CKFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-09T12:00:00",
-      "hours_remaining_at_harvest": 50.5,
-      "urgent_under_72h": true,
-      "notice_url": null,
-      "description_excerpt": "ATEN Products, or equivalent SSC ATEN Products, or equivalent, for the Department of National Defence.- Amendment 001",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035342-T",
-      "tender_number": "SSC-26-00035342:T",
-      "title": "Purchase and Install two server racks in five sheds in southern Manitoba or equivalent, for the ROYAL CANADIReq. 2026-07-30",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Miscellaneous Communications Equipment",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-09T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "GOODS SSC Purchase and Install two server racks in five sheds in southern Manitoba or equivalent, for the ROYAL CANADIReq. 2026-07-30- Amendment 000",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035342-T",
-      "reference_number": "SSC-26-00035342:T",
-      "solicitation_number": "BPM026860/35342",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Manitoba",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Miscellaneous Communications Equipment",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-09T14:00:00",
-      "hours_remaining_at_harvest": 52.5,
-      "urgent_under_72h": true,
-      "notice_url": null,
-      "description_excerpt": "GOODS SSC Purchase and Install two server racks in five sheds in southern Manitoba or equivalent, for the ROYAL CANADIReq. 2026-07-30- Amendment 000",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00034485-T",
-      "tender_number": "SSC-26-00034485:T",
-      "title": "QNAP TVS-H1688X - NAS server for RCMP",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Automatic Data Processing Equipment, System Configuration",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-09T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "QNAP TVS-H1688X - NAS server for RCMP SSC QNAP TVS-H1688X - NAS server for RCMP - Amendment 005",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00034485-T",
-      "reference_number": "SSC-26-00034485:T",
-      "solicitation_number": "BPM026355/34485",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Manitoba",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Automatic Data Processing Equipment, System Configuration",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-09T14:00:00",
-      "hours_remaining_at_harvest": 52.5,
-      "urgent_under_72h": true,
-      "notice_url": null,
-      "description_excerpt": "QNAP TVS-H1688X - NAS server for RCMP SSC QNAP TVS-H1688X - NAS server for RCMP - Amendment 005",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035339-T",
-      "tender_number": "SSC-26-00035339:T",
-      "title": "Pure Storage FlashArray X50R3 – 3 Yr - Maintenance and Support -DND",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*ADP Software",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-09T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "Services SSC Pure Storage FlashArray X50R3 – 3 Yr - Maintenance and Support -DND- Amendment 000",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035339-T",
-      "reference_number": "SSC-26-00035339:T",
-      "solicitation_number": "BPM026801/35339",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*National Capital Region (NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Limited tendering",
-      "commodity": "*ADP Software",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)",
-        "Canada-Chile Free Trade Agreement (CCFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-09T14:00:00",
-      "hours_remaining_at_harvest": 52.5,
-      "urgent_under_72h": true,
-      "notice_url": null,
-      "description_excerpt": "Services SSC Pure Storage FlashArray X50R3 – 3 Yr - Maintenance and Support -DND- Amendment 000",
-      "stated_value_range": null,
-      "naics_hub": "541512",
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
       }
     },
     {
@@ -2608,17 +2402,15 @@
       "category": "*Change management communication and advisory service",
       "naics_code": "541512",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2026-11-13T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …rces Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…",
-        "Indigenous set-aside / participation requirement: …an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
+        "Personnel / facility security clearance: …rces Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -2648,7 +2440,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -2656,13 +2448,6 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…rces Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
           }
         ]
       }
@@ -3568,17 +3353,15 @@
       "category": "*Information Technology Service Delivery",
       "naics_code": "541512",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2026-11-19T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …in this solicitation Vendor: Solutions Moerae Inc Since: August 2025 Value: $1,428,431.03 Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…",
-        "Indigenous set-aside / participation requirement: …an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
+        "Personnel / facility security clearance: …in this solicitation Vendor: Solutions Moerae Inc Since: August 2025 Value: $1,428,431.03 Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -3620,7 +3403,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -3628,13 +3411,6 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…in this solicitation Vendor: Solutions Moerae Inc Since: August 2025 Value: $1,428,431.03 Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
           }
         ]
       }
@@ -5099,17 +4875,15 @@
       "category": "*Business and corporate management consultation services",
       "naics_code": "541512",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2026-11-25T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …m 2. Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…",
-        "Indigenous set-aside / participation requirement: …an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
+        "Personnel / facility security clearance: …m 2. Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -5139,7 +4913,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -5147,13 +4921,6 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…m 2. Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
           }
         ]
       }
@@ -5442,17 +5209,15 @@
       "category": "*Aeronautical engineering *Accreditation or re-accreditation",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2026-11-26T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …n(s): National Capital Region Specific Location(s): 455 boul de la Carrière, Gatineau, QC Security Requirement: There are security requirements associated with this requirement. For additional informa…",
-        "Indigenous set-aside / participation requirement: …ompetitive Procurement Strategy: Responsive bid with the lowest evaluated price per point Comprehensive Land Claim Agreement: No UNSPSC: 81102300 Aeronautical engineering; and 86101811 Accreditation or re-accredita…"
+        "Personnel / facility security clearance: …n(s): National Capital Region Specific Location(s): 455 boul de la Carrière, Gatineau, QC Security Requirement: There are security requirements associated with this requirement. For additional informa…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -5493,7 +5258,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -5501,13 +5266,6 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…n(s): National Capital Region Specific Location(s): 455 boul de la Carrière, Gatineau, QC Security Requirement: There are security requirements associated with this requirement. For additional informa…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…ompetitive Procurement Strategy: Responsive bid with the lowest evaluated price per point Comprehensive Land Claim Agreement: No UNSPSC: 81102300 Aeronautical engineering; and 86101811 Accreditation or re-accredita…"
           }
         ]
       }
@@ -6538,6 +6296,286 @@
             "clause_type": "Indigenous set-aside / participation requirement",
             "points": 12,
             "evidence": "…ing logistics, climate, and constructability considerations, as well as their approach to Indigenous participation based on principles of meaningful participation and mitigation of potential adverse effec…"
+          }
+        ]
+      }
+    },
+    {
+      "solicitation_id": "MX-444197237210",
+      "tender_number": "MX-444197237210",
+      "title": "APN - Canadian Patrol Submarine Project, CFB Halifax, NS",
+      "buyer": "Defence Construction Canada - Atlantic Region",
+      "jurisdiction": "Canada Federal (Nova Scotia)",
+      "category": "Federal Procurement",
+      "naics_code": "236220",
+      "contract_midpoint_usd": 2500000,
+      "combined_jev_exposure_usd": 42000,
+      "closes_at_iso": "2027-01-14T13:00:00",
+      "status": "HALT_REVIEW_FATAL_GATES",
+      "mandatory_gates": [
+        "Personnel / facility security clearance: …NTS This opportunity is restricted to Canadian, German, and Norwegian firms that meet the security clearance requirements. To be eligible for contract award, a proponent will be required to, among o…",
+        "Indigenous set-aside / participation requirement: …genous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). 2. DESCRIPTION OF THE PROJECT AND SERVICES It is anticipated that the following s…"
+      ],
+      "missing_annex_count": 4,
+      "missing_annexes": [
+        "Schedule: Personnel / facility security clearance Form",
+        "Schedule: Indigenous set-aside / participation requirement Form",
+        "Statement of Work",
+        "Basis of Payment"
+      ],
+      "evaluation_summary": "ADVANCE PROCUREMENT NOTICE CANADIAN PATROL SUBMARINE PROJECT Halifax, NS (with Security Requirements) 1. PURPOSE OF THIS ADVANCE PROCUREMENT NOTICE This is not a bid solicitation nor a request for proposals. In the context of the major investments announced by the Government and ...",
+      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
+      "sample_pdf_url": "/sample-bidshield-report.pdf",
+      "slug": "MX-444197237210",
+      "reference_number": "MX-444197237210",
+      "solicitation_number": "HX26CPSP",
+      "buyer_city": "Bedford",
+      "buyer_province": "Nova Scotia",
+      "region_of_delivery": null,
+      "procurement_category": "*CNST",
+      "procurement_method": "Competitive - Open bidding",
+      "commodity": null,
+      "trade_agreements": [
+        "Canadian Free Trade Agreement (CFTA)",
+        "World Trade Organization Agreement on Government Procurement (WTO GPA)",
+        "Canada-European Union Comprehensive Economic and Trade Agreement (CETA)"
+      ],
+      "published_date": "2026-10-14",
+      "closes_at": "2027-01-14T13:00:00",
+      "hours_remaining_at_harvest": 1635.5,
+      "urgent_under_72h": false,
+      "notice_url": "https://www.merx.com/public/solicitations/4130696911/abstract?language=EN",
+      "description_excerpt": "ADVANCE PROCUREMENT NOTICE CANADIAN PATROL SUBMARINE PROJECT Halifax, NS (with Security Requirements) 1. PURPOSE OF THIS ADVANCE PROCUREMENT NOTICE This is not a bid solicitation nor a request for proposals. In the context of the major investments announced by the Government and to foster a proactive partnership with industry, DCC is issuing this Advance Procurement Notice (APN) to inform contractors of an upcoming contract opportunity at Halifax, NS. The purpose of this APN is to allow contractors to assess their capacity and interest in participating, and to prepare adequately for the potential solicitation process. This is a preliminary notice regarding a potential contract, which includes security requirements. The purpose of this APN is to allow interested [contractors and consultants] to initiate, if required, the sponsorship process to obtain the necessary clearances or security clearances (if applicable). Please note that there is no guarantee that this contract will proceed or that security clearances will be granted within the anticipated timelines or at all as part of the sponsorship process. Please note that this project may include Indigenous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). 2. DESCRIPTION OF THE PROJECT AND SERVICES It is anticipated that the following solicitation will proceed as noted ",
+      "stated_value_range": null,
+      "naics_hub": null,
+      "bidshield_scan": {
+        "scope": "published_notice_text_only",
+        "decision": "HALT_REVIEW_FATAL_GATES",
+        "risk_index_0_100": 42,
+        "findings": [
+          {
+            "id": "SECURITY_CLEARANCE",
+            "severity": "FATAL",
+            "clause_type": "Personnel / facility security clearance",
+            "points": 30,
+            "evidence": "…NTS This opportunity is restricted to Canadian, German, and Norwegian firms that meet the security clearance requirements. To be eligible for contract award, a proponent will be required to, among o…"
+          },
+          {
+            "id": "INDIGENOUS_SETASIDE",
+            "severity": "HIGH",
+            "clause_type": "Indigenous set-aside / participation requirement",
+            "points": 12,
+            "evidence": "…genous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). 2. DESCRIPTION OF THE PROJECT AND SERVICES It is anticipated that the following s…"
+          }
+        ]
+      }
+    },
+    {
+      "solicitation_id": "MX-444195617172",
+      "tender_number": "MX-444195617172",
+      "title": "APN - Canadian Patrol Submarine Project, Esquimalt, B.C.",
+      "buyer": "Defence Construction Canada - Pacific Region",
+      "jurisdiction": "Canada Federal (British Columbia)",
+      "category": "Federal Procurement",
+      "naics_code": "236220",
+      "contract_midpoint_usd": 2500000,
+      "combined_jev_exposure_usd": 42000,
+      "closes_at_iso": "2027-01-14T17:00:00",
+      "status": "HALT_REVIEW_FATAL_GATES",
+      "mandatory_gates": [
+        "Personnel / facility security clearance: …NTS This opportunity is restricted to Canadian, German, and Norwegian firms that meet the security clearance requirements. To be eligible for contract award, a proponent will be required to, among o…",
+        "Indigenous set-aside / participation requirement: …genous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). 2. DESCRIPTION OF THE PROJECT AND SERVICES It is anticipated that the following s…"
+      ],
+      "missing_annex_count": 4,
+      "missing_annexes": [
+        "Schedule: Personnel / facility security clearance Form",
+        "Schedule: Indigenous set-aside / participation requirement Form",
+        "Statement of Work",
+        "Basis of Payment"
+      ],
+      "evaluation_summary": "ADVANCE PROCUREMENT NOTICE Canadian Patrol Submarine Project Esquimalt, BC (With Security Requirements) 1. PURPOSE OF THIS ADVANCE PROCUREMENT NOTICE This is not a bid solicitation nor a request for proposals. In the context of the major investments announced by the Government an...",
+      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
+      "sample_pdf_url": "/sample-bidshield-report.pdf",
+      "slug": "MX-444195617172",
+      "reference_number": "MX-444195617172",
+      "solicitation_number": "PC26CPSP",
+      "buyer_city": "Victoria",
+      "buyer_province": "British Columbia",
+      "region_of_delivery": null,
+      "procurement_category": "*CNST",
+      "procurement_method": "Competitive - Open bidding",
+      "commodity": null,
+      "trade_agreements": [
+        "Please refer to Tender Description or Tender Documents",
+        "Canadian Free Trade Agreement (CFTA)",
+        "Canada-European Union Comprehensive Economic and Trade Agreement (CETA)"
+      ],
+      "published_date": "2026-10-13",
+      "closes_at": "2027-01-14T17:00:00",
+      "hours_remaining_at_harvest": 1639.5,
+      "urgent_under_72h": false,
+      "notice_url": "https://www.merx.com/public/solicitations/4129129763/abstract?language=EN",
+      "description_excerpt": "ADVANCE PROCUREMENT NOTICE Canadian Patrol Submarine Project Esquimalt, BC (With Security Requirements) 1. PURPOSE OF THIS ADVANCE PROCUREMENT NOTICE This is not a bid solicitation nor a request for proposals. In the context of the major investments announced by the Government and to foster a proactive partnership with industry, DCC is issuing this Advance Procurement Notice (APN) to inform contractors of an upcoming contract opportunity at Esquimalt, BC The purpose of this APN is to allow contractors to assess their capacity and interest in participating, and to prepare adequately for the potential solicitation process. This is a preliminary notice regarding a potential contract, which includes security requirements. The purpose of this APN is to allow interested contractors to initiate, if required, the sponsorship process to obtain the necessary clearances or security clearances (if applicable). Please note that there is no guarantee that this contract will proceed or that security clearances will be granted within the anticipated timelines or at all as part of the sponsorship process. Please note that this project may include Indigenous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). 2. DESCRIPTION OF THE PROJECT AND SERVICES It is anticipated that the following solicitation will proceed as noted in the table be",
+      "stated_value_range": null,
+      "naics_hub": null,
+      "bidshield_scan": {
+        "scope": "published_notice_text_only",
+        "decision": "HALT_REVIEW_FATAL_GATES",
+        "risk_index_0_100": 42,
+        "findings": [
+          {
+            "id": "SECURITY_CLEARANCE",
+            "severity": "FATAL",
+            "clause_type": "Personnel / facility security clearance",
+            "points": 30,
+            "evidence": "…NTS This opportunity is restricted to Canadian, German, and Norwegian firms that meet the security clearance requirements. To be eligible for contract award, a proponent will be required to, among o…"
+          },
+          {
+            "id": "INDIGENOUS_SETASIDE",
+            "severity": "HIGH",
+            "clause_type": "Indigenous set-aside / participation requirement",
+            "points": 12,
+            "evidence": "…genous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). 2. DESCRIPTION OF THE PROJECT AND SERVICES It is anticipated that the following s…"
+          }
+        ]
+      }
+    },
+    {
+      "solicitation_id": "MX-444158392452",
+      "tender_number": "MX-444158392452",
+      "title": "APN - CETEMT New Facility and Compound, CFB Uplands",
+      "buyer": "Defence Construction Canada - National Capital Region",
+      "jurisdiction": "Canada Federal (Ontario)",
+      "category": "Federal Procurement",
+      "naics_code": "236220",
+      "contract_midpoint_usd": 2500000,
+      "combined_jev_exposure_usd": 42000,
+      "closes_at_iso": "2027-01-20T14:00:00",
+      "status": "HALT_REVIEW_FATAL_GATES",
+      "mandatory_gates": [
+        "Personnel / facility security clearance: …ign-Builder will be required to, among other things, actively hold or obtain all required security clearance(s) prior to the date of the award, as further detailed in the solicitation documents. The…",
+        "Indigenous set-aside / participation requirement: …genous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). Please note that there is no guarantee that this contract will proceed or that se…"
+      ],
+      "missing_annex_count": 4,
+      "missing_annexes": [
+        "Schedule: Personnel / facility security clearance Form",
+        "Schedule: Indigenous set-aside / participation requirement Form",
+        "Statement of Work",
+        "Basis of Payment"
+      ],
+      "evaluation_summary": "Purpose of this Advance Procurement Notice This is not a bid solicitation nor a request for proposals. In the context of the major investments announced by the Government and to foster a proactive partnership with industry, DCC is issuing this Advance Procurement Notice (APN) to ...",
+      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
+      "sample_pdf_url": "/sample-bidshield-report.pdf",
+      "slug": "MX-444158392452",
+      "reference_number": "MX-444158392452",
+      "solicitation_number": "APN_WA255006_88076",
+      "buyer_city": "Ottawa",
+      "buyer_province": "Ontario",
+      "region_of_delivery": null,
+      "procurement_category": "*CNST",
+      "procurement_method": "Competitive - Open bidding",
+      "commodity": null,
+      "trade_agreements": [
+        "Canadian Free Trade Agreement (CFTA)",
+        "Canada-European Union Comprehensive Economic and Trade Agreement (CETA)",
+        "World Trade Organization Agreement on Government Procurement (WTO GPA)"
+      ],
+      "published_date": "2026-09-11",
+      "closes_at": "2027-01-20T14:00:00",
+      "hours_remaining_at_harvest": 1780.5,
+      "urgent_under_72h": false,
+      "notice_url": "https://www.merx.com/public/solicitations/4080727218/abstract?language=EN",
+      "description_excerpt": "Purpose of this Advance Procurement Notice This is not a bid solicitation nor a request for proposals. In the context of the major investments announced by the Government and to foster a proactive partnership with industry, DCC is issuing this Advance Procurement Notice (APN) to inform the Design-Builder of an upcoming contract opportunity at CFB Uplands in Ottawa, Ontario. The purpose of this APN is to allow the Design-Builder to assess their capacity and interest in participating, and to prepare adequately for the potential solicitation process, notably by initiating any necessary steps. This is a preliminary notice regarding a potential contract, which includes security requirements. The purpose of this APN is to allow interested Design-Builders to initiate, if required, the sponsorship process to obtain the necessary clearances or security clearances (if applicable). Please note that this project will include an Indigenous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). Please note that there is no guarantee that this contract will proceed or that security clearances will be granted within the anticipated timelines or at all as part of the sponsorship process. Description of the Project and Services This contract will provide the design and construction of the new facility and compound near the existing CETEMT (",
+      "stated_value_range": null,
+      "naics_hub": null,
+      "bidshield_scan": {
+        "scope": "published_notice_text_only",
+        "decision": "HALT_REVIEW_FATAL_GATES",
+        "risk_index_0_100": 42,
+        "findings": [
+          {
+            "id": "SECURITY_CLEARANCE",
+            "severity": "FATAL",
+            "clause_type": "Personnel / facility security clearance",
+            "points": 30,
+            "evidence": "…ign-Builder will be required to, among other things, actively hold or obtain all required security clearance(s) prior to the date of the award, as further detailed in the solicitation documents. The…"
+          },
+          {
+            "id": "INDIGENOUS_SETASIDE",
+            "severity": "HIGH",
+            "clause_type": "Indigenous set-aside / participation requirement",
+            "points": 12,
+            "evidence": "…genous businesses participation component in accordance with the Procurement Strategy for Indigenous Business (PSIB). Please note that there is no guarantee that this contract will proceed or that se…"
+          }
+        ]
+      }
+    },
+    {
+      "solicitation_id": "MX-443947358727",
+      "tender_number": "MX-443947358727",
+      "title": "ADVANCE PROCUREMENT NOTICE, 5 WING GOOSE BAY PROGRAM, NL",
+      "buyer": "Defence Construction Canada - Atlantic Region",
+      "jurisdiction": "Canada Federal (Nova Scotia)",
+      "category": "Federal Procurement",
+      "naics_code": "236220",
+      "contract_midpoint_usd": 2500000,
+      "combined_jev_exposure_usd": 42000,
+      "closes_at_iso": "2027-03-31T13:00:00",
+      "status": "HALT_REVIEW_FATAL_GATES",
+      "mandatory_gates": [
+        "Personnel / facility security clearance: …t or bidder will be required to, among other things, actively hold or obtain all required security clearance(s) prior to the date of the award, as further detailed in the solicitation documents. Whe…",
+        "Indigenous set-aside / participation requirement: …may be reserved for Indigenous businesses in accordance with the Procurement Strategy for Indigenous Business (PSIB). Please note that there is no guarantee that these solicitations will proceed or t…"
+      ],
+      "missing_annex_count": 4,
+      "missing_annexes": [
+        "Schedule: Personnel / facility security clearance Form",
+        "Schedule: Indigenous set-aside / participation requirement Form",
+        "Statement of Work",
+        "Basis of Payment"
+      ],
+      "evaluation_summary": "Advance Procurement Notice 5 Wing Goose Bay Program 5 Wing Goose Bay, newfoundland and Labrador (with AND WITHOUT Security Requirements) Purpose of this Advance Procurement Notice This is not a bid solicitation nor a request for proposals. In the context of the major investments ...",
+      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
+      "sample_pdf_url": "/sample-bidshield-report.pdf",
+      "slug": "MX-443947358727",
+      "reference_number": "MX-443947358727",
+      "solicitation_number": "BASE_APN_GB_2026_2027",
+      "buyer_city": "Bedford",
+      "buyer_province": "Nova Scotia",
+      "region_of_delivery": null,
+      "procurement_category": "*CNST",
+      "procurement_method": "Competitive - Open bidding",
+      "commodity": null,
+      "trade_agreements": [
+        "World Trade Organization Agreement on Government Procurement (WTO GPA)",
+        "Canadian Free Trade Agreement (CFTA)",
+        "Canada-European Union Comprehensive Economic and Trade Agreement (CETA)"
+      ],
+      "published_date": "2026-03-31",
+      "closes_at": "2027-03-31T13:00:00",
+      "hours_remaining_at_harvest": 3459.5,
+      "urgent_under_72h": false,
+      "notice_url": "https://www.merx.com/public/solicitations/3894796470/abstract?language=EN",
+      "description_excerpt": "Advance Procurement Notice 5 Wing Goose Bay Program 5 Wing Goose Bay, newfoundland and Labrador (with AND WITHOUT Security Requirements) Purpose of this Advance Procurement Notice This is not a bid solicitation nor a request for proposals. In the context of the major investments announced by the Government and to foster a proactive partnership with industry, DCC is issuing this Advance Procurement Notice (APN) to inform contractors/consultants of upcoming contract opportunities at 5 Wing Goose Bay for Real Property Operations Group (RP OPS) and Canadian Forces Housing Agency (CFHA) base programs. The purpose of this APN is to allow contractors and consultants to assess their capacity and interest in participating, and to prepare adequately for potential solicitation processes, notably by initiating any necessary steps. This is a preliminary notice regarding potential contracts, which may or may not include security requirements. The purpose of this APN is to allow interested contractors and consultants to initiate, if required, the sponsorship process to obtain the necessary clearances or security clearances (if applicable). Please note that certain projects may be reserved for Indigenous businesses in accordance with the Procurement Strategy for Indigenous Business (PSIB). Please note that there is no guarantee that these solicitations will proceed or that security clearances ",
+      "stated_value_range": null,
+      "naics_hub": null,
+      "bidshield_scan": {
+        "scope": "published_notice_text_only",
+        "decision": "HALT_REVIEW_FATAL_GATES",
+        "risk_index_0_100": 42,
+        "findings": [
+          {
+            "id": "SECURITY_CLEARANCE",
+            "severity": "FATAL",
+            "clause_type": "Personnel / facility security clearance",
+            "points": 30,
+            "evidence": "…t or bidder will be required to, among other things, actively hold or obtain all required security clearance(s) prior to the date of the award, as further detailed in the solicitation documents. Whe…"
+          },
+          {
+            "id": "INDIGENOUS_SETASIDE",
+            "severity": "HIGH",
+            "clause_type": "Indigenous set-aside / participation requirement",
+            "points": 12,
+            "evidence": "…may be reserved for Indigenous businesses in accordance with the Procurement Strategy for Indigenous Business (PSIB). Please note that there is no guarantee that these solicitations will proceed or t…"
           }
         ]
       }

@@ -10,544 +10,12 @@
   "disclaimer": "Automated rule scan of the public tender notice text only. Full solicitation documents and amendments were not reviewed. Always verify against the official notice.",
   "order_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
   "counts": {
-    "open_tenders": 882,
-    "premier_featured": 16,
+    "open_tenders": 853,
+    "premier_featured": 0,
     "with_fatal_gates": 129,
-    "closing_under_72h": 29
+    "closing_under_72h": 25
   },
   "tenders": [
-    {
-      "solicitation_id": "NRC-87055",
-      "tender_number": "NRC-OTT-JAN-2026",
-      "title": "National Research Council (NRC) Ottawa Campus Janitorial & Custodial Services",
-      "buyer": "National Research Council of Canada (NRC)",
-      "jurisdiction": "Canada Federal (National Capital Region)",
-      "category": "Janitorial & Facilities Maintenance",
-      "naics_code": "561720",
-      "contract_midpoint_usd": 2400000,
-      "combined_jev_exposure_usd": 29400,
-      "closes_at_iso": "2026-11-27T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Mandatory Pre-Bid Site Visit: Attendance register must be signed on-site; absence is fatal disqualifier (Section 2.1)",
-        "Reliability Status Security Clearance: All supervisory personnel require 60-day background clearance prior to facility access (SRCL 0019)",
-        "WSIB / CNESST Clearance Certificate: Must be current within 30 days of submission date",
-        "Joint Venture / Subcontractor Capacity Letter: Written capacity disclosures required for all tier-1 subcontractors"
-      ],
-      "missing_annex_count": 10,
-      "missing_annexes": [
-        "Annex A: Statement of Work (SOW) Task Schedules & Frequency Tables",
-        "Annex B: Basis of Payment / Rate Matrix Form (Fixed Hourly & Square Footage)",
-        "Annex C: Security Requirements Check List (SRCL 0019)",
-        "Annex D: Technical Evaluation Criteria & Scoring Matrix",
-        "Annex E: Insurance & $2,000,000 General Liability Verification Form",
-        "Annex F: Environmental Health & Green Cleaning Standards Specification",
-        "Annex G: Mandatory Site Visit Attendance Register",
-        "Annex H: Subcontractor Disclosure & Capacity Form",
-        "Annex I: Non-Disclosure Agreement for Sensitive Research Areas",
-        "Annex J: Treasury Board General Conditions 2010C"
-      ],
-      "evaluation_summary": "Notice published on CanadaBuys omitted 10 essential schedules referenced in the evaluation criteria. Bidders who calculate pricing without the Square Footage Frequency Table (Annex A) and Basis of Payment (Annex B) face fatal non-compliance or catastrophic margin compression.",
-      "recommended_wedge": "$149 Starter Matrix (3-day delivery) / $299 Full Stop/Go Pilot (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "PWGSC-W8486-24SP01",
-      "tender_number": "W8486-24SP01/A",
-      "title": "Department of National Defence (DND) - Facilities HVAC & Mechanical Systems Maintenance",
-      "buyer": "Public Works and Government Services Canada (PWGSC) / DND",
-      "jurisdiction": "Canada Federal (CFB Halifax & Shearwater)",
-      "category": "HVAC, Plumbing & Mechanical",
-      "naics_code": "238220",
-      "contract_midpoint_usd": 3800000,
-      "combined_jev_exposure_usd": 48200,
-      "closes_at_iso": "2026-12-04T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Secret Level II Facility Security Clearance required at time of bid closing",
-        "Mandatory 2-Hour Emergency Response SLA within HRM regional boundaries",
-        "Red Seal Refrigeration & Air Conditioning Mechanic certification required for all lead technicians",
-        "10% Bid Bond and 50% Performance / Labour and Material Payment Bond commitment letter"
-      ],
-      "missing_annex_count": 8,
-      "missing_annexes": [
-        "Annex A: Equipment Inventory & Chiller Plant Asset Registry",
-        "Annex B: Unit Price Schedule & Emergency Callout Rates",
-        "Annex C: Security Requirements Check List (SRCL Level II)",
-        "Annex D: Mandatory Experience Matrix (M1 through M7)",
-        "Annex E: Environmental Halocarbon Regulations Compliance Protocol",
-        "Annex F: Contractor Environmental Health and Safety Program (HASP)",
-        "Annex G: Standard Acquisition Clauses and Conditions (SACC) Manual 2026",
-        "Annex H: Industrial Security Manual (ISM) Facility Verification"
-      ],
-      "evaluation_summary": "Severe fatal disqualification risk regarding Secret II clearance lead time (average 90-120 days). Bidders lacking active corporate facility clearance cannot cure this post-close.",
-      "recommended_wedge": "$299 Full Stop/Go Pilot / $499 Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "SSC-24-00918",
-      "tender_number": "SSC-ITPRO-2026-0918",
-      "title": "Shared Services Canada (SSC) - Enterprise Cloud Architecture & DevSecOps Compliance",
-      "buyer": "Shared Services Canada (SSC)",
-      "jurisdiction": "Canada Federal (NCR / National Distributed)",
-      "category": "IT Systems, Cloud & Cybersecurity",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 4500000,
-      "combined_jev_exposure_usd": 62000,
-      "closes_at_iso": "2026-12-15T15:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Protected B Medium Integrity / Medium Availability Cloud Security Assessment (ITSG-33)",
-        "3 Verifiable Enterprise Reference Projects exceeding $1M CAD within the past 36 months",
-        "Bilingual (English/French) Key Personnel for Level 3 Cloud Architect role",
-        "FedRAMP or Canadian CCCS Cloud Provider Partner Accreditation"
-      ],
-      "missing_annex_count": 6,
-      "missing_annexes": [
-        "Annex A: Architecture Capability Requirements & SOW",
-        "Annex B: Financial Proposal Worksheet & Level of Effort Matrix",
-        "Annex C: Resource Qualification Grid & Resume Scoring Guide",
-        "Annex D: Government of Canada Data Sovereignty Directive",
-        "Annex E: Supply Chain Integrity & Provenance Declaration",
-        "Annex F: SSC Master Services Agreement General Conditions"
-      ],
-      "evaluation_summary": "High fatal trap in Data Sovereignty Annex and ITSG-33 controls. Foreign cloud dependencies without Canadian zone pinning result in immediate rejection under Canadian sovereign computing directives.",
-      "recommended_wedge": "$299 Full Stop/Go Pilot / $499 Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "PSPC-EP008-24109",
-      "tender_number": "EP008-241092/001/PW",
-      "title": "Public Services and Procurement Canada - Institutional Building Envelope Restoration",
-      "buyer": "Public Services and Procurement Canada (PSPC)",
-      "jurisdiction": "Canada Federal (Toronto / GTA Region)",
-      "category": "Commercial & Institutional Construction",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 5200000,
-      "combined_jev_exposure_usd": 74500,
-      "closes_at_iso": "2026-12-18T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Heritage masonry restoration specialist certification (Canadian Heritage Standards)",
-        "COR (Certificate of Recognition) or ISO 45001 safety certification mandatory at bid closing",
-        "50% Performance Bond and 50% Labour and Material Bond",
-        "Documented proof of minimum $10M Commercial General Liability Insurance"
-      ],
-      "missing_annex_count": 7,
-      "missing_annexes": [
-        "Annex A: Architectural Specification Drawings & Structural Notes",
-        "Annex B: Stipulated Price Table & Milestone Schedule",
-        "Annex C: Heritage Conservation Protocols & Materials Specification",
-        "Annex D: Environmental Dust & Hazardous Material Abatement Guidelines",
-        "Annex E: Safety Program Qualification Submittal",
-        "Annex F: Subcontractor Qualification Form",
-        "Annex G: General Conditions for Federal Construction Contracts"
-      ],
-      "evaluation_summary": "Heritage masonry criteria (M3) requires 10 years of specific limestone mortar restoration experience. General GC proposals lacking specialized masonry joint certifications face 100% technical disqualification.",
-      "recommended_wedge": "$299 Full Stop/Go Pilot / $499 Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "DND-W8484-245102",
-      "tender_number": "W8484-245102/B",
-      "title": "Department of National Defence - CFB Borden Central Heating Plant Upgrade & Boiler Retrofit",
-      "buyer": "Department of National Defence (DND) / Defence Construction Canada",
-      "jurisdiction": "Canada Federal (CFB Borden, Ontario)",
-      "category": "HVAC, Mechanical & Industrial Boilers",
-      "naics_code": "238220",
-      "contract_midpoint_usd": 4200000,
-      "combined_jev_exposure_usd": 58000,
-      "closes_at_iso": "2026-11-30T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Mandatory site inspection certificate issued by DCC project officer",
-        "TSSA Certificate of Authorization for high-pressure industrial steam systems",
-        "Secret Level II security clearance for on-base supervisory staff",
-        "50% Performance Bond & 50% Labour and Material Payment Bond"
-      ],
-      "missing_annex_count": 7,
-      "missing_annexes": [
-        "Annex A: High-Pressure Steam Piping P&ID Diagrams",
-        "Annex B: Equipment Schedule & Boiler Replacement Specifications",
-        "Annex C: Base Access & Physical Security Regulations (SRCL Level II)",
-        "Annex D: Unit Rate Schedule & Emergency Demobilization Matrix",
-        "Annex E: Environmental TSSA Compliance Protocol",
-        "Annex F: Subcontractor Quality Assurance Program",
-        "Annex G: General Conditions for Federal Infrastructure DCC-2026"
-      ],
-      "evaluation_summary": "Fatal trap detected in TSSA steam boiler certification requirement (M2). Subcontractors without active Ontario TSSA high-pressure authorization are subject to mandatory disqualification without cure.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "HC-1000249811",
-      "tender_number": "HC-LAB-OTT-2026-04",
-      "title": "Health Canada - BSL-2/BSL-3 Laboratory Bio-Sanitization & Custodial Support Services",
-      "buyer": "Health Canada / Public Health Agency of Canada (PHAC)",
-      "jurisdiction": "Canada Federal (Sir Frederick Banting Research Centre, Ottawa)",
-      "category": "Janitorial & Biocontainment Facility Maintenance",
-      "naics_code": "561720",
-      "contract_midpoint_usd": 1950000,
-      "combined_jev_exposure_usd": 34200,
-      "closes_at_iso": "2026-12-01T15:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Documented Canadian Biosafety Standard (CBS) Tier 2 compliance certification",
-        "Top Secret / Reliability Security Clearance validation for cleanroom access",
-        "Mandatory Biohazard Spill Response SLA (<45 minutes on-site)",
-        "Staff immunization verification for Bloodborne Pathogen standard"
-      ],
-      "missing_annex_count": 6,
-      "missing_annexes": [
-        "Annex A: Biosafety Containment Operating Procedures & Decontamination Protocol",
-        "Annex B: Cleanroom Custodial Schedule & Waste Segregation Matrices",
-        "Annex C: Security Requirements Check List (SRCL Level III - Top Secret)",
-        "Annex D: Technical Competency Evaluation Matrix (M1 through M5)",
-        "Annex E: Hazardous Waste Handling Attestation",
-        "Annex F: Standard Acquisition Terms 2010A"
-      ],
-      "evaluation_summary": "High fatal risk around biosafety worker certifications and Top Secret clearance timelines. Non-compliant biosafety training records automatically eliminate the technical bid.",
-      "recommended_wedge": " Starter Matrix (3-day delivery) /  Full Stop/Go Pilot (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "DFO-F5211-240182",
-      "tender_number": "F5211-240182/001/MT",
-      "title": "Fisheries and Oceans Canada - Canadian Coast Guard Marine Electrical Distribution & Microgrid Upgrade",
-      "buyer": "Fisheries and Oceans Canada (DFO) / Canadian Coast Guard",
-      "jurisdiction": "Canada Federal (Victoria Marine Base, BC)",
-      "category": "Electrical Wiring, Substations & Marine Power",
-      "naics_code": "238210",
-      "contract_midpoint_usd": 3100000,
-      "combined_jev_exposure_usd": 42500,
-      "closes_at_iso": "2026-12-03T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Master Electrician certified under BC Safety Standards Act",
-        "Documented Marine Electrical Installation experience under Transport Canada Marine Safety TP 127E",
-        "Reliability Status security screening prior to naval facility entry",
-        "10% Bid Bond and 50% Labour & Material Payment Bond"
-      ],
-      "missing_annex_count": 8,
-      "missing_annexes": [
-        "Annex A: Single-Line Electrical Diagrams & Switchgear Specifications",
-        "Annex B: Microgrid Control System Architecture & Battery Energy Storage (BESS)",
-        "Annex C: Security Requirements Check List (SRCL 0021)",
-        "Annex D: Transport Canada TP 127E Marine Compliance Checklist",
-        "Annex E: Unit Rate Table & Testing Milestone Schedule",
-        "Annex F: Arc-Flash Hazard Risk Assessment",
-        "Annex G: Subcontractor Electrical Certification Register",
-        "Annex H: PSPC Marine General Conditions 2026"
-      ],
-      "evaluation_summary": "Transport Canada marine electrical standard TP 127E represents a fatal pitfall for commercial electrical contractors without maritime power distribution credentials.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "TC-T8080-240039",
-      "tender_number": "T8080-240039/A",
-      "title": "Transport Canada - Regional Airport Perimeter Security Fencing & Civil Earthworks",
-      "buyer": "Transport Canada",
-      "jurisdiction": "Canada Federal (St. Anthony Airport, NL)",
-      "category": "Civil Construction & Airport Infrastructure",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2800000,
-      "combined_jev_exposure_usd": 36000,
-      "closes_at_iso": "2026-12-05T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Airside Vehicle Operator Permit (AVOP) and Transportation Security Clearance (TSC)",
-        "Proof of minimum 5 successful cold-climate civil airfield perimeter installations",
-        "COR (Certificate of Recognition) occupational safety certification",
-        "Bid security deposit of 10% certified cheque or bid bond"
-      ],
-      "missing_annex_count": 6,
-      "missing_annexes": [
-        "Annex A: Airside Fencing Civil Drawings & Geotechnical Soil Boring Logs",
-        "Annex B: Airfield Operations Safety Plan (AOSP) & FOD Prevention Plan",
-        "Annex C: Unit Price Table & Earthwork Volume Breakdown",
-        "Annex D: Transport Canada Aviation Security Regulations Compliance",
-        "Annex E: Environmental Wetland Protection Guidelines",
-        "Annex F: Standard Federal Construction Terms R2710T"
-      ],
-      "evaluation_summary": "Transport Canada Aviation Security Regulations mandate strict airside escort ratios and zero Foreign Object Debris (FOD) protocols. Incomplete AOSP submittals lead to immediate rejection.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "EC-K4A20-240892",
-      "tender_number": "K4A20-240892/001/OTT",
-      "title": "Environment and Climate Change Canada - National Meteorological Station Environmental Remediation & Waste Disposal",
-      "buyer": "Environment and Climate Change Canada (ECCC)",
-      "jurisdiction": "Canada Federal (Multiple Arctic & Northern Sites)",
-      "category": "Hazardous Waste Collection, PCB & Battery Remediation",
-      "naics_code": "562111",
-      "contract_midpoint_usd": 3500000,
-      "combined_jev_exposure_usd": 51000,
-      "closes_at_iso": "2026-12-08T15:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Transportation of Dangerous Goods (TDG) Class 9 certification for Arctic marine transport",
-        "Provincial / Territorial Waste Management Permits across Nunavut and NWT",
-        "Proof of Comprehensive Spill Response Plan with  environmental liability coverage",
-        "Indigenous Participation Plan (IPP) guaranteeing minimum 10% local Inuit employment"
-      ],
-      "missing_annex_count": 9,
-      "missing_annexes": [
-        "Annex A: Contaminated Site Soil Characterization & Hazardous Waste Inventory",
-        "Annex B: Arctic Logistics Matrix & Sea-Lift Sealift Shipping Windows",
-        "Annex C: Indigenous Participation Plan (IPP) Evaluation Grid",
-        "Annex D: Environmental Emergency Response Plan Template",
-        "Annex E: Dangerous Goods Movement Manifesting Forms",
-        "Annex F: Unit Pricing for Northern Demobilization",
-        "Annex G: Comprehensive Liability Insurance Endorsements",
-        "Annex H: Treasury Board Contracting Policy 2026",
-        "Annex I: Health & Safety Plan HASP"
-      ],
-      "evaluation_summary": "Failure to satisfy mandatory Inuit Benefit Plan (IPP) criteria (5% minimum weighting) or lacking sealift seasonal scheduling reserves triggers instant disqualification under federal procurement rules.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "NRC-91024-ARCH",
-      "tender_number": "NRC-ENG-2026-91024",
-      "title": "National Research Council Canada - Wind Tunnel Testing Facility Aerodynamic & Structural Engineering Review",
-      "buyer": "National Research Council of Canada (NRC)",
-      "jurisdiction": "Canada Federal (NRC Uplands Campus, Ottawa)",
-      "category": "Civil, Aerodynamic & Structural Engineering Services",
-      "naics_code": "541330",
-      "contract_midpoint_usd": 1800000,
-      "combined_jev_exposure_usd": 27500,
-      "closes_at_iso": "2026-12-10T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Professional Engineers Ontario (PEO) Certificate of Authorization",
-        "Lead Structural Engineer with minimum 15 years specialized aerodynamic wind tunnel experience",
-        "Secret Level II Security Clearance for high-velocity research installations",
-        "Professional Liability Errors & Omissions Insurance minimum ,000,000 per claim"
-      ],
-      "missing_annex_count": 5,
-      "missing_annexes": [
-        "Annex A: Wind Tunnel Mechanical & Aerodynamic Sensor Layout",
-        "Annex B: Structural Vibration Analysis & Finite Element Modeling Specs",
-        "Annex C: Key Personnel Qualification & CV Evaluation Matrix",
-        "Annex D: Fixed Hourly Rate Table for Engineering Disciplines",
-        "Annex E: NRC Research Facility Security Check List SRCL"
-      ],
-      "evaluation_summary": "Severe mandatory gate on lead engineer aerodynamic certifications (M1). General civil engineering consultancies without specialized aerospace tunnel instrumentation experience cannot qualify.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "CBSA-1000389104",
-      "tender_number": "CBSA-IT-2026-0389",
-      "title": "Canada Border Services Agency - Automated Primary Inspection Kiosk DevSecOps & Zero Trust Architecture",
-      "buyer": "Canada Border Services Agency (CBSA) / Shared Services Canada",
-      "jurisdiction": "Canada Federal (National Capital Region & 14 International Airports)",
-      "category": "IT Systems Design, DevSecOps & Biometric Security",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 6800000,
-      "combined_jev_exposure_usd": 95000,
-      "closes_at_iso": "2026-12-11T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Top Secret (Level III) clearance for DevSecOps leads and cryptographic key managers",
-        "Canadian Cyber Security Centre (CCSC) Medium Integrity Sovereign Hosting Compliance",
-        "Mandatory Zero Trust Architecture alignment under NIST SP 800-207",
-        "Demonstrated production deployment of ISO/IEC 19794 biometric verification systems"
-      ],
-      "missing_annex_count": 8,
-      "missing_annexes": [
-        "Annex A: Primary Inspection Kiosk API Specification & Protocol Architecture",
-        "Annex B: Cryptographic Key Management & HSM Integration Protocol",
-        "Annex C: Level of Effort & Blended Technical Rate Matrix",
-        "Annex D: Security Requirements Check List (SRCL Level III)",
-        "Annex E: Data Sovereignty & Canadian Residency Attestation",
-        "Annex F: Supply Chain Threat Risk Assessment (TRA)",
-        "Annex G: Service Level Agreement (99.999% High Availability)",
-        "Annex H: Treasury Board IT Procurement Standard Conditions"
-      ],
-      "evaluation_summary": "Fatal disqualifier risk in foreign supply chain disclosures. Components failing Canadian CCCS cryptographic provenance screening will be rejected under emergency sovereign directives.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "CRA-1000192847",
-      "tender_number": "CRA-FAC-2026-0019",
-      "title": "Canada Revenue Agency - National Data Centre Integrated Facilities Management & Chilled Water Plant Support",
-      "buyer": "Canada Revenue Agency (CRA)",
-      "jurisdiction": "Canada Federal (Shawinigan Data Center, Quebec)",
-      "category": "Integrated Facilities Operations & Critical Environment Support",
-      "naics_code": "561210",
-      "contract_midpoint_usd": 5400000,
-      "combined_jev_exposure_usd": 78000,
-      "closes_at_iso": "2026-12-14T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Secret Level II Facility Security Clearance required at bid opening",
-        "Uptime Institute Tier III or Tier IV Certified Operations Specialist on permanent staff",
-        "Mandatory Bilingualism (French / English) for operational dispatchers",
-        "100% Redundant Dual-Chiller Continuous Operation SLA (Zero Tolerated Downtime)"
-      ],
-      "missing_annex_count": 7,
-      "missing_annexes": [
-        "Annex A: Mission Critical Infrastructure Inventory & SLA Schedules",
-        "Annex B: Chilled Water Loop P&ID and Thermal Load Balancing Matrix",
-        "Annex C: Security Requirements Check List (SRCL Level II)",
-        "Annex D: Preventative Maintenance Task Schedules (24/7/365)",
-        "Annex E: French Language Capacity Attestation (Official Languages Act)",
-        "Annex F: Pricing Worksheet for Base & 4 Option Years",
-        "Annex G: General Conditions for Critical Infrastructure Facilities"
-      ],
-      "evaluation_summary": "Official Languages Act mandatory criterion (M4) requires French language proficiency for on-site facility engineers in Quebec. Unilingual submissions fail mandatory gate review.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "PWGSC-EF998-241502",
-      "tender_number": "EF998-241502/001/PW",
-      "title": "Public Services and Procurement Canada - Supreme Court Building Heritage Glazing & Façade Restoration",
-      "buyer": "Public Services and Procurement Canada (PSPC)",
-      "jurisdiction": "Canada Federal (Supreme Court of Canada, Ottawa)",
-      "category": "Heritage Conservation & Specialized Masonry Restoration",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 6200000,
-      "combined_jev_exposure_usd": 89000,
-      "closes_at_iso": "2026-12-16T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Standards and Guidelines for the Conservation of Historic Places in Canada accreditation",
-        "Documented 10-year firm track record on Classified Federal Heritage Buildings (FHBRO)",
-        "Secret Level II Security Clearance for all personnel working inside judicial chambers",
-        "Bid bond of 10% and labour/material performance bonds of 50% each"
-      ],
-      "missing_annex_count": 8,
-      "missing_annexes": [
-        "Annex A: Heritage Conservation Architectural Specifications & Stone Schedules",
-        "Annex B: Window Glazing Replication Drawings & Thermal Upgrade Detail",
-        "Annex C: Security Requirements Check List (SRCL Secret II Judicial)",
-        "Annex D: Heritage Masonry Qualification Submittal Matrix (M1 through M8)",
-        "Annex E: Noise, Dust and Judicial Session Disruption Control Protocol",
-        "Annex F: Milestone Payment Table & Unit Pricing",
-        "Annex G: Environmental Hazardous Material Abatement (Lead / Asbestos)",
-        "Annex H: PSPC Major Construction Terms 2026"
-      ],
-      "evaluation_summary": "Heritage Masonry criterion M2 mandates past project references approved by the Federal Heritage Buildings Review Office (FHBRO). Standard commercial facade contractors face immediate rejection.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "DND-W8486-249018",
-      "tender_number": "W8486-249018/A",
-      "title": "Department of National Defence - HMC Dockyard Naval High-Pressure Steam & Fuel Bunkering Pipeline Rehabilitation",
-      "buyer": "Department of National Defence (DND) / PWGSC",
-      "jurisdiction": "Canada Federal (CFB Esquimalt, BC)",
-      "category": "Naval Mechanical, Fuel Piping & Marine Valves",
-      "naics_code": "238220",
-      "contract_midpoint_usd": 4800000,
-      "combined_jev_exposure_usd": 67000,
-      "closes_at_iso": "2026-12-17T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "CWB (Canadian Welding Bureau) W47.1 & W47.2 Division 1 or Division 2 certification",
-        "NATO Secret Facility Security Clearance required at bid submission",
-        "Certified Non-Destructive Testing (NDT) Level II technicians (CGSB 48.971)",
-        "Marine Spill Prevention & Rapid Containment boom deployment capability"
-      ],
-      "missing_annex_count": 7,
-      "missing_annexes": [
-        "Annex A: Naval Fuel Bunkering Pipeline Isometric Drawings & Valve Schedules",
-        "Annex B: Welder Qualification Testing Register & Inspection Grid",
-        "Annex C: Security Requirements Check List (NATO Secret Clearance)",
-        "Annex D: Environmental Containment Plan for Esquimalt Harbour",
-        "Annex E: Unit Rate Schedule for High-Pressure Alloy Piping",
-        "Annex F: Subcontractor Quality Audit Register",
-        "Annex G: Standard Naval Engineering Terms 2026"
-      ],
-      "evaluation_summary": "NATO Secret clearance threshold is non-negotiable. Firms with standard Reliability status who bid without validated NATO sponsorship will have bids disqualified at the gate.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "SSC-24-010482",
-      "tender_number": "SSC-CLOUD-2026-1048",
-      "title": "Shared Services Canada - Federal Secure Multi-Cloud Hybrid Mesh & Kubernetes Platform Engineering",
-      "buyer": "Shared Services Canada (SSC)",
-      "jurisdiction": "Canada Federal (NCR / Distributed Government of Canada)",
-      "category": "Cloud Infrastructure, Kubernetes & Cyber Defense",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 7500000,
-      "combined_jev_exposure_usd": 115000,
-      "closes_at_iso": "2026-12-19T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Protected B / Medium Integrity / High Availability Cloud Security Assessment (ITSG-33)",
-        "Certified Kubernetes Administrator (CKA) credentials for 100% of deployed engineering staff",
-        "Canadian Data Residency Guarantee: All data at rest and in transit pinned within Canadian borders",
-        "Security Operations Center (SOC 2 Type II) compliance report current within 12 months"
-      ],
-      "missing_annex_count": 6,
-      "missing_annexes": [
-        "Annex A: Multi-Cloud Hybrid Service Mesh Architecture & SOW",
-        "Annex B: Level of Effort Worksheet & Role-Based Blended Rates",
-        "Annex C: ITSG-33 Security Profile Mapping Matrix",
-        "Annex D: Security Requirements Check List (SRCL Level II)",
-        "Annex E: Data Residency Guarantee & Geofencing Attestation",
-        "Annex F: Master Cloud Services General Terms"
-      ],
-      "evaluation_summary": "ITSG-33 control baselines for container orchestration are unforgiving. Missing evidence of Canadian sovereign tenant isolation results in automated fatal gate failure.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
-    {
-      "solicitation_id": "PSPC-EP363-241190",
-      "tender_number": "EP363-241190/001/TOR",
-      "title": "Public Services and Procurement Canada - Federal Regional Headquarters 44kV Substation Modernization",
-      "buyer": "Public Services and Procurement Canada (PSPC)",
-      "jurisdiction": "Canada Federal (Toronto Dominion Federal Complex, ON)",
-      "category": "High Voltage Electrical Substations & Switchgear",
-      "naics_code": "238210",
-      "contract_midpoint_usd": 3900000,
-      "combined_jev_exposure_usd": 54000,
-      "closes_at_iso": "2026-12-22T14:00:00-05:00",
-      "status": "ACTIVE_TRIAGE",
-      "mandatory_gates": [
-        "Electrical Safety Authority (ESA) Licensed Electrical Contractor in High Voltage (44kV)",
-        "Proof of minimum 3 completed 44kV substation switchgear projects exceeding  CAD",
-        "Reliability Status clearance for downtown high-security federal facility access",
-        "10% Bid Bond and 50% Labour & Material Performance Bond"
-      ],
-      "missing_annex_count": 8,
-      "missing_annexes": [
-        "Annex A: 44kV Electrical Substation Single-Line & Protection Relay Diagrams",
-        "Annex B: Transformer Replacement Rigging & Urban Demolition Plan",
-        "Annex C: Security Requirements Check List (SRCL Level I)",
-        "Annex D: High Voltage Contractor Technical Evaluation Criteria",
-        "Annex E: Unit Rate Schedule & Temporary Generator Backup Plan",
-        "Annex F: Arc-Flash Hazard Analysis & Safety Plan",
-        "Annex G: Subcontractor Electrical Certification Form",
-        "Annex H: PSPC Medium Construction Terms 2026"
-      ],
-      "evaluation_summary": "Toronto Hydro utility interconnection approval and ESA 44kV licensing are absolute prerequisites. Submissions without active high-voltage utility sign-offs will be disqualified on day one.",
-      "recommended_wedge": " Full Stop/Go Pilot /  Full 19-Column Matrix (Escrow Protected)",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf"
-    },
     {
       "solicitation_id": "MX-243100787103",
       "tender_number": "MX-243100787103",
@@ -3579,66 +3047,6 @@
       }
     },
     {
-      "solicitation_id": "SSC-26-00035398-T",
-      "tender_number": "SSC-26-00035398:T",
-      "title": "Local Internet Access Services (LIAS)",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Data Transmission Service",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2065-04-27T09:15:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "Solicitation No.: BPM014160Department: Shared Services Canada (SSC)Delivery Destination Area: Canada / National Description of Requirement: Shared Services Canada (SSC) requires Local Internet Access Services (LIAS) for federal government sites across Canada on an as-and-when req...",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035398-T",
-      "reference_number": "SSC-26-00035398:T",
-      "solicitation_number": "BPM014160/35398",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Canada",
-      "procurement_category": "*SRV",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Data Transmission Service",
-      "trade_agreements": [
-        "Canada-Chile Free Trade Agreement (CCFTA)",
-        "World Trade Organization Agreement on Government Procurement (WTO GPA)",
-        "Canada-Ukraine Free Trade Agreement (CUFTA)",
-        "Canada-Colombia Free Trade Agreement",
-        "Comprehensive and Progressive Agreement for Trans-Pacific Partnership (CPTPP)",
-        "Canada-Peru Free Trade Agreement (CPFTA)",
-        "Canadian Free Trade Agreement (CFTA)",
-        "Canada-Korea Free Trade Agreement (CKFTA)",
-        "Canada-European Union Comprehensive Economic and Trade Agreement (CETA)",
-        "Canada-Panama Free Trade Agreement",
-        "Canada-Honduras Free Trade Agreement"
-      ],
-      "published_date": null,
-      "closes_at": "2065-04-27T09:15:00",
-      "hours_remaining_at_harvest": 337223.8,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "Solicitation No.: BPM014160Department: Shared Services Canada (SSC)Delivery Destination Area: Canada / National Description of Requirement: Shared Services Canada (SSC) requires Local Internet Access Services (LIAS) for federal government sites across Canada on an as-and-when requested basis for SSC itself, its exclusive Partner Organizations, Mandatory Clients, and any other Government Organization that chooses to use SSC for the procurement of its LIAS. This Request for Supply Arrangement is to invite Internet Service Providers (ISPs) to prequalify their business through this solicitation. All suppliers that demonstrate the required experience and capacity will be qualified as part of the resulting Supply Arrangements (SAs) for opportunities to supply Canada with LIAS. The intent is to issue Supply Arrangements to all qualified ISPs. The resulting SAs will be used to: Establish a list of qualified ISPs for future exclusive competition of LIAS requirements Standardize resulting contracts for a more efficient and timely contract award process Streamline future solicitations, their responses, inquiries, and invoicing, to improve organizational processes while reducing manual clerical deficiencies. Formalize and consolidate pre-existing Legacy and Contracted Connections for ease of management and payment Recompete pre-existing Contracted Connections as they expire Establish new L",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
       "solicitation_id": "SSC-22-00020507-T",
       "tender_number": "SSC-22-00020507:T",
       "title": "Local Internet Access Services RFSA",
@@ -3757,17 +3165,15 @@
       "category": "*Marine Architect and Engineering Services",
       "naics_code": "541330",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2029-03-30T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …ng bid solicitation on behalf of the Department of National Defence may be subject to the Controlled Goods Program. For additional information on the Controlled Goods Program or how to register, c…",
-        "Indigenous set-aside / participation requirement: …ppliers may submit a bid Competitive Procurement Strategy: Subsequent/Follow-on Contracts Comprehensive Land Claim Agreement: No Nature of Requirements: Medium/Large Vessel Recycling Services EVC01-202003/C Major,…"
+        "Personnel / facility security clearance: …ng bid solicitation on behalf of the Department of National Defence may be subject to the Controlled Goods Program. For additional information on the Controlled Goods Program or how to register, c…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -3805,7 +3211,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -3813,581 +3219,8 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…ng bid solicitation on behalf of the Department of National Defence may be subject to the Controlled Goods Program. For additional information on the Controlled Goods Program or how to register, c…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…ppliers may submit a bid Competitive Procurement Strategy: Subsequent/Follow-on Contracts Comprehensive Land Claim Agreement: No Nature of Requirements: Medium/Large Vessel Recycling Services EVC01-202003/C Major,…"
           }
         ]
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035342-T",
-      "tender_number": "SSC-26-00035342:T",
-      "title": "Purchase and Install two server racks in five sheds in southern Manitoba or equivalent, for the ROYAL CANADIReq. 2026-07-30",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Miscellaneous Communications Equipment",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-09T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "GOODS SSC Purchase and Install two server racks in five sheds in southern Manitoba or equivalent, for the ROYAL CANADIReq. 2026-07-30- Amendment 000",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035342-T",
-      "reference_number": "SSC-26-00035342:T",
-      "solicitation_number": "BPM026860/35342",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Manitoba",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Miscellaneous Communications Equipment",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-09T14:00:00",
-      "hours_remaining_at_harvest": 52.5,
-      "urgent_under_72h": true,
-      "notice_url": null,
-      "description_excerpt": "GOODS SSC Purchase and Install two server racks in five sheds in southern Manitoba or equivalent, for the ROYAL CANADIReq. 2026-07-30- Amendment 000",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035216-T",
-      "tender_number": "SSC-26-00035216:T",
-      "title": "ATEN Products, or equivalent, for the Department of National Defence.",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Automatic Data Processing Equipment, System Configuration",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-09T12:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "ATEN Products, or equivalent SSC ATEN Products, or equivalent, for the Department of National Defence.- Amendment 001",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035216-T",
-      "reference_number": "SSC-26-00035216:T",
-      "solicitation_number": "BPM026797/35216",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Ontario (except NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Automatic Data Processing Equipment, System Configuration",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)",
-        "Canada-Chile Free Trade Agreement (CCFTA)",
-        "Canada-Honduras Free Trade Agreement",
-        "Canada-Colombia Free Trade Agreement",
-        "Canada-Panama Free Trade Agreement",
-        "Canada-Korea Free Trade Agreement (CKFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-09T12:00:00",
-      "hours_remaining_at_harvest": 50.5,
-      "urgent_under_72h": true,
-      "notice_url": null,
-      "description_excerpt": "ATEN Products, or equivalent SSC ATEN Products, or equivalent, for the Department of National Defence.- Amendment 001",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035330-T",
-      "tender_number": "SSC-26-00035330:T",
-      "title": "Apple 14-inch MacBook Pro with M5 Pro Chip(space black) or equivalent for NRC",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Automatic Data Processing Equipment, System Configuration",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
-      "closes_at_iso": "2026-11-12T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
-      "mandatory_gates": [
-        "Indigenous set-aside / participation requirement: …days from contract award. Security Requirements: N/AComprehensive Land Claim Agreements (CLCA): N/AThe Crown retains the right to negotiate with suppliers on any procurement.The respo…"
-      ],
-      "missing_annex_count": 3,
-      "missing_annexes": [
-        "Schedule: Indigenous set-aside / participation requirement Form",
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "NOTICE OF PROPOSED PROCUREMENT (NPP)Solicitation No.: 2BH6215618/ADepartment: Natural Resources CanadaNotification Period: 15 days (10/29/2026 to 11/12/2026) Description of Requirement:Natural Resources Canada has a requirement for a quantity of 16 x 14-inch Apple MacBook Pro wit...",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035330-T",
-      "reference_number": "SSC-26-00035330:T",
-      "solicitation_number": "BPM026854/35330",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Ontario (except NCR) *National Capital Region (NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Automatic Data Processing Equipment, System Configuration",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-12T14:00:00",
-      "hours_remaining_at_harvest": 124.5,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "NOTICE OF PROPOSED PROCUREMENT (NPP)Solicitation No.: 2BH6215618/ADepartment: Natural Resources CanadaNotification Period: 15 days (10/29/2026 to 11/12/2026) Description of Requirement:Natural Resources Canada has a requirement for a quantity of 16 x 14-inch Apple MacBook Pro with M5 Pro Chip (space black) or equivalent as per Annex A – Statement of Requirement (SOR).Delivery Destination Area: Ottawa, Ontario Delivery Date: 60 federal government working days from contract award. Security Requirements: N/AComprehensive Land Claim Agreements (CLCA): N/AThe Crown retains the right to negotiate with suppliers on any procurement.The responsive bid with the lowest evaluated price will be recommended for award of a contract.To access the solicitation and submit your bid click the following link: https://supplier-fournisseur-sscp2pspc.ssc-spc.gc.ca/page.aspx/en/usr/login Documents may be submitted in either official language of Canada.All enquiries related to this solicitation must be addressed in writing to:Michael BoualavongSenior Procurement Officer Shared Services Canada 270 Albert Street, 9th FloorOttawa, ON K1P 5G8Telephone: (343) 990-2719Email: Michael.boualavong@ssc-spc.gc.ca SSC Apple 14-inch MacBook Pro with M5 Pro Chip(space black) or equivalent for NRC- Amendment 001",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…days from contract award. Security Requirements: N/AComprehensive Land Claim Agreements (CLCA): N/AThe Crown retains the right to negotiate with suppliers on any procurement.The respo…"
-          }
-        ]
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00034485-T",
-      "tender_number": "SSC-26-00034485:T",
-      "title": "QNAP TVS-H1688X - NAS server for RCMP",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Automatic Data Processing Equipment, System Configuration",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-09T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "QNAP TVS-H1688X - NAS server for RCMP SSC QNAP TVS-H1688X - NAS server for RCMP - Amendment 005",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00034485-T",
-      "reference_number": "SSC-26-00034485:T",
-      "solicitation_number": "BPM026355/34485",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Manitoba",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Automatic Data Processing Equipment, System Configuration",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-09T14:00:00",
-      "hours_remaining_at_harvest": 52.5,
-      "urgent_under_72h": true,
-      "notice_url": null,
-      "description_excerpt": "QNAP TVS-H1688X - NAS server for RCMP SSC QNAP TVS-H1688X - NAS server for RCMP - Amendment 005",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035343-T",
-      "tender_number": "SSC-26-00035343:T",
-      "title": "RFQ-Synology System hardware for National Research Council of Canada (NRC)",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*ADP Input-Output and Storage Devices",
-      "naics_code": "236220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
-      "closes_at_iso": "2026-11-16T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
-      "mandatory_gates": [
-        "Pass/fail mandatory technical criteria: …for Quotations document for the complete details regarding this requirement including the mandatory criteria, evaluation criteria and basis of selection. Documents may be submitted in either officia…"
-      ],
-      "missing_annex_count": 3,
-      "missing_annexes": [
-        "Schedule: Pass/fail mandatory technical criteria Form",
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "Notice of Proposed ProcurementShared Services Canada (SSC) has a requirement Synology System hardware for National Research Council of Canada (NRC) , for delivery to a location in Montreal, Quebec, as outlined in the attached Request for Quotations. This process is intended to re...",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035343-T",
-      "reference_number": "SSC-26-00035343:T",
-      "solicitation_number": "BPM026827/35343",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Quebec (except NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*ADP Input-Output and Storage Devices",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-16T14:00:00",
-      "hours_remaining_at_harvest": 220.5,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "Notice of Proposed ProcurementShared Services Canada (SSC) has a requirement Synology System hardware for National Research Council of Canada (NRC) , for delivery to a location in Montreal, Quebec, as outlined in the attached Request for Quotations. This process is intended to result in the award of one contract for the delivery of goods and/or services; the term of the contract will be from the contract award date and will include the period for delivery, acceptance and warranty.Policy on Reciprocal Procurement: This solicitation of bids is open to Canadian Suppliers and Suppliers of an Applicable Trading Partner.A bid must comply with all requirements of the bid solicitation to be declared responsive. The responsive bid with the lowest evaluated price will be recommended for award of a contract. The Bidder must submit pricing in accordance with Annex A – List of Deliverables and Pricing. The Crown retains the right to negotiate with suppliers on any procurement.Please refer to the Request for Quotations document for the complete details regarding this requirement including the mandatory criteria, evaluation criteria and basis of selection. Documents may be submitted in either official language of Canada.Suppliers are required to submit bids electronically using the Contracting Authority’s email. Faxed and hard copy (submitted in person or via mail/courier) bids will not be ac",
-      "stated_value_range": null,
-      "naics_hub": null,
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "MANDATORY_CRITERIA",
-            "severity": "HIGH",
-            "clause_type": "Pass/fail mandatory technical criteria",
-            "points": 12,
-            "evidence": "…for Quotations document for the complete details regarding this requirement including the mandatory criteria, evaluation criteria and basis of selection. Documents may be submitted in either officia…"
-          }
-        ]
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035133-T",
-      "tender_number": "SSC-26-00035133:T",
-      "title": "RFI for Application Performance Management 2 (APM2) Solution",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*ADP Software",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-10T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "Amendement 001The RFI has been amended by:1. extending the Closing Date to November 10, 2026; and2. amending Form 1 – Response Submission Form in order to deal with the correct identification of this file. The remainder of the RFI document remains unchanged.SSC’s APM2 Industry Da...",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035133-T",
-      "reference_number": "SSC-26-00035133:T",
-      "solicitation_number": "BPM026762/35133",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*National Capital Region (NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*ADP Software",
-      "trade_agreements": [
-        "Comprehensive and Progressive Agreement for Trans-Pacific Partnership (CPTPP)",
-        "Canada-Colombia Free Trade Agreement",
-        "World Trade Organization Agreement on Government Procurement (WTO GPA)",
-        "Canada-European Union Comprehensive Economic and Trade Agreement (CETA)",
-        "Canada-Honduras Free Trade Agreement",
-        "Canada-Panama Free Trade Agreement",
-        "Canada-Korea Free Trade Agreement (CKFTA)",
-        "Canada-Chile Free Trade Agreement (CCFTA)",
-        "Canadian Free Trade Agreement (CFTA)",
-        "Canada-Peru Free Trade Agreement (CPFTA)",
-        "Canada-UK Trade Continuity Agreement (Canada-UK TCA)",
-        "Canada-Ukraine Free Trade Agreement (CUFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-10T14:00:00",
-      "hours_remaining_at_harvest": 76.5,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "Amendement 001The RFI has been amended by:1. extending the Closing Date to November 10, 2026; and2. amending Form 1 – Response Submission Form in order to deal with the correct identification of this file. The remainder of the RFI document remains unchanged.SSC’s APM2 Industry DayShared Services Canada (SSC) would like to invite interested organizations to attend SSC’s APM2 Industry Day. This event will take place on November 2, 2026, from 2 to 3 p.m. ET.The APM2 Industry Day is being held in parallel with and relates to the Request for Information (RFI)for Application Performance Management 2 (APM2) Solution.If you are interested in attending this Industry Day, please provide the following information in an email to the following address: agnes.kowalska2@ssc-spc.gc.ca:• Subject: APM2 Industry Day• Company name• Attendee names and contact information• Accessibility requirements (if required)Deadline for registration is November 2, 2026 by 10:00 a.m. ET.Once you have registered for the APM2 Industry Day, you will receive a link to the meeting.If you have any questions regarding this event, please contact agnes.kowalska2@ssc-spc.gc.ca.We look forward to your participation.Request for Information (RFI) for Application Performance Management 2 (APM2) SolutionThe Government of Canada (GC) is seeking to modernize and optimize the Application Performance Management (APM) enterprise ob",
-      "stated_value_range": null,
-      "naics_hub": "541512",
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035425-T",
-      "tender_number": "SSC-26-00035425:T",
-      "title": "RFI for Application Performance Management 2 (APM2) Solution",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*ADP Software",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-10T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "Amendement 002This amendment is raised to publish a “Questions and Answers” document.The remainder of the RFI document remains unchanged.Amendement 001The RFI has been amended by:1. extending the Closing Date to November 10, 2026; and2. amending Form 1 – Response Submission Form ...",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035425-T",
-      "reference_number": "SSC-26-00035425:T",
-      "solicitation_number": "BPM026762/35425",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*National Capital Region (NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*ADP Software",
-      "trade_agreements": [
-        "Canada-Panama Free Trade Agreement",
-        "Comprehensive and Progressive Agreement for Trans-Pacific Partnership (CPTPP)",
-        "Canada-Ukraine Free Trade Agreement (CUFTA)",
-        "World Trade Organization Agreement on Government Procurement (WTO GPA)",
-        "Canada-Colombia Free Trade Agreement",
-        "Canadian Free Trade Agreement (CFTA)",
-        "Canada-European Union Comprehensive Economic and Trade Agreement (CETA)",
-        "Canada-Korea Free Trade Agreement (CKFTA)",
-        "Canada-Honduras Free Trade Agreement",
-        "Canada-Peru Free Trade Agreement (CPFTA)",
-        "Canada-UK Trade Continuity Agreement (Canada-UK TCA)",
-        "Canada-Chile Free Trade Agreement (CCFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-10T14:00:00",
-      "hours_remaining_at_harvest": 76.5,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "Amendement 002This amendment is raised to publish a “Questions and Answers” document.The remainder of the RFI document remains unchanged.Amendement 001The RFI has been amended by:1. extending the Closing Date to November 10, 2026; and2. amending Form 1 – Response Submission Form in order to deal with the correct identification of this file. The remainder of the RFI document remains unchanged.SSC’s APM2 Industry DayShared Services Canada (SSC) would like to invite interested organizations to attend SSC’s APM2 Industry Day. This event will take place on November 2, 2026, from 2 to 3 p.m. ET.The APM2 Industry Day is being held in parallel with and relates to the Request for Information (RFI)for Application Performance Management 2 (APM2) Solution.If you are interested in attending this Industry Day, please provide the following information in an email to the following address: agnes.kowalska2@ssc-spc.gc.ca:• Subject: APM2 Industry Day• Company name• Attendee names and contact information• Accessibility requirements (if required)Deadline for registration is November 2, 2026 by 10:00 a.m. ET.Once you have registered for the APM2 Industry Day, you will receive a link to the meeting.If you have any questions regarding this event, please contact agnes.kowalska2@ssc-spc.gc.ca.We look forward to your participation.Request for Information (RFI) for Application Performance Management 2 (AP",
-      "stated_value_range": null,
-      "naics_hub": "541512",
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035419-T",
-      "tender_number": "SSC-26-00035419:T",
-      "title": "NVIDIA Support, Updates, and Maintenance Subscription Production - technica for Department of National Defense",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*ADP Software",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
-      "closes_at_iso": "2026-11-13T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
-      "mandatory_gates": [
-        "Pass/fail mandatory technical criteria: …for Quotations document for the complete details regarding this requirement including the mandatory criteria, evaluation criteria and basis of selection.Bidders can register in the SSC P2P portal in…"
-      ],
-      "missing_annex_count": 3,
-      "missing_annexes": [
-        "Schedule: Pass/fail mandatory technical criteria Form",
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "AMD01: To update the part number in the English version of the RFQ document and to extend the solicitation period by one (1) day.This solicitation is for the purchase of NVIDIA Support, Updates, and Maintenance Subscription Production - technica or Equivalent for Department of Na...",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035419-T",
-      "reference_number": "SSC-26-00035419:T",
-      "solicitation_number": "BPM026900/35419",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Nova Scotia",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*ADP Software",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-13T14:00:00",
-      "hours_remaining_at_harvest": 148.5,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "AMD01: To update the part number in the English version of the RFQ document and to extend the solicitation period by one (1) day.This solicitation is for the purchase of NVIDIA Support, Updates, and Maintenance Subscription Production - technica or Equivalent for Department of National DefenceA bid must comply with all requirements of the bid solicitation to be declared responsive. The responsive bid with the lowest evaluated subtotal price will be recommended for award of a contract.The Bidder must submit pricing in accordance with Annex A – List of Deliverables and Pricing.Please refer to the Request for Quotations document for the complete details regarding this requirement including the mandatory criteria, evaluation criteria and basis of selection.Bidders can register in the SSC P2P portal in order to:a. view and access solicitations from SSC;b. submit a response to a solicitation;c. receive updates and amendments regarding solicitations;d. be awarded contracts and receive contract amendments; ande. submit invoices and receive payment status updates.To register, please go to https://supplier-fournisseur-sscp2pspc.ssc-spc.gc.ca/page.aspx/en/usr/login and click Register Now. SSC NVIDIA Support, Updates, and Maintenance Subscription Production - technica for Department of National Defense- Amendment 001",
-      "stated_value_range": null,
-      "naics_hub": "541512",
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "MANDATORY_CRITERIA",
-            "severity": "HIGH",
-            "clause_type": "Pass/fail mandatory technical criteria",
-            "points": 12,
-            "evidence": "…for Quotations document for the complete details regarding this requirement including the mandatory criteria, evaluation criteria and basis of selection.Bidders can register in the SSC P2P portal in…"
-          }
-        ]
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035339-T",
-      "tender_number": "SSC-26-00035339:T",
-      "title": "Pure Storage FlashArray X50R3 – 3 Yr - Maintenance and Support -DND",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*ADP Software",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-09T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "Services SSC Pure Storage FlashArray X50R3 – 3 Yr - Maintenance and Support -DND- Amendment 000",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035339-T",
-      "reference_number": "SSC-26-00035339:T",
-      "solicitation_number": "BPM026801/35339",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*National Capital Region (NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Limited tendering",
-      "commodity": "*ADP Software",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)",
-        "Canada-Chile Free Trade Agreement (CCFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-09T14:00:00",
-      "hours_remaining_at_harvest": 52.5,
-      "urgent_under_72h": true,
-      "notice_url": null,
-      "description_excerpt": "Services SSC Pure Storage FlashArray X50R3 – 3 Yr - Maintenance and Support -DND- Amendment 000",
-      "stated_value_range": null,
-      "naics_hub": "541512",
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035268-T",
-      "tender_number": "SSC-26-00035268:T",
-      "title": "Data Erasure- RFP",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*ADP Software",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-13T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "REQ211428/ Request for Data Erasure Software for Shared Services Canada (SSC)for Shared Services Canada (SSC)PRODUCT DESCRIPTIONShared Services Canada (SSC), has a requirement to compete Data Erasure software solution for Government of Canada (GC) Departments and Agencies across ...",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035268-T",
-      "reference_number": "SSC-26-00035268:T",
-      "solicitation_number": "BPM026822/35268",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Canada",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*ADP Software",
-      "trade_agreements": [
-        "Canada-Peru Free Trade Agreement (CPFTA)",
-        "Canada-Honduras Free Trade Agreement",
-        "Canada-Korea Free Trade Agreement (CKFTA)",
-        "Canada-Colombia Free Trade Agreement",
-        "Comprehensive and Progressive Agreement for Trans-Pacific Partnership (CPTPP)",
-        "Canada-Panama Free Trade Agreement",
-        "Canadian Free Trade Agreement (CFTA)",
-        "Canada-UK Trade Continuity Agreement (Canada-UK TCA)",
-        "Canada-European Union Comprehensive Economic and Trade Agreement (CETA)",
-        "Canada-Chile Free Trade Agreement (CCFTA)",
-        "Atlantic Procurement Agreement",
-        "Canada-Ukraine Free Trade Agreement (CUFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-13T14:00:00",
-      "hours_remaining_at_harvest": 148.5,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "REQ211428/ Request for Data Erasure Software for Shared Services Canada (SSC)for Shared Services Canada (SSC)PRODUCT DESCRIPTIONShared Services Canada (SSC), has a requirement to compete Data Erasure software solution for Government of Canada (GC) Departments and Agencies across Canada at the enterprise level. Data Erasure Software – also known as data wiping, data destruction, data sanitation, and secure deletion software – is a software solution that removes all digital information from electronic storage devices by overwriting data onto all sectors of the storage device in an irreversible process. By overwriting data on the storage device, the information previously stored on that device is rendered completely irrecoverable. SECURITY REQUIREMENTThere is no security associated to this requirement.BID SUBMISSIONBy Email to the Contracting Authority at Geoffrey.Lalor@canada.caLANGUAGEDocuments may be submitted in either official language of Canada.NEGOTIATIONSSSC retains the right to negotiate with suppliers on any procurement.ENQUIRIESResponders who wish to be certain of receiving a reply must submit all questions through to the Contracting Authority SSC Data Erasure- RFP- Amendment 002",
-      "stated_value_range": null,
-      "naics_hub": "541512",
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
       }
     },
     {
@@ -4445,56 +3278,6 @@
       "urgent_under_72h": true,
       "notice_url": null,
       "description_excerpt": "Government of Canada Managed Backup and Recovery Software (MBRS) ITQ Amendment 003 is posted to revise the bid submission closing date, and respond to questions received.-----------------------------------------------------------------------------------------Government of Canada Managed Backup and Recovery Software (MBRS) ITQ Amendment 002 is posted to respond to questions received.-----------------------------------------------------------------------------------------Government of Canada Managed Backup and Recovery Software (MBRS) ITQ Amendment 001 is posted to revise the bid submission closing date, and respond to questions received.-----------------------------------------------------------------------------------------Invitation to Qualify (ITQ) For The Procurement of Government of Canada Managed Backup and Recovery Software (MBRS)This Invitation to Qualify is the first phase of a procurement process by Shared Services Canada (SSC) for a Government of Canada Managed Backup and Recovery Software for enterprise on premises open systems. Suppliers are invited to pre-qualify in accordance with the terms and conditions of this ITQ in order to become “Qualified Respondents” for any later phases of the procurement process. This ITQ process is not a solicitation of bids or tenders. No contract will be awarded as a result of the activities during the ITQ phase.Respondents that succ",
-      "stated_value_range": null,
-      "naics_hub": "541512",
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
-      "solicitation_id": "SSC-26-00035350-T",
-      "tender_number": "SSC-26-00035350:T",
-      "title": "RedHat for StatsCan",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*COMPUTER SOFTWARE,OFFICE AUTOMATION,DOCUMENT MANAGEMENT,MAI",
-      "naics_code": "541512",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-17T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "Statistics Canada has a requirement for the procurement of Red Hat Enterprise Linux Server. This Request for Quote is issued pursuant to Software Licensing Supply Arrangement (SLSA) # EN578-232335/078/SMS. Closing Date: [2026-11-17 at 14:00 P.M. Eastern Time (EST)]. SSC RedHat fo...",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035350-T",
-      "reference_number": "SSC-26-00035350:T",
-      "solicitation_number": "BPM026862/35350",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*National Capital Region (NCR)",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Selective tendering",
-      "commodity": "*COMPUTER SOFTWARE,OFFICE AUTOMATION,DOCUMENT MANAGEMENT,MAIL, NETWORKS,PUBLISHING,SPREADSHEETS,TYPESETTING,WORD PROCESSING -MICROCOMPUTERS ONLY",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-17T14:00:00",
-      "hours_remaining_at_harvest": 244.5,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "Statistics Canada has a requirement for the procurement of Red Hat Enterprise Linux Server. This Request for Quote is issued pursuant to Software Licensing Supply Arrangement (SLSA) # EN578-232335/078/SMS. Closing Date: [2026-11-17 at 14:00 P.M. Eastern Time (EST)]. SSC RedHat for StatsCan- Amendment 000",
       "stated_value_range": null,
       "naics_hub": "541512",
       "bidshield_scan": {
@@ -4564,56 +3347,6 @@
       }
     },
     {
-      "solicitation_id": "SSC-26-00035354-T",
-      "tender_number": "SSC-26-00035354:T",
-      "title": "DCM-26-0286 repl HVAC 1 & 5",
-      "buyer": "Shared Services Canada",
-      "jurisdiction": "Canada Federal (Ontario)",
-      "category": "*Air Conditioning Heater Units (Industrial)",
-      "naics_code": "238220",
-      "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 15000,
-      "closes_at_iso": "2026-11-10T14:00:00",
-      "status": "NO_GATES_DETECTED_IN_NOTICE",
-      "mandatory_gates": [
-        "Standard federal procurement terms and conditions compliance"
-      ],
-      "missing_annex_count": 2,
-      "missing_annexes": [
-        "Statement of Work",
-        "Basis of Payment"
-      ],
-      "evaluation_summary": "GOODS SSC DCM-26-0286 repl HVAC 1 & 5- Amendment 000",
-      "upwork_catalog_url": "https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322",
-      "sample_pdf_url": "/sample-bidshield-report.pdf",
-      "slug": "SSC-26-00035354-T",
-      "reference_number": "SSC-26-00035354:T",
-      "solicitation_number": "BPM026863/35354",
-      "buyer_city": "Ottawa",
-      "buyer_province": "Ontario",
-      "region_of_delivery": "*Manitoba",
-      "procurement_category": "*GD",
-      "procurement_method": "Competitive - Open bidding",
-      "commodity": "*Air Conditioning Heater Units (Industrial)",
-      "trade_agreements": [
-        "Canadian Free Trade Agreement (CFTA)"
-      ],
-      "published_date": null,
-      "closes_at": "2026-11-10T14:00:00",
-      "hours_remaining_at_harvest": 76.5,
-      "urgent_under_72h": false,
-      "notice_url": null,
-      "description_excerpt": "GOODS SSC DCM-26-0286 repl HVAC 1 & 5- Amendment 000",
-      "stated_value_range": null,
-      "naics_hub": "238220",
-      "bidshield_scan": {
-        "scope": "published_notice_text_only",
-        "decision": "NO_GATES_DETECTED_IN_NOTICE",
-        "risk_index_0_100": 0,
-        "findings": []
-      }
-    },
-    {
       "solicitation_id": "PW--KIN-555-8715",
       "tender_number": "PW-_KIN-555-8715",
       "title": "Accommodations - Temecula, California",
@@ -4622,15 +3355,14 @@
       "category": "*Hotels, Motels and Commercial Accommodation",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
+      "combined_jev_exposure_usd": 15000,
       "closes_at_iso": "2027-03-31T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
+      "status": "NO_GATES_DETECTED_IN_NOTICE",
       "mandatory_gates": [
-        "Indigenous set-aside / participation requirement: …interested suppliers may submit a bid Competitive Procurement Strategy: Lowest/Lower Bid Comprehensive Land Claim Agreement: No Nature of Requirements: Accommodations - Temecula, California W6399-22CA46/B Webster,…"
+        "Standard federal procurement terms and conditions compliance"
       ],
-      "missing_annex_count": 3,
+      "missing_annex_count": 2,
       "missing_annexes": [
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -4659,17 +3391,9 @@
       "naics_hub": null,
       "bidshield_scan": {
         "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…interested suppliers may submit a bid Competitive Procurement Strategy: Lowest/Lower Bid Comprehensive Land Claim Agreement: No Nature of Requirements: Accommodations - Temecula, California W6399-22CA46/B Webster,…"
-          }
-        ]
+        "decision": "NO_GATES_DETECTED_IN_NOTICE",
+        "risk_index_0_100": 0,
+        "findings": []
       }
     },
     {
@@ -6773,15 +5497,14 @@
       "category": "*Laboratory and scientific equipment",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
+      "combined_jev_exposure_usd": 15000,
       "closes_at_iso": "2026-12-16T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
+      "status": "NO_GATES_DETECTED_IN_NOTICE",
       "mandatory_gates": [
-        "Indigenous set-aside / participation requirement: …under Category Laboratory Pumps and Tubing. Competitive Procurement Strategy: Lowest cost Comprehensive Land Claim Agreement: No Nature of Requirements: Two (2) High Pressure Precision Syringe Pumps. THIS REQUEST I…"
+        "Standard federal procurement terms and conditions compliance"
       ],
-      "missing_annex_count": 3,
+      "missing_annex_count": 2,
       "missing_annexes": [
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -6811,17 +5534,9 @@
       "naics_hub": null,
       "bidshield_scan": {
         "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…under Category Laboratory Pumps and Tubing. Competitive Procurement Strategy: Lowest cost Comprehensive Land Claim Agreement: No Nature of Requirements: Two (2) High Pressure Precision Syringe Pumps. THIS REQUEST I…"
-          }
-        ]
+        "decision": "NO_GATES_DETECTED_IN_NOTICE",
+        "risk_index_0_100": 0,
+        "findings": []
       }
     },
     {
@@ -6833,17 +5548,15 @@
       "category": "*Laboratory and scientific equipment",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 24000,
+      "combined_jev_exposure_usd": 12000,
       "closes_at_iso": "2026-11-12T14:00:00",
       "status": "CONDITIONAL_REVIEW",
       "mandatory_gates": [
-        "Pass/fail mandatory technical criteria: …, and analyze their concentrations via amperometry using an electrochemical detector. The mandatory technical criteria are included in Annex A. The responsive bidder already holding a Supply arrangement for L…",
-        "Indigenous set-aside / participation requirement: …inancial evaluation will be conducted using a weighted financial point-rated methodology. Comprehensive Land Claim Agreement: No. Nature of Requirements: Name of the requirement: Acquisition of a High-Performance L…"
+        "Pass/fail mandatory technical criteria: …, and analyze their concentrations via amperometry using an electrochemical detector. The mandatory technical criteria are included in Annex A. The responsive bidder already holding a Supply arrangement for L…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Pass/fail mandatory technical criteria Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -6884,7 +5597,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 24,
+        "risk_index_0_100": 12,
         "findings": [
           {
             "id": "MANDATORY_CRITERIA",
@@ -6892,13 +5605,6 @@
             "clause_type": "Pass/fail mandatory technical criteria",
             "points": 12,
             "evidence": "…, and analyze their concentrations via amperometry using an electrochemical detector. The mandatory technical criteria are included in Annex A. The responsive bidder already holding a Supply arrangement for L…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…inancial evaluation will be conducted using a weighted financial point-rated methodology. Comprehensive Land Claim Agreement: No. Nature of Requirements: Name of the requirement: Acquisition of a High-Performance L…"
           }
         ]
       }
@@ -7762,17 +6468,15 @@
       "category": "*Spectroscopic equipment",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 24000,
+      "combined_jev_exposure_usd": 12000,
       "closes_at_iso": "2026-11-17T16:00:00",
       "status": "CONDITIONAL_REVIEW",
       "mandatory_gates": [
-        "Pass/fail mandatory technical criteria: …ent Tendering Procedures: to all pre-qualified supplier Competitive Procurement Strategy: Mandatory technical criteria with the lowest aggregate price. Comprehensive Land Claim Agreement: No Nature of Require…",
-        "Indigenous set-aside / participation requirement: …itive Procurement Strategy: Mandatory technical criteria with the lowest aggregate price. Comprehensive Land Claim Agreement: No Nature of Requirements: Swift Current Research and Development Centre requires the pu…"
+        "Pass/fail mandatory technical criteria: …ent Tendering Procedures: to all pre-qualified supplier Competitive Procurement Strategy: Mandatory technical criteria with the lowest aggregate price. Comprehensive Land Claim Agreement: No Nature of Require…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Pass/fail mandatory technical criteria Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -7803,7 +6507,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 24,
+        "risk_index_0_100": 12,
         "findings": [
           {
             "id": "MANDATORY_CRITERIA",
@@ -7811,13 +6515,6 @@
             "clause_type": "Pass/fail mandatory technical criteria",
             "points": 12,
             "evidence": "…ent Tendering Procedures: to all pre-qualified supplier Competitive Procurement Strategy: Mandatory technical criteria with the lowest aggregate price. Comprehensive Land Claim Agreement: No Nature of Require…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…itive Procurement Strategy: Mandatory technical criteria with the lowest aggregate price. Comprehensive Land Claim Agreement: No Nature of Requirements: Swift Current Research and Development Centre requires the pu…"
           }
         ]
       }
@@ -11858,17 +10555,15 @@
       "category": "*Business and corporate management consultation services",
       "naics_code": "541512",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2026-11-25T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …m 2. Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…",
-        "Indigenous set-aside / participation requirement: …an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
+        "Personnel / facility security clearance: …m 2. Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -11898,7 +10593,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -11906,13 +10601,6 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…m 2. Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
           }
         ]
       }
@@ -13671,17 +12359,15 @@
       "category": "*Change management communication and advisory service",
       "naics_code": "541512",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2026-11-13T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …rces Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…",
-        "Indigenous set-aside / participation requirement: …an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
+        "Personnel / facility security clearance: …rces Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -13711,7 +12397,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -13719,13 +12405,6 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…rces Currently there is no incumbent providing the services outlined in this solicitation Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
           }
         ]
       }
@@ -14569,17 +13248,15 @@
       "category": "*Information Technology Service Delivery",
       "naics_code": "541512",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2026-11-19T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …in this solicitation Vendor: Solutions Moerae Inc Since: August 2025 Value: $1,428,431.03 Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…",
-        "Indigenous set-aside / participation requirement: …an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
+        "Personnel / facility security clearance: …in this solicitation Vendor: Solutions Moerae Inc Since: August 2025 Value: $1,428,431.03 Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -14621,7 +13298,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -14629,13 +13306,6 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…in this solicitation Vendor: Solutions Moerae Inc Since: August 2025 Value: $1,428,431.03 Security Requirement: The Security Requirements Check List (SRCL) applicable to this requirement is currently…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…an estimated thirty six months from the date of contract Solicitation Method: Competitive Comprehensive Land Claim Agreement Applies: No Number of Contracts: One Applicable Trade Agreements: • The Canadian Free Tra…"
           }
         ]
       }
@@ -16160,15 +14830,14 @@
       "category": "*Hazardous Material Spill Containment and Clean-up Equipment",
       "naics_code": "562111",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
+      "combined_jev_exposure_usd": 15000,
       "closes_at_iso": "2040-01-02T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
+      "status": "NO_GATES_DETECTED_IN_NOTICE",
       "mandatory_gates": [
-        "Indigenous set-aside / participation requirement: …nterested suppliers may submit a bid Competitive Procurement Strategy: N/A - P&A/LOI Only Comprehensive Land Claim Agreement: No Nature of Requirements: Amendment 002: This amendment is raised to provide the presen…"
+        "Standard federal procurement terms and conditions compliance"
       ],
-      "missing_annex_count": 3,
+      "missing_annex_count": 2,
       "missing_annexes": [
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -16204,17 +14873,9 @@
       "naics_hub": "562111",
       "bidshield_scan": {
         "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…nterested suppliers may submit a bid Competitive Procurement Strategy: N/A - P&A/LOI Only Comprehensive Land Claim Agreement: No Nature of Requirements: Amendment 002: This amendment is raised to provide the presen…"
-          }
-        ]
+        "decision": "NO_GATES_DETECTED_IN_NOTICE",
+        "risk_index_0_100": 0,
+        "findings": []
       }
     },
     {
@@ -16226,15 +14887,14 @@
       "category": "*Office Furniture",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
+      "combined_jev_exposure_usd": 15000,
       "closes_at_iso": "2029-04-23T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
+      "status": "NO_GATES_DETECTED_IN_NOTICE",
       "mandatory_gates": [
-        "Indigenous set-aside / participation requirement: …rested suppliers may submit a bid Competitive Procurement Strategy: Best Overall Proposal Comprehensive Land Claim Agreement: No Nature of Requirements: Furniture for Work Spaces E60PQ-140003/C Vlahos, Helen Teleph…"
+        "Standard federal procurement terms and conditions compliance"
       ],
-      "missing_annex_count": 3,
+      "missing_annex_count": 2,
       "missing_annexes": [
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -16261,17 +14921,9 @@
       "naics_hub": null,
       "bidshield_scan": {
         "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…rested suppliers may submit a bid Competitive Procurement Strategy: Best Overall Proposal Comprehensive Land Claim Agreement: No Nature of Requirements: Furniture for Work Spaces E60PQ-140003/C Vlahos, Helen Teleph…"
-          }
-        ]
+        "decision": "NO_GATES_DETECTED_IN_NOTICE",
+        "risk_index_0_100": 0,
+        "findings": []
       }
     },
     {
@@ -16350,15 +15002,14 @@
       "category": "*Hotels, Motels and Commercial Accommodation",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
+      "combined_jev_exposure_usd": 15000,
       "closes_at_iso": "2027-03-31T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
+      "status": "NO_GATES_DETECTED_IN_NOTICE",
       "mandatory_gates": [
-        "Indigenous set-aside / participation requirement: …interested suppliers may submit a bid Competitive Procurement Strategy: Lowest/Lower Bid Comprehensive Land Claim Agreement: No Nature of Requirements: Accommodations - Borrego Springs, California W6399-22CA45/B W…"
+        "Standard federal procurement terms and conditions compliance"
       ],
-      "missing_annex_count": 3,
+      "missing_annex_count": 2,
       "missing_annexes": [
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -16387,17 +15038,9 @@
       "naics_hub": null,
       "bidshield_scan": {
         "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…interested suppliers may submit a bid Competitive Procurement Strategy: Lowest/Lower Bid Comprehensive Land Claim Agreement: No Nature of Requirements: Accommodations - Borrego Springs, California W6399-22CA45/B W…"
-          }
-        ]
+        "decision": "NO_GATES_DETECTED_IN_NOTICE",
+        "risk_index_0_100": 0,
+        "findings": []
       }
     },
     {
@@ -16409,15 +15052,14 @@
       "category": "*SHELVING, STORAGE AND DISPLAY, MOBILE, METAL",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 12000,
+      "combined_jev_exposure_usd": 15000,
       "closes_at_iso": "2026-12-15T14:00:00",
-      "status": "CONDITIONAL_REVIEW",
+      "status": "NO_GATES_DETECTED_IN_NOTICE",
       "mandatory_gates": [
-        "Indigenous set-aside / participation requirement: …rested suppliers may submit a bid Competitive Procurement Strategy: Best Overall Proposal Comprehensive Land Claim Agreement: No Nature of Requirements: Following the completion of solicitation E60HN-21HDMS/B, this…"
+        "Standard federal procurement terms and conditions compliance"
       ],
-      "missing_annex_count": 3,
+      "missing_annex_count": 2,
       "missing_annexes": [
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -16454,17 +15096,9 @@
       "naics_hub": null,
       "bidshield_scan": {
         "scope": "published_notice_text_only",
-        "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 12,
-        "findings": [
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…rested suppliers may submit a bid Competitive Procurement Strategy: Best Overall Proposal Comprehensive Land Claim Agreement: No Nature of Requirements: Following the completion of solicitation E60HN-21HDMS/B, this…"
-          }
-        ]
+        "decision": "NO_GATES_DETECTED_IN_NOTICE",
+        "risk_index_0_100": 0,
+        "findings": []
       }
     },
     {
@@ -32449,17 +31083,15 @@
       "category": "*Dental equipment and supplies",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 24000,
+      "combined_jev_exposure_usd": 12000,
       "closes_at_iso": "2026-11-13T14:00:00",
       "status": "CONDITIONAL_REVIEW",
       "mandatory_gates": [
-        "Pass/fail mandatory technical criteria: …al sterilizers and 1 dental x-ray. Grand Valley Institution for Women: 1 dental chair The mandatory technical criteria are: The responsive bidder already holding a Supply arrangement for Dental Supplies, Inst…",
-        "Indigenous set-aside / participation requirement: …the lowest evaluated price will be deemed the successful bidder for award of a contract. Comprehensive Land Claim Agreement: No Nature of Requirements: 21120-26-5342938/A - Dental Chairs and Accessories for Multip…"
+        "Pass/fail mandatory technical criteria: …al sterilizers and 1 dental x-ray. Grand Valley Institution for Women: 1 dental chair The mandatory technical criteria are: The responsive bidder already holding a Supply arrangement for Dental Supplies, Inst…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Pass/fail mandatory technical criteria Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -32500,7 +31132,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "CONDITIONAL_REVIEW",
-        "risk_index_0_100": 24,
+        "risk_index_0_100": 12,
         "findings": [
           {
             "id": "MANDATORY_CRITERIA",
@@ -32508,13 +31140,6 @@
             "clause_type": "Pass/fail mandatory technical criteria",
             "points": 12,
             "evidence": "…al sterilizers and 1 dental x-ray. Grand Valley Institution for Women: 1 dental chair The mandatory technical criteria are: The responsive bidder already holding a Supply arrangement for Dental Supplies, Inst…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…the lowest evaluated price will be deemed the successful bidder for award of a contract. Comprehensive Land Claim Agreement: No Nature of Requirements: 21120-26-5342938/A - Dental Chairs and Accessories for Multip…"
           }
         ]
       }
@@ -47353,17 +45978,15 @@
       "category": "*Aeronautical engineering *Accreditation or re-accreditation",
       "naics_code": "236220",
       "contract_midpoint_usd": 2500000,
-      "combined_jev_exposure_usd": 42000,
+      "combined_jev_exposure_usd": 30000,
       "closes_at_iso": "2026-11-26T14:00:00",
       "status": "HALT_REVIEW_FATAL_GATES",
       "mandatory_gates": [
-        "Personnel / facility security clearance: …n(s): National Capital Region Specific Location(s): 455 boul de la Carrière, Gatineau, QC Security Requirement: There are security requirements associated with this requirement. For additional informa…",
-        "Indigenous set-aside / participation requirement: …ompetitive Procurement Strategy: Responsive bid with the lowest evaluated price per point Comprehensive Land Claim Agreement: No UNSPSC: 81102300 Aeronautical engineering; and 86101811 Accreditation or re-accredita…"
+        "Personnel / facility security clearance: …n(s): National Capital Region Specific Location(s): 455 boul de la Carrière, Gatineau, QC Security Requirement: There are security requirements associated with this requirement. For additional informa…"
       ],
-      "missing_annex_count": 4,
+      "missing_annex_count": 3,
       "missing_annexes": [
         "Schedule: Personnel / facility security clearance Form",
-        "Schedule: Indigenous set-aside / participation requirement Form",
         "Statement of Work",
         "Basis of Payment"
       ],
@@ -47404,7 +46027,7 @@
       "bidshield_scan": {
         "scope": "published_notice_text_only",
         "decision": "HALT_REVIEW_FATAL_GATES",
-        "risk_index_0_100": 42,
+        "risk_index_0_100": 30,
         "findings": [
           {
             "id": "SECURITY_CLEARANCE",
@@ -47412,13 +46035,6 @@
             "clause_type": "Personnel / facility security clearance",
             "points": 30,
             "evidence": "…n(s): National Capital Region Specific Location(s): 455 boul de la Carrière, Gatineau, QC Security Requirement: There are security requirements associated with this requirement. For additional informa…"
-          },
-          {
-            "id": "INDIGENOUS_SETASIDE",
-            "severity": "HIGH",
-            "clause_type": "Indigenous set-aside / participation requirement",
-            "points": 12,
-            "evidence": "…ompetitive Procurement Strategy: Responsive bid with the lowest evaluated price per point Comprehensive Land Claim Agreement: No UNSPSC: 81102300 Aeronautical engineering; and 86101811 Accreditation or re-accredita…"
           }
         ]
       }
