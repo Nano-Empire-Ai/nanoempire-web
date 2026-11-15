@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.nanoempireai.com/schemas/m2m-signals-v1.json",
   "title": "Nano Empire AI — Compounding M2M & Agent-Economy Signal Ledger",
-  "updated_at": "2026-11-11T17:50:00Z",
+  "updated_at": "2026-11-15T14:25:00Z",
   "canonical_invariants": {
     "outside_paying_customers": 0,
     "settled_self_tests": 1,
@@ -13,6 +13,71 @@
     "skillproof_commercial_status": "parked_pending_ruling"
   },
   "signals": [
+    {
+      "id": "SIG-2026-11-15-BRAVE-X402",
+      "date": "2026-11-15",
+      "protocol": "x402 (Base USDC)",
+      "category": "Production Data & Grounding Micropayments",
+      "volume_or_metric": "Brave Search API live at $0.005 USDC/query on Base (keyless HTTP 402 + signed payment); recent 30d x402 production window ~$3.2M / 6.2M settlements",
+      "trust_identity_signal": "Zero-account HTTP 402 credentialing expands across Brave Search, Dataline (~$0.25/call), Altair (XRPL RLUSD), Atom, and MoonPay PayBox.",
+      "skillproof_relevance": "Raises demand for pre-payment endpoint & schema verification before autonomous agents pay per query.",
+      "bidshield_relevance": "Agents must enforce deterministic HTTP 402 price-ceiling checks (/api/x402/guard) before signing.",
+      "action_taken": "Appended to public/m2m-state.md & public/m2m-signals.json (SPAR corrected to external_noise).",
+      "source": "Brave Search API x402 Release / x402 Ecosystem Tracker (Nov 15, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-14-CHATGPT-WALLET",
+      "date": "2026-11-14",
+      "protocol": "ACP / Visa Intelligent Commerce / Mastercard Agent Pay / Amex",
+      "category": "Checkout & Biometric Authorization",
+      "volume_or_metric": "Limited US ChatGPT Pro rollout (launched Nov 13, 2026); network tokens + mandatory per-purchase biometric approval (Face ID / fingerprint)",
+      "trust_identity_signal": "Agents ('dots') never see raw card numbers; biometric approval creates an authorization record while preserving card dispute protections.",
+      "skillproof_relevance": "Highlights the gap between human-biometric consumer checkout and unattended M2M flows that require Ed25519 Trust Manifests.",
+      "bidshield_relevance": "Reinforces pre-checkout mandate matching and deterministic policy gates prior to token issuance.",
+      "action_taken": "Indexed in Nov 14-15 public/m2m-state.md update.",
+      "source": "OpenAI / Visa / Mastercard / Amex (Nov 13, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-14-IBM-AGENT-IDENTITY",
+      "date": "2026-11-14",
+      "protocol": "Enterprise Identity (IBM Agent Identity + HashiCorp Vault)",
+      "category": "Identity & Lifecycle Governance",
+      "volume_or_metric": "GA Oct 26, reinforced Nov 12, 2026 with Vault short-lived credentialing, registration inventory, ownership binding, and kill-switch preview",
+      "trust_identity_signal": "Treats agents as distinct cryptographic identities rather than shared service accounts.",
+      "skillproof_relevance": "Direct enterprise alignment with portable Ed25519 + RFC 8785 JCS behavioral trust manifests.",
+      "bidshield_relevance": "Supports pre-action policy enforcement and kill-switch boundaries outside the agent runtime.",
+      "action_taken": "Indexed in Nov 14-15 public/m2m-state.md update.",
+      "source": "IBM / HashiCorp Vault (Oct 26 & Nov 12, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-14-NIST-TENETS",
+      "date": "2026-11-14",
+      "protocol": "NIST Agent Identity Management Systems",
+      "category": "Governance & Standards",
+      "volume_or_metric": "10 design tenets published Oct 27, 2026",
+      "trust_identity_signal": "Mandates distinct crypto agent IDs, delegation with attenuation, zero standing privilege, short-lived revocable auth, signed mandates, separation of policy from reasoning, and independent audit trails.",
+      "skillproof_relevance": "Foundational federal blueprint validating SkillProof Ed25519 + RFC 8785 JCS receipts.",
+      "bidshield_relevance": "Validates strict separation of deterministic compliance gates (/api/bidshield/gate) from LLM reasoning.",
+      "action_taken": "Indexed in Nov 14-15 public/m2m-state.md update.",
+      "source": "NIST Cybersecurity Insights (Oct 27, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-14-A2A-CARDS",
+      "date": "2026-11-14",
+      "protocol": "A2A v1.0 (Agentic AI Foundation / Google ADK 2.14)",
+      "category": "Discovery & Protocol Stability",
+      "volume_or_metric": "~934 conformant Agent Cards indexed (doubled in ~2 weeks); Google ADK 2.14 marked A2A stable on Nov 7, 2026",
+      "trust_identity_signal": "Agent Cards at /.well-known/agent-card.json increasingly advertise x402/USDC pay-per-call skills under AAIF neutral governance.",
+      "skillproof_relevance": "Opportunity to bind SkillProof Ed25519 verification metadata directly into published Agent Cards.",
+      "bidshield_relevance": "Cross-framework A2A task delegation requires pre-handoff deontic & mandate checks.",
+      "action_taken": "Indexed in Nov 14-15 public/m2m-state.md update.",
+      "source": "API Evangelist (Nov 10, 2026) & Google ADK 2.14 (Nov 7, 2026)",
+      "spar": "external_noise"
+    },
     {
       "id": "SIG-2026-11-11-STABLECOIN-VELOCITY",
       "date": "2026-11-11",
