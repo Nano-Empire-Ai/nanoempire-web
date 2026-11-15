@@ -1,12 +1,12 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-14",
+  "last_updated": "2026-11-15",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 7,
-    "total_mcp_repos_audited": 39,
-    "recent_audits_count": 15,
+    "total_mcp_repos_audited": 40,
+    "recent_audits_count": 14,
     "quarantined_records_count": 1
   },
   "recent_recalls": [
@@ -277,14 +277,14 @@
       "governance_gaps_count": 0
     },
     {
-      "repo": "vostride/agent-qa",
-      "stars": 856,
-      "score": 92,
-      "tree_sha": "d443e7202242",
-      "preaudit_id": "SP-2919103EF9AAC16F",
-      "surface_summary": "Scanned 4 entrypoints (packages/cli/src/cli.ts, packages/mcp/src/http.ts); 0 static shell/eval sinks; 1 governance gaps flagged.",
+      "repo": "codepawl/crucible",
+      "stars": 657,
+      "score": 98,
+      "tree_sha": "dd51b3c78d91",
+      "preaudit_id": "SP-DA5356D7F39C4F59",
+      "surface_summary": "Scanned 4 entrypoints (src/main.js, src/index.js); 0 static execution sinks and full governance hygiene verified.",
       "findings_count": 0,
-      "governance_gaps_count": 1
+      "governance_gaps_count": 0
     },
     {
       "repo": "SamurAIGPT/Seedance-2.5-API",
@@ -315,16 +315,6 @@
       "surface_summary": "Scanned 4 entrypoints (installer/mcp_config.py, installer/update.py); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at installer/update.py:L19.",
       "findings_count": 2,
       "governance_gaps_count": 2
-    },
-    {
-      "repo": "blackwell-systems/mcp-assert",
-      "stars": 26,
-      "score": 92,
-      "tree_sha": "6a11e4f29b94",
-      "preaudit_id": "SP-08EAA4D5C834BCB1",
-      "surface_summary": "Scanned 4 entrypoints (cmd/mcp-assert/main.go, go-plugin/mcpassert.go); 0 static shell/eval sinks; 1 governance gaps flagged.",
-      "findings_count": 0,
-      "governance_gaps_count": 1
     },
     {
       "repo": "fathomise/MailFathom",
