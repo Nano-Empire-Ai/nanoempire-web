@@ -1,6 +1,15 @@
-# The Machine Economy: State of the Stack (November 15, 2026)
+# The Machine Economy: State of the Stack (November 16, 2026)
 
 *The rails are real. The buyers and the autonomous volume are early. While the agent-payment stack is now institutionalized across composable identity, communication, and settlement layers, measured machine spend remains overwhelmingly sub-dollar to sub-cent micro-traffic (~$0.05 average, with >87–90% under $0.10 and 90.8% under $0.01 in sampled Base+Solana cohorts), and institutional automation readiness scores just **12/100** vs. **60.7/100** for micropayments. Recent live security failures (~$281k drained via untrusted instruction encodings, and 20 disclosed `x402` attack categories enabling 10× overpayment) prove that **identity-to-trust translation (`KYA`), non-repudiable pre-payment verification (`SkillProof`), deterministic compliance gates outside the LLM (`BidShield`), and unified compliance graph verification (`VCIL`)—not raw payment rails—are the binding constraints to scale.** Nano Empire sits in the deterministic verification and tollbooth layer, not the hype layer.*
+
+---
+
+## Update: November 16, 2026 — Production Merchants Arrive; Human Approval Still Dominates Card Rails
+
+- **Brave Search API Live on `x402` (`SIG-2026-11-16-BRAVE-X402`, Nov 12, 2026):** Search endpoints (web, news, LLM Context) accept pure agent payments at `$0.005 USDC` on Base per request via a self-hosted facilitator (Base gas covered for a limited time; signed payment acts as the credential with zero account or API key).
+- **OpenAI ChatGPT Wallet (`SIG-2026-11-16-CHATGPT-WALLET`, Nov 13, 2026):** Personal agents ("dots") complete purchases using tokenized Amex, Mastercard, and Visa credentials, where **every purchase requires explicit user biometric approval** (Face ID / fingerprint) — confirming human-present card-rail commerce remains distinct from unattended M2M settlement.
+- **`x402` Volume Trackers (`SIG-2026-11-16-X402-VOL-UPDATE`, Mid-Nov 2026):** Lifetime totals sit at `~198M–200M` transactions / `~$42M–$43M` across tracked chains (USDC dominant); recent 30-day window (`x402` List to Nov 13) shows `~6.2M` settlements / `$3.2M` (`>87%` sub-cent to dime band; October full month `~5.1M` txs / `~$274k`). Cloudflare CEO's forecast of agent traffic reaching `1,000×` human traffic underscores future TPS demands not yet demonstrated at scale.
+- **Resource-Binding, Replay & Settlement-Race Research (`SIG-2026-11-16-SECURITY-BINDING`):** Academic disclosures (*Five Attacks on x402 Agentic Payment Protocol*, `arXiv:2605.11781`, and free-riding analyses) document practical attacks on resource binding, replay/idempotency, settlement races, and proxy/cache confusion when servers grant access before finality or fail to bind payments tightly to resources — reinforcing `SkillProof` commit-pinned `Ed25519` Trust Manifests (`tree_sha`) and `BidShield` / `/api/x402/guard` deterministic pre-action gates.
 
 ---
 

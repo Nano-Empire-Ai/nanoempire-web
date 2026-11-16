@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.nanoempireai.com/schemas/m2m-signals-v1.json",
   "title": "Nano Empire AI — Compounding M2M & Agent-Economy Signal Ledger",
-  "updated_at": "2026-11-15T14:25:00Z",
+  "updated_at": "2026-11-16T14:16:00Z",
   "canonical_invariants": {
     "outside_paying_customers": 0,
     "settled_self_tests": 1,
@@ -13,6 +13,58 @@
     "skillproof_commercial_status": "parked_pending_ruling"
   },
   "signals": [
+    {
+      "id": "SIG-2026-11-16-SECURITY-BINDING",
+      "date": "2026-11-16",
+      "protocol": "x402 Agentic Payment Protocol",
+      "category": "Security Research (Binding, Replay & Settlement Races)",
+      "volume_or_metric": "Five Attacks on x402 (arXiv:2605.11781) & free-riding disclosures covering resource binding, replay/idempotency, settlement races, and proxy/cache confusion",
+      "trust_identity_signal": "Implementations granting service before finality or failing to bind payment tightly to resource remain vulnerable to replay and free-riding.",
+      "skillproof_relevance": "Reinforces commit-pinned (tree_sha) Ed25519 Trust Manifests before autonomous endpoints are trusted or paid.",
+      "bidshield_relevance": "Validates external deterministic verification (/api/x402/guard and /api/bidshield/gate) outside the LLM.",
+      "action_taken": "Appended to public/m2m-state.md & public/m2m-signals.json on main.",
+      "source": "arXiv:2605.11781 (May 2026) & Nov 16, 2026 Sentinel Review",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-16-X402-VOL-UPDATE",
+      "date": "2026-11-16",
+      "protocol": "x402 Multi-Chain Trackers",
+      "category": "Volume & Methodology Divergence",
+      "volume_or_metric": "Lifetime ~198-200M txs / ~$42-43M; 30d to Nov 13 ~6.2M settlements / $3.2M; Oct full month ~5.1M txs / ~$274k (>87% sub-cent to dime)",
+      "trust_identity_signal": "Tracker methodologies diverge as non-agent activity inflates raw counts; Cloudflare CEO 1,000x agent-traffic forecast highlights future TPS gap.",
+      "skillproof_relevance": "High-frequency sub-dime calls require sub-10ms offline Ed25519 signature verification rather than slow on-chain lookups.",
+      "bidshield_relevance": "Confirms high-value B2B procurement remains human/mandate-gated rather than pure micro-settlement.",
+      "action_taken": "Appended to public/m2m-state.md & public/m2m-signals.json on main.",
+      "source": "x402 List (Nov 13, 2026), Fireblocks, Cloudflare",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-16-BRAVE-X402",
+      "date": "2026-11-16",
+      "protocol": "x402 (Base USDC, Self-Hosted Facilitator)",
+      "category": "Production Merchant Rollout",
+      "volume_or_metric": "$0.005 USDC/query on Base across web, news, and LLM Context endpoints; Base gas covered for limited time",
+      "trust_identity_signal": "Signed payment header acts as keyless credential via self-hosted facilitator.",
+      "skillproof_relevance": "Increases demand for pre-payment behavioral verification as agents pay unknown API endpoints.",
+      "bidshield_relevance": "Requires deterministic 402 price-ceiling enforcement before signing.",
+      "action_taken": "Updated with Nov 16 facilitator & gas-sponsorship details.",
+      "source": "Brave Search API (Nov 12 / Nov 16, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-16-CHATGPT-WALLET",
+      "date": "2026-11-16",
+      "protocol": "ACP / Amex / Mastercard / Visa Network Tokens",
+      "category": "Human-Present Card-Rail Agentic Checkout",
+      "volume_or_metric": "US ChatGPT Pro rollout (Nov 13, 2026); 100% of purchases require explicit user biometric approval (Face ID / fingerprint)",
+      "trust_identity_signal": "Preserves card rewards and dispute rights; strictly human-present authorization rather than autonomous M2M settlement.",
+      "skillproof_relevance": "Unattended M2M delegation still requires cryptographic Ed25519 manifests where biometric prompts are impossible.",
+      "bidshield_relevance": "Validates pre-action compliance gates prior to payment token issuance.",
+      "action_taken": "Indexed in Nov 16 m2m-state.md update.",
+      "source": "OpenAI / Amex / Mastercard / Visa (Nov 13–16, 2026)",
+      "spar": "external_noise"
+    },
     {
       "id": "SIG-2026-11-15-BRAVE-X402",
       "date": "2026-11-15",
