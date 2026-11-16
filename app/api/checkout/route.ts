@@ -47,12 +47,37 @@ const ONE_TIME_PACKAGES: Record<string, { id: string; name: string; priceUsd: nu
     priceUsd: 1500,
     description: 'Complete Inuit Benefits Plan (IBP) / PSIB Joint-Venture Compliance Structuring + 19-Column Matrix',
   },
+  // HealthShield Healthcare Compliance Packages
+  'healthshield-499': {
+    id: 'healthshield-499',
+    name: 'HealthShield Equipment Recall & Safety Clearance Binder',
+    priceUsd: 499,
+    description: 'MOHLTC Inspection-Ready Equipment Recall Binder — 46,642 Health Canada/FDA/CPSC recalls cross-referenced. Signed PDF + Excel + Action Plan. Zero PHI. 24h delivery.',
+  },
+  'healthshield-rfp-499': {
+    id: 'healthshield-rfp-499',
+    name: 'HealthShield Healthcare RFP 19-Column Compliance Matrix',
+    priceUsd: 499,
+    description: 'Healthcare/Rehab RFP 19-Column Fatal-Gate Compliance Matrix + 1-Page Fatal-Gate Brief. Deontic parsing, JEV quantification, healthcare categories. 24h delivery.',
+  },
+  'healthshield-rfp-999': {
+    id: 'healthshield-rfp-999',
+    name: 'HealthShield Healthcare RFP Full Suite',
+    priceUsd: 999,
+    description: '19-Column Matrix + Fatal-Gate Brief + Gap Remediation Checklist + Evidence Tracker + 1 Revision. Healthcare categories: medical device, pharma, rehab, nursing, vocational.',
+  },
+  'healthshield-jv-1500': {
+    id: 'healthshield-jv-1500',
+    name: 'HealthShield IFR/PSIB JV Compliance Package',
+    priceUsd: 1500,
+    description: 'IFR/PSIB Joint-Venture Structuring + Inuit Benefits Plan (IBP) Compliance + 19-Column Matrix for Indigenous set-aside healthcare tenders.',
+  },
 };
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const priceId = searchParams.get('price_id');
-  const tierId = searchParams.get('tier_id');
+  const tierId = searchParams.get('tier_id') || searchParams.get('tier');
   const solicitationId = searchParams.get('solicitation_id') || '';
 
   const rawKey = tierId || priceId || '';
