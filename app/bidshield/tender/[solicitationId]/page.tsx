@@ -170,14 +170,14 @@ export default async function TenderDetailPage({ params }: TenderPageProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-5">
             <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-              <span>ESTIMATED CONTRACT MIDPOINT</span>
-              <DollarSign className="w-4 h-4 text-emerald-400" />
+              <span>OFFICIAL SOLICITATION REF</span>
+              <FileText className="w-4 h-4 text-emerald-400" />
             </div>
-            <div className="text-2xl sm:text-3xl font-extrabold font-mono text-white">
-              ${(tender.contract_midpoint_usd / 1000000).toFixed(1)}M
+            <div className="text-xl sm:text-2xl font-extrabold font-mono text-white truncate">
+              {(tender as any).solicitation_number || tender.tender_number}
             </div>
             <p className="text-xs text-slate-500 mt-2">
-              Based on multi-year option periods and facility square-footage baselines.
+              {(tender as any).stated_value_range || (tender as any).procurement_method || 'Competitive Federal Solicitation'}
             </p>
           </div>
 
@@ -205,6 +205,70 @@ export default async function TenderDetailPage({ params }: TenderPageProps) {
             <p className="text-xs text-amber-300/80 mt-2">
               Referenced in notice criteria but omitted from initial public tender download.
             </p>
+          </div>
+        </div>
+
+        {/* Live 19-Column Compliance Matrix Preview (2 Rows Unlocked + Paywall Blur) */}
+        <div className="rounded-2xl border border-amber-500/30 bg-slate-900/70 p-6 mb-8 overflow-hidden relative">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div>
+              <span className="text-[11px] font-mono uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded">
+                Pre-Computed 19-Column Matrix Preview
+              </span>
+              <h2 className="text-lg font-bold text-white font-mono mt-1">
+                Extracted Deontic Obligations ({tender.solicitation_id})
+              </h2>
+            </div>
+            <span className="text-xs font-mono text-emerald-400">
+              ✓ Ready for &lt;24h Excel/CSV + PDF Delivery
+            </span>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-left text-xs font-mono">
+              <thead className="bg-slate-950 text-slate-400 border-b border-slate-800">
+                <tr>
+                  <th className="py-2.5 px-3">Req_ID</th>
+                  <th className="py-2.5 px-3">Gate / Clause</th>
+                  <th className="py-2.5 px-3">Deontic</th>
+                  <th className="py-2.5 px-3">Severity</th>
+                  <th className="py-2.5 px-3">Extracted Evidence &amp; Verification Artifact</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/70">
+                {tender.mandatory_gates.slice(0, 2).map((gate: string, idx: number) => (
+                  <tr key={idx} className="bg-slate-900/80 text-slate-200">
+                    <td className="py-3 px-3 font-bold text-amber-400">REQ-00{idx + 1}</td>
+                    <td className="py-3 px-3 text-white">{gate.split(':')[0] || 'Mandatory Gate'}</td>
+                    <td className="py-3 px-3 text-rose-400 font-bold">MUST / SHALL</td>
+                    <td className="py-3 px-3">
+                      <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px]">
+                        FATAL
+                      </span>
+                    </td>
+                    <td className="py-3 px-3 font-sans text-slate-300 max-w-md truncate">{gate}</td>
+                  </tr>
+                ))}
+                {tender.missing_annexes.slice(0, 3).map((annex: string, idx: number) => (
+                  <tr key={`blur-${idx}`} className="bg-slate-950/60 text-slate-500 select-none filter blur-[4px]">
+                    <td className="py-2.5 px-3">REQ-00{idx + 3}</td>
+                    <td className="py-2.5 px-3">{annex}</td>
+                    <td className="py-2.5 px-3">MANDATORY</td>
+                    <td className="py-2.5 px-3">HIGH</td>
+                    <td className="py-2.5 px-3">Full SOW clause mapping, submission verification, and Basis of Payment line item check</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-400">
+            <span>Showing 2 of {tender.missing_annex_count + tender.mandatory_gates.length} extracted compliance rows (19 columns in full CSV export).</span>
+            <a
+              href={`/api/checkout?tier_id=bidshield-299&solicitation_id=${encodeURIComponent(tender.solicitation_id)}`}
+              className="text-amber-400 hover:text-amber-300 font-bold underline"
+            >
+              Unlock Full 19-Column CSV + PDF ($299) →
+            </a>
           </div>
         </div>
 
@@ -290,40 +354,57 @@ export default async function TenderDetailPage({ params }: TenderPageProps) {
                 Receive an audit-grade, line-by-line decomposition of every mandatory requirement, submittal format, and fatal hurdle for {tender.solicitation_id}.
               </p>
 
-              <div className="space-y-3 mb-6 border-y border-slate-800 py-4 text-xs font-mono text-slate-300">
+              <div className="space-y-3 mb-5 border-y border-slate-800 py-4 text-xs font-mono text-slate-300">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Every &quot;shall/must&quot; clause tagged &amp; indexed</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Pre-bid fatal gate stop/go recommendation</span>
+                  <span>&lt;24-Hour Express Turnaround (Excel CSV + PDF)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>3-day guaranteed turnaround via Upwork Escrow</span>
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span className="text-amber-300 font-semibold">Zero-Risk Guarantee: 3+ fatal/mandatory catches or $0</span>
                 </div>
               </div>
 
               <div className="mb-4">
-                <div className="text-[11px] font-mono text-slate-400 mb-1">CATALOG TIERS</div>
+                <div className="text-[11px] font-mono text-slate-400 mb-1">PACKAGE TIERS</div>
                 <div className="text-lg font-mono font-extrabold text-white">
                   $299 <span className="text-xs font-normal text-slate-400">Pilot</span> · $499 <span className="text-xs font-normal text-slate-400">Standard</span> · $999 <span className="text-xs font-normal text-slate-400">Full</span>
                 </div>
               </div>
 
-              <a
-                href={tender.upwork_catalog_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold font-mono py-3 px-4 rounded-xl transition text-sm shadow-lg shadow-emerald-500/20"
-              >
-                <span>Order via Upwork Catalog</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+              <div className="space-y-2.5">
+                <a
+                  href={`/api/checkout?tier_id=bidshield-299&solicitation_id=${encodeURIComponent(tender.solicitation_id)}`}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold font-mono py-3 px-4 rounded-xl transition text-sm shadow-lg shadow-amber-500/20"
+                >
+                  <DollarSign className="w-4 h-4" />
+                  <span>Pay $299 by Corporate Card (Stripe)</span>
+                </a>
+
+                <a
+                  href={tender.upwork_catalog_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 font-bold font-mono py-2.5 px-4 rounded-xl transition text-xs"
+                >
+                  <span>Or Order via Upwork Escrow ($299)</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href={`/api/checkout?tier_id=bidshield-jv-1500&solicitation_id=${encodeURIComponent(tender.solicitation_id)}`}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-mono py-2 px-3 rounded-xl transition text-[11px]"
+                >
+                  <span>IFR / PSIB Joint-Venture Compliance Pack ($1,500) →</span>
+                </a>
+              </div>
 
               <p className="text-[10px] text-center text-slate-500 font-mono mt-3">
-                Funds held safely in Upwork escrow until delivery is reviewed and approved.
+                100% refund if our &lt;24h matrix does not surface 3+ mandatory items to lock down.
               </p>
             </div>
 
