@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.nanoempireai.com/schemas/m2m-signals-v1.json",
   "title": "Nano Empire AI — Compounding M2M & Agent-Economy Signal Ledger",
-  "updated_at": "2026-11-16T14:16:00Z",
+  "updated_at": "2026-11-17T15:50:00Z",
   "canonical_invariants": {
     "outside_paying_customers": 0,
     "settled_self_tests": 1,
@@ -13,6 +13,63 @@
     "skillproof_commercial_status": "parked_pending_ruling"
   },
   "signals": [
+    {
+      "id": "SIG-2026-11-17-TRUST-CONSTRAINT",
+      "date": "2026-11-17",
+      "protocol": "SkillProof Ed25519 + BidShield + x402 Guard",
+      "category": "Deterministic Pre-Action Verification vs. Exploit Surface",
+      "volume_or_metric": "~$281k instruction-injection drains, 10x 402 header price inflation, and arXiv:2605.11781 binding/replay vectors persist across unguarded SDKs",
+      "trust_identity_signal": "Identity registration alone does not prevent runtime exploitation; commit-pinned Ed25519 manifests and external policy gates are mandatory.",
+      "skillproof_relevance": "Directly validates SkillProof (score >= 75 + tree_sha Ed25519 manifest) as the optionality-preserving filter.",
+      "bidshield_relevance": "Reinforces /api/x402/guard and /api/bidshield/gate before signing or task delegation.",
+      "optionality_delta_bps": 850,
+      "unguarded_optionality_delta_bps": -8500,
+      "action_taken": "Added Causal Entropy x ExO section & optionality_delta_bps scoring to public/m2m-state.md, llms.txt, and leaderboard.json.",
+      "source": "M2M Sentinel Summary (Nov 17, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-17-GOVERNANCE-STACK",
+      "date": "2026-11-17",
+      "protocol": "x402 Foundation / AAIF (A2A + MCP) / AP2 (FIDO) / NIST / IBM",
+      "category": "Governance & Cryptographic Identity Convergence",
+      "volume_or_metric": "40+ x402 Foundation members; ~934+ conformant A2A Agent Cards under AAIF; NIST 10 tenets + IBM Agent Identity Vault lifecycle",
+      "trust_identity_signal": "Industry standards converge on separating agent identity, LLM reasoning, and deterministic policy enforcement.",
+      "skillproof_relevance": "Portable Ed25519 Trust Manifests plug directly into A2A Agent Cards and NIST identity tenets.",
+      "bidshield_relevance": "Aligns with AP2 Human-Not-Present mandate boundaries and pre-bid compliance gates.",
+      "optionality_delta_bps": 750,
+      "action_taken": "Updated public/.well-known/agent-card.json and public/llms.txt with optionality-expanding verification guidance.",
+      "source": "Linux Foundation / AAIF / FIDO / NIST / IBM (Nov 17, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-17-MERCHANT-RAILS",
+      "date": "2026-11-17",
+      "protocol": "Brave x402 ($0.005 Base USDC) vs. OpenAI ChatGPT Wallet (Card Tokens)",
+      "category": "Production Merchant & Checkout Split",
+      "volume_or_metric": "Brave Search API live at $0.005 USDC/query (keyless HTTP 402); ChatGPT Wallet requires 100% human biometric approval per card purchase",
+      "trust_identity_signal": "Clear bifurcation between unattended M2M micropayments (x402) and biometric-gated consumer card checkout.",
+      "skillproof_relevance": "Unattended M2M calls to external APIs require automated pre-payment repo/endpoint verification.",
+      "bidshield_relevance": "High-stakes B2B purchases ($299-$1,500) continue to use human-authorized Stripe/Escrow checkout.",
+      "optionality_delta_bps": 650,
+      "action_taken": "Indexed in Nov 17 public/m2m-state.md update.",
+      "source": "Brave Search API & OpenAI ChatGPT Wallet Trackers (Nov 17, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-17-X402-BASELINE",
+      "date": "2026-11-17",
+      "protocol": "x402 Multi-Chain Settlement Baseline",
+      "category": "Volume Baseline & Unit Economics",
+      "volume_or_metric": "4-6M tx/mo floor holds (Oct ~5.1M txs / ~$274k; recent 30d ~6.2M settlements / ~$3.2M; lifetime ~196-200M txs / ~$42-43M across 12 chains)",
+      "trust_identity_signal": "Overwhelmingly sub-cent to sub-dime USDC on Base/Solana; raw tx count does not equal high-value commercial spend.",
+      "skillproof_relevance": "Sub-dime economics require zero-cost offline Ed25519 signature verification.",
+      "bidshield_relevance": "Confirms human B2B compliance wedges ($299-$1,500) drive revenue while machine rails mature.",
+      "optionality_delta_bps": 150,
+      "action_taken": "Appended to public/m2m-signals.json.",
+      "source": "Fireblocks, Allium, x402 List (Nov 17, 2026)",
+      "spar": "external_noise"
+    },
     {
       "id": "SIG-2026-11-16-SECURITY-BINDING",
       "date": "2026-11-16",

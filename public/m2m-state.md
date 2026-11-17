@@ -1,6 +1,26 @@
-# The Machine Economy: State of the Stack (November 16, 2026)
+# The Machine Economy: State of the Stack (November 17, 2026)
 
 *The rails are real. The buyers and the autonomous volume are early. While the agent-payment stack is now institutionalized across composable identity, communication, and settlement layers, measured machine spend remains overwhelmingly sub-dollar to sub-cent micro-traffic (~$0.05 average, with >87–90% under $0.10 and 90.8% under $0.01 in sampled Base+Solana cohorts), and institutional automation readiness scores just **12/100** vs. **60.7/100** for micropayments. Recent live security failures (~$281k drained via untrusted instruction encodings, and 20 disclosed `x402` attack categories enabling 10× overpayment) prove that **identity-to-trust translation (`KYA`), non-repudiable pre-payment verification (`SkillProof`), deterministic compliance gates outside the LLM (`BidShield`), and unified compliance graph verification (`VCIL`)—not raw payment rails—are the binding constraints to scale.** Nano Empire sits in the deterministic verification and tollbooth layer, not the hype layer.*
+
+---
+
+## Causal Entropy × ExO: How the Trust Layer 10×es Agent Freedom
+
+- **Massive Transformative Purpose (MTP):** *"Turn untrusted agent traffic into verified, payable abundance so 1,000× more autonomous economic actors can act without human bottlenecks or catastrophic failure."*
+- **Wissner-Gross Causal Entropic Force ($\vec{F} = T \nabla S_\tau$):** Every candidate delegation or `x402` payment is evaluated by whether it **expands or collapses accessible future trajectories** (`optionality_delta_bps` in `[-10000, +10000]`). Unverified high-volume endpoints carry negative optionality (wallet drain / shell sink / non-responsive bid disqualification); commit-pinned `SkillProof` + `BidShield` + `VCIL` gates preserve positive optionality.
+- **ExO (`SCALE` + `IDEAS`) Surface Mapping:**
+  - **Staff on Demand & Algorithms:** `POST /api/mcp` (`jev_causal_entropy_router`) scores candidate agent steps and recommends deterministic verification gates (`/api/skillproof/status`, `/api/bidshield/gate`, `/api/x402/guard`).
+  - **Community & Crowd Leaderboard:** Publicly ranked pre-audit leaderboard at `https://www.nanoempireai.com/skillproof/leaderboard.json` (`30` pre-audited repos scored by `skillproof_score` and `optionality_delta_bps`).
+  - **Fail-Closed Honesty Latch:** All canonical locks remain immutable (`46,642` recall records, `853` live CanadaBuys tenders, `$299 / $499 / $999` BidShield, `$499` Zero-PHI HealthShield, `0` outside paying customers, `1` operator self-test on Base block `51961194`).
+
+---
+
+## Update: November 17, 2026 — Baseline Holds; Trust & Optionality Remain the Binding Constraints
+
+- **`x402` Volume Baseline Holds (`SIG-2026-11-17-X402-BASELINE`):** Post-speculation production floor holds at `~4–6M` txs/month (`Oct 2026: ~5.1M txs / ~$274k`; recent 30d windows `~6.2M` settlements / `~$3.2M`; lifetime `~196M–200M` txs / `~$42M–$43M` across 12 chains, overwhelmingly sub-cent to sub-dime USDC on Base/Solana). High tx counts do not equal commercial enterprise spend (`optionality_delta_bps: +150`).
+- **Production Merchant & Checkout Split (`SIG-2026-11-17-MERCHANT-RAILS`):** Brave Search API (`$0.005 USDC/query` on Base, keyless signed `HTTP 402` credential) leads pure machine micropayments (`optionality_delta_bps: +650`), while OpenAI ChatGPT Wallet (Amex/MC/Visa network tokens) remains strictly human-biometric gated per purchase (`optionality_delta_bps: +300`).
+- **Governance & Identity Stack (`SIG-2026-11-17-GOVERNANCE-STACK`):** `x402 Foundation` (Linux Foundation, `40+` premier members) + `AAIF` (`A2A` `~934+` Agent Cards + `MCP`) + `AP2` (FIDO) + `NIST` 10 Tenets + `IBM Agent Identity` reinforce cryptographic separation of agent identity, reasoning, and policy (`optionality_delta_bps: +750`).
+- **Trust Remains the Binding Constraint (`SIG-2026-11-17-TRUST-CONSTRAINT`):** Persistent instruction-injection drains (`~$281k`), `10×` 402 header price inflation, and resource-binding/replay attacks (`arXiv:2605.11781`) inflict severe negative optionality (`-8500 bps` unguarded) vs. `+850 bps` when gated by `SkillProof` (`score >= 75`) and `/api/x402/guard`.
 
 ---
 

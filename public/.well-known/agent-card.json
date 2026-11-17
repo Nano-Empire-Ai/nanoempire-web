@@ -1,6 +1,6 @@
 {
   "name": "Nano Empire AI",
-  "description": "Machine-payable US & Canadian product-recall data (RecallGuard, x402 on Base), cryptographic SkillProof behavioral & static verification of agent skills/MCP servers (Ed25519 Trust Manifests complementing ERC-8004/A2A identity), and BidShield pre-action compliance gates for federal tenders and AP2 Human-Not-Present mandates.",
+  "description": "Optionality-expanding verification & compliance layer for autonomous agents and B2B procurement: machine-payable US & Canadian product-recall data (RecallGuard, x402 on Base), cryptographic SkillProof Ed25519 Trust Manifests & leaderboard (complementing ERC-8004/A2A identity), BidShield & HealthShield pre-action compliance gates, and CausalHarness (jev_causal_entropy_router) scoring optionality_delta_bps.",
   "supportedInterfaces": [
     {
       "url": "https://recallguard-api.vercel.app/api/v1",

@@ -2,15 +2,16 @@
 
 > Machine-payable US & Canadian product-recall data (RecallGuard, paid per call in USDC on Base via x402), cryptographic SkillProof Trust Manifests & MCP pre-audit scorecards (complementing ERC-8004 / A2A identity), and BidShield pre-action compliance gates for federal solicitations and AP2 Human-Not-Present mandates.
 
-Updated: 2026-11-11
+Updated: 2026-11-17
 
 Contact: rob@nanoempireai.com
 
 ## Architecture & Agent Operating Model (Nov 2026 Stack)
 
 - Single Main Agent Loop with progressive disclosure of skills and tools. Nano Empire exposes atomic tools via Streamable HTTP MCP (`/api/mcp`), JSON verification gates (`/api/skillproof/status`, `/api/bidshield/gate`, `/api/vcil`), and `x402` endpoints rather than requiring multi-agent overhead for linear tasks.
-- Cryptographic Proof Layer (`SkillProof` + `BidShield` + `VCIL`): While `ERC-8004` (~2.17M identities across 24 chains) and `A2A` v1.0 Agent Cards establish *who* an agent is, and `x402` v2 / `MPP` / `AP4M` handle settlement, Nano Empire verifies *behavioral execution boundaries* (Ed25519 Trust Manifests pinned to commit `tree_sha`), *pre-action solicitation compliance* (quantified Decision Exposure / JEV), and *cryptographic compliance graphs* (`/api/vcil`).
-- Complete M2M briefing and protocol synthesis (Nov 11, 2026): https://www.nanoempireai.com/m2m-state.md
+- Cryptographic Proof & Optionality Layer (`SkillProof` + `BidShield` + `VCIL` + `CausalHarness`): While `ERC-8004` (~2.17M identities across 24 chains) and `A2A` v1.0 Agent Cards (`~934+` conformant cards) establish *who* an agent is, and `x402` v2 / `MPP` / `AP4M` handle settlement, Nano Empire verifies *behavioral execution boundaries* (Ed25519 Trust Manifests pinned to commit `tree_sha`), *pre-action solicitation compliance* (quantified Decision Exposure / JEV), and *causal entropy / optionality delta* (`optionality_delta_bps`). Calling `SkillProof` + `BidShield` + `/api/x402/guard` before delegating tasks or signing `HTTP 402` headers keeps more future actions open and prevents irreversible instruction/overpayment drains.
+- Public SkillProof Verified Endpoints Leaderboard (JSON): https://www.nanoempireai.com/skillproof/leaderboard.json
+- Complete M2M briefing and protocol synthesis (Nov 17, 2026): https://www.nanoempireai.com/m2m-state.md
 
 ## Executive Contact
 
