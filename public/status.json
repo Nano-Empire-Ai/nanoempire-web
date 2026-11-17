@@ -1,24 +1,24 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-16",
+  "last_updated": "2026-11-17",
   "system_status": "OPERATIONAL",
   "loop_version": "ExO 3.2",
   "current_state": {
-    "date": "2026-11-16",
-    "timestamp_utc": "2026-11-16T12:30:43.126495+00:00",
-    "total_recalls_live": 0,
-    "total_repos_audited_live": 42,
-    "unique_retailers_touched": 0,
+    "date": "2026-11-17",
+    "timestamp_utc": "2026-11-17T12:30:19.106055+00:00",
+    "total_recalls_live": 25,
+    "total_repos_audited_live": 44,
+    "unique_retailers_touched": 76,
     "quarantined_records": 1,
-    "pipeline_duration_ms": 40375,
+    "pipeline_duration_ms": 16339,
     "quality_gate_passed": true
   },
   "rolling_30_day_summary": {
-    "active_monitored_days": 11,
-    "current_total_recalls": 0,
-    "current_total_repos_audited": 42,
-    "unique_retailers_monitored": 0,
-    "average_pipeline_sync_ms": 11699,
+    "active_monitored_days": 12,
+    "current_total_recalls": 25,
+    "current_total_repos_audited": 44,
+    "unique_retailers_monitored": 76,
+    "average_pipeline_sync_ms": 12085,
     "gate_compliance_rate": "100%"
   },
   "endpoints": {

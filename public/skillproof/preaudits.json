@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-16",
+  "updated_at": "2026-11-17",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 42,
+  "total_repos_audited": 44,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -1148,6 +1148,82 @@
       "preaudit_id": "SP-F7048ADC10E81813",
       "audited_at": "2026-11-13",
       "surface_summary": "Scanned 4 entrypoints (lib/index.js, lib/tools.js); 3 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at lib/index.js:L2579."
+    },
+    {
+      "repo": "skulitom/Pixelbolt",
+      "stars": 114,
+      "branch": "main",
+      "tree_sha": "ab62dddac0fc",
+      "license": "MIT",
+      "total_files_in_repo": 921,
+      "sampled_source_files": [
+        "src/mcp.js",
+        "src/index.js",
+        "src/server.js",
+        "src/mcp-app.js"
+      ],
+      "skillproof_score": 77,
+      "governance_gaps": [
+        "No deterministic dependency lockfile (`uv.lock` / `package-lock.json`)"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "src/mcp.js",
+          "line": 53,
+          "snippet": "const head = prefix.split('\"params\"')[0], match = /\"id\"\\s*:\\s*(\"(?:[^\"\\\\]|\\\\.)*\"|-?\\d+(?:\\.\\d+)?)/.e"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "src/server.js",
+          "line": 84,
+          "snippet": "const [command, args] = browserCommand(url), child = spawn(command, args, { detached: true, stdio: '"
+        }
+      ],
+      "preaudit_id": "SP-105A0A0CDC4A2C23",
+      "audited_at": "2026-11-17",
+      "surface_summary": "Scanned 4 entrypoints (src/mcp.js, src/index.js); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at src/mcp.js:L53."
+    },
+    {
+      "repo": "jackulau/coding.sh",
+      "stars": 112,
+      "branch": "main",
+      "tree_sha": "3fb42b35df81",
+      "license": "MIT",
+      "total_files_in_repo": 2379,
+      "sampled_source_files": [
+        "apps/site/worker/index.ts",
+        "packages/sdk/src/index.ts",
+        "packages/sdk/src/client.ts",
+        "packages/blob-s3/src/index.js"
+      ],
+      "skillproof_score": 90,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "apps/site/worker/index.ts",
+          "line": 17,
+          "snippet": "ASSETS: { fetch(request: Request): Promise<Response> };"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "apps/site/worker/index.ts",
+          "line": 38,
+          "snippet": "const [, page, md = \"\"] = /^(.*?)\\/?(\\.md)?$/.exec(url.pathname) ?? [];"
+        }
+      ],
+      "preaudit_id": "SP-4C673982260A7734",
+      "audited_at": "2026-11-17",
+      "surface_summary": "Scanned 4 entrypoints (apps/site/worker/index.ts, packages/sdk/src/index.ts); 2 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at apps/site/worker/index.ts:L17."
     },
     {
       "repo": "bardesss/arr-mcp",
