@@ -1,11 +1,11 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-17",
+  "last_updated": "2026-11-18",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 7,
-    "total_mcp_repos_audited": 44,
+    "total_mcp_repos_audited": 46,
     "recent_audits_count": 15,
     "quarantined_records_count": 1
   },
@@ -197,6 +197,16 @@
   ],
   "recent_mcp_audits": [
     {
+      "repo": "koala73/worldmonitor",
+      "stars": 90875,
+      "score": 98,
+      "tree_sha": "98f471f8ae29",
+      "preaudit_id": "SP-57961D3E8AF9A6BA",
+      "surface_summary": "Scanned 4 entrypoints (api/mcp.ts, src/main.ts); 0 static execution sinks and full governance hygiene verified.",
+      "findings_count": 0,
+      "governance_gaps_count": 0
+    },
+    {
       "repo": "assafelovic/gpt-researcher",
       "stars": 30644,
       "score": 96,
@@ -247,32 +257,12 @@
       "governance_gaps_count": 0
     },
     {
-      "repo": "jgravelle/jcodemunch-mcp",
-      "stars": 2840,
-      "score": 84,
-      "tree_sha": "937a2f10fe32",
-      "preaudit_id": "SP-517AAFCC3B83132B",
-      "surface_summary": "Scanned 4 entrypoints (cli/cli.py, mcpb/build.py); 3 line-cited sinks incl. SHELL_EXEC_SURFACE at harness/__main__.py:L184.",
-      "findings_count": 3,
-      "governance_gaps_count": 0
-    },
-    {
       "repo": "LING71671/open-reverselab",
       "stars": 1371,
       "score": 88,
       "tree_sha": "641126463c14",
       "preaudit_id": "SP-AF59E177A40A00ED",
       "surface_summary": "Scanned 4 entrypoints (scripts/misc/ai_tool.py, desktop/src/core/index.ts); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at scripts/misc/ai_tool.py:L194.",
-      "findings_count": 2,
-      "governance_gaps_count": 0
-    },
-    {
-      "repo": "TencentCloudBase/CloudBase-AI-Toolkit",
-      "stars": 1163,
-      "score": 92,
-      "tree_sha": "800823b67f75",
-      "preaudit_id": "SP-DCC3795AAF4CDAF7",
-      "surface_summary": "Scanned 4 entrypoints (mcp/src/cli.ts, mcp/src/auth.ts); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at mcp/src/cli.ts:L108.",
       "findings_count": 2,
       "governance_gaps_count": 0
     },
@@ -295,6 +285,16 @@
       "surface_summary": "Scanned 4 entrypoints (mcp_server.py, skills/seedance-v2/seedance_cli.py); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at seedance_api.py:L47.",
       "findings_count": 2,
       "governance_gaps_count": 2
+    },
+    {
+      "repo": "AmrDab/clawdcursor",
+      "stars": 406,
+      "score": 98,
+      "tree_sha": "92f5f248d4bd",
+      "preaudit_id": "SP-3DB5093152BA8178",
+      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/tools/cdp.ts); 1 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at src/tools/cdp.ts:L112.",
+      "findings_count": 1,
+      "governance_gaps_count": 0
     },
     {
       "repo": "vstorm-co/agenticos",
