@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-18",
+  "updated_at": "2026-11-19",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 46,
+  "total_repos_audited": 47,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -1372,6 +1372,37 @@
       "preaudit_id": "SP-D08AA4C641DC7C22",
       "audited_at": "2026-11-14",
       "surface_summary": "Scanned 4 entrypoints (installer/mcp_config.py, installer/update.py); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at installer/update.py:L19."
+    },
+    {
+      "repo": "Filippo-Venturini/ctxvault",
+      "stars": 69,
+      "branch": "main",
+      "tree_sha": "e0cceada9f83",
+      "license": "MIT",
+      "total_files_in_repo": 242,
+      "sampled_source_files": [
+        "src/ctxvault/client.py",
+        "src/ctxvault/cli/app.py",
+        "src/ctxvault/ui/server.py",
+        "src/ctxvault/mcp/server.py"
+      ],
+      "skillproof_score": 84,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "src/ctxvault/ui/server.py",
+          "line": 296,
+          "snippet": "subprocess.Popen([\"open\", path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)"
+        }
+      ],
+      "preaudit_id": "SP-05FB141EBEB323E1",
+      "audited_at": "2026-11-19",
+      "surface_summary": "Scanned 4 entrypoints (src/ctxvault/client.py, src/ctxvault/cli/app.py); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at src/ctxvault/ui/server.py:L296."
     },
     {
       "repo": "CorpusIQ/corpusiq-docs",
