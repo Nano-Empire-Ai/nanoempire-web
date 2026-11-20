@@ -1,7 +1,7 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-19",
+  "updated_at": "2026-11-20",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
   "total_repos_audited": 47,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
