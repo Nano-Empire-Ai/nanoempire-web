@@ -30,16 +30,12 @@ export async function POST(req: NextRequest) {
   // Handle successful checkout
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
-    const sku = mapSessionToSku(session);
+    const sku = await mapSessionToSku(session);
 
     console.log(
-      `[REVENUE] sku=${sku} email=${session.customer_email} amount=$${(session.amount_total || 0) / 100} currency=${session.currency} session=${session.id}`
+      `[REVENUE] sku=${sku} email=${session.customer_details?.email || session.customer_email} amount=$${(session.amount_total || 0) / 100} currency=${session.currency} session=${session.id}`
     );
 
-    // Here you would:
-    // 1. Insert into Supabase revenue_receipts table
-    // 2. Trigger fulfillment (send report, activate monitoring, start audit)
-    // 3. Emit TASK_EXECUTION_COMPLETE to reputation bridge
     await fulfillOrder(session, sku);
   }
 
@@ -54,9 +50,25 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ received: true });
 }
 
-function mapSessionToSku(session: Stripe.Checkout.Session): string {
-  const lineItem = session.line_items?.data?.[0];
-  const priceId = lineItem?.price?.id;
+async function mapSessionToSku(session: Stripe.Checkout.Session): Promise<string> {
+  // 1. Prefer explicit metadata set at Checkout Session creation
+  const metaSku = session.metadata?.tier_id || session.metadata?.package_id || session.metadata?.sku;
+  if (metaSku) {
+    return metaSku;
+  }
+
+  // 2. Stripe does not expand line_items on checkout.session.completed webhook payloads by default
+  let items = session.line_items?.data;
+  if (!items || items.length === 0) {
+    try {
+      const listed = await stripe.checkout.sessions.listLineItems(session.id, { limit: 5 });
+      items = listed.data;
+    } catch (err: any) {
+      console.warn(`[STRIPE-WEBHOOK] listLineItems failed for ${session.id}:`, err?.message);
+    }
+  }
+
+  const priceId = items?.[0]?.price?.id;
   if (priceId && PRICE_TO_SKU[priceId]) {
     return PRICE_TO_SKU[priceId];
   }

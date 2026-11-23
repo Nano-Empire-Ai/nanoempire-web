@@ -83,22 +83,28 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     return;
   }
 
-  // Determine tier from line items
-  let tierId: string | null = null;
-  
-  if (session.line_items?.data) {
-    for (const item of session.line_items.data) {
-      const priceId = item.price?.id;
-      if (priceId && PRICE_TO_TIER[priceId]) {
-        tierId = PRICE_TO_TIER[priceId];
-        break;
+  // Determine tier from metadata first, then line items (fetch via listLineItems since webhooks omit expansion)
+  let tierId: string | null = session.metadata?.tier_id || null;
+
+  if (!tierId) {
+    let items = session.line_items?.data;
+    if (!items || items.length === 0) {
+      try {
+        const listed = await stripe.checkout.sessions.listLineItems(session.id, { limit: 5 });
+        items = listed.data;
+      } catch (err: any) {
+        console.warn('Failed to fetch checkout session line items:', err?.message);
       }
     }
-  }
-
-  // Fallback to metadata
-  if (!tierId && session.metadata?.tier_id) {
-    tierId = session.metadata.tier_id;
+    if (items) {
+      for (const item of items) {
+        const priceId = item.price?.id;
+        if (priceId && PRICE_TO_TIER[priceId]) {
+          tierId = PRICE_TO_TIER[priceId];
+          break;
+        }
+      }
+    }
   }
 
   if (!tierId) {
