@@ -7,10 +7,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { licenseManager, LICENSE_TIERS } from '@/lib/licensing/manager';
 import Stripe from 'stripe';
+import { Resend } from 'resend';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_mock', {
   apiVersion: '2023-10-16',
 });
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || 'whsec_mock';
 
@@ -120,12 +123,38 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       stripeSubscriptionId
     );
 
+    const amount = (session.amount_total || 0) / 100;
+    const currency = session.currency;
+
     console.log('License provisioned:', { licenseId: license.id, tierId, apiKey: apiKey.substring(0, 20) + '...' });
 
-    // TODO: Send welcome email with API key and dashboard link
-    // await sendWelcomeEmail(customerEmail, license, apiKey);
+    // INSTANT EMAIL ALERT for enterprise license sale
+    if (resend && customerEmail) {
+      try {
+        await resend.emails.send({
+          from: 'Nano Empire AI <sales@nanoempireai.com>',
+          to: 'roblambert9@gmail.com',
+          subject: `🏢 ENTERPRISE LICENSE SALE: ${tierId} — $${amount} ${currency.toUpperCase()}/yr`,
+          html: `
+            <h2>New Enterprise License Sale</h2>
+            <p><strong>Tier:</strong> ${tierId} (${LICENSE_TIERS[tierId]?.name})</p>
+            <p><strong>Amount:</strong> $${amount} ${currency.toUpperCase()}/yr</p>
+            <p><strong>Customer:</strong> ${customerEmail}</p>
+            <p><strong>License ID:</strong> ${license.id}</p>
+            <p><strong>API Key:</strong> ${apiKey.substring(0, 20)}...</p>
+            <p><strong>Session:</strong> ${session.id}</p>
+            <p><strong>Time:</strong> ${new Date().toISOString()}</p>
+            <hr>
+            <p><a href="https://dashboard.stripe.com/test/payments/${session.payment_intent}">View in Stripe Dashboard</a></p>
+          `,
+        });
+        console.log(`[ALERT] Resend enterprise license notification sent for ${tierId}`);
+      } catch (err: any) {
+              console.warn(`[ALERT] Resend failed: ${err.message}`);
+            }
+          }
 
-    // Update Stripe customer metadata with license ID
+          // Update Stripe customer metadata with license ID
     await stripe.customers.update(stripeCustomerId, {
       metadata: {
         license_id: license.id,
