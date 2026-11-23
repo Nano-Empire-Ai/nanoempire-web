@@ -17,12 +17,23 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Nano Empire | Machine Economy API Gateway",
-  description: "The API Gateway for the Autonomous Machine Economy. Pay-per-call x402 endpoints, Cerberus MAB routing, and instant Stripe AgentFi virtual cards.",
-  keywords: ["AI Agents", "MCP", "x402", "Solana", "Base", "Machine Economy", "API Gateway", "Cerberus"],
+  title: "Nano Empire AI | Product Recall Screening & Federal RFP Compliance",
+  description:
+    "Automated US & Canadian product recall screening across 46,642 CPSC, FDA, and Health Canada records, inspection-ready facility equipment recall binders, and 19-column federal RFP compliance matrices.",
+  keywords: [
+    "Product Recall Screening",
+    "CPSC Recall Check",
+    "Health Canada Recalls",
+    "FDA Medical Device Recalls",
+    "Healthcare Equipment Recall Binder",
+    "Federal RFP Compliance Matrix",
+    "CanadaBuys BidShield",
+    "Nano Empire AI",
+  ],
   openGraph: {
-    title: "Nano Empire AI",
-    description: "The autonomous machine economy gateway. Execute API calls via stablecoin micropayments.",
+    title: "Nano Empire AI — Product Recall Screening & Federal RFP Compliance",
+    description:
+      "Search 46,642 CPSC, FDA, and Health Canada recalls free, order a $30 signed inventory report, or get audit-ready healthcare equipment binders and federal RFP compliance matrices in under 24 hours.",
     url: "https://www.nanoempireai.com",
     siteName: "Nano Empire AI",
     images: [
