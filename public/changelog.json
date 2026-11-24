@@ -1,12 +1,12 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-20",
+  "last_updated": "2026-11-24",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 9,
-    "total_mcp_repos_audited": 47,
-    "recent_audits_count": 12,
+    "total_mcp_repos_audited": 49,
+    "recent_audits_count": 7,
     "quarantined_records_count": 2
   },
   "recent_recalls": [
@@ -235,43 +235,13 @@
       "governance_gaps_count": 0
     },
     {
-      "repo": "Marker-Inc-Korea/AutoRAG",
-      "stars": 5736,
-      "score": 90,
-      "tree_sha": "37b2d5aff6a5",
-      "preaudit_id": "SP-638007B7D30FB39B",
-      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/mcp/http.ts); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at src/mcp/http.ts:L249.",
-      "findings_count": 2,
-      "governance_gaps_count": 0
-    },
-    {
-      "repo": "archestra-ai/archestra",
-      "stars": 4445,
-      "score": 92,
-      "tree_sha": "c762c76e3fd0",
-      "preaudit_id": "SP-ECDD218F8D642D95",
-      "surface_summary": "Scanned 4 entrypoints (ai-labs/cli/src/main.rs, platform/shared/index.ts); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at ai-labs/runner/src/client.rs:L1305.",
-      "findings_count": 1,
-      "governance_gaps_count": 0
-    },
-    {
-      "repo": "LING71671/open-reverselab",
-      "stars": 1371,
+      "repo": "pugarte7/spanish-top-tech-companies",
+      "stars": 624,
       "score": 88,
-      "tree_sha": "641126463c14",
-      "preaudit_id": "SP-AF59E177A40A00ED",
-      "surface_summary": "Scanned 4 entrypoints (scripts/misc/ai_tool.py, desktop/src/core/index.ts); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at scripts/misc/ai_tool.py:L194.",
-      "findings_count": 2,
-      "governance_gaps_count": 0
-    },
-    {
-      "repo": "codepawl/crucible",
-      "stars": 657,
-      "score": 98,
-      "tree_sha": "dd51b3c78d91",
-      "preaudit_id": "SP-DA5356D7F39C4F59",
-      "surface_summary": "Scanned 4 entrypoints (src/main.js, src/index.js); 0 static execution sinks and full governance hygiene verified.",
-      "findings_count": 0,
+      "tree_sha": "9af1b69ba148",
+      "preaudit_id": "SP-3ABBC0CABA49422D",
+      "surface_summary": "Scanned 4 entrypoints (api/mcp.js, lib/ats/domain/campaign.js); 3 line-cited sinks incl. SHELL_EXEC_SURFACE at api/mcp.js:L344.",
+      "findings_count": 3,
       "governance_gaps_count": 0
     },
     {
@@ -285,23 +255,13 @@
       "governance_gaps_count": 0
     },
     {
-      "repo": "vstorm-co/agenticos",
-      "stars": 342,
-      "score": 92,
-      "tree_sha": "00d65faf5b75",
-      "preaudit_id": "SP-EE8DB9A43E8B824D",
-      "surface_summary": "Scanned 4 entrypoints (backend/app/main.py, backend/cli/__init__.py); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at backend/app/main.py:L388.",
-      "findings_count": 1,
-      "governance_gaps_count": 0
-    },
-    {
-      "repo": "duhu2000/dsh-mcp-connector",
-      "stars": 126,
-      "score": 81,
-      "tree_sha": "66f6747cb6b0",
-      "preaudit_id": "SP-F7048ADC10E81813",
-      "surface_summary": "Scanned 4 entrypoints (lib/index.js, lib/tools.js); 3 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at lib/index.js:L2579.",
-      "findings_count": 3,
+      "repo": "modelstudioai/cli",
+      "stars": 374,
+      "score": 82,
+      "tree_sha": "c6c97545974e",
+      "preaudit_id": "SP-92B9CEB4DA14E901",
+      "surface_summary": "Scanned 4 entrypoints (packages/cli/src/main.ts, packages/core/src/index.ts); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at packages/cli/postinstall.js:L106.",
+      "findings_count": 2,
       "governance_gaps_count": 1
     },
     {
@@ -323,16 +283,6 @@
       "surface_summary": "Scanned 4 entrypoints (apps/site/worker/index.ts, packages/sdk/src/index.ts); 2 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at apps/site/worker/index.ts:L17.",
       "findings_count": 2,
       "governance_gaps_count": 0
-    },
-    {
-      "repo": "syiibfs-hash/cc-agent-brain",
-      "stars": 83,
-      "score": 69,
-      "tree_sha": "16328a034c89",
-      "preaudit_id": "SP-D08AA4C641DC7C22",
-      "surface_summary": "Scanned 4 entrypoints (installer/mcp_config.py, installer/update.py); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at installer/update.py:L19.",
-      "findings_count": 2,
-      "governance_gaps_count": 2
     },
     {
       "repo": "Filippo-Venturini/ctxvault",

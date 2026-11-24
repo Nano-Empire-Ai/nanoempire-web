@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-20",
+  "updated_at": "2026-11-24",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 47,
+  "total_repos_audited": 49,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -898,6 +898,51 @@
       "surface_summary": "Scanned 4 entrypoints (lemma-cli/setup.py, lemma-cli/lemma_cli/app.py); 1 line-cited sinks incl. UNBOUNDED_FS_WRITE at lemma-cli/setup.py:L56."
     },
     {
+      "repo": "pugarte7/spanish-top-tech-companies",
+      "stars": 624,
+      "branch": "main",
+      "tree_sha": "9af1b69ba148",
+      "license": "MIT",
+      "total_files_in_repo": 217,
+      "sampled_source_files": [
+        "api/mcp.js",
+        "lib/ats/domain/campaign.js",
+        "lib/ats/domain/fingerprint.js",
+        "api/star.js"
+      ],
+      "skillproof_score": 88,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "api/mcp.js",
+          "line": 344,
+          "snippet": "const iso = ISO_REGION.exec(String(region).trim())?.[1].toUpperCase();"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "api/mcp.js",
+          "line": 3166,
+          "snippet": "const answer = await fetch(new URL(\"/api/v1/data.json\", url));"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "api/star.js",
+          "line": 18,
+          "snippet": "async fetch(request) {"
+        }
+      ],
+      "preaudit_id": "SP-3ABBC0CABA49422D",
+      "audited_at": "2026-11-24",
+      "surface_summary": "Scanned 4 entrypoints (api/mcp.js, lib/ats/domain/campaign.js); 3 line-cited sinks incl. SHELL_EXEC_SURFACE at api/mcp.js:L344."
+    },
+    {
       "repo": "SamurAIGPT/Seedance-2.5-API",
       "stars": 510,
       "branch": "main",
@@ -1052,6 +1097,45 @@
       "preaudit_id": "SP-8AC9FA47A3014C30",
       "audited_at": "2026-11-05",
       "surface_summary": "Scanned 4 entrypoints (docs-site/stubs/sharp/index.js, ui/manager/src/lib/api-client.ts); 1 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at ui/manager/src/lib/api-client.ts:L351."
+    },
+    {
+      "repo": "modelstudioai/cli",
+      "stars": 374,
+      "branch": "main",
+      "tree_sha": "c6c97545974e",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 1620,
+      "sampled_source_files": [
+        "packages/cli/src/main.ts",
+        "packages/core/src/index.ts",
+        "packages/kscli/src/main.ts",
+        "packages/cli/postinstall.js"
+      ],
+      "skillproof_score": 82,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "packages/cli/postinstall.js",
+          "line": 106,
+          "snippet": "spawnSync(process.execPath, [entry, \"--bailian-first-install-report\"], {"
+        },
+        {
+          "id": "OUTBOUND_NETWORK_EGRESS",
+          "severity": "LOW",
+          "title": "External Network Egress Call",
+          "file": "packages/cli/postinstall.js",
+          "line": 218,
+          "snippet": "const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });"
+        }
+      ],
+      "preaudit_id": "SP-92B9CEB4DA14E901",
+      "audited_at": "2026-11-24",
+      "surface_summary": "Scanned 4 entrypoints (packages/cli/src/main.ts, packages/core/src/index.ts); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at packages/cli/postinstall.js:L106."
     },
     {
       "repo": "vstorm-co/agenticos",
