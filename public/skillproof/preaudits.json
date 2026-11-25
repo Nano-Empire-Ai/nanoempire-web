@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-25",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 49,
+  "total_repos_audited": 51,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -1012,6 +1012,43 @@
       "surface_summary": "Scanned 4 entrypoints (mcp/hatch_build.py, scripts/build-index.py); 1 line-cited sinks incl. UNBOUNDED_FS_WRITE at scripts/build-index.py:L210."
     },
     {
+      "repo": "openwong2kim/wmux",
+      "stars": 465,
+      "branch": "main",
+      "tree_sha": "926a423c9944",
+      "license": "MIT",
+      "total_files_in_repo": 10231,
+      "sampled_source_files": [
+        "src/mcp/git.ts",
+        "src/mcp/shim.ts",
+        "src/cli/index.ts",
+        "src/cli/utils.ts"
+      ],
+      "skillproof_score": 88,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "src/mcp/shim.ts",
+          "line": 135,
+          "snippet": "if (process.env.WMUX_AUTH_TOKEN) return process.env.WMUX_AUTH_TOKEN;"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "src/mcp/shim.ts",
+          "line": 323,
+          "snippet": "const child = spawn(process.execPath, [entry, ...process.argv.slice(2)], {"
+        }
+      ],
+      "preaudit_id": "SP-155ED0B8FA30B008",
+      "audited_at": "2026-11-25",
+      "surface_summary": "Scanned 4 entrypoints (src/mcp/git.ts, src/mcp/shim.ts); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/mcp/shim.ts:L135."
+    },
+    {
       "repo": "AmrDab/clawdcursor",
       "stars": 406,
       "branch": "main",
@@ -1487,6 +1524,37 @@
       "preaudit_id": "SP-05FB141EBEB323E1",
       "audited_at": "2026-11-19",
       "surface_summary": "Scanned 4 entrypoints (src/ctxvault/client.py, src/ctxvault/cli/app.py); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at src/ctxvault/ui/server.py:L296."
+    },
+    {
+      "repo": "xuzhougeng/WispStudy",
+      "stars": 31,
+      "branch": "main",
+      "tree_sha": "1ff379027458",
+      "license": "MIT",
+      "total_files_in_repo": 1052,
+      "sampled_source_files": [
+        "src/main.rs",
+        "crates/net/src/mcp.rs",
+        "crates/cli/src/main.rs",
+        "crates/core/src/mcp.rs"
+      ],
+      "skillproof_score": 84,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "crates/net/src/mcp.rs",
+          "line": 171,
+          "snippet": "std::thread::spawn(move || {"
+        }
+      ],
+      "preaudit_id": "SP-83828C4A9C8F8F71",
+      "audited_at": "2026-11-25",
+      "surface_summary": "Scanned 4 entrypoints (src/main.rs, crates/net/src/mcp.rs); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at crates/net/src/mcp.rs:L171."
     },
     {
       "repo": "CorpusIQ/corpusiq-docs",

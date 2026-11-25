@@ -1,11 +1,11 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 9,
-    "total_mcp_repos_audited": 49,
+    "total_mcp_repos_audited": 51,
     "recent_audits_count": 7,
     "quarantined_records_count": 2
   },
@@ -245,6 +245,16 @@
       "governance_gaps_count": 0
     },
     {
+      "repo": "openwong2kim/wmux",
+      "stars": 465,
+      "score": 88,
+      "tree_sha": "926a423c9944",
+      "preaudit_id": "SP-155ED0B8FA30B008",
+      "surface_summary": "Scanned 4 entrypoints (src/mcp/git.ts, src/mcp/shim.ts); 2 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/mcp/shim.ts:L135.",
+      "findings_count": 2,
+      "governance_gaps_count": 0
+    },
+    {
       "repo": "AmrDab/clawdcursor",
       "stars": 406,
       "score": 98,
@@ -265,32 +275,22 @@
       "governance_gaps_count": 1
     },
     {
-      "repo": "skulitom/Pixelbolt",
-      "stars": 114,
-      "score": 77,
-      "tree_sha": "ab62dddac0fc",
-      "preaudit_id": "SP-105A0A0CDC4A2C23",
-      "surface_summary": "Scanned 4 entrypoints (src/mcp.js, src/index.js); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at src/mcp.js:L53.",
-      "findings_count": 2,
-      "governance_gaps_count": 1
-    },
-    {
-      "repo": "jackulau/coding.sh",
-      "stars": 112,
-      "score": 90,
-      "tree_sha": "3fb42b35df81",
-      "preaudit_id": "SP-4C673982260A7734",
-      "surface_summary": "Scanned 4 entrypoints (apps/site/worker/index.ts, packages/sdk/src/index.ts); 2 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at apps/site/worker/index.ts:L17.",
-      "findings_count": 2,
-      "governance_gaps_count": 0
-    },
-    {
       "repo": "Filippo-Venturini/ctxvault",
       "stars": 69,
       "score": 84,
       "tree_sha": "e0cceada9f83",
       "preaudit_id": "SP-05FB141EBEB323E1",
       "surface_summary": "Scanned 4 entrypoints (src/ctxvault/client.py, src/ctxvault/cli/app.py); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at src/ctxvault/ui/server.py:L296.",
+      "findings_count": 1,
+      "governance_gaps_count": 1
+    },
+    {
+      "repo": "xuzhougeng/WispStudy",
+      "stars": 31,
+      "score": 84,
+      "tree_sha": "1ff379027458",
+      "preaudit_id": "SP-83828C4A9C8F8F71",
+      "surface_summary": "Scanned 4 entrypoints (src/main.rs, crates/net/src/mcp.rs); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at crates/net/src/mcp.rs:L171.",
       "findings_count": 1,
       "governance_gaps_count": 1
     }
