@@ -14,7 +14,6 @@ import {
   Cpu,
   Building2,
   Bot,
-  ShieldAlert,
   ChevronDown,
 } from "lucide-react";
 
@@ -23,15 +22,15 @@ const STRUCTURED_DATA_JSON_LD = {
   "@graph": [
     {
       "@type": "SoftwareApplication",
-      name: "Nano Empire AI — Deterministic Compliance, Recall Screening & AI Security Audits",
+      name: "Nano Empire AI — Deterministic Product Recall Screening & Federal RFP Compliance",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       url: "https://www.nanoempireai.com",
       description:
-        "Deterministic US & Canadian product recall screening across 46,642 CPSC, FDA, and Health Canada records, inspection-ready Zero-PHI facility equipment recall binders, 19-column federal RFP compliance matrices across 853 live tenders, and 4-hour AI/Next.js/Stripe security audits. Accessible to humans via Stripe and autonomous agents via Streamable HTTP MCP, A2A Agent Card, and x402.",
+        "Deterministic US & Canadian product recall screening across 46,642 CPSC, FDA, and Health Canada records, inspection-ready Zero-PHI facility equipment recall binders, and 19-column federal RFP compliance matrices across 853 live tenders. Accessible to humans via Stripe and autonomous agents via Streamable HTTP MCP, A2A Agent Card, and x402.",
       offers: {
         "@type": "OfferCatalog",
-        name: "Nano Empire AI Fixed-Price Compliance & Security Services",
+        name: "Nano Empire AI Fixed-Price Compliance Services",
         itemListElement: [
           {
             "@type": "Offer",
@@ -53,13 +52,6 @@ const STRUCTURED_DATA_JSON_LD = {
             price: "499.00",
             priceCurrency: "USD",
             url: "https://www.nanoempireai.com/api/checkout?tier=healthshield-499",
-          },
-          {
-            "@type": "Offer",
-            name: "SkillProof 4-Hour AI, Next.js & Stripe Pre-Launch Security Audit",
-            price: "750.00",
-            priceCurrency: "USD",
-            url: "https://www.nanoempireai.com/api/checkout?tier=security-audit-750",
           },
         ],
       },
@@ -123,12 +115,6 @@ const COMPARISON_ROWS = [
     nano: "$499 flat per facility (<24h)",
     edge: "Strictly Zero-PHI, zero IT setup, fits under $500 P-card limit",
   },
-  {
-    lane: "AI, MCP & Stripe Pre-Launch Security Audit",
-    enterprise: "Lakera / Boutique Red-Team ($8,000 – $25,000)",
-    nano: "$750 flat sprint (<48h)",
-    edge: "SkillProof 44-repo baseline + Stripe webhook/RLS + 1 retest",
-  },
 ];
 
 const AGENT_ENDPOINTS = [
@@ -172,9 +158,6 @@ export default function HomePage() {
             </Link>
             <Link href="/healthshield" className="hover:text-white transition">
               Clinics ($499)
-            </Link>
-            <Link href="#security-audit" className="hover:text-white transition">
-              AI Security ($750)
             </Link>
             <Link href="#partners" className="hover:text-white transition">
               Partners
@@ -223,14 +206,14 @@ export default function HomePage() {
             id="hero-heading"
             className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-5"
           >
-            Deterministic Compliance Reports &amp; AI Security Audits—Without Enterprise Quote Walls
+            Deterministic Recall Screening &amp; Federal RFP Compliance—Without Enterprise Quote Walls
           </h1>
 
           <p className="text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto mb-7">
-            Enterprise vendors charge $10,000–$50,000/yr and hide behind sales demos. Send your SKU
-            list, clinic asset sheet, federal solicitation PDF, or GitHub repo—get an audit-ready
-            report in <strong>24–48 hours</strong> for one flat card payment, or connect your AI
-            agent directly over MCP.
+            Enterprise compliance vendors charge $10,000–$50,000/yr and hide behind sales demos.
+            Send your SKU list, facility asset sheet, or federal solicitation PDF—get an
+            audit-ready PDF and Excel report in <strong>under 24 hours</strong> for one flat card
+            payment, or connect your AI agent directly over MCP.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6" role="navigation" aria-label="Jump by role">
@@ -253,12 +236,6 @@ export default function HomePage() {
               Clinics &amp; LTC ($499)
             </a>
             <a
-              href="#security-audit"
-              className="text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-900 border border-violet-500/50 hover:border-violet-400 text-violet-200 transition"
-            >
-              AI / Stripe Founders ($750)
-            </a>
-            <a
               href="#agent-access"
               className="text-xs font-mono px-3 py-1.5 rounded-lg bg-slate-900 border border-cyan-500/40 hover:border-cyan-300 text-cyan-300 transition"
             >
@@ -271,7 +248,7 @@ export default function HomePage() {
               href="#offers"
               className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-3 rounded-xl transition text-sm"
             >
-              <span>See Fixed Pricing ($30–$750)</span>
+              <span>See Fixed Pricing ($30–$499)</span>
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
             <a
@@ -306,19 +283,19 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Four Transparent Fixed-Price Offers */}
+        {/* Three Transparent Fixed-Price Offers */}
         <section id="offers" aria-labelledby="offers-heading" className="mb-20">
           <div className="text-center mb-10">
             <h2 id="offers-heading" className="text-2xl sm:text-3xl font-bold text-white mb-2">
-              Four Fixed-Price Offers. Transparent Checkout. Zero Subscriptions Required.
+              Three Fixed-Price Offers. Transparent Checkout. Zero Subscriptions Required.
             </h2>
             <p className="text-sm text-slate-400">
-              Built for importers (pre-Jan 8, 2027 CPSC FTZ eFiling), government bidders, care
-              facilities, and SaaS/AI founders.
+              Built for importers (pre-Jan 8, 2027 CPSC FTZ eFiling), government bidders, clinics,
+              and care facilities.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Offer 1: $30 Recall Report */}
             <article id="recall-offer" className="rounded-2xl border border-slate-800 bg-slate-900/60 p-7 flex flex-col justify-between">
               <div>
@@ -480,93 +457,34 @@ export default function HomePage() {
                 </Link>
               </div>
             </article>
-
-            {/* Offer 4: $750 AI, Next.js & Stripe Security Audit */}
-            <article
-              id="security-audit"
-              className="rounded-2xl border-2 border-violet-500/50 bg-slate-900/80 p-7 flex flex-col justify-between relative shadow-xl shadow-violet-500/10"
-            >
-              <div className="absolute -top-3 right-6 bg-violet-400 text-slate-950 text-[11px] font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full">
-                Fastest ROI • 48h Turnaround
-              </div>
-
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-violet-300 bg-violet-500/10 border border-violet-500/20 px-2.5 py-1 rounded-full">
-                    <ShieldAlert className="w-3.5 h-3.5" aria-hidden="true" /> AI, SaaS &amp; Vibe-Coded Apps
-                  </span>
-                  <span className="text-2xl font-extrabold text-white">$750</span>
-                </div>
-
-                <h3 className="text-xl font-bold text-white mb-2">
-                  4-Hour Pre-Launch Security &amp; Stripe Audit
-                </h3>
-                <p className="text-sm text-slate-300 leading-relaxed mb-5">
-                  Before launching or buying a Next.js, Supabase, Stripe, or MCP/Claude app, catch
-                  prompt-injection sinks, leaked keys, RLS bypasses, and webhook race conditions
-                  without paying $15,000 to a boutique firm.
-                </p>
-
-                <ul className="space-y-2.5 text-sm text-slate-300 mb-6">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-violet-400 shrink-0 mt-0.5" aria-hidden="true" />
-                    <span>SkillProof AST + MCP tool-poisoning &amp; secret scan</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-violet-400 shrink-0 mt-0.5" aria-hidden="true" />
-                    <span>Stripe checkout, webhook signature &amp; payout math review</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-violet-400 shrink-0 mt-0.5" aria-hidden="true" />
-                    <span>Severity-ranked PDF report + 1 post-fix retest included</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-2.5">
-                <a
-                  href="/api/checkout?tier=security-audit-750"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-violet-400 hover:bg-violet-300 text-slate-950 font-bold py-3 px-4 rounded-xl transition text-sm"
-                >
-                  <span>Book Pre-Launch Audit ($750)</span>
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </a>
-                <Link
-                  href="/skillproof"
-                  className="block text-center text-xs text-violet-300/80 hover:text-violet-200 transition"
-                >
-                  Inspect 44 pre-audited public AI/MCP repos →
-                </Link>
-              </div>
-            </article>
           </div>
         </section>
 
         {/* What Happens After Checkout (3-Step Clarity Bar) */}
         <section aria-labelledby="how-it-works-heading" className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7 sm:p-8 mb-16">
           <h2 id="how-it-works-heading" className="text-xl font-bold text-white mb-6 text-center">
-            What Happens After Checkout (3 Steps, 24–48 Hours)
+            What Happens After Checkout (3 Steps, Under 24 Hours)
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
             <div>
               <div className="text-amber-400 font-mono font-bold mb-1">01. Instant Card or Escrow Checkout</div>
               <p className="text-slate-400 leading-relaxed">
                 Pay securely via Stripe or Upwork Escrow—no sales call, no seat contracts—and email
-                your CSV, solicitation PDF, equipment list, or read-only GitHub repo.
+                your product CSV, facility equipment list, or solicitation PDF.
               </p>
             </div>
             <div>
               <div className="text-emerald-400 font-mono font-bold mb-1">02. Deterministic Engine + Human QA</div>
               <p className="text-slate-400 leading-relaxed">
-                Our Python parsers check every item against 46,642 recall notices, map every
-                mandatory RFP clause, or execute our SkillProof + Stripe security battery.
+                Our Python parsers check every item against 46,642 recall notices or extract every
+                mandatory RFP clause with exact page and docket citations.
               </p>
             </div>
             <div>
               <div className="text-cyan-400 font-mono font-bold mb-1">03. Audit-Ready Delivery</div>
               <p className="text-slate-400 leading-relaxed">
-                Receive your signed PDF brief, structured Excel/CSV matrix, or severity-ranked
-                remediation report (+ 1 post-fix retest on security audits) in 24–48 hours.
+                Receive your signed PDF executive brief and structured Excel/CSV spreadsheet within
+                24 hours—ready for inspectors, buyers, or proposal teams.
               </p>
             </div>
           </div>
@@ -619,11 +537,11 @@ export default function HomePage() {
                 <span>White-Label &amp; Channel Partners</span>
               </div>
               <h2 id="partners-heading" className="text-xl sm:text-2xl font-bold text-white mb-2">
-                Customs Brokers, Dev Agencies, Bid Writers &amp; 3PL Warehouses
+                Customs Brokers, Bid Writers &amp; 3PL Warehouses
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
                 Manage 10–500 client accounts? White-label our recall reports, CPSC eFiling checks,
-                19-column RFP matrices, or pre-launch security audits at wholesale rates with 24-hour
+                19-column RFP matrices, or Zero-PHI facility binders at wholesale rates with 24-hour
                 turnaround—no new hires required.
               </p>
             </div>

@@ -17,24 +17,23 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Nano Empire AI | Compliance Reports, Recall Screening & AI Security Audits",
+  title: "Nano Empire AI | Product Recall Screening & Federal RFP Compliance",
   description:
-    "Deterministic US & Canadian product recall screening (46,642 CPSC, FDA & Health Canada records), Zero-PHI clinic equipment binders, 19-column federal RFP compliance matrices, and 4-hour AI/Next.js/Stripe security audits.",
+    "Deterministic US & Canadian product recall screening (46,642 CPSC, FDA & Health Canada records), Zero-PHI clinic equipment binders ($499), and 19-column federal RFP compliance matrices ($299).",
   keywords: [
     "Product Recall Screening",
     "CPSC eFiling Compliance",
     "Health Canada Recalls",
     "Healthcare Equipment Recall Binder",
     "Federal RFP Compliance Matrix",
-    "AI Security Audit",
-    "MCP Server Security",
-    "Stripe Webhook Audit",
+    "CanadaBuys BidShield",
+    "MCP Server",
     "Nano Empire AI",
   ],
   openGraph: {
-    title: "Nano Empire AI — Deterministic Compliance & AI Security Audits ($30–$750)",
+    title: "Nano Empire AI — Deterministic Compliance Reports ($30–$499)",
     description:
-      "Flat-price recall reports ($30), federal RFP matrices ($299), Zero-PHI clinic binders ($499), and 4-hour AI/Next.js/Stripe pre-launch security audits ($750). Built for humans and AI agents (MCP / x402).",
+      "Flat-price recall reports ($30), federal RFP compliance matrices ($299), and Zero-PHI clinic equipment recall binders ($499) in under 24 hours. Built for humans and AI agents (MCP / x402).",
     url: "https://www.nanoempireai.com",
     siteName: "Nano Empire AI",
     images: [
