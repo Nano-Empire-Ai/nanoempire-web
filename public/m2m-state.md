@@ -1,4 +1,4 @@
-# The Machine Economy: State of the Stack (November 17, 2026)
+# The Machine Economy: State of the Stack (November 25, 2026)
 
 *The rails are real. The buyers and the autonomous volume are early. While the agent-payment stack is now institutionalized across composable identity, communication, and settlement layers, measured machine spend remains overwhelmingly sub-dollar to sub-cent micro-traffic (~$0.05 average, with >87–90% under $0.10 and 90.8% under $0.01 in sampled Base+Solana cohorts), and institutional automation readiness scores just **12/100** vs. **60.7/100** for micropayments. Recent live security failures (~$281k drained via untrusted instruction encodings, and 20 disclosed `x402` attack categories enabling 10× overpayment) prove that **identity-to-trust translation (`KYA`), non-repudiable pre-payment verification (`SkillProof`), deterministic compliance gates outside the LLM (`BidShield`), and unified compliance graph verification (`VCIL`)—not raw payment rails—are the binding constraints to scale.** Nano Empire sits in the deterministic verification and tollbooth layer, not the hype layer.*
 
@@ -12,6 +12,14 @@
   - **Staff on Demand & Algorithms:** `POST /api/mcp` (`jev_causal_entropy_router`) scores candidate agent steps and recommends deterministic verification gates (`/api/skillproof/status`, `/api/bidshield/gate`, `/api/x402/guard`).
   - **Community & Crowd Leaderboard:** Publicly ranked pre-audit leaderboard at `https://www.nanoempireai.com/skillproof/leaderboard.json` (`30` pre-audited repos scored by `skillproof_score` and `optionality_delta_bps`).
   - **Fail-Closed Honesty Latch:** All canonical locks remain immutable (`46,642` recall records, `853` live CanadaBuys tenders, `$299 / $499 / $999` BidShield, `$499` Zero-PHI HealthShield, `0` outside paying customers, `1` operator self-test on Base block `51961194`).
+
+---
+
+## Update: November 25, 2026 — Mastercard AP4M Pilot Completes in Singapore; x402 Cumulative Advances to 206M Txs
+
+- **Mastercard Agent Pay for Machines (AP4M) + Ant International Pilot (`SIG-2026-11-25-AP4M-ANT`, Nov 18–19, 2026):** Live consumer AI-agent transaction via Antom plus completed Singapore business pilot demonstrating agent credentialing, programmable spending controls, payment authorization within limits, and auditable records using Verifiable Intent. Credential issuance and policy enforcement remain distinct from raw settlement rails (`optionality_delta_bps: +420`, `SPAR: external_noise`).
+- **`x402` Multi-Chain Volume Update (`SIG-2026-11-25-X402-VOL`, Nov 25, 2026):** `agenteconomy.to` reports **206.4 million** cumulative on-chain transactions settling **$43.66 million** across 12 chains / 18 facilitators (latest complete day Nov 24: `468,362` txs). Continues the post-speculation micro-traffic floor (predominantly sub-dollar USDC); organic monthly volume stays in the low-to-mid seven figures across trackers. High transaction counts do not equal scaled high-value enterprise spend (`optionality_delta_bps: +120`, `SPAR: external_noise`).
+- **Governance Continuity:** `x402 Foundation` (Linux Foundation, operational since July 14, 2026, `40+` premier members including Visa, Mastercard, Stripe, Adyen, Amex, AWS, Google, Circle, Shopify) remains the neutral steward; `A2A` remains under the Agentic AI Foundation (`AAIF`) with signed Agent Cards. No material change to the identity-to-trust gap; canonical locks remain strictly immutable.
 
 ---
 

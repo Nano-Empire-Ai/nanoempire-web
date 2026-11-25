@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.nanoempireai.com/schemas/m2m-signals-v1.json",
   "title": "Nano Empire AI — Compounding M2M & Agent-Economy Signal Ledger",
-  "updated_at": "2026-11-17T15:50:00Z",
+  "updated_at": "2026-11-25T15:33:00Z",
   "canonical_invariants": {
     "outside_paying_customers": 0,
     "settled_self_tests": 1,
@@ -9,10 +9,38 @@
     "recallradar_corpus_records": 46642,
     "bidshield_locked_tiers_usd": [299, 499, 999],
     "recallradar_locked_tiers_usd": [30, 99, 2400],
-    "skillproof_indexed_repos": 30,
+    "skillproof_indexed_repos": 44,
     "skillproof_commercial_status": "parked_pending_ruling"
   },
   "signals": [
+    {
+      "id": "SIG-2026-11-25-AP4M-ANT",
+      "date": "2026-11-25",
+      "protocol": "Mastercard AP4M + Verifiable Intent",
+      "category": "Enterprise Agent Credentialing & Policy Controls",
+      "volume_or_metric": "Completed Singapore pilot w/ Ant International (Nov 18-19); live consumer tx via Antom + business agent purchases under programmable limits & auditable records",
+      "trust_identity_signal": "Businesses credential agents, set purchase/spend limits, enforce at payment; merchants identify represented business.",
+      "skillproof_relevance": "Credentialing without behavioral pre-verification leaves residual risk; commit-pinned Ed25519 Trust Manifests provide portable proof.",
+      "bidshield_relevance": "Validates deterministic pre-action spend/policy gates outside runtime (aligns with /api/bidshield/gate & /api/x402/guard).",
+      "optionality_delta_bps": 420,
+      "action_taken": "Indexed in Nov 25 public/m2m-state.md and public/m2m-signals.json.",
+      "source": "Mastercard Newsroom (Nov 18-19, 2026)",
+      "spar": "external_noise"
+    },
+    {
+      "id": "SIG-2026-11-25-X402-VOL",
+      "date": "2026-11-25",
+      "protocol": "x402 Multi-Chain Settlement",
+      "category": "Volume Baseline Continuity",
+      "volume_or_metric": "206.4M cumulative txs / $43.66M settled across 12 chains / 18 facilitators (agenteconomy.to, Nov 25); 468,362 txs on Nov 24",
+      "trust_identity_signal": "Tracker counts include tests/infrastructure; organic commercial value modest; identity & pre-payment verification remain scarce.",
+      "skillproof_relevance": "Sub-dime economics favor offline Ed25519 verification of seller endpoints.",
+      "bidshield_relevance": "Confirms high-value B2B flows stay mandate- and human-gated.",
+      "optionality_delta_bps": 120,
+      "action_taken": "Appended to public/m2m-signals.json & indexed in Nov 25 public/m2m-state.md.",
+      "source": "agenteconomy.to (Nov 25, 2026)",
+      "spar": "external_noise"
+    },
     {
       "id": "SIG-2026-11-17-TRUST-CONSTRAINT",
       "date": "2026-11-17",
