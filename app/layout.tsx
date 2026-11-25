@@ -17,23 +17,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Nano Empire AI | Product Recall Screening & Federal RFP Compliance",
+  title: "Nano Empire AI | Compliance Reports, Recall Screening & AI Security Audits",
   description:
-    "Automated US & Canadian product recall screening across 46,642 CPSC, FDA, and Health Canada records, inspection-ready facility equipment recall binders, and 19-column federal RFP compliance matrices.",
+    "Deterministic US & Canadian product recall screening (46,642 CPSC, FDA & Health Canada records), Zero-PHI clinic equipment binders, 19-column federal RFP compliance matrices, and 4-hour AI/Next.js/Stripe security audits.",
   keywords: [
     "Product Recall Screening",
-    "CPSC Recall Check",
+    "CPSC eFiling Compliance",
     "Health Canada Recalls",
-    "FDA Medical Device Recalls",
     "Healthcare Equipment Recall Binder",
     "Federal RFP Compliance Matrix",
-    "CanadaBuys BidShield",
+    "AI Security Audit",
+    "MCP Server Security",
+    "Stripe Webhook Audit",
     "Nano Empire AI",
   ],
   openGraph: {
-    title: "Nano Empire AI — Product Recall Screening & Federal RFP Compliance",
+    title: "Nano Empire AI — Deterministic Compliance & AI Security Audits ($30–$750)",
     description:
-      "Search 46,642 CPSC, FDA, and Health Canada recalls free, order a $30 signed inventory report, or get audit-ready healthcare equipment binders and federal RFP compliance matrices in under 24 hours.",
+      "Flat-price recall reports ($30), federal RFP matrices ($299), Zero-PHI clinic binders ($499), and 4-hour AI/Next.js/Stripe pre-launch security audits ($750). Built for humans and AI agents (MCP / x402).",
     url: "https://www.nanoempireai.com",
     siteName: "Nano Empire AI",
     images: [
@@ -58,6 +59,7 @@ export default function RootLayout({
       <head>
         {/* Machine-First Discovery Links */}
         <link rel="agent-card" href="/.well-known/agent-card.json" type="application/json" />
+        <link rel="mcp-server" href="/.well-known/mcp.json" type="application/json" />
         <link rel="llms-context" href="/llms.txt" type="text/plain" />
         <link rel="openapi" href="/openapi.json" type="application/json" />
         <meta name="nano-empire-gateway" content="v1.0.0" />

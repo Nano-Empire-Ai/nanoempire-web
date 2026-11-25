@@ -72,6 +72,12 @@ const ONE_TIME_PACKAGES: Record<string, { id: string; name: string; priceUsd: nu
     priceUsd: 1500,
     description: 'IFR/PSIB Joint-Venture Structuring + Inuit Benefits Plan (IBP) Compliance + 19-Column Matrix for Indigenous set-aside healthcare tenders.',
   },
+  'security-audit-750': {
+    id: 'security-audit-750',
+    name: 'SkillProof 4-Hour AI, Next.js & Stripe Pre-Launch Security Audit',
+    priceUsd: 750,
+    description: 'Severity-ranked security & payments audit covering MCP/tool prompt injection, Stripe webhook/race-condition checks, secret/RLS leaks, and 1 post-fix retest (<48h delivery).',
+  },
 };
 
 export async function GET(request: NextRequest) {
