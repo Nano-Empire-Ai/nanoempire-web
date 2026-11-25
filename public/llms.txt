@@ -96,6 +96,7 @@ Contact: rob@nanoempireai.com
 - HealthShield Zero-PHI Facility Equipment Recall Binder ($499 USD): https://www.nanoempireai.com/healthshield
 - BidShield Federal Triage & 8 NAICS Hubs ($299 / $499 / $999 USD): https://www.nanoempireai.com/bidshield
 - BidShield Active Tenders Intelligence Feed (853 Live Open Solicitations): https://www.nanoempireai.com/bidshield/tenders.json
+- Engineering Build Log #001 (BidShield DecGuard Benchmark v0.2 -> v0.3): https://www.nanoempireai.com/benchmarks/bidshield-decguard-001
 - SkillProof Public Leaderboard (44 Audited Repos — Commercial Tier Parked): https://www.nanoempireai.com/skillproof
 - BidShield Live Upwork Project Catalog (Escrow Protected): https://www.upwork.com/services/product/writing-translation-a-compliance-matrix-of-every-mandatory-requirement-in-your-government-rfp-2074328625924014322
 - SkillProof MCP Pre-Audit Index (30 Repos): https://www.nanoempireai.com/skillproof

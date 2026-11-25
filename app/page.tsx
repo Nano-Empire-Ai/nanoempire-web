@@ -693,6 +693,9 @@ export default function HomePage() {
             <Link href="/bidshield" className="hover:text-slate-300">
               /bidshield
             </Link>
+            <Link href="/benchmarks/bidshield-decguard-001" className="hover:text-slate-300">
+              Build Log #001
+            </Link>
             <Link href="/healthshield" className="hover:text-slate-300">
               /healthshield
             </Link>
