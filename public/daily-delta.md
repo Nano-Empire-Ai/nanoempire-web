@@ -1,6 +1,6 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-25
+# 📡 Overnight Market & Safety Delta — 2026-11-26
 
-> **Autonomous Sync:** Generated at `12:30:10 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
+> **Autonomous Sync:** Generated at `12:30:11 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
 ## 1. High-Exposure Consumer Recalls (CPSC 2026)
 
@@ -24,7 +24,7 @@ Amazon.com from April 2025 through August 2026 for between t $9 and $18.`
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `51`
+- **Total Validated MCP Repositories in Public Index:** `53`
 - **Quality Gate Filtered/Quarantined:** `2` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |

@@ -1,11 +1,11 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-26",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
     "recent_recalls_count": 9,
-    "total_mcp_repos_audited": 51,
+    "total_mcp_repos_audited": 53,
     "recent_audits_count": 7,
     "quarantined_records_count": 2
   },
@@ -225,16 +225,6 @@
   ],
   "recent_mcp_audits": [
     {
-      "repo": "koala73/worldmonitor",
-      "stars": 90875,
-      "score": 98,
-      "tree_sha": "98f471f8ae29",
-      "preaudit_id": "SP-57961D3E8AF9A6BA",
-      "surface_summary": "Scanned 4 entrypoints (api/mcp.ts, src/main.ts); 0 static execution sinks and full governance hygiene verified.",
-      "findings_count": 0,
-      "governance_gaps_count": 0
-    },
-    {
       "repo": "pugarte7/spanish-top-tech-companies",
       "stars": 624,
       "score": 88,
@@ -255,16 +245,6 @@
       "governance_gaps_count": 0
     },
     {
-      "repo": "AmrDab/clawdcursor",
-      "stars": 406,
-      "score": 98,
-      "tree_sha": "92f5f248d4bd",
-      "preaudit_id": "SP-3DB5093152BA8178",
-      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/tools/cdp.ts); 1 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at src/tools/cdp.ts:L112.",
-      "findings_count": 1,
-      "governance_gaps_count": 0
-    },
-    {
       "repo": "modelstudioai/cli",
       "stars": 374,
       "score": 82,
@@ -272,6 +252,26 @@
       "preaudit_id": "SP-92B9CEB4DA14E901",
       "surface_summary": "Scanned 4 entrypoints (packages/cli/src/main.ts, packages/core/src/index.ts); 2 line-cited sinks incl. SHELL_EXEC_SURFACE at packages/cli/postinstall.js:L106.",
       "findings_count": 2,
+      "governance_gaps_count": 1
+    },
+    {
+      "repo": "ClickHouse/loom",
+      "stars": 231,
+      "score": 84,
+      "tree_sha": "3e5d651f757d",
+      "preaudit_id": "SP-07FF6DEF1E927DA6",
+      "surface_summary": "Scanned 4 entrypoints (server/boot.py, server/main.py); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at sdk/go/client.go:L75.",
+      "findings_count": 3,
+      "governance_gaps_count": 0
+    },
+    {
+      "repo": "cyanheads/mcp-ts-core",
+      "stars": 155,
+      "score": 93,
+      "tree_sha": "9e499e865a36",
+      "preaudit_id": "SP-7EB3177E9B278391",
+      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/cli/init.ts); 0 static shell/eval sinks; 1 governance gaps flagged.",
+      "findings_count": 0,
       "governance_gaps_count": 1
     },
     {

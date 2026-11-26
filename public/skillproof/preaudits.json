@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-25",
+  "updated_at": "2026-11-26",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 51,
+  "total_repos_audited": 53,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -1271,6 +1271,73 @@
       "preaudit_id": "SP-3B5E000AC1580929",
       "audited_at": "2026-11-05",
       "surface_summary": "Scanned 4 entrypoints (docs/generate_tool_docs.py, .claude/skills/edt-mcp-autopilot/references/build.workflow.js); 2 line-cited sinks incl. OUTBOUND_NETWORK_EGRESS at docs/generate_tool_docs.py:L65."
+    },
+    {
+      "repo": "ClickHouse/loom",
+      "stars": 231,
+      "branch": "main",
+      "tree_sha": "3e5d651f757d",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 8298,
+      "sampled_source_files": [
+        "server/boot.py",
+        "server/main.py",
+        "sdk/go/client.go",
+        "server/cli/up.py"
+      ],
+      "skillproof_score": 84,
+      "governance_gaps": [],
+      "code_surface_findings": [
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "sdk/go/client.go",
+          "line": 75,
+          "snippet": "apiKey:   firstNonBlank(cfg.APIKey, os.Getenv(\"LOOM_API_KEY\")),"
+        },
+        {
+          "id": "SHELL_EXEC_SURFACE",
+          "severity": "HIGH",
+          "title": "Subprocess / Shell Execution Sink",
+          "file": "server/cli/up.py",
+          "line": 258,
+          "snippet": "cp = subprocess.run("
+        },
+        {
+          "id": "ENV_SECRET_EXPOSURE",
+          "severity": "MEDIUM",
+          "title": "Sensitive Credential / Full-Env Access",
+          "file": "server/cli/up.py",
+          "line": 289,
+          "snippet": "env = dict(os.environ)"
+        }
+      ],
+      "preaudit_id": "SP-07FF6DEF1E927DA6",
+      "audited_at": "2026-11-26",
+      "surface_summary": "Scanned 4 entrypoints (server/boot.py, server/main.py); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at sdk/go/client.go:L75."
+    },
+    {
+      "repo": "cyanheads/mcp-ts-core",
+      "stars": 155,
+      "branch": "main",
+      "tree_sha": "9e499e865a36",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 1099,
+      "sampled_source_files": [
+        "src/index.ts",
+        "src/cli/init.ts",
+        "src/core/index.ts",
+        "src/utils/index.ts"
+      ],
+      "skillproof_score": 93,
+      "governance_gaps": [
+        "No deterministic dependency lockfile (`uv.lock` / `package-lock.json`)"
+      ],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-7EB3177E9B278391",
+      "audited_at": "2026-11-26",
+      "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/cli/init.ts); 0 static shell/eval sinks; 1 governance gaps flagged."
     },
     {
       "repo": "duhu2000/dsh-mcp-connector",
