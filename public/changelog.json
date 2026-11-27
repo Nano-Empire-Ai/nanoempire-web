@@ -1,142 +1,15 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-11-26",
+  "last_updated": "2026-11-27",
   "rolling_window_days": 7,
   "summary": {
     "total_recalls_indexed": 25,
-    "recent_recalls_count": 9,
-    "total_mcp_repos_audited": 53,
-    "recent_audits_count": 7,
+    "recent_recalls_count": 0,
+    "total_mcp_repos_audited": 55,
+    "recent_audits_count": 8,
     "quarantined_records_count": 2
   },
-  "recent_recalls": [
-    {
-      "recall_id": 11068,
-      "recall_number": "27096",
-      "recall_date": "2026-11-19",
-      "title": "CHE-US Recalls Magnetic Robot Toys Due to Risk of Serious Injury or Death from Magnet Ingestion; Violate Mandatory Standard for Toys",
-      "product_name": "CHE-US Magnetic Robot Toys",
-      "units_affected": "About 101,282",
-      "hazard_summary": "The recalled magnetic stick figures violate the mandatory standard for toys because when pulled apart, the figures\u2019 arms and legs liberate high-powered magnets posing an ingestion hazard to children. When high-powered magnets are swallowed, the ingested magnets can attract each other, or other metal objects, and become lodged in the digestive system. This can result in perforations, twisting, and/or blockage of the intestines, blood poisoning and death.",
-      "injuries_reported": "None reported.",
-      "retailers": "Sold Online At:\nAmazon.com from April 2025 through August 2026 for between t $9 and $18.",
-      "remedy": "Consumers should stop using the stick figures immediately, take them away from children and contact CHE-US for a full refund. Consumers will be asked to send a photo of the toys in the trash to CHE-USMagneticRobotToysRecall@outlook.com. Consumers should then dispose of the recalled product.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/CHE-US-Recalls-Magnetic-Robot-Toys-Due-to-Risk-of-Serious-Injury-or-Death-from-Magnet-Ingestion-Violate-Mandatory-Standard-for-Toys",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    },
-    {
-      "recall_id": 11064,
-      "recall_number": "27098",
-      "recall_date": "2026-11-19",
-      "title": "Cipton Recalls Bicycle Helmets Due to Risk of Serious Injury or Death from Head Injury; Violate Mandatory Standard for Bicycle Helmets",
-      "product_name": "Cipton Bike Helmets",
-      "units_affected": "16,730",
-      "hazard_summary": "The recalled helmets violate the mandatory safety standard for\u202fbicycle helmets\u202fbecause the helmets do not comply with the impact attenuation, positional stability and certification requirements. The helmets can fail to protect the user in the event of a crash, posing a serious risk of injury or death due to head injury.",
-      "injuries_reported": "None reported.",
-      "retailers": "Dicks Sporting Goods and JC Penny nationwide and online at Dickssportinggoods.com from April 2024 through May 2026 for about $35.",
-      "remedy": "Consumers should stop using the helmets immediately and contact Cipton for a full refund. Consumers will be asked to destroy the helmet by cutting the straps and writing in permanent marker \u201cRecalled\u201d on the helmet and send a photo of the destroyed helmet to Reply@customersupport123.com. Consumers should then dispose of the recalled product. \n\n\nNote:\u202fDo not throw this defective lithium-ion battery or device in the trash, the general recycling stream (e.g., street-level or curbside recycling bins), or in used battery recycling boxes found at various retail and home improvement stores. Defective lithium-ion batteries must be disposed of differently than other batteries, because they present a greater risk of fire. Your municipal household hazardous waste (HHW) collection center may accept this defective lithium-ion battery or device for disposal. Before taking your battery or device to a HHW collection center, contact it ahead of time and ask whether it accepts defective lithium-ion batteries. If it does not, contact your municipality for further guidance.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/Cipton-Recalls-Bicycle-Helmets-Due-to-Risk-of-Serious-Injury-or-Death-from-Head-Injury-Violate-Mandatory-Standard-for-Bicycle-Helmets",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    },
-    {
-      "recall_id": 11071,
-      "recall_number": "27093",
-      "recall_date": "2026-11-19",
-      "title": "Fidlock GmbH Recalls Hermetic Dry Bags Due to Risk of Serious Injury or Death from Magnet Ingestion Hazard",
-      "product_name": "Fidlock Hermetic Dry Bags",
-      "units_affected": "About 490",
-      "hazard_summary": "The recalled bags\u2019 adhesive closure strips can detach, causing the magnets to fall out, posing a risk of serious injury or death from a magnet ingestion hazard.",
-      "injuries_reported": "None reported",
-      "retailers": "Sports, water sports and outdoor stores nationwide and online at Fidlock.us and Amazon.com from January 2025 through September 2026 for between $30 and $35.",
-      "remedy": "Consumers should stop using the bags immediately and contact Fidlock USA to receive a replacement bag or a gift card for the Fidlock USA online shop. Customers who purchased the product from the FIDLOCK online store can receive a full refund in the form of a credit card refund or PayPal refund. Consumers will be asked to go to www.fidlock.us/pages/recall and send a photo of the product. Consumers should then dispose of the recalled product.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/Fidlock-GmbH-Recalls-Hermetic-Dry-Bags-Due-to-Risk-of-Serious-Injury-or-Death-from-Magnet-Ingestion-Hazard",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    },
-    {
-      "recall_id": 11066,
-      "recall_number": "27090",
-      "recall_date": "2026-11-19",
-      "title": "Hultafors Group North America Recalls Lighted Portfolios, Angle Locators, Calipers and Calculators Due to Risk of Serious Injury or Death from Battery Ingestion; Violate Mandatory Standard for Consumer Products with Button Cell Batteries",
-      "product_name": "Custom Leather Craft (CLC) Lighted Portfolio, Johnson Level & Tool (Johnson Level) Digital Angle Locator, Digital Caliper and Building Calculator",
-      "units_affected": "About 229,430",
-      "hazard_summary": "The various trade tools violate the mandatory safety standard for consumer products with button cell and coin batteries because the button batteries can be accessed easily by children, posing an ingestion hazard. Additionally, the packaging and product do not have the warnings required under\u202fReese\u2019s Law. When button cell or coin batteries are swallowed, the ingested batteries can cause serious injuries, internal chemical burns and death.",
-      "injuries_reported": "None reported",
-      "retailers": "The Johnson Level Digital Angle Locator, Digital Caliper and Building Calculator were sold at Lowe\u2019s Home Improvement, Menards, W.W. Grainger, True Value Hardware and other hardware stores nationwide and online at Amazon.com from February 2023 through November 2026 between $64 and $400. The CLC Lighted Portfolio and Johnson Level 7\u201d Digital Angle Locator and Ruler were sold at Lowe\u2019s Home Improvement, Menards, W.W. Grainger, True Value Hardware and other hardware stores nationwide and online at Amazon.com from March 2024 through November 2026 between $45 and $55.",
-      "remedy": "Consumers should stop using the recalled trade tools immediately, place them in an area inaccessible to children and contact Hultafors Group North America. To obtain a refund, consumers will be asked to upload a photograph of the product at  www.HG2026.expertinquiry.com and certify that the product has been disposed of and will no longer be used. Upon verification, consumers will receive the retail price, as shown in table below in the form of a virtual Visa gift card. The virtual Visa gift card may be redeemed at any establishment that accepts Visa.\n\nNote: Button cell batteries are hazardous. Batteries should be disposed of or recycled by following local hazardous waste procedures.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/Hultafors-Group-North-America-Recalls-Lighted-Portfolios-Angle-Locators-Calipers-and-Calculators-Due-to-Risk-of-Serious-Injury-or-Death-from-Battery-Ingestion-Violate-Mandatory-Standard-for-Consumer-Products-with-Button-Cell-Batteries",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    },
-    {
-      "recall_id": 11067,
-      "recall_number": "27092",
-      "recall_date": "2026-11-19",
-      "title": "Kidsview Recalls Infant Bouncers Due to Risk of Collapse and Impact Injury to Infants",
-      "product_name": "Kidsview Infant Bouncer",
-      "units_affected": "About 412",
-      "hazard_summary": "The bouncers can collapse while in use, posing a risk of impact injury to infants in the bouncer.",
-      "injuries_reported": "Kidsview has received seven reports of the bouncer collapsing while in use, including two incidents in which the infant\u2019s head struck the underlying surface. One consumer reported seeking medical attention for their infant.",
-      "retailers": "Sold Online At:\nAmazon.com from August 2022 through November 2023 for between $60 and $170.",
-      "remedy": "Consumers should stop using the recalled infant bouncers immediately and contact Kidsview for an Amazon gift card. Consumers will be asked to check if their infant bouncer is recalled by viewing the date code located on a label on the back of the bouncer\u2019s seat. Consumers with recalled bouncers will be instructed to write \u201cRECALLED\u201d on the product\u2019s fabric seat with permanent marker, take a photo of it, including the label with the date code in the photo and email to haimaoziying@163.com.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/Kidsview-Recalls-Infant-Bouncers-Due-to-Risk-of-Collapse-and-Impact-Injury-to-Infants",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    },
-    {
-      "recall_id": 11072,
-      "recall_number": "27097",
-      "recall_date": "2026-11-19",
-      "title": "Ororo Recalls Rechargeable Lithium-Ion Battery Packs Due to Risk of Serious Injury from Fire and Burn Hazards",
-      "product_name": "Ororo PD10K-Pro Rechargeable Lithium-Ion Battery Packs",
-      "units_affected": "About 269 (In addition, about 24 were sold in Canada)",
-      "hazard_summary": "The recalled lithium-ion battery packs can overheat, posing a risk of serious injury from fire and burn hazards.",
-      "injuries_reported": "Ororo has received one report of the battery pack overheating. No injuries have been reported.",
-      "retailers": "Sold Online At:\nOrorowear.com and Amazon.com from September 2026 through October 2026 for about $109.",
-      "remedy": "Consumers should stop using the battery packs immediately and contact ororo for a full refund. Consumers will be asked to go to Ororowear.com/pd10k-pro-recall to register and to receive disposal instructions. Once registered, consumers should dispose of the recalled battery packs in accordance with local and state regulations.  \n\nNote: Do not throw this recalled lithium-ion battery or device in the trash, the general recycling stream (e.g., street-level or curbside recycling bins), or used battery recycling boxes found at various retail and home improvement stores. Recalled lithium-ion batteries must be disposed of differently than other batteries, because they present a greater risk of fire. Your municipal household hazardous waste (HHW) collection center may accept this recalled lithium-ion battery or device for disposal. Before taking your battery or device to a HHW collection center, contact that office ahead of time and ask whether it accepts recalled lithium-ion batteries. If it does not, contact your municipality for further guidance.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/Ororo-Recalls-Rechargeable-Lithium-Ion-Battery-Packs-Due-to-Risk-of-Serious-Injury-from-Fire-and-Burn-Hazards",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    },
-    {
-      "recall_id": 11065,
-      "recall_number": "27094",
-      "recall_date": "2026-11-19",
-      "title": "Qpancy Recalls Children\u2019s Pajama Sets Due to Risk of Serious Injury or Death from Burn Hazard; Violate Mandatory Standards for Children\u2019s Sleepwear",
-      "product_name": "Qpancy Children\u2019s Pajama Sets",
-      "units_affected": "About 1,309",
-      "hazard_summary": "The recalled children\u2019s pajama sets violate the mandatory safety standards for children\u2019s sleepwear posing a risk of serious burn injuries.",
-      "injuries_reported": "None reported",
-      "retailers": "Sold Online At:\nAmazon.com from March 2026 through August 2026 for about $20.",
-      "remedy": "Consumers should stop using the recalled pajama sets immediately and contact Qpancy for a full refund. Consumers will be asked to cut the pajama in half and send a photo of the destroyed pajamas to qpancyrecall@outlook.com. Consumers should then dispose of the destroyed product.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/Qpancy-Recalls-Childrens-Pajama-Sets-Due-to-Risk-of-Serious-Injury-or-Death-from-Burn-Hazard-Violate-Mandatory-Standards-for-Childrens-Sleepwear",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    },
-    {
-      "recall_id": 11070,
-      "recall_number": "27091",
-      "recall_date": "2026-11-19",
-      "title": "Vanderhall Recalls Brawley GTS Electric Recreational Off Highway Vehicles (ROVs) Due to Risk of Serious Injury or Death from Crash Hazard",
-      "product_name": "Model Year 2024-2026 Vanderhall Brawley GTS electric recreational off highway vehicles",
-      "units_affected": "220",
-      "hazard_summary": "The braking system can unexpectedly engage when the vehicle is airborne causing the operator to experience a sudden brake lockup upon landing, posing a risk of serious injury or death from a crash hazard.",
-      "injuries_reported": "The firm has received six reports of the vehicles\u2019 braking system unexpectedly locking while airborne. No injuries have been reported.",
-      "retailers": "Vanderhall North America dealers in Utah, Ohio, Michigan, Texas, Montana, North Carolina, Oklahoma, Minnesota, Illinois, and Arizona from April 2024 through August 2026 for about $50,000.",
-      "remedy": "Consumers should stop using their vehicles immediately and contact Vanderhall North America for instructions on how to receive updated firmware version 8.1.2 through the Vanderhall customer mobile app. The updated firmware was released on September 18, 2026, and can be identified by the Vanderhall logo. Owners requiring assistance updating their firmware should contact their dealer or Vanderhall directly for assistance.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/Vanderhall-Recalls-Brawley-GTS-Electric-Recreational-Off-Highway-Vehicles-ROVs-Due-to-Risk-of-Serious-Injury-or-Death-from-Crash-Hazard",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    },
-    {
-      "recall_id": 11069,
-      "recall_number": "27099",
-      "recall_date": "2026-11-19",
-      "title": "Xentrawave Recalls Adult Portable Bed Rails Due to Risk of Serious Injury or Death from Entrapment and Asphyxiation; Violate Mandatory Standard for Adult Portable Bed Rails; One Death Reported",
-      "product_name": "Xentrawave XT016 and XT026 Adult Portable Bed Rails",
-      "units_affected": "About 2,114",
-      "hazard_summary": "The recalled bed rails violate the mandatory standard for adult portable bed rails because users can become entrapped within the bed rail or between the bed rail and the side of the mattress, posing a serious entrapment hazard and risk of death by asphyxiation. In addition, the XT016 model adult bed rail does not meet structural stability or retention strap requirements, posing entrapment hazards, and its push pins and push pin holes are incorrectly sized, posing a laceration hazard.",
-      "injuries_reported": "CPSC has received one report of a death involving the Xentrawave adult portable bed rail, model XT016. In 2026, an 89-year-old woman died from asphyxiation after she became entrapped between the bed rail and mattress.",
-      "retailers": "Sold Online At:\nXentrawave at Amazon.com",
-      "remedy": "Consumers should stop using the recalled adult portable bed rails immediately and contact Xentrawave for a full refund. Consumers will be asked to cut the foam padding on the bed rail handle grips, take a photo of the destroyed bed rail and email the photo to xentrawavedirect@163.com or submit it online at https://xentrawahelp.com/xentrawave-bed-rail-safety-recall/.",
-      "cpsc_url": "https://cpsc.gov/Recalls/2027/Xentrawave-Recalls-Adult-Portable-Bed-Rails-Due-to-Risk-of-Serious-Injury-or-Death-from-Entrapment-and-Asphyxiation-Violate-Mandatory-Standard-for-Adult-Portable-Bed-Rails-One-Death-Reported",
-      "scanner_cta_url": "https://www.nanoempireai.com/recall-report"
-    }
-  ],
+  "recent_recalls": [],
   "high_exposure_recalls": [
     {
       "recall_id": 11068,
@@ -225,6 +98,16 @@
   ],
   "recent_mcp_audits": [
     {
+      "repo": "IncarnaMind/IncarnaMind",
+      "stars": 861,
+      "score": 98,
+      "tree_sha": "658728267082",
+      "preaudit_id": "SP-8BBFE24D3ADB09A3",
+      "surface_summary": "Scanned 4 entrypoints (src/main/ipc.ts, src/main/log.ts); 0 static execution sinks and full governance hygiene verified.",
+      "findings_count": 0,
+      "governance_gaps_count": 0
+    },
+    {
       "repo": "pugarte7/spanish-top-tech-companies",
       "stars": 624,
       "score": 88,
@@ -265,6 +148,16 @@
       "governance_gaps_count": 0
     },
     {
+      "repo": "metorial/metorial-platform",
+      "stars": 221,
+      "score": 92,
+      "tree_sha": "81c3a5dfb518",
+      "preaudit_id": "SP-CA5A369693734C2B",
+      "surface_summary": "Scanned 4 entrypoints (control/index.ts, src/control/src/main.ts); 0 static shell/eval sinks; 1 governance gaps flagged.",
+      "findings_count": 0,
+      "governance_gaps_count": 1
+    },
+    {
       "repo": "cyanheads/mcp-ts-core",
       "stars": 155,
       "score": 93,
@@ -272,16 +165,6 @@
       "preaudit_id": "SP-7EB3177E9B278391",
       "surface_summary": "Scanned 4 entrypoints (src/index.ts, src/cli/init.ts); 0 static shell/eval sinks; 1 governance gaps flagged.",
       "findings_count": 0,
-      "governance_gaps_count": 1
-    },
-    {
-      "repo": "Filippo-Venturini/ctxvault",
-      "stars": 69,
-      "score": 84,
-      "tree_sha": "e0cceada9f83",
-      "preaudit_id": "SP-05FB141EBEB323E1",
-      "surface_summary": "Scanned 4 entrypoints (src/ctxvault/client.py, src/ctxvault/cli/app.py); 1 line-cited sinks incl. SHELL_EXEC_SURFACE at src/ctxvault/ui/server.py:L296.",
-      "findings_count": 1,
       "governance_gaps_count": 1
     },
     {

@@ -1,11 +1,11 @@
-# 📡 Overnight Market & Safety Delta — 2026-11-26
+# 📡 Overnight Market & Safety Delta — 2026-11-27
 
 > **Autonomous Sync:** Generated at `12:30:11 UTC`. Verified by deterministic quality gate; 0 unreviewed outbound actions.
 
 ## 1. High-Exposure Consumer Recalls (CPSC 2026)
 
 - **Total Active 2026 Recalls in Public Registry:** `25`
-- **New / Updated in Last 7 Days:** `9`
+- **New / Updated in Last 7 Days:** `0`
 
 ### High-Unit Exposure Alerts (>=50,000 Units)
 - **CPSC #27096 · CHE-US Recalls Magnetic Robot Toys Due to Risk of Serious Injury or Death from Magnet Ingestion; Violate Mandatory Standard for Toys**
@@ -24,7 +24,7 @@ Amazon.com from April 2025 through August 2026 for between t $9 and $18.`
 
 ## 2. Model Context Protocol (MCP) & Agent Pre-Audit Index
 
-- **Total Validated MCP Repositories in Public Index:** `53`
+- **Total Validated MCP Repositories in Public Index:** `55`
 - **Quality Gate Filtered/Quarantined:** `2` non-code / empty stub repositories
 
 | Repository | Stars | Score | Key Surface Finding / Summary |

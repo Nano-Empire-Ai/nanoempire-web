@@ -1,9 +1,9 @@
 {
   "schema": "https://www.nanoempireai.com/skillproof/preaudits.v1.json",
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-26",
+  "updated_at": "2026-11-27",
   "quality_gate_policy": "Requires >=1 sampled code entrypoint (sampled_source_files) AND line-cited static/governance findings; stub/list-only repos quarantined.",
-  "total_repos_audited": 53,
+  "total_repos_audited": 55,
   "certification_endpoint": "https://www.nanoempireai.com/skillproof",
   "changelog_url": "https://www.nanoempireai.com/changelog.json",
   "status_url": "https://www.nanoempireai.com/status.json",
@@ -805,6 +805,26 @@
       "surface_summary": "Scanned 4 entrypoints (src/alpaca_mcp_server/cli.py, src/alpaca_mcp_server/server.py); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at src/alpaca_mcp_server/cli.py:L54."
     },
     {
+      "repo": "IncarnaMind/IncarnaMind",
+      "stars": 861,
+      "branch": "main",
+      "tree_sha": "658728267082",
+      "license": "Apache-2.0",
+      "total_files_in_repo": 6414,
+      "sampled_source_files": [
+        "src/main/ipc.ts",
+        "src/main/log.ts",
+        "src/main/menu.ts",
+        "src/main/tray.ts"
+      ],
+      "skillproof_score": 98,
+      "governance_gaps": [],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-8BBFE24D3ADB09A3",
+      "audited_at": "2026-11-27",
+      "surface_summary": "Scanned 4 entrypoints (src/main/ipc.ts, src/main/log.ts); 0 static execution sinks and full governance hygiene verified."
+    },
+    {
       "repo": "vostride/agent-qa",
       "stars": 856,
       "branch": "main",
@@ -1316,6 +1336,28 @@
       "preaudit_id": "SP-07FF6DEF1E927DA6",
       "audited_at": "2026-11-26",
       "surface_summary": "Scanned 4 entrypoints (server/boot.py, server/main.py); 3 line-cited sinks incl. ENV_SECRET_EXPOSURE at sdk/go/client.go:L75."
+    },
+    {
+      "repo": "metorial/metorial-platform",
+      "stars": 221,
+      "branch": "dev",
+      "tree_sha": "81c3a5dfb518",
+      "license": "NOASSERTION",
+      "total_files_in_repo": 16315,
+      "sampled_source_files": [
+        "control/index.ts",
+        "src/control/src/main.ts",
+        "src/lib/rpc/go/client.go",
+        "src/lib/rpc/go/server.go"
+      ],
+      "skillproof_score": 92,
+      "governance_gaps": [
+        "Missing `SECURITY.md` vulnerability disclosure policy"
+      ],
+      "code_surface_findings": [],
+      "preaudit_id": "SP-CA5A369693734C2B",
+      "audited_at": "2026-11-27",
+      "surface_summary": "Scanned 4 entrypoints (control/index.ts, src/control/src/main.ts); 0 static shell/eval sinks; 1 governance gaps flagged."
     },
     {
       "repo": "cyanheads/mcp-ts-core",
